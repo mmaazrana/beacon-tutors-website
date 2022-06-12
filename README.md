@@ -1,12 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## About
+
+Beacon Tutors Pakistan - Official Website, created with Next.js and Firebase.
+
+## Motivation
+
+Cash💸, and oh learning too😆.
+
 
 ## Getting Started
 
-First, run the development server:
+If not already, run
+
+```
+yarn
+```
+
+To install all the dependencies.
+
+Next, run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
