@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import Logo from "../Logo/Logo";
 import Link from "next/link";
 import styles from './Nav.module.css'
 import LinkButton from "../Buttons/LinkButton";
 import {Menu} from 'lucide-react'
+import {ReactComponent as Logo3} from "../../assets/beacon-tutors.svg";
 
 export default function Nav() {
 
@@ -17,8 +17,8 @@ export default function Nav() {
         <div className={styles.nav}>
 
             <div className={styles.logo}>
-                <Logo/>
-                <Link href={"/"}>
+                <Logo3 height={'25px'} width={'200px'} />
+                <Link href={"./"}>
                     Logo
                 </Link>
             </div>
