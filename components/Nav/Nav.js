@@ -26,12 +26,12 @@ export default function Nav() {
                 <Menu onClick={toggleMenu} className={styles.menu}/>
                 <div className={isExpanded ? `${styles.buttons} ${styles.open}` :  styles.buttons } >
                     <div className={isExpanded ? `${styles.buttonsSecondary} ${styles.open}` :  styles.buttonsSecondary }>
-                        <LinkButton link={'./'} text={'Home'}/>
-                        <LinkButton link={'./'} text={'Our Services'}/>
-                        <LinkButton link={'./become-a-tutor'} text={'Work as a Tutor'}/>
-                        <LinkButton link={'./'} text={'Terms & Conditions'}/>
+                        <LinkButton link={'/'} text={'Home'}/>
+                        <LinkButton link={'/'} text={'Our Services'}/>
+                        <LinkButton link={'/become-a-tutor'} text={'Work as a Tutor'}/>
+                        <LinkButton link={'/'} text={'Terms & Conditions'}/>
                     </div>
-                    <LinkButton nav={true} link={'./'} text={'Submit Inquiry'}/>
+                    <LinkButton nav={true} link={'/'} text={'Submit Inquiry'}/>
                 </div>
             </div>
 

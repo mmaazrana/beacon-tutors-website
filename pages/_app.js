@@ -1,5 +1,5 @@
-import '../styles/globals.css'
-import Head from "next/Head";
+import '../styles/globals.css';
+import Head from 'next/Head';
 
 
 function MyApp({Component, pageProps}) {
@@ -18,4 +18,4 @@ function MyApp({Component, pageProps}) {
     )
 }
 
-export default MyApp
+export default MyApp;
