@@ -1,16 +1,12 @@
 // beacontutorspk.com
 
-import {useRouter} from "next/router";
-import Link from "next/link";
 import Head from "next/Head";
 import React from "react";
 import LinkButton from "../components/Buttons/LinkButton";
-import PrimaryButton from "../components/Buttons/PrimaryButton";
 import Nav from "../components/Nav/Nav";
 
 export default function Home() {
 
-    const router = useRouter()
 
 
     return (
@@ -22,10 +18,10 @@ export default function Home() {
             <Nav/>
             <h1>Beacon Tutors Official Website</h1>
             <p>Let's do this!</p>
-            <LinkButton link={'/online-tutoring'} text={'Online tutoring'}/>
-            <LinkButton link={'/home-tutoring'} text={'Home Tutoring'}/>
-            <LinkButton link={'/writing-service'} text={'Writing Service'}/>
-            <LinkButton link={'/become-a-tutor'} text={'Become A Tutor'}/>
+            <LinkButton primary={true} link={'/online-tutoring'} text={'Online tutoring'}/>
+            <LinkButton primary={true} link={'/home-tutoring'} text={'Home Tutoring'}/>
+            <LinkButton primary={true} link={'/writing-service'} text={'Writing Service'}/>
+            <LinkButton primary={true} link={'/become-a-tutor'} text={'Become A Tutor'}/>
         </>
     )
 }

@@ -1,7 +1,5 @@
 import styles from './Announcement.module.css';
-import Calendar from '../../assets/calendar.svg';
-import CurrencyNote from '../../assets/currency-note.svg';
-import Clock from '../../assets/clock.svg';
+import { Calendar, Banknote, Clock } from 'lucide-react';
 
 export default function Announcement(props) {
   return (
@@ -10,9 +8,9 @@ export default function Announcement(props) {
       <div className={styles.list}>
         {props.announcement.list.map((item, index) => (
           <div className={styles.listItem} key={index}>
-            {(item.icon === 'Calendar' && <Calendar />) ||
-              (item.icon === 'CurrencyNote' && <CurrencyNote />) ||
-              (item.icon === 'Clock' && <Clock />)}
+            {(item.icon === 'Calendar' && <Calendar color="#FF6F66" />) ||
+              (item.icon === 'CurrencyNote' && <Banknote color="#4FC3B1" />) ||
+              (item.icon === 'Clock' && <Clock color="#3E6C98" />)}
             <p className={styles.listText}>{item.text}</p>
           </div>
         ))}
