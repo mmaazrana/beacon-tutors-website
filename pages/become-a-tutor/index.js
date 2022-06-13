@@ -10,7 +10,6 @@ export default function BecomeATutor(props) {
                 <title>Beacon Tutors Pakistan - Become a tutor</title>
                 <meta name="description" content="Meta description for the become a tutor page" />
             </Head>
-            <Nav/>
             <h1>Become a tutor</h1>
         </>
     );

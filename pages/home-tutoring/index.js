@@ -10,7 +10,6 @@ export default function HomeTutoring(props) {
                 <title>Beacon Tutors Pakistan - Home Tutoring</title>
                 <meta name="description" content="Meta description for the Home tutoring page" />
             </Head>
-            <Nav/>
             <h1>Home Tutoring</h1>
         </>
     );

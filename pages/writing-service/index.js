@@ -10,7 +10,6 @@ export default function WritingService(props) {
                 <title>Beacon Tutors Pakistan - Writing Service</title>
                 <meta name="description" content="Meta description for the Writing Service page" />
             </Head>
-            <Nav/>
             <h1>Writing Service</h1>
         </>
     );

@@ -10,7 +10,6 @@ export default function OnlineTutoring(props) {
                 <title>Beacon Tutors Pakistan - Online Tutoring</title>
                 <meta name="description" content="Meta description for the online tutoring page" />
             </Head>
-            <Nav/>
             <h1>Online tutoring</h1>
         </>
     );
