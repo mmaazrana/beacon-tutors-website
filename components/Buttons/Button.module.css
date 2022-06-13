@@ -16,13 +16,13 @@
 }
 
 .primary a{
-    font-size: 16px;
-    font-weight: bold;
     color: white;
     padding: 0 58px;
-    text-decoration: none;
 }
 
+.nav a {
+    padding: 0 17px;
+}
 
 .secondary{
     color : #3A3A3B;
@@ -33,10 +33,6 @@
     transition: 0.3s;
 }
 
-
-.tertiary{
-    transition: 0.3s;
-}
 
 
 .primary:hover{
@@ -59,4 +55,10 @@
 }
 
 .tertiary:active,.tertiary:focus{
+}
+
+@media screen and (max-width: 480px){
+    .nav{
+        margin: 3px 0;
+    }
 }
