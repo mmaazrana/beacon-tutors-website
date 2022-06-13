@@ -1,5 +1,6 @@
 import React from 'react';
-import Logo from "../Logo/Logo";
+// import Logo from "../Logo/Logo";
+import Logo from '../../assets/beacon-tutors.svg';
 import Link from "next/link";
 import styles from './Nav.module.css'
 import SecondaryButton from '../Buttons/SecondaryButton'
