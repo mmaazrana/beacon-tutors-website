@@ -1,0 +1,100 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signIn {
+  text-align: center;
+  background-color: #ffffff;
+  width: 100%;
+  margin: 3rem 0;
+  max-width: 38rem;
+  border-radius: 1.5rem;
+  box-shadow: 6px 8px 40px rgba(93, 143, 193, 0.2);
+}
+
+.signIn h2 {
+  color: #3d6b98;
+  font-size: 4rem;
+  font-weight: 600;
+  padding-top: 5rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.signIn form {
+  padding: 5rem 4rem;
+  padding-top: 1rem;
+}
+
+.signIn form input {
+  box-sizing: border-box;
+  padding: 0.75rem 1rem;
+  margin: 0.65rem 0;
+  border-radius: 0.6rem;
+  border-color: #a1bedb;
+  border-style: solid;
+  width: 100%;
+  font-size: 1rem;
+  color: #3d6b98;
+  caret-color: #3d6b98;
+  transition: 0.3s;
+}
+
+.signIn form input::placeholder {
+  color: #a1bedb;
+  font-weight: 500;
+}
+
+.signIn form input:active,
+.signIn form input:focus,
+.signIn form input:focus-visible {
+  outline: none;
+  border-color: #3d6b98;
+  box-shadow: 0 4px 40px rgba(93, 143, 193, 0.2);
+}
+
+.password {
+  position: relative;
+}
+
+.eye {
+  cursor: pointer;
+  width: 1.5rem;
+  position: absolute;
+  top: 32.5%;
+  right: 1.25rem;
+}
+
+.btn {
+  background-color: #3d6b98;
+  color: #d0e6f6;
+  font-weight: 600;
+  font-size: 1.125rem;
+  padding: 0.75rem 0;
+  margin: 0.65rem 0;
+  border-radius: 0.75rem;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: #345c83;
+}
+
+@media (max-width: 600px) {
+  .signIn {
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .signIn form {
+    padding-right: 1.75rem;
+    padding-left: 1.75rem;
+  }
+
+  .eye {
+    width: 1rem;
+  }
+}

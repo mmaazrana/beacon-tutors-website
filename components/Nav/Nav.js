@@ -18,7 +18,7 @@ export default function Nav() {
 
             <div className={styles.logo}>
                 <Logo3 height={'25px'} width={'200px'} />
-                <Link href={"./"}>
+                <Link href={"/"}>
                     Logo
                 </Link>
             </div>
