@@ -13,7 +13,7 @@
   box-shadow: 0 4px 40px rgba(225, 221, 212, 0.25);
 }
 
-.list::-webkit-scrollbar {
+/* .list::-webkit-scrollbar {
   width: 1.2rem;
 }
 .list::-webkit-scrollbar-thumb {
@@ -21,7 +21,7 @@
   background-clip: padding-box;
   border-radius: 2rem;
   background-color: #3d6b98;
-}
+} */
 
 @media only screen and (max-width: 1024px) {
   .list {

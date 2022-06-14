@@ -75,6 +75,17 @@ a {
   align-items: center;
 }
 
+::-webkit-scrollbar {
+  width: 1.2rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0.44rem solid transparent;
+  background-clip: padding-box;
+  border-radius: 2rem;
+  background-color: #3d6b98;
+}
+
 /* Admin panel global styles */
 
 .adminHeading {
