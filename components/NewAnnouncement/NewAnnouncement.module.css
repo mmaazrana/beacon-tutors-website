@@ -11,12 +11,17 @@
   justify-content: space-between;
 }
 
-.inputsRow select {
-  border-color: transparent;
+.selectInput {
+  /* border-color: transparent;
   text-align: center;
   padding: 0.6rem 0;
-  box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25);
+  box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25); */
+  padding: 0;
+  border-color: transparent;
+  text-align: center;
 }
+
+/* 
 
 .inputsRow select option {
   color: #3d6b98;
@@ -33,7 +38,7 @@
 .placeholder {
   color: #a1bedb;
   font-weight: 500;
-}
+} */
 
 @media only screen and (max-width: 1024px) {
   .inputs {
@@ -46,7 +51,7 @@
     margin: 0.5rem 0;
   }
 
-  .inputsRow {
+  /* .inputsRow {
     flex-direction: column;
   }
 
@@ -56,5 +61,5 @@
 
   .inputsRow select:last-child {
     margin-left: 0;
-  }
+  } */
 }

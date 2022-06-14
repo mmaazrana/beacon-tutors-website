@@ -1,10 +1,26 @@
 import React, { useState } from 'react';
 import styles from './NewAnnouncement.module.css';
+import Select from 'react-select';
+
+const daysOptions = [
+  { value: '5', label: '5-Days/Week' },
+  { value: '6', label: '6-Days/Week' },
+];
+
+const budgetOptions = [
+  { value: '20000', label: '20,000 PKR/Month' },
+  { value: '30000', label: '30,000 PKR/Month' },
+];
+
+const timeOptions = [
+  { value: '1', label: '1 Hour/Day' },
+  { value: '2', label: '2 Hour/Day' },
+];
 
 export default function NewAnnouncement(props) {
-  const [days, setDays] = useState('default');
-  const [budget, setBudget] = useState('default');
-  const [time, setTime] = useState('default');
+  const [days, setDays] = useState(null);
+  const [budget, setBudget] = useState(null);
+  const [time, setTime] = useState(null);
 
   const postHandler = async (e) => {
     e.preventDefault();
@@ -26,55 +42,33 @@ export default function NewAnnouncement(props) {
               name="title"
               rows="4"
             ></textarea>
+
             <div className={styles.inputsRow}>
-              <select
-                className={`adminInput ${
-                  days === 'default' && styles.placeholder
-                }`}
-                name="days"
+              <Select
+                className={`adminInput ${styles.selectInput}`}
                 defaultValue={days}
-                onChange={(e) => setDays(e.target.value)}
-                required
-              >
-                <option value="default" disabled hidden>
-                  Days/Week
-                </option>
-                <option value="5">5-Days/Week</option>
-                <option value="5">5-Days/Week</option>
-              </select>
+                onChange={setDays}
+                options={daysOptions}
+                placeholder="Days/Week"
+              />
 
-              <select
-                className={`adminInput ${
-                  budget === 'default' && styles.placeholder
-                }`}
-                name="budget"
+              <Select
+                className={`adminInput ${styles.selectInput}`}
                 defaultValue={budget}
-                onChange={(e) => setBudget(e.target.value)}
-                required
-              >
-                <option value="default" disabled hidden>
-                  Budget/Month
-                </option>
-                <option value="20000">20,000 PKR/Month</option>
-                <option value="20000">20,000 PKR/Month</option>
-              </select>
+                onChange={setBudget}
+                options={budgetOptions}
+                placeholder="Budget/Month"
+              />
 
-              <select
-                className={`adminInput ${
-                  time === 'default' && styles.placeholder
-                }`}
-                name="time"
+              <Select
+                className={`adminInput ${styles.selectInput}`}
                 defaultValue={time}
-                onChange={(e) => setTime(e.target.value)}
-                required
-              >
-                <option value="default" disabled hidden>
-                  Time/Day
-                </option>
-                <option value="1">1 Hour/Day</option>
-                <option value="1">1 Hour/Day</option>
-              </select>
+                onChange={setTime}
+                options={timeOptions}
+                placeholder="Time/Day"
+              />
             </div>
+
             <button type="submit" className="adminButton">
               Post Announcement
             </button>
