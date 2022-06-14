@@ -28,33 +28,6 @@
   padding-top: 1rem;
 }
 
-.signIn form input {
-  box-sizing: border-box;
-  padding: 0.75rem 1rem;
-  margin: 0.65rem 0;
-  border-radius: 0.6rem;
-  border-color: #a1bedb;
-  border-style: solid;
-  width: 100%;
-  font-size: 1rem;
-  color: #3d6b98;
-  caret-color: #3d6b98;
-  transition: 0.3s;
-}
-
-.signIn form input::placeholder {
-  color: #a1bedb;
-  font-weight: 500;
-}
-
-.signIn form input:active,
-.signIn form input:focus,
-.signIn form input:focus-visible {
-  outline: none;
-  border-color: #3d6b98;
-  box-shadow: 0 4px 40px rgba(93, 143, 193, 0.2);
-}
-
 .password {
   position: relative;
 }
@@ -65,21 +38,6 @@
   position: absolute;
   top: 32.5%;
   right: 1.25rem;
-}
-
-.btn {
-  background-color: #3d6b98;
-  color: #d0e6f6;
-  font-weight: 600;
-  font-size: 1.125rem;
-  padding: 0.75rem 0;
-  margin: 0.65rem 0;
-  border-radius: 0.75rem;
-  width: 100%;
-}
-
-.btn:hover {
-  background-color: #345c83;
 }
 
 @media (max-width: 600px) {

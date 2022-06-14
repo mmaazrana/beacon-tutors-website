@@ -1,0 +1,60 @@
+.inputs {
+  margin: 0 15%;
+}
+
+.inputs textarea {
+  box-shadow: 0 1px 15px rgba(225, 221, 212, 0.25);
+}
+
+.inputsRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputsRow select {
+  border-color: transparent;
+  text-align: center;
+  padding: 0.6rem 0;
+  box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25);
+}
+
+.inputsRow select option {
+  color: #3d6b98;
+}
+
+.inputsRow select:first-child {
+  margin-right: 1rem;
+}
+
+.inputsRow select:last-child {
+  margin-left: 1rem;
+}
+
+.placeholder {
+  color: #a1bedb;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 1024px) {
+  .inputs {
+    margin: 1.5rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .inputs textarea,
+  .inputs select {
+    margin: 0.5rem 0;
+  }
+
+  .inputsRow {
+    flex-direction: column;
+  }
+
+  .inputsRow select:first-child {
+    margin-right: 0;
+  }
+
+  .inputsRow select:last-child {
+    margin-left: 0;
+  }
+}

@@ -19,7 +19,9 @@ button {
   font-family: 'Poppins', sans-serif;
 }
 
-input {
+input,
+textarea,
+select {
   font-family: 'Poppins', sans-serif;
 }
 
@@ -73,8 +75,72 @@ a {
   align-items: center;
 }
 
+/* Admin panel global styles */
+
+.adminHeading {
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: #3d6b98;
+  background-color: #ffffff;
+  text-align: center;
+  box-shadow: 0 4px 40px rgba(93, 143, 193, 0.2);
+  padding: 1.5rem;
+  margin: 3rem auto;
+}
+
+.adminInput {
+  box-sizing: border-box;
+  padding: 0.75rem 1rem;
+  margin: 0.65rem 0;
+  border-radius: 0.6rem;
+  border: 2px solid #a1bedb;
+  width: 100%;
+  font-size: 1rem;
+  color: #3d6b98;
+  caret-color: #3d6b98;
+  transition: 0.3s;
+}
+
+.adminInput::placeholder {
+  color: #a1bedb;
+  font-weight: 500;
+}
+
+.adminInput:active,
+.adminInput:focus,
+.adminInput:focus-visible {
+  outline: none;
+  border-color: #3d6b98;
+  box-shadow: 0 4px 20px rgba(93, 143, 193, 0.2);
+}
+
+.adminButton {
+  background-color: #3d6b98;
+  color: #d0e6f6;
+  font-weight: 600;
+  font-size: 1.125rem;
+  padding: 0.75rem 0;
+  margin: 0.65rem 0;
+  border-radius: 0.75rem;
+  width: 100%;
+}
+
+.adminButton:hover {
+  background-color: #345c83;
+}
+
+.adminButton:active,
+.adminButton:focus {
+  background-color: #2f5275;
+}
+
 @media (max-width: 600px) {
   html {
     font-size: 14px;
+  }
+
+  .adminHeading {
+    margin: 2rem auto;
   }
 }
