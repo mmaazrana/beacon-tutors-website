@@ -1,5 +1,5 @@
 import Head from 'next/Head';
-import Announcements from '../../components/AllAnnouncements/Announcements';
+import Announcements from '../../components/Announcements/Announcements';
 
 export default function Admin(props) {
   return (
