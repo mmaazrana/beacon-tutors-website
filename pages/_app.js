@@ -13,11 +13,11 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Beacon Tutors Pakistan</title>
       </Head>
-      <Nav />
+      <Nav className={"nav"} />
       <div className={'background'}>
         <Pattern viewBox="0 0 100% 0" />
       </div>
-      <Component {...pageProps} />
+      <Component className={"body"} {...pageProps} />
     </>
   );
 }

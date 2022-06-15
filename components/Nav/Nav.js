@@ -4,7 +4,6 @@ import styles from './Nav.module.css'
 import LinkButton from "../Buttons/LinkButton";
 import {Menu} from 'lucide-react'
 import {ReactComponent as Logo3} from "../../assets/beacon-tutors.svg";
-
 export default function Nav() {
 
     const [isExpanded, setIsExpanded] = useState(false);

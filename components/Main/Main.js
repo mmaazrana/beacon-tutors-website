@@ -1,18 +1,23 @@
 import React from 'react';
 import Lottie from "lottie-react";
+import styles from './Main.module.css'
 
 export default function Main(props) {
+
+    const headingClass = props.limitWidth? `${styles.heading} ${styles.alternateH}`:styles.heading;
+    const descriptionClass = props.limitWidth? `${styles.description} ${styles.alternateD}`:styles.description;
+
     return (
-        <div>
-            <div>
-                <h1>
+        <div className={styles.main} >
+            <div className={styles.text} >
+                <h1 className={headingClass} >
                     {props.heading}
                 </h1>
-                <h4>
+                <p className={descriptionClass} >
                     {props.description}
-                </h4>
+                </p>
             </div>
-            <Lottie animationData={props.lottie} loop={true} autoplay={true} />
+            <Lottie className={styles.lottie} animationData={props.lottie} loop={true} autoplay={true} />
         </div>
     );
 }
