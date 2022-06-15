@@ -1,0 +1,50 @@
+.inputs {
+  margin: 0 15%;
+}
+
+.inputs textarea {
+  box-shadow: 0 1px 15px rgba(225, 221, 212, 0.25);
+}
+
+.inputsRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputsRow :global(.adminInput) {
+  padding: 0;
+  border-color: transparent;
+  text-align: center;
+}
+
+.first {
+  margin-right: 1rem;
+}
+
+.last {
+  margin-left: 1rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .inputs {
+    margin: 1.5rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .inputs textarea,
+  .inputs select {
+    margin: 0.5rem 0;
+  }
+
+  .inputsRow {
+    flex-direction: column;
+  }
+
+  .first {
+    margin-right: 0;
+  }
+
+  .last {
+    margin-left: 0;
+  }
+}

@@ -4,7 +4,7 @@ import Announcement from '../Announcement/Announcement';
 export default function Announcements(props) {
   return (
     <div className={styles.announcements}>
-      <h1>All Announcements</h1>
+      <h1 className="adminHeading">All Announcements</h1>
       <div className={styles.list}>
         {props.data?.map((announcement, index) => (
           <Announcement key={index} announcement={announcement} />
