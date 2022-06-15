@@ -12,6 +12,7 @@ import OnlineLottie from "../assets/lotties/online tutoring.json"
 import WritingLottie from "../assets/lotties/writing-service.json"
 import {ReactComponent as Pattern} from "../assets/background pattern.svg";
 import Main from "../components/Main/Main";
+import HowItWorks from '../components/HowItWorks/HowItWorks';
 
 export default function Home() {
   return (
@@ -51,6 +52,7 @@ export default function Home() {
         link={'/become-a-tutor'}
         text={'Become A Tutor'}
       />
+      <HowItWorks/>
     </>
   );
 }
