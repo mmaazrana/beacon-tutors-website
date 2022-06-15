@@ -11,34 +11,55 @@
   justify-content: space-between;
 }
 
-.selectInput {
-  /* border-color: transparent;
-  text-align: center;
-  padding: 0.6rem 0;
-  box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25); */
+.inputsRow :global(.adminInput) {
   padding: 0;
   border-color: transparent;
   text-align: center;
 }
 
-/* 
+.inputsRow :global(.css-1s2u09g-control),
+.inputsRow :global(.css-1pahdxg-control) {
+  border: 2px solid transparent;
+  border-radius: 0.6rem;
+  padding: 0.1rem 0;
+  box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25);
+  /* transition: 0.3s; */
+}
 
-.inputsRow select option {
+.inputsRow :global(.css-1s2u09g-control:hover),
+.inputsRow :global(.css-1pahdxg-control:hover) {
+  border-color: transparent;
+}
+
+/* .inputsRow :global(.css-1pahdxg-control),
+.inputsRow :global(.css-1pahdxg-control:hover) {
+  border-color: #3d6b98;
+} */
+
+.inputsRow :global(.css-tlfecz-indicatorContainer:hover),
+.inputsRow :global(.css-1gtu0rj-indicatorContainer),
+.inputsRow :global(.css-1gtu0rj-indicatorContainer:hover),
+.inputsRow :global(.css-qc6sy-singleValue) {
   color: #3d6b98;
 }
 
-.inputsRow select:first-child {
+.inputsRow :global(.css-tlfecz-indicatorContainer),
+.inputsRow :global(.css-14el2xx-placeholder) {
+  color: #a1bedb;
+  font-weight: 500;
+}
+
+.inputsRow :global(.css-1okebmr-indicatorSeparator) {
+  opacity: 0;
+}
+
+.first {
   margin-right: 1rem;
 }
 
-.inputsRow select:last-child {
+.last {
   margin-left: 1rem;
 }
-
-.placeholder {
-  color: #a1bedb;
-  font-weight: 500;
-} */
 
 @media only screen and (max-width: 1024px) {
   .inputs {
@@ -51,15 +72,15 @@
     margin: 0.5rem 0;
   }
 
-  /* .inputsRow {
+  .inputsRow {
     flex-direction: column;
   }
 
-  .inputsRow select:first-child {
+  .first {
     margin-right: 0;
   }
 
-  .inputsRow select:last-child {
+  .last {
     margin-left: 0;
-  } */
+  }
 }

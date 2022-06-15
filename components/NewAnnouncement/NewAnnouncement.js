@@ -17,6 +17,13 @@ const timeOptions = [
   { value: '2', label: '2 Hour/Day' },
 ];
 
+const customStyles = {
+  // option: (provided, state) => ({
+  //   ...provided,
+  //   backgroundColor: state.isSelected && '#a1bedb',
+  // }),
+};
+
 export default function NewAnnouncement(props) {
   const [days, setDays] = useState(null);
   const [budget, setBudget] = useState(null);
@@ -45,26 +52,26 @@ export default function NewAnnouncement(props) {
 
             <div className={styles.inputsRow}>
               <Select
-                className={`adminInput ${styles.selectInput}`}
-                defaultValue={days}
+                className={`adminInput ${styles.first}`}
                 onChange={setDays}
                 options={daysOptions}
+                styles={customStyles}
                 placeholder="Days/Week"
               />
 
               <Select
-                className={`adminInput ${styles.selectInput}`}
-                defaultValue={budget}
+                className="adminInput"
                 onChange={setBudget}
                 options={budgetOptions}
+                styles={customStyles}
                 placeholder="Budget/Month"
               />
 
               <Select
-                className={`adminInput ${styles.selectInput}`}
-                defaultValue={time}
+                className={`adminInput ${styles.last}`}
                 onChange={setTime}
                 options={timeOptions}
+                styles={customStyles}
                 placeholder="Time/Day"
               />
             </div>
