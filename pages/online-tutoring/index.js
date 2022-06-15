@@ -3,6 +3,7 @@ import Head from 'next/Head';
 import Main from "../../components/Main/Main";
 import OnlineLottie from "../../assets/lotties/online tutoring.json"
 import Separator from "../../components/Separator/Separator";
+import Layout from '../../components/Layouts/Layout';
 
 export default function OnlineTutoring(props) {
   return (
@@ -25,3 +26,7 @@ export default function OnlineTutoring(props) {
     </>
   );
 }
+
+OnlineTutoring.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};

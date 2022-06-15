@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Head from 'next/Head';
 import { Eye } from 'lucide-react';
 import styles from '../../styles/AdminSignIn.module.css';
+import AdminLayout from '../../components/Layouts/AdminLayout';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
@@ -61,3 +62,7 @@ export default function SignIn() {
     </>
   );
 }
+
+SignIn.getLayout = function getLayout(page) {
+  return <AdminLayout>{page}</AdminLayout>;
+};

@@ -1,6 +1,7 @@
 import Head from 'next/Head';
 import NewAnnouncement from '../../components/NewAnnouncement/NewAnnouncement';
 import Announcements from '../../components/Announcements/Announcements';
+import AdminLayout from '../../components/Layouts/AdminLayout';
 
 export default function ManageAnnouncements(props) {
   return (
@@ -66,3 +67,8 @@ export async function getServerSideProps() {
     },
   };
 }
+
+ManageAnnouncements.getLayout = function getLayout(page) {
+  return <AdminLayout>{page}</AdminLayout>;
+};
+

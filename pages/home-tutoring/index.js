@@ -3,6 +3,7 @@ import Head from 'next/Head';
 import Main from "../../components/Main/Main";
 import HomeLottie from "../../assets/lotties/home-tutoring.json"
 import Separator from "../../components/Separator/Separator";
+import Layout from '../../components/Layouts/Layout';
 
 export default function HomeTutoring(props) {
   return (
@@ -25,3 +26,8 @@ export default function HomeTutoring(props) {
     </>
   );
 }
+
+HomeTutoring.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
+

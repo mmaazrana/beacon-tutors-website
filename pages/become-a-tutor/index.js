@@ -3,6 +3,7 @@ import Head from 'next/Head';
 import Main from "../../components/Main/Main";
 import BecomeLottie from "../../assets/lotties/be a tutor final.json"
 import Separator from "../../components/Separator/Separator";
+import Layout from '../../components/Layouts/Layout';
 
 export default function BecomeATutor(props) {
     return (<>
@@ -21,3 +22,8 @@ export default function BecomeATutor(props) {
         <Separator text={"Testimonials"} />
     </>);
 }
+
+BecomeATutor.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
+

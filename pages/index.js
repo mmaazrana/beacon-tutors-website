@@ -11,6 +11,7 @@ import { ReactComponent as HomeTutoring } from '../assets/Services/home-tutoring
 import { ReactComponent as OnlineTutoring } from '../assets/Services/online-tutoring.svg';
 import { ReactComponent as WritingService } from '../assets/Services/writing-service.svg';
 import HowItWorks from '../components/HowItWorks/HowItWorks';
+import Layout from '../components/Layouts/Layout';
 
 export default function Home() {
   const homeTutoringSvg = <HomeTutoring />;
@@ -88,3 +89,8 @@ export default function Home() {
     </>
   );
 }
+
+Home.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
+
