@@ -1,15 +1,6 @@
-import React from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from './Tabs.module.css';
-
-const Tab = (props) => (
-  <Link href={props.href}>
-    <a className={`${styles.tab} ${props.isSelected && styles.selected}`}>
-      {props.title}
-    </a>
-  </Link>
-);
+import Tab from './Tab';
 
 export default function Tabs() {
   const { pathname } = useRouter();
