@@ -18,10 +18,42 @@ const timeOptions = [
 ];
 
 const customStyles = {
-  // option: (provided, state) => ({
-  //   ...provided,
-  //   backgroundColor: state.isSelected && '#a1bedb',
-  // }),
+  control: (provided, state) => ({
+    ...provided,
+    border: 'none',
+    boxShadow: '0 4px 40px rgba(93, 143, 193, 0.25)',
+    borderRadius: '0.6rem',
+    padding: '0.25rem 0',
+  }),
+
+  placeholder: (provided, state) => ({
+    ...provided,
+    color: '#a1bedb',
+    fontWeight: '500',
+  }),
+
+  singleValue: (provided, state) => ({
+    ...provided,
+    color: '#3d6b98',
+  }),
+
+  option: (provided, state) => ({
+    ...provided,
+    // to do
+    // backgroundColor: state.isSelected && '#a1bedb',
+    // border on focus?
+  }),
+
+  indicatorSeparator: (provided, state) => ({
+    ...provided,
+    display: 'none',
+  }),
+
+  dropdownIndicator: (provided, state) => ({
+    ...provided,
+    color: '#a1bedb',
+    '&:hover': { color: '#3d6b98' },
+  }),
 };
 
 export default function NewAnnouncement(props) {
