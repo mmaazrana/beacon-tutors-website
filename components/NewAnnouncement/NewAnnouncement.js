@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import styles from './NewAnnouncement.module.css';
 import Select from 'react-select';
 
-const daysOptions = [
-  { value: '5', label: '5-Days/Week' },
-  { value: '6', label: '6-Days/Week' },
-];
+const daysOptions = [...Array(7)].map((x, i) => ({
+  value: i + 1,
+  label: `${i + 1} ${i == 0 ? 'Day' : 'Days'}/Week`,
+}));
 
-const budgetOptions = [
-  { value: '20000', label: '20,000 PKR/Month' },
-  { value: '30000', label: '30,000 PKR/Month' },
-];
+const budgetOptions = [...Array(20)].map((x, i) => ({
+  value: (i + 1) * 5000,
+  label: `${((i + 1) * 5000).toLocaleString()} PKR/Month`,
+}));
 
-const timeOptions = [
-  { value: '1', label: '1 Hour/Day' },
-  { value: '2', label: '2 Hour/Day' },
-];
+const timeOptions = [...Array(24)].map((x, i) => ({
+  value: i + 1,
+  label: `${i + 1} ${i == 0 ? 'Hour' : 'Hours'}/Day`,
+}));
 
 const customStyles = {
   control: (provided, state) => ({
