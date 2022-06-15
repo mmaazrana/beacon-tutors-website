@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import styles from './Nav.module.css';
 import LinkButton from '../Buttons/LinkButton';
