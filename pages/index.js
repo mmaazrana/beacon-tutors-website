@@ -3,54 +3,78 @@
 import Head from "next/Head";
 import React from "react";
 import LinkButton from "../components/Buttons/LinkButton";
-import Nav from "../components/Nav/Nav";
-import Lottie from "lottie-react";
 import MainLottie from "../assets/lotties/main-page.json"
-import BecomeLottie from "../assets/lotties/be a tutor final.json"
-import HomeLottie from "../assets/lotties/home-tutoring.json"
-import OnlineLottie from "../assets/lotties/online tutoring.json"
-import WritingLottie from "../assets/lotties/writing-service.json"
-import {ReactComponent as Pattern} from "../assets/background pattern.svg";
 import Main from "../components/Main/Main";
-
+import Separator from "../components/Separator/Separator";
+import Service from "../components/Service/Service";
+import {ReactComponent as HomeTutoring} from "../assets/Services/home-tutoring.svg"
+import {ReactComponent as OnlineTutoring} from "../assets/Services/online-tutoring.svg"
+import {ReactComponent as WritingService} from "../assets/Services/writing-service.svg"
 export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Beacon Tutors Pakistan - Home</title>
-        <meta name="description" content="Meta description for the Home page" />
-      </Head>
-      <h1>Beacon Tutors Official Website</h1>
-      <p>Let's do this!</p>
-        <Main heading={"Heading"} description={"Description"} lottie={MainLottie} />
-      <div className={'row'}>
-        <Lottie animationData={MainLottie} loop={true} autoplay={true} />
-        <Lottie animationData={BecomeLottie} loop={true} autoplay={true} />
-        <Lottie animationData={HomeLottie} loop={true} autoplay={true} />
-        <Lottie animationData={OnlineLottie} loop={true} autoplay={true} />
-        <Lottie animationData={WritingLottie} loop={true} autoplay={true} />
-      </div>
 
-      <LinkButton
-        primary={true}
-        link={'/online-tutoring'}
-        text={'Online tutoring'}
-      />
-      <LinkButton
-        primary={true}
-        link={'/home-tutoring'}
-        text={'Home Tutoring'}
-      />
-      <LinkButton
-        primary={true}
-        link={'/writing-service'}
-        text={'Writing Service'}
-      />
-      <LinkButton
-        primary={true}
-        link={'/become-a-tutor'}
-        text={'Become A Tutor'}
-      />
-    </>
-  );
+    const homeTutoringSvg = <HomeTutoring/>;
+    const onlineTutoringSvg = <OnlineTutoring/>;
+    const writingServiceSvg = <WritingService/>;
+
+    return (
+
+
+        <>
+            <Head>
+                <title>Beacon Tutors Pakistan - Home</title>
+                <meta name="description" content="Meta description for the Home page"/>
+            </Head>
+            <Main heading={"Largest Tutoring Network \n" +
+                "of Pakistan"}
+                  description={"Hire a tutor/teacher for understanding, learning, and gaining in-depth knowledge about a specific subject."}
+                  lottie={MainLottie}/>
+            <Separator text={"Services"}/>
+            <div className={"overflow"} >
+            <div className={"row"} >
+                <Service heading={"Online Tutoring"}
+                         description={"Hire a qualified and expert teacher to teach you online in a one-on-one session"}
+                         image={onlineTutoringSvg}
+                         link={"./online-tutoring"}
+                />
+                <Service heading={"Home Tutoring"}
+                         description={"Hire a teacher with the right skills and expertise to teach you at your home"}
+                         image={homeTutoringSvg}
+
+                         link={"./home-tutoring"}
+                />
+                <Service heading={"Writing Service"}
+                         description={"Hire a professional writer to efficiently work on your assignments on any niche"}
+                         image={writingServiceSvg}
+
+                         link={"./writing-service"}
+                />
+            </div>
+            </div>
+
+            <Separator text={"How it works"}/>
+            <Separator text={"Advantages"}/>
+            <Separator text={"Testimonials"}/>
+
+            <LinkButton
+                primary={true}
+                link={'/online-tutoring'}
+                text={'Online tutoring'}
+            />
+            <LinkButton
+                primary={true}
+                link={'/home-tutoring'}
+                text={'Home Tutoring'}
+            />
+            <LinkButton
+                primary={true}
+                link={'/writing-service'}
+                text={'Writing Service'}
+            />
+            <LinkButton
+                primary={true}
+                link={'/become-a-tutor'}
+                text={'Become A Tutor'}
+            />
+        </>
+    );
 }

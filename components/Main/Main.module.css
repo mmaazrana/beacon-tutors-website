@@ -1,0 +1,200 @@
+.main {
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
+
+
+.text {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    height: 100%;
+    max-height: 690px;
+    width: 100%;
+    max-width: calc(100% - 75px);
+    margin-left: 75px;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.heading {
+    color: #3A3A3B;
+    /*font-size: 6.4rem;*/
+    font-size: 3.4vw;
+    /*line-height: 8rem;*/
+    line-height: 4.2vw;
+    padding: 0;
+    margin: 0 0 5px 0;
+    max-width: calc(100% - 690px);
+}
+
+.description {
+    color: #A0A0A1;
+    /*font-size: 3.6rem;*/
+    font-size: 1.9vw;
+    font-weight: 300;
+    padding: 0;
+    margin: 0;
+    max-width: calc(100% - 780px);
+}
+
+.alternateH {
+    font-size: 3.2vw;
+    line-height: 4vw;
+    max-width: calc(100% - 950px);
+}
+
+.alternateD {
+    font-size: 1.8vw;
+    max-width: calc(100% - 950px);
+}
+
+.lottie {
+    height: auto;
+    max-height: 690px;
+    margin-top: 55px;
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.lottie svg {
+    width: auto !important;
+    max-width: 100%;
+    height: auto;
+    max-height: inherit;
+}
+
+@media screen and (max-width: 1440px) {
+    .lottie {
+        max-height: 550px;
+    }
+
+    .text {
+        max-height: 550px;
+        margin-left: 50px;
+    }
+
+    .heading {
+        font-size: 4.2vw;
+        line-height: 5vw;
+        max-width: calc(100% - 530px);
+    }
+
+    .description {
+        font-size: 2vw;
+        max-width: calc(100% - 620px);
+    }
+
+    .alternateH {
+        font-size: 3vw;
+        line-height: 3.5vw;
+        max-width: calc(100% - 725px);
+    }
+
+    .alternateD {
+        font-size: 1.7vw;
+        max-width: calc(100% - 725px);
+    }
+
+}
+
+
+@media screen and (max-width: 1080px) {
+    .lottie {
+        max-height: 409px;
+    }
+
+    .text {
+        max-height: 409px;
+        margin-left: 2.778vw;
+    }
+
+    .heading {
+        font-size: 4vw;
+        line-height: 5vw;
+        max-width: calc(100% - 380px);
+    }
+
+    .description {
+        font-size: 2.3vw;
+        max-width: calc(100% - 430px);
+    }
+
+    .alternateH {
+        font-size: 3vw;
+        line-height: 3.5vw;
+        max-width: calc(100% - 530px);
+    }
+
+    .alternateD {
+        font-size: 1.5vw;
+        max-width: calc(100% - 530px);
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .lottie {
+        max-height: 294px;
+    }
+
+    .text {
+        max-height: 294px;
+        margin-left: 3.906vw;
+    }
+
+    .heading {
+        max-width: calc(100% - 250px);
+    }
+
+    .description {
+        max-width: calc(100% - 300px);
+    }
+
+    .alternateH {
+        max-width: calc(100% - 350px);
+    }
+
+    .alternateD {
+        max-width: calc(100% - 350px);
+    }
+
+}
+
+@media screen and (max-width: 580px) {
+    .text {
+        position: relative;
+        max-width: calc(100% - 60px);
+        margin: 105px 30px 0 30px;
+    }
+
+    .heading {
+        font-size: 6.5vw;
+        line-height: 7.5vw;
+        max-width: 100%;
+    }
+
+    .description {
+        font-size: 3.4vw;
+        max-width: 100%;
+    }
+
+    .lottie {
+        margin-top: 0;
+    }
+
+
+}
+
+@media screen and (max-width: 320px) {
+
+    .text {
+        max-width: calc(100% - 30px);
+        margin: 80px 15px 0 15px;
+    }
+
+}

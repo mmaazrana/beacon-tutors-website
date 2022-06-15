@@ -7,21 +7,26 @@
     padding: 7px 0;
     border-radius: 6px;
     width: fit-content;
-    margin: 10px auto;
+    margin: 0 25px 0 0;
+    max-width: 275px;
 }
 
 .nav{
     padding: 7px 17px;
     font-size: 12px;
+    margin: 0;
+    transition: 0.3s;
 }
 
 .primary a{
     color: white;
-    padding: 0 58px;
+    padding: 0 91px;
+    transition: 0.3s;
 }
 
 .nav a {
     padding: 0 17px;
+    transition: 0.3s;
 }
 
 .secondary{
@@ -55,6 +60,32 @@
 }
 
 .tertiary:active,.tertiary:focus{
+}
+
+@media screen and (max-width: 1440px ) {
+    .primary{
+        max-width: 207px;
+    }
+    .primary a {
+        padding: 0 58px;
+    }
+    .nav a {
+        padding: 0 17px;
+    }
+}
+
+@media screen and (max-width: 580px ) {
+    .primary{
+        font-size: 14px;
+        width: 170px;
+    }
+    .primary a {
+        margin: 0;
+        padding: 0 45px;
+    }
+    .nav a {
+        padding: 0 17px;
+    }
 }
 
 @media screen and (max-width: 480px){
