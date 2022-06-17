@@ -23,10 +23,10 @@ import {ReactComponent as Tutors5000} from '../assets/Advantages/Home/Tutors5000
 import {ReactComponent as OneOnOneTutoring} from '../assets/Advantages/Home/OneOnOneTutoring.svg';
 import HowItWorks from '../components/HowItWorks/HowItWorks';
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Advantages from "../components/Advantages/Advantages";
 import Layout from '../components/Layouts/Layout';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
 
@@ -77,11 +77,11 @@ export default function Home() {
         heading: "Teacher of Your Choice",
         description: "Select a teacher of your choice by looking at their academic profiles.",
     },
-    {
-        image: <FreeTrialClasses/>,
-        heading: "2-Days Free Trial Class",
-        description: "Have a free of cost demo class to determine if the tutor fulfils your requirements.",
-    }]
+        {
+            image: <FreeTrialClasses/>,
+            heading: "2-Days Free Trial Class",
+            description: "Have a free of cost demo class to determine if the tutor fulfils your requirements.",
+        }]
     const settings = {
         dots: true,
         infinite: true,
@@ -113,7 +113,7 @@ export default function Home() {
             <Separator text={'Services'}/>
             {/*<ScrollContainer className="scroll-container">*/}
 
-            <Slider {...settings}>
+            <Slider {...settings} className={"services"}>
 
                 <Service
                     heading={'Online Tutoring'}
@@ -174,6 +174,6 @@ export default function Home() {
 }
 
 Home.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>;
+    return <Layout>{page}</Layout>;
 };
 

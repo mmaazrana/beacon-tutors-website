@@ -6,7 +6,20 @@
     justify-content: center;
     align-items: center;
     border-radius: 12px;
+    box-shadow: 0 8px 40px rgba(93, 143, 193, 0.2);
+    transition: 0.2s;
 }
+
+.main:hover {
+    box-shadow: 0 8px 40px rgba(93, 143, 193, 0.4);
+    transform: scale(1.02);
+}
+
+.main:active,.main:focus {
+    box-shadow: 0 8px 40px rgba(93, 143, 193, 0.6);
+    transform: scale(1.03);
+}
+
 
 .text {
     display: flex;
@@ -119,6 +132,18 @@
         width: 52.941vw;
         margin: 0 2.941vw;
         border-radius: 2.824vw;
+        box-shadow: 0 0.941vw 5.882vw rgba(93, 143, 193, 0.2);
+
+    }
+
+    .main:hover {
+        box-shadow: 0 0.941vw 5.882vw rgba(93, 143, 193, 0.4);
+
+    }
+
+    .main:active,.main:focus {
+        box-shadow: 0 0.941vw 5.882vw rgba(93, 143, 193, 0.6);
+
     }
 
     .heading {

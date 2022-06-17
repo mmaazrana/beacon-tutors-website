@@ -1,0 +1,24 @@
+.main > div {
+    padding: 50px !important;
+    margin-top: -50px;
+    cursor: grab;
+}
+
+@media screen and (max-width: 1440px){
+    .main{
+        margin-bottom: 75px !important;
+    }
+
+    .main > div {
+        padding-bottom: 25px !important;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .main{
+        margin-bottom:  17.647vw !important;
+    }
+    .main > div {
+        padding-bottom: 5.882vw !important;
+    }
+}

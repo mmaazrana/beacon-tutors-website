@@ -108,6 +108,36 @@ a {
   align-items: center;
 }
 
+.services > div{
+  padding: 50px 50px 50px 50px !important;
+  margin-top: -50px;
+  cursor: grab;
+}
+
+.slick-dots li {
+  border: 2px solid #A1BEDB;
+  max-height: 15px;
+  max-width: 15px;
+  border-radius: 50%;
+}
+
+.slick-dots li button{
+  padding: 7px;
+  height: 15px!important;
+  width: 15px!important;
+}
+
+.slick-dots li button:before{
+  color: rgba(255, 255, 255, 0) !important;
+}
+
+.slick-dots li.slick-active {
+  background-color: #607385;
+  border: 2px solid #607385;
+  border-radius: 50%;
+}
+
+
 ::-webkit-scrollbar {
   width: 1.2rem;
 }
@@ -179,6 +209,27 @@ a {
   background-color: #2f5275;
 }
 
+@media screen and (max-width: 1440px){
+  .services{
+    margin-bottom: 75px !important;
+  }
+
+  .services > div {
+    padding-bottom: 25px !important;
+  }
+  .slick-dots li {
+    max-height: 12px;
+    max-width: 12px;
+  }
+
+  .slick-dots li button{
+    padding: 5px;
+    height: 12px!important;
+    width: 12px!important;
+  }
+}
+
+
 @media (max-width: 600px) {
   html {
     font-size: 14px;
@@ -186,5 +237,47 @@ a {
 
   .adminHeading {
     margin: 2rem auto;
+  }
+
+  .slick-dots li {
+    max-height: 10px;
+    max-width: 10px;
+  }
+
+  .slick-dots li button{
+    padding: 5px;
+    height: 10px!important;
+    width: 10px!important;
+  }
+
+
+}
+
+@media screen and (max-width: 425px){
+
+  .services{
+    margin-bottom: 17.647vw !important;
+  }
+
+  .services > div {
+    padding-bottom: 3.529vw !important;
+  }
+
+  .slick-dots{
+    margin:0 !important;
+    padding: 0 !important;
+  }
+
+  .slick-dots li {
+    border: 0.5vw solid #A1BEDB;
+    max-height: 1.765vw;
+    max-width: 1.765vw;
+  }
+
+  .slick-dots li button{
+    padding: 0.706vw;
+    border: 0.5vw solid #607385;
+    max-height: 1.765vw !important;
+    max-width: 1.765vw !important;
   }
 }
