@@ -29,28 +29,37 @@ export async function getServerSideProps() {
     props: {
       inquiries: [
         {
-          title: 'Need an experienced female tutor for O-level Biology',
+          title: 'Inquiry',
         },
         {
-          title: 'Need an experienced female tutor for O-level Biology',
+          title: 'Inquiry',
         },
         {
-          title: 'Need an experienced female tutor for O-level Biology',
+          title: 'Inquiry',
         },
         {
-          title: 'Need an experienced female tutor for O-level Biology',
+          title: 'Inquiry',
         },
         {
-          title: 'Need an experienced female tutor for O-level Biology',
+          title: 'Inquiry',
         },
         {
-          title: 'Need an experienced female tutor for O-level Biology',
+          title: 'Inquiry',
         },
         {
-          title: 'Need an experienced female tutor for O-level Biology',
+          title: 'Inquiry',
         },
         {
-          title: 'Need an experienced female tutor for O-level Biology',
+          title: 'Inquiry',
+        },
+        {
+          title: 'Inquiry',
+        },
+        {
+          title: 'Inquiry',
+        },
+        {
+          title: 'Inquiry',
         },
       ],
     },

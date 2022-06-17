@@ -57,11 +57,16 @@ const customStyles = {
 };
 
 export default function NewAnnouncement(props) {
+  const [title, setTitle] = useState('');
   const [days, setDays] = useState(null);
   const [budget, setBudget] = useState(null);
   const [time, setTime] = useState(null);
 
   const postHandler = async (e) => {
+    setTitle('');
+    setDays(null);
+    setBudget(null);
+    setTime(null);
     e.preventDefault();
   };
 
@@ -80,7 +85,9 @@ export default function NewAnnouncement(props) {
               placeholder="Title"
               name="title"
               rows="4"
-            ></textarea>
+            >
+              {title}
+            </textarea>
 
             <div className={styles.inputsRow}>
               <Select

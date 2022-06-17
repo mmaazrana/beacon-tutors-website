@@ -4,8 +4,8 @@ import Tab from './Tab';
 
 export default function Tabs() {
   const { pathname } = useRouter();
-  const isTabOneSelected = pathname == '/admin/manageannouncements';
-  const isTabTwoSelected = pathname == '/admin/viewinquiries';
+  const isTabOneSelected = pathname === '/admin/manageannouncements';
+  const isTabTwoSelected = pathname === '/admin/viewinquiries';
 
   return (
     <div className={styles.container}>
