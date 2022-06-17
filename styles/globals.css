@@ -8,6 +8,7 @@ html {
 }
 
 body {
+  overflow-x: hidden;
   padding: 0;
   margin: 0;
   position: inherit;
@@ -81,10 +82,18 @@ a {
   align-items: center;
 }
 
-.overflow {
+.scroll-container{
   flex: 1;
   display: flex;
+  cursor: grab;
   overflow: auto;
+  width: 100vw;
+}
+
+.slider{
+  /*display: flex;*/
+  /*width: 1950px;*/
+  /*margin-left: -125px;*/
 }
 
 .row-reverse {
