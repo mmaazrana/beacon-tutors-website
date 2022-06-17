@@ -132,3 +132,7 @@ export default function WritingService(props) {
         <Separator text={"Announcements"} />
     </>);
 }
+
+WritingService.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};

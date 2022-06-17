@@ -14,6 +14,7 @@ import {ReactComponent as OneOnOneTutoring} from "../../assets/Advantages/Home/O
 import {ReactComponent as AllGradesAndSubjects} from "../../assets/Advantages/Home/AllGradesAndSubjects.svg";
 import {ReactComponent as TeachersOfYourChoice} from "../../assets/Advantages/Home/TeachersOfYourChoice.svg";
 import {ReactComponent as FreeTrialClasses} from "../../assets/Advantages/Home/FreeTrialClasses.svg";
+import Layout from '../../components/Layouts/Layout';
 
 export default function BecomeATutor(props) {
 
@@ -69,3 +70,8 @@ export default function BecomeATutor(props) {
         <Separator text={"Testimonials"}/>
     </>);
 }
+
+BecomeATutor.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
+

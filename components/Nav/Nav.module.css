@@ -17,6 +17,10 @@
     z-index: 100000;
 }
 
+.adminNav {
+    justify-content: center;
+}
+
 
 .buttons{
     display: flex;

@@ -15,22 +15,22 @@
   margin-bottom: 0.5rem;
 }
 
-.list {
+.options {
   display: flex;
   justify-content: space-between;
 }
 
-.listItem {
+.option {
   display: flex;
   align-items: center;
 }
 
-.listText {
+.optionText {
   margin: 0.25rem 0.8rem;
 }
 
 @media only screen and (max-width: 600px) {
-  .list {
+  .options {
     flex-direction: column;
   }
 }

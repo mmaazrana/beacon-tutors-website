@@ -1,6 +1,7 @@
 import Head from 'next/Head';
 import NewAnnouncement from '../../components/NewAnnouncement/NewAnnouncement';
 import Announcements from '../../components/Announcements/Announcements';
+import AdminLayout from '../../components/Layouts/AdminLayout';
 
 export default function ManageAnnouncements(props) {
   return (
@@ -13,7 +14,7 @@ export default function ManageAnnouncements(props) {
         />
       </Head>
       <NewAnnouncement />
-      <Announcements data={props.data} />
+      <Announcements announcements={props.announcements} />
     </>
   );
 }
@@ -21,48 +22,42 @@ export default function ManageAnnouncements(props) {
 export async function getServerSideProps() {
   return {
     props: {
-      data: [
+      announcements: [
         {
           title: 'Need an experienced female tutor for O-level Biology',
-          list: [
-            { icon: 'Calendar', text: '5-Days / Week' },
-            { icon: 'CurrencyNote', text: '20,000 PKR / Month' },
-            { icon: 'Clock', text: '1-Hour / Day' },
-          ],
+          days: '5-Days / Week',
+          budget: '20,000 PKR / Month',
+          time: '1-Hour / Day',
         },
         {
           title: 'Need an experienced female tutor for O-level Biology',
-          list: [
-            { icon: 'Calendar', text: '5-Days / Week' },
-            { icon: 'CurrencyNote', text: '20,000 PKR / Month' },
-            { icon: 'Clock', text: '1-Hour / Day' },
-          ],
+          days: '5-Days / Week',
+          budget: '20,000 PKR / Month',
+          time: '1-Hour / Day',
         },
         {
           title: 'Need an experienced female tutor for O-level Biology',
-          list: [
-            { icon: 'Calendar', text: '5-Days / Week' },
-            { icon: 'CurrencyNote', text: '20,000 PKR / Month' },
-            { icon: 'Clock', text: '1-Hour / Day' },
-          ],
+          days: '5-Days / Week',
+          budget: '20,000 PKR / Month',
+          time: '1-Hour / Day',
         },
         {
           title: 'Need an experienced female tutor for O-level Biology',
-          list: [
-            { icon: 'Calendar', text: '5-Days / Week' },
-            { icon: 'CurrencyNote', text: '20,000 PKR / Month' },
-            { icon: 'Clock', text: '1-Hour / Day' },
-          ],
+          days: '5-Days / Week',
+          budget: '20,000 PKR / Month',
+          time: '1-Hour / Day',
         },
         {
           title: 'Need an experienced female tutor for O-level Biology',
-          list: [
-            { icon: 'Calendar', text: '5-Days / Week' },
-            { icon: 'CurrencyNote', text: '20,000 PKR / Month' },
-            { icon: 'Clock', text: '1-Hour / Day' },
-          ],
+          days: '5-Days / Week',
+          budget: '20,000 PKR / Month',
+          time: '1-Hour / Day',
         },
       ],
     },
   };
 }
+
+ManageAnnouncements.getLayout = function getLayout(page) {
+  return <AdminLayout>{page}</AdminLayout>;
+};

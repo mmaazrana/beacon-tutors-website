@@ -26,6 +26,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Advantages from "../components/Advantages/Advantages";
+import Layout from '../components/Layouts/Layout';
 
 export default function Home() {
 
@@ -171,3 +172,8 @@ export default function Home() {
         </>
     );
 }
+
+Home.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
+

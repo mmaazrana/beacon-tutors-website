@@ -15,6 +15,7 @@ import {ReactComponent as AllGradesAndSubjects} from "../../assets/Advantages/Ho
 import {ReactComponent as TeachersOfYourChoice} from "../../assets/Advantages/Home/TeachersOfYourChoice.svg";
 import {ReactComponent as FreeTrialClasses} from "../../assets/Advantages/Home/FreeTrialClasses.svg";
 
+import Layout from '../../components/Layouts/Layout';
 
 export default function OnlineTutoring(props) {
 
@@ -85,3 +86,7 @@ export default function OnlineTutoring(props) {
     </>
   );
 }
+
+OnlineTutoring.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
