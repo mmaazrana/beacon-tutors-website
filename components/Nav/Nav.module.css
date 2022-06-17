@@ -10,11 +10,11 @@
     justify-content: space-between;
     background-color: white;
     box-shadow: 0 4px 40px rgba(93, 143, 193, 0.2);
-    z-index: 10000 !important;
+    z-index: 100000 !important;
 }
 
 .nav > *{
-    z-index: 10000;
+    z-index: 100000;
 }
 
 
@@ -88,7 +88,7 @@
         opacity: 0;
         flex-direction: column;
         position: absolute;
-        top: 10px;
+        top: 55px;
         right: 20px;
         background-color: white;
         justify-content: center;
