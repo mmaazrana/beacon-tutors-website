@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import Head from 'next/Head';
 import { Eye } from 'lucide-react';
 import styles from '../../styles/SignIn.module.css';
@@ -8,6 +9,7 @@ export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [inputType, setInputType] = useState('password');
+  const router = useRouter();
 
   const showPassword = () => {
     inputType === 'password' ? setInputType('text') : setInputType('password');
@@ -15,6 +17,7 @@ export default function SignIn() {
 
   const signinHandler = async (e) => {
     e.preventDefault();
+    router.push('/admin/manageannouncements');
   };
 
   return (

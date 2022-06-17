@@ -179,3 +179,16 @@ a {
     margin: 2rem auto;
   }
 }
+
+@media (max-width: 320px) {
+  ::-webkit-scrollbar {
+    width: 6vw;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 2.2vw solid transparent;
+    background-clip: padding-box;
+    border-radius: 10vw;
+    background-color: #3d6b98;
+  }
+}
