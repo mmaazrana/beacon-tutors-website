@@ -28,6 +28,7 @@ import { ReactComponent as FreeRevisions } from '../../assets/Advantages/Writing
 import { ReactComponent as RefundPolicy } from '../../assets/Advantages/WritingService/RefundPolicy.svg';
 import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import Advantages from '../../components/Advantages/Advantages';
+import WritingAnnouncements from '../../components/Announcements/WritingAnnouncements';
 import Layout from '../../components/Layouts/Layout';
 
 export default function Assignments(props) {
@@ -191,7 +192,9 @@ export default function Assignments(props) {
       <Advantages data={advantagesData} />
 
       <Separator text={'Testimonials'} />
+
       <Separator text={'Announcements'} />
+      <WritingAnnouncements />
     </>
   );
 }

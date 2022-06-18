@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/Head';
-import { Eye } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 import styles from '../../styles/SignIn.module.css';
 import AdminLayout from '../../components/Layouts/AdminLayout';
 
@@ -53,7 +53,11 @@ export default function SignIn() {
                 required
               />
               <div className={styles.eye} onClick={showPassword}>
-                <Eye color="#a1bedb" />
+                {inputType === 'password' ? (
+                  <EyeOff color="#a1bedb" />
+                ) : (
+                  <Eye color="#a1bedb" />
+                )}
               </div>
             </div>
             <button type="submit" className="adminButton">
