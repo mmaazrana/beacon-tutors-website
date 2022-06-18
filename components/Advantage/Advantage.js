@@ -1,5 +1,4 @@
 import React from 'react';
-import LinkButton from "../Buttons/LinkButton";
 import styles from "./Advantage.module.css"
 
 export default function Advantage(props) {
