@@ -1,6 +1,8 @@
 import '../styles/globals.css';
 import Head from 'next/Head';
 import { ReactComponent as Pattern } from '../assets/background pattern.svg';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);

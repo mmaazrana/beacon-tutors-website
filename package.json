@@ -17,6 +17,7 @@
     "react-dom": "18.1.0",
     "react-indiana-drag-scroll": "^2.2.0",
     "react-infinite-scroll-component": "^6.1.0",
+    "react-perfect-scrollbar": "^1.5.8",
     "react-select": "^5.3.2",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
