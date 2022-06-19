@@ -71,7 +71,16 @@ const customFormStyles = {
     backgroundColor: 'rgba(161, 190, 219, 0.75)',
   },
   content: {
-    margin: '100px 10%',
+    top: '12%',
+    // left: '50%',
+    // right: 'auto',
+    // bottom: 'auto',
+    // marginRight: '-50%',
+    // transform: 'translate(-50%, -50%)',
+    padding: '0',
+    height: 'fit-content',
+    borderRadius: '0.75rem',
+    border: '2px solid #a1bedb',
   },
 };
 

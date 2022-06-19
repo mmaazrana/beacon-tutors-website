@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Announcement.module.css';
-import { Calendar, Banknote, Clock, Edit, Trash } from 'lucide-react';
+import { Calendar, Banknote, Clock, Edit, Trash, X } from 'lucide-react';
 import Modal from 'react-modal';
 import Select from 'react-select';
 import {
@@ -80,6 +80,7 @@ export default function Announcement(props) {
       </div>
 
       <Modal
+        closeTimeoutMS={1000}
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
@@ -89,6 +90,15 @@ export default function Announcement(props) {
         {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
         <button onClick={closeModal}>close</button> */}
         <div>
+          <div className={styles.modalHead}>
+            <h4>Edit Annnouncement</h4>
+            <X
+              className={styles.close}
+              onClick={closeModal}
+              color="#ffffff"
+              size={'20'}
+            />
+          </div>
           <form onSubmit={updateHandler}>
             <div className={formStyles.inputs}>
               <textarea
