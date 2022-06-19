@@ -8,6 +8,11 @@
   box-shadow: 0 4px 20px rgba(93, 143, 193, 0.25);
 }
 
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
 .title {
   font-weight: 600;
   margin: 0;
@@ -15,11 +20,19 @@
   margin-bottom: 0.5rem;
 }
 
+.icons {
+  display: flex;
+  margin-top: 0.25rem;
+}
+
+.icons > * {
+  margin: 0 0.125rem;
+}
+
 .options {
   display: flex;
   justify-content: space-between;
 }
-
 .option {
   display: flex;
   align-items: center;
