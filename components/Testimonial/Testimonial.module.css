@@ -1,9 +1,14 @@
 .testimonial {
   display: flex;
-  flex-direction: column;
   background-color: white;
   margin: 0.5rem;
   border-radius: 0.75rem;
+}
+.username {
+  font-weight: 600;
+}
+
+.rating {
 }
 
 .description {
@@ -12,9 +17,4 @@
 .description span {
   font-size: 2rem;
   font-weight: 600;
-}
-
-.username {
-  font-weight: 600;
-  align-self: flex-end;
 }
