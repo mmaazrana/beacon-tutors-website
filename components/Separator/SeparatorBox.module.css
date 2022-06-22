@@ -1,0 +1,79 @@
+.separator{
+    margin: 70px 50px 0 50px ;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.line{
+    flex: 1 1 auto;
+    height: 42px;
+    margin-top: 42px;
+    border-top: 7px solid #A1BEDB ;
+}
+
+.left{
+    border-left: 7px solid #A1BEDB;
+    border-radius: 21px 0 0 0;
+}
+
+.roundProfile{
+    background-color: #A1BEDB;
+    width: 4px;
+    height: 7px;
+    margin-top: -1px;
+}
+
+.leftRound{
+    border-radius: 0 4px 4px 0;
+}
+
+.rightRound{
+    border-radius: 4px 0 0 4px;
+}
+
+.right{
+    border-right: 7px solid #A1BEDB;
+    border-radius: 0 21px 0 0;
+}
+
+.text{
+    margin: 0;
+    color: #3A3A3B;
+    font-weight: bold;
+    font-size: 4.2rem;
+    padding: 0 30px;
+}
+
+.content{
+    display: flex;
+    position: relative;
+    flex-flow: row nowrap;
+    border-left: 7px solid #A1BEDB;
+    border-right: 7px solid #A1BEDB;
+    border-bottom: 7px solid #A1BEDB;
+    margin: -20px 50px 50px 50px;
+    text-align: center;
+    padding: 0;
+    border-radius: 0 0 21px 21px;
+}
+
+.content > *{
+    box-sizing: border-box;
+    width: 100%;
+    flex: none;
+    border-radius: 0 0 15px 15px;
+}
+
+.overlay{
+    pointer-events: none;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: 1000;
+    border-radius: 0 0 15px 15px;
+    background: linear-gradient(180deg, #F2F9FE 0%, #F3FAFF 0.01%, rgba(243, 250, 255, 0) 22.74%, rgba(243, 250, 255, 0) 25.87%, rgba(243, 250, 255, 0) 74.31%, rgba(243, 250, 255, 0) 77.95%, #F3FAFF 100%, #F3FAFF 100%);
+}
