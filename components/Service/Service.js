@@ -6,7 +6,8 @@ import {useRouter} from "next/router";
 export default function Service(props) {
 
     const {pathName} = useRouter();
-
+    console.log("pathName")
+    console.log(pathName)
     return (<>
             <div className={styles.main}>
                 <div className={styles.image}>
@@ -19,7 +20,7 @@ export default function Service(props) {
                     <p className={styles.description}>
                         {props.description}
                     </p>
-                    {pathName === '/' && <LinkButton primary={true} text={"Learn More"} link={props.link}/>}
+                    {! (pathName === './assignments') && <LinkButton primary={true} text={"Learn More"} link={props.link}/>}
                 </div>
             </div>
         </>);

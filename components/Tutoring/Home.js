@@ -104,7 +104,7 @@ export default function Home(props) {
       <Separator text={'Advantages'} />
       <Advantages data={advantagesData} />
 
-      <Separator text={'Testimonials'} />
+      <Separator text={'SeparatorBox'} />
       <Separator text={'Announcements'} />
     </>
   );

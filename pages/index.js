@@ -27,6 +27,7 @@ import Advantages from '../components/Advantages/Advantages';
 import Layout from '../components/Layouts/Layout';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import SeparatorBox from "../components/Separator/SeparatorBox";
 
 export default function Home() {
   const homeTutoringSvg = <HomeTutoring />;
@@ -166,7 +167,7 @@ export default function Home() {
 
       <Separator text={'Advantages'} />
       <Advantages data={advantagesData} />
-      <Separator text={'Testimonials'} />
+        <SeparatorBox/>
 
       <LinkButton
         primary={true}

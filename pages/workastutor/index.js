@@ -100,7 +100,7 @@ export default function WorkAsTutor(props) {
       <Separator text={'Advantages'} />
       <Advantages data={advantagesData} />
 
-      <Separator text={'Testimonials'} />
+      <Separator text={'SeparatorBox'} />
     </>
   );
 }

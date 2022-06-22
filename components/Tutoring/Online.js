@@ -104,7 +104,7 @@ export default function Online(props) {
       <Separator text={'Advantages'} />
       <Advantages data={advantagesData} />
 
-      <Separator text={'Testimonials'} />
+      <Separator text={'SeparatorBox'} />
       <Separator text={'Announcements'} />
     </>
   );
