@@ -47,22 +47,33 @@
 }
 
 .content{
-    height: 450px;
-    max-height: 450px;
+    display: flex;
+    position: relative;
+    flex-flow: row nowrap;
     border-left: 7px solid #A1BEDB;
     border-right: 7px solid #A1BEDB;
     border-bottom: 7px solid #A1BEDB;
-    margin: -25px 50px 50px 50px;
+    margin: -20px 50px 50px 50px;
     text-align: center;
     padding: 0;
     border-radius: 0 0 21px 21px;
 }
 
+.content > *{
+    box-sizing: border-box;
+    width: 100%;
+    flex: none;
+    border-radius: 0 0 15px 15px;
+}
+
 .overlay{
-    position: absolute;
-    height: 450px;
-    max-height: 450px;
-    width: calc(100vw - 133px);
+    pointer-events: none;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: 1000;
     border-radius: 0 0 15px 15px;
     background: linear-gradient(180deg, #F2F9FE 0%, #F3FAFF 0.01%, rgba(243, 250, 255, 0) 22.74%, rgba(243, 250, 255, 0) 25.87%, rgba(243, 250, 255, 0) 74.31%, rgba(243, 250, 255, 0) 77.95%, #F3FAFF 100%, #F3FAFF 100%);
 }

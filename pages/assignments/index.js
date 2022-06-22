@@ -198,12 +198,8 @@ export default function Assignments(props) {
       <Separator text={'Advantages'} />
       <Advantages data={advantagesData} />
 
-<<<<<<< HEAD
-      <Separator text={'SeparatorBox'} />
-=======
       <Separator text={'Testimonials'} />
 
->>>>>>> 1b2a9b4f07bb9992d389253cd02db2c6c8574556
       <Separator text={'Announcements'} />
       <WritingAnnouncements />
     </>
