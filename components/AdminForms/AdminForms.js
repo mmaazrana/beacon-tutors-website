@@ -22,6 +22,13 @@ const timeOptions = [...Array(24)].map((x, i) => {
   };
 });
 
+const ratingOptions = [...Array(5)].map((x, i) => {
+  return {
+    value: i + 1,
+    label: i + 1,
+  };
+});
+
 const customSelectStyles = {
   control: (provided, state) => ({
     ...provided,
@@ -88,6 +95,7 @@ export {
   daysOptions,
   budgetOptions,
   timeOptions,
+  ratingOptions,
   customSelectStyles,
   customFormStyles,
 };

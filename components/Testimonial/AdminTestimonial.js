@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import styles from './Announcement.module.css';
+import styles from './AdminTestimonial.module.css';
 import { Calendar, Banknote, Clock, Edit, Trash, X } from 'lucide-react';
 import Modal from 'react-modal';
 import Select from 'react-select';
 import {
-  daysOptions,
-  budgetOptions,
-  timeOptions,
+  ratingOptions,
   customSelectStyles,
   customFormStyles,
 } from '../AdminForms/AdminForms';
@@ -14,46 +12,43 @@ import formStyles from '../AdminForms/AdminForms.module.css';
 
 Modal.setAppElement('#__next');
 
-export default function Announcement(props) {
+export default function AdminAnnouncement(props) {
   // let subtitle;
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const [title, setTitle] = useState(props.announcement.title);
-  const [days, setDays] = useState(props.announcement.days);
-  const [budget, setBudget] = useState(props.announcement.budget);
-  const [time, setTime] = useState(props.announcement.time);
+  //   const [modalIsOpen, setIsOpen] = useState(false);
+  //   const [title, setTitle] = useState(props.announcement.title);
+  //   const [days, setDays] = useState(props.announcement.days);
+  //   const [budget, setBudget] = useState(props.announcement.budget);
+  //   const [time, setTime] = useState(props.announcement.time);
 
-  useEffect(() => {
-    console.log(days, budget, time);
-  }, [days, budget, time]);
+  //   useEffect(() => {
+  //     console.log(days, budget, time);
+  //   }, [days, budget, time]);
 
   const openEditModal = () => {
     setIsOpen(true);
   };
 
-  const afterOpenModal = () => {
-    // references are now sync'd and can be accessed.
-    // subtitle.style.color = '#f00';
-  };
+  //   const afterOpenModal = () => {
+  //     // references are now sync'd and can be accessed.
+  //     // subtitle.style.color = '#f00';
+  //   };
 
-  const closeModal = () => {
-    setIsOpen(false);
-  };
+  //   const closeModal = () => {
+  //     setIsOpen(false);
+  //   };
 
-  const updateHandler = async (e) => {
-    e.preventDefault();
-    setIsOpen(false);
-  };
+  //   const updateHandler = async (e) => {
+  //     e.preventDefault();
+  //     setIsOpen(false);
+  //   };
 
-  const deleteHandler = async (e) => {
-    e.preventDefault();
-    setIsOpen(false);
-  };
+  const deleteHandler = async (e) => {};
 
   return (
     <>
-      <div className={styles.announcement}>
+      <div className={styles.testimonial}>
         <div className={styles.row}>
-          <p className={styles.title}>{props.announcement.title}</p>
+          <p className={styles.title}>{props.testimonial.description}</p>
           <div className={styles.icons}>
             <div>
               <Edit color="#42DF29" size={18} onClick={openEditModal} />
@@ -63,7 +58,7 @@ export default function Announcement(props) {
             </div>
           </div>
         </div>
-        <div className={styles.options}>
+        {/* <div className={styles.options}>
           <div className={styles.option}>
             <Calendar color="#FF6F66" />
             <p className={styles.optionText}>{props.announcement.days}</p>
@@ -76,10 +71,10 @@ export default function Announcement(props) {
             <Clock color="#3E6C98" />
             <p className={styles.optionText}>{props.announcement.time}</p>
           </div>
-        </div>
+        </div> */}
       </div>
 
-      <Modal
+      {/* <Modal
         closeTimeoutMS={1000}
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -87,8 +82,8 @@ export default function Announcement(props) {
         style={customFormStyles}
         contentLabel="Edit Announcement"
       >
-        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button> */}
+        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
+        <button onClick={closeModal}>close</button>
         <div>
           <div className={styles.modalHead}>
             <h4>Edit Annnouncement</h4>
@@ -145,32 +140,7 @@ export default function Announcement(props) {
             </div>
           </form>
         </div>
-      </Modal>
+      </Modal> */}
     </>
   );
 }
-
-// import styles from './Announcement.module.css';
-// import { Calendar, Banknote, Clock } from 'lucide-react';
-
-// export default function Announcement(props) {
-//   return (
-//     <div className={styles.announcement}>
-//       <p className={styles.title}>{props.announcement.title}</p>
-//       <div className={styles.options}>
-//         <div className={styles.option}>
-//           <Calendar color="#FF6F66" />
-//           <p className={styles.optionText}>{props.announcement.days}</p>
-//         </div>
-//         <div className={styles.option}>
-//           <Banknote color="#4FC3B1" />
-//           <p className={styles.optionText}>{props.announcement.budget}</p>
-//         </div>
-//         <div className={styles.option}>
-//           <Clock color="#3E6C98" />
-//           <p className={styles.optionText}>{props.announcement.time}</p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }

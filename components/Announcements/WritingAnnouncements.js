@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import styles from './Announcements.module.css';
-import Announcement from '../Announcement/Announcement';
+import Announcement from '../Announcement/AdminAnnouncement';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 

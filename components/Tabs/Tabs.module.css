@@ -17,10 +17,10 @@
 
 .tab {
   display: block;
-  width: 13rem;
+  width: 9rem;
   background-color: white;
   color: #3d6b98;
-  padding: 0.7rem 2rem;
+  padding: 0.7rem 1rem;
   margin: 0.55rem 0.275rem;
   border-radius: 0.55rem;
   transition: all 0.3s;
@@ -42,5 +42,6 @@
   .tab {
     display: block;
     margin: 0.275rem 0.55rem;
+    width: 10rem;
   }
 }

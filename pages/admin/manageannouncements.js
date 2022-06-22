@@ -1,6 +1,6 @@
 import Head from 'next/Head';
 import NewAnnouncement from '../../components/NewAnnouncement/NewAnnouncement';
-import Announcements from '../../components/Announcements/Announcements';
+import AdminAnnouncements from '../../components/Announcements/AdminAnnouncements';
 import AdminLayout from '../../components/Layouts/AdminLayout';
 
 export default function ManageAnnouncements(props) {
@@ -14,7 +14,7 @@ export default function ManageAnnouncements(props) {
         />
       </Head>
       <NewAnnouncement />
-      <Announcements announcements={props.announcements} />
+      <AdminAnnouncements announcements={props.announcements} />
     </>
   );
 }

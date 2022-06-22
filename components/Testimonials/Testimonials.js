@@ -6,6 +6,7 @@ export default function Testimonials(props) {
     <div className={styles.testimonials}>
       {[...Array(5)].map((testimonial, index) => (
         <Testimonial
+          key={index}
           // image={testimonial.image}
           // username={testimonial.username}
           // rating={testimonial.rating}

@@ -162,6 +162,21 @@ a {
   margin: 3rem auto;
 }
 
+.adminSection {
+  margin: 0;
+}
+
+.adminList {
+  margin: 3.65rem 15%;
+  background-color: #ffffffff;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  border: 0.25rem solid #a1bedb;
+  max-height: 34rem;
+  overflow-y: auto;
+  box-shadow: 0 4px 40px rgba(225, 221, 212, 0.25);
+}
+
 .adminInput {
   box-sizing: border-box;
   padding: 0.75rem 1rem;
@@ -241,6 +256,12 @@ a {
   }
 }
 
+@media only screen and (max-width: 1024px) {
+  .adminList {
+    margin: 3.65rem 1.5rem;
+  }
+}
+
 @media (max-width: 600px) {
   html {
     font-size: 14px;
@@ -248,6 +269,10 @@ a {
 
   .adminHeading {
     margin: 2rem auto;
+  }
+
+  .adminList {
+    margin: 2.5rem 1.5rem;
   }
 
   .slick-dots li {
@@ -289,6 +314,7 @@ a {
     max-width: 1.765vw !important;
   }
 }
+
 @media (max-width: 320px) {
   ::-webkit-scrollbar {
     width: 6vw;
