@@ -1,0 +1,20 @@
+.testimonial {
+  display: flex;
+  background-color: white;
+  margin: 0.5rem;
+  border-radius: 0.75rem;
+}
+.username {
+  font-weight: 600;
+}
+
+.rating {
+}
+
+.description {
+}
+
+.description span {
+  font-size: 2rem;
+  font-weight: 600;
+}

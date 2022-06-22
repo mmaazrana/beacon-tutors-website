@@ -24,6 +24,7 @@ import { ReactComponent as OneOnOneTutoring } from '../assets/Advantages/Home/On
 import HowItWorks from '../components/HowItWorks/HowItWorks';
 import Slider from 'react-slick';
 import Advantages from '../components/Advantages/Advantages';
+import Testimonials from '../components/Testimonials/Testimonials';
 import Layout from '../components/Layouts/Layout';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -167,7 +168,7 @@ export default function Home() {
 
       <Separator text={'Advantages'} />
       <Advantages data={advantagesData} />
-        <SeparatorBox/>
+      <SeparatorBox/>
 
       <LinkButton
         primary={true}
@@ -184,11 +185,7 @@ export default function Home() {
         link={'/assignments'}
         text={'Writing Service'}
       />
-      <LinkButton
-        primary={true}
-        link={'/workastutor'}
-        text={'Work As Tutor'}
-      />
+      <LinkButton primary={true} link={'/workastutor'} text={'Work As Tutor'} />
     </>
   );
 }

@@ -1,6 +1,8 @@
 import '../styles/globals.css';
 import Head from 'next/Head';
 import { ReactComponent as Pattern } from '../assets/background pattern.svg';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import 'react-perfect-scrollbar/dist/css/styles.css';
 
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
@@ -17,7 +19,9 @@ function MyApp({ Component, pageProps }) {
       <div className={'background'}>
         <Pattern viewBox="0 0 100% 0" />
       </div>
-      <Component className={'body'} {...pageProps} />
+      {/* <PerfectScrollbar> */}
+        <Component className={'body'} {...pageProps} />
+      {/* </PerfectScrollbar> */}
     </>
   );
 }
