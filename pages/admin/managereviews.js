@@ -1,20 +1,20 @@
 import Head from 'next/Head';
-import NewTestimonial from '../../components/NewTestimonial/NewTestimonial';
-import AdminTestimonials from '../../components/Testimonials/AdminTestimonials';
+import NewReview from '../../components/NewReview/NewReview';
+import AdminReviews from '../../components/Reviews/AdminReviews';
 import AdminLayout from '../../components/Layouts/AdminLayout';
 
-export default function ManageTestimonials(props) {
+export default function ManageReviews(props) {
   return (
     <>
       <Head>
-        <title>Manage Testimonials - Beacon Tutors Pakistan</title>
+        <title>Manage Reviews - Beacon Tutors Pakistan</title>
         <meta
           name="description"
-          content="Meta description for the Admin Manage Testimonials page"
+          content="Meta description for the Admin Manage Reviews page"
         />
       </Head>
-      <NewTestimonial />
-      <AdminTestimonials testimonials={props.testimonials} />
+      <NewReview />
+      <AdminReviews reviews={props.reviews} />
     </>
   );
 }
@@ -22,7 +22,7 @@ export default function ManageTestimonials(props) {
 export async function getServerSideProps() {
   return {
     props: {
-      testimonials: [
+      reviews: [
         {
           image: 'f1',
           username: 'Fatima Mujahid',
@@ -58,6 +58,6 @@ export async function getServerSideProps() {
   };
 }
 
-ManageTestimonials.getLayout = function getLayout(page) {
+ManageReviews.getLayout = function getLayout(page) {
   return <AdminLayout>{page}</AdminLayout>;
 };

@@ -5,7 +5,7 @@ import Tab from './Tab';
 export default function Tabs() {
   const { pathname } = useRouter();
   const isTabOneSelected = pathname === '/admin/manageannouncements';
-  const isTabTwoSelected = pathname === '/admin/managetestimonials';
+  const isTabTwoSelected = pathname === '/admin/managereviews';
   const isTabThreeSelected = pathname === '/admin/viewinquiries';
 
   return (
@@ -14,21 +14,21 @@ export default function Tabs() {
         <div>
           <Tab
             href="/admin/manageannouncements"
-            title="Announcements"
+            title="Manage Announcements"
             isSelected={isTabOneSelected}
           />
         </div>
         <div>
           <Tab
-            href="/admin/managetestimonials"
-            title="Testimonials"
+            href="/admin/managereviews"
+            title="Manage Reviews"
             isSelected={isTabTwoSelected}
           />
         </div>
         <div>
           <Tab
             href="/admin/viewinquiries"
-            title="Inquiries"
+            title="View Inquiries"
             isSelected={isTabThreeSelected}
           />
         </div>

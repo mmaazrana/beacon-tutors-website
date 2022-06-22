@@ -198,7 +198,7 @@ export default function Assignments(props) {
       <Separator text={'Advantages'} />
       <Advantages data={advantagesData} />
 
-      <Separator text={'Testimonials'} />
+      <Separator text={'Reviews'} />
 
       <Separator text={'Announcements'} />
       <WritingAnnouncements />

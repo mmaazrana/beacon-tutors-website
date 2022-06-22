@@ -3,7 +3,7 @@ import Select from 'react-select';
 import { ratingOptions, customSelectStyles } from '../AdminForms/AdminForms';
 import formStyles from '../AdminForms/AdminForms.module.css';
 
-export default function NewTestimonial(props) {
+export default function NewReview(props) {
   const [description, setDescription] = useState('');
   const [username, setUsername] = useState('');
   const [rating, setRating] = useState(0);
@@ -22,7 +22,7 @@ export default function NewTestimonial(props) {
       <h1 className="adminHeading">
         Create a new
         <br />
-        Testimonial
+        Review
       </h1>
       <div>
         <form onSubmit={postHandler}>
@@ -47,7 +47,7 @@ export default function NewTestimonial(props) {
             </div>
 
             <button type="submit" className="adminButton">
-              Post Testimonial
+              Post Review
             </button>
           </div>
         </form>

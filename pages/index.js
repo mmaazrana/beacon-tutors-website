@@ -32,7 +32,7 @@ import {ReactComponent as Male4} from '../assets/Avatars/Male4.svg';
 import HowItWorks from '../components/HowItWorks/HowItWorks';
 import Slider from 'react-slick';
 import Advantages from '../components/Advantages/Advantages';
-import Testimonials from '../components/Testimonials/Testimonials';
+import Reviews from '../components/Reviews/Reviews';
 import Layout from '../components/Layouts/Layout';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -113,7 +113,7 @@ export default function Home() {
                 'Have a free of cost demo class to determine if the tutor fulfils your requirements.',
         },
     ];
-    let testimonialsData = [
+    let reviewsData = [
         {
             image: <Female1/>,
             username: "Christine Stewart",
@@ -229,11 +229,11 @@ export default function Home() {
             <Advantages data={advantagesData}/>
 
             <SeparatorBox text={'Reviews'} >
-                <Testimonials testimonials={testimonialsData}/>
+                <Reviews data={reviewsData}/>
             </SeparatorBox>
 
-            <SeparatorBox text={'Advantages'} >
-                <Announcements announcements={testimonialsData} />
+            <SeparatorBox text={'Announcements'} >
+                <Announcements data={reviewsData} />
             </SeparatorBox>
 
             <LinkButton

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from './AdminTestimonial.module.css';
+import styles from './AdminReview.module.css';
 import { Calendar, Banknote, Clock, Edit, Trash, X } from 'lucide-react';
 import Modal from 'react-modal';
 import Select from 'react-select';
@@ -12,7 +12,7 @@ import formStyles from '../AdminForms/AdminForms.module.css';
 
 Modal.setAppElement('#__next');
 
-export default function AdminAnnouncement(props) {
+export default function AdminReview(props) {
   // let subtitle;
   //   const [modalIsOpen, setIsOpen] = useState(false);
   //   const [title, setTitle] = useState(props.announcement.title);
@@ -46,9 +46,9 @@ export default function AdminAnnouncement(props) {
 
   return (
     <>
-      <div className={styles.testimonial}>
+      <div className={styles.review}>
         <div className={styles.row}>
-          <p className={styles.title}>{props.testimonial.description}</p>
+          <p className={styles.title}>{props.review.description}</p>
           <div className={styles.icons}>
             <div>
               <Edit color="#42DF29" size={18} onClick={openEditModal} />
