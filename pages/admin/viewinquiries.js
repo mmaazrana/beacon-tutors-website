@@ -1,5 +1,4 @@
 import Head from 'next/Head';
-import styles from '../../styles/ViewInquiries.module.css';
 import Inquiry from '../../components/Inquiry/Inquiry';
 import AdminLayout from '../../components/Layouts/AdminLayout';
 
@@ -13,8 +12,8 @@ export default function ViewInquiries(props) {
           content="Meta description for the Admin View Inquiries page"
         />
       </Head>
-      <div className={styles.inquiries}>
-        <div className={styles.list}>
+      <div className="adminSection">
+        <div className="adminList adminListBig">
           {props.inquiries?.map((inquiry, index) => (
             <Inquiry key={index} inquiry={inquiry} />
           ))}

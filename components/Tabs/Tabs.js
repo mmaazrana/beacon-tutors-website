@@ -7,7 +7,7 @@ export default function Tabs() {
   const isTabOneSelected = pathname === '/admin/manageannouncements';
   const isTabTwoSelected = pathname === '/admin/managereviews';
   const isTabThreeSelected = pathname === '/admin/viewinquiries';
-  const isTabFourSelected = pathname === '/admin/approvals';
+  const isTabFourSelected = pathname === '/admin/approvereviews';
 
   return (
     <div className={styles.container}>
@@ -35,7 +35,7 @@ export default function Tabs() {
         </div>
         <div>
           <Tab
-            href="/admin/approvals"
+            href="/admin/approvereviews"
             title="Approvals"
             isSelected={isTabFourSelected}
           />

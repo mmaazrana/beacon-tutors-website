@@ -176,9 +176,14 @@ a {
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   border: 0.25rem solid #a1bedb;
-  max-height: 34rem;
+  max-height: 38rem;
   overflow-y: auto;
   box-shadow: 0 4px 40px rgba(225, 221, 212, 0.25);
+}
+
+.adminListBig {
+  margin: 3.65rem 10%;
+  max-height: 40rem;
 }
 
 .adminInput {

@@ -1,9 +1,9 @@
+import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
 import styles from './AdminReview.module.css';
-import { Calendar, Banknote, Clock, Edit, Trash, X } from 'lucide-react';
+import { Edit, Trash, Check, X, Star } from 'lucide-react';
 import Modal from 'react-modal';
 import Select from 'react-select';
-import { Star } from 'lucide-react';
 import {
   ratingOptions,
   customSelectStyles,
@@ -34,6 +34,7 @@ export default function AdminReview(props) {
   };
 
   // let subtitle;
+  const { pathname } = useRouter();
   const [modalIsOpen, setIsOpen] = useState(false);
   // const [title, setTitle] = useState(props.announcement.title);
   //   const [days, setDays] = useState(props.announcement.days);
@@ -60,6 +61,10 @@ export default function AdminReview(props) {
 
   const deleteHandler = async (e) => {};
 
+  const approveHandler = async (e) => {};
+
+  const discardHandler = async (e) => {};
+
   return (
     <>
       <div className={styles.review}>
@@ -68,12 +73,18 @@ export default function AdminReview(props) {
           <div className={styles.row}>
             <p className={styles.username}>{props.review.username}</p>
             <div className={styles.icons}>
-              <div>
-                <Edit color="#42DF29" size={18} onClick={openEditModal} />
-              </div>
-              <div>
-                <Trash color="#CC1919" size={18} onClick={deleteHandler} />
-              </div>
+              {pathname === '/admin/managereviews' && (
+                <>
+                  <Edit color="#42DF29" size={18} onClick={openEditModal} />
+                  <Trash color="#CC1919" size={18} onClick={deleteHandler} />
+                </>
+              )}
+              {pathname === '/admin/approvereviews' && (
+                <>
+                  <Check color="#42DF29" size={18} onClick={approveHandler} />
+                  <X color="#CC1919" size={18} onClick={discardHandler} />
+                </>
+              )}
             </div>
           </div>
           {[...Array(5)].map((x, i) => (
