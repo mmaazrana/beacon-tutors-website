@@ -9,16 +9,16 @@ import {
 import formStyles from '../AdminForms/AdminForms.module.css';
 
 export default function NewReview(props) {
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState('');
   const [username, setUsername] = useState('');
   const [description, setDescription] = useState('');
   const [rating, setRating] = useState(0);
 
   const postHandler = async (e) => {
-    setDescription('');
+    setImage('');
     setUsername('');
+    setDescription('');
     setRating(0);
-    setImage(null);
     e.preventDefault();
   };
 
@@ -69,7 +69,7 @@ export default function NewReview(props) {
 
             <div className={formStyles.inputsRow}>
               <Select
-                className={`adminInput ${formStyles.first}`}
+                className="adminInput"
                 onChange={setRating}
                 options={ratingOptions}
                 styles={customSelectStyles}

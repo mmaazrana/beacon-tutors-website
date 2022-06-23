@@ -1,45 +1,27 @@
 import { useRouter } from 'next/router';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './AdminReview.module.css';
 import { Edit, Trash, Check, X, Star } from 'lucide-react';
 import Modal from 'react-modal';
 import Select from 'react-select';
 import {
   ratingOptions,
+  images,
   customSelectStyles,
   customFormStyles,
 } from '../AdminForms/AdminForms';
 import formStyles from '../AdminForms/AdminForms.module.css';
-import { ReactComponent as Female1 } from '../../assets/Avatars/Female1.svg';
-import { ReactComponent as Female2 } from '../../assets/Avatars/Female2.svg';
-import { ReactComponent as Female3 } from '../../assets/Avatars/Female3.svg';
-import { ReactComponent as Female4 } from '../../assets/Avatars/Female4.svg';
-import { ReactComponent as Male1 } from '../../assets/Avatars/Male1.svg';
-import { ReactComponent as Male2 } from '../../assets/Avatars/Male2.svg';
-import { ReactComponent as Male3 } from '../../assets/Avatars/Male3.svg';
-import { ReactComponent as Male4 } from '../../assets/Avatars/Male4.svg';
 
 Modal.setAppElement('#__next');
 
 export default function AdminReview(props) {
-  const images = {
-    f1: <Female1 />,
-    f2: <Female2 />,
-    f3: <Female3 />,
-    f4: <Female4 />,
-    m1: <Male1 />,
-    m2: <Male2 />,
-    m3: <Male3 />,
-    m4: <Male4 />,
-  };
-
   // let subtitle;
   const { pathname } = useRouter();
   const [modalIsOpen, setIsOpen] = useState(false);
-  // const [title, setTitle] = useState(props.announcement.title);
-  //   const [days, setDays] = useState(props.announcement.days);
-  //   const [budget, setBudget] = useState(props.announcement.budget);
-  //   const [time, setTime] = useState(props.announcement.time);
+  const [image, setImage] = useState(props.review.image);
+  const [username, setUsername] = useState(props.review.username);
+  const [description, setDescription] = useState(props.review.description);
+  const [rating, setRating] = useState(props.review.rating);
 
   const openEditModal = () => {
     setIsOpen(true);
@@ -101,21 +83,21 @@ export default function AdminReview(props) {
         </div>
       </div>
 
-      {/* <Modal
+      <Modal
         closeTimeoutMS={1000}
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customFormStyles}
-        contentLabel="Edit Announcement"
+        contentLabel="Edit Review"
       >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button>
+        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
+        <button onClick={closeModal}>close</button> */}
         <div>
-          <div className={styles.modalHead}>
-            <h4>Edit Annnouncement</h4>
+          <div className={formStyles.modalHead}>
+            <h4>Edit Review</h4>
             <X
-              className={styles.close}
+              className={formStyles.close}
               onClick={closeModal}
               color="#ffffff"
               size={'20'}
@@ -123,51 +105,42 @@ export default function AdminReview(props) {
           </div>
           <form onSubmit={updateHandler}>
             <div className={formStyles.inputs}>
+              <input
+                className="adminInput"
+                type="text"
+                name="username"
+                placeholder="Name"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+
               <textarea
                 className="adminInput"
-                placeholder="Title"
-                name="title"
+                placeholder="Description"
+                name="description"
                 rows="4"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
               ></textarea>
 
               <div className={formStyles.inputsRow}>
                 <Select
-                  className={`adminInput ${formStyles.first}`}
-                  onChange={setDays}
-                  options={daysOptions}
-                  styles={customSelectStyles}
-                  defaultValue={{ value: days, label: days }}
-                  placeholder="Days/Week"
-                />
-
-                <Select
                   className="adminInput"
-                  onChange={setBudget}
-                  options={budgetOptions}
+                  onChange={setRating}
+                  options={ratingOptions}
                   styles={customSelectStyles}
-                  defaultValue={{ value: budget, label: budget }}
-                  placeholder="Budget/Month"
-                />
-
-                <Select
-                  className={`adminInput ${formStyles.last}`}
-                  onChange={setTime}
-                  options={timeOptions}
-                  styles={customSelectStyles}
-                  defaultValue={{ value: time, label: time }}
-                  placeholder="Time/Day"
+                  defaultValue={{ value: rating, label: rating }}
+                  placeholder="Rating"
                 />
               </div>
 
               <button type="submit" className="adminButton">
-                Update Announcement
+                Update Review
               </button>
             </div>
           </form>
         </div>
-      </Modal> */}
+      </Modal>
     </>
   );
 }

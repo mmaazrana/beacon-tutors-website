@@ -83,10 +83,10 @@ export default function AdminAnnouncement(props) {
         {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
         <button onClick={closeModal}>close</button> */}
         <div>
-          <div className={styles.modalHead}>
+          <div className={formStyles.modalHead}>
             <h4>Edit Annnouncement</h4>
             <X
-              className={styles.close}
+              className={formStyles.close}
               onClick={closeModal}
               color="#ffffff"
               size={'20'}

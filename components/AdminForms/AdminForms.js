@@ -73,6 +73,17 @@ const imagesOptions = [
   },
 ];
 
+const images = {
+  f1: <Female1 />,
+  f2: <Female2 />,
+  f3: <Female3 />,
+  f4: <Female4 />,
+  m1: <Male1 />,
+  m2: <Male2 />,
+  m3: <Male3 />,
+  m4: <Male4 />,
+};
+
 const customSelectStyles = {
   control: (provided, state) => ({
     ...provided,
@@ -86,11 +97,13 @@ const customSelectStyles = {
     ...provided,
     color: '#a1bedb',
     fontWeight: '500',
+    marginLeft: '36px',
   }),
 
   singleValue: (provided, state) => ({
     ...provided,
     color: '#3d6b98',
+    marginLeft: '36px',
   }),
 
   option: (provided, state) => ({
@@ -141,6 +154,7 @@ export {
   timeOptions,
   ratingOptions,
   imagesOptions,
+  images,
   customSelectStyles,
   customFormStyles,
 };

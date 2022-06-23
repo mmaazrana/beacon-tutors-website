@@ -67,24 +67,3 @@
   width: 50px;
   border-radius: 50%;
 }
-
-.modalHead {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #3d6b98;
-}
-
-.modalHead h4 {
-  margin: 0.75rem;
-  font-weight: 500;
-  color: #ffffff;
-}
-
-.close {
-  margin-right: 0.75rem;
-  cursor: pointer;
-}

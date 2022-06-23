@@ -6,14 +6,12 @@ export default function Review(props) {
       <div className={styles.image}>{props.image}</div>
       <div className={styles.content}>
         <p className={styles.username}>{props.username}</p>
-        <div className={styles.rating}>
-          {[...Array(5)].map((x, i) => (
-            <Star
-              key={i}
-              className={i < props.rating ? styles.filled : styles.empty}
-            />
-          ))}
-        </div>
+        {[...Array(5)].map((x, i) => (
+          <Star
+            key={i}
+            className={i < props.rating ? styles.filled : styles.empty}
+          />
+        ))}
         <p className={styles.description}>
           <span>“</span>
           {props.description}
