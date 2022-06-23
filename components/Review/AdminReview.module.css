@@ -1,6 +1,5 @@
 .review {
   display: flex;
-  flex-direction: column;
   background-color: #ffffff;
   border-radius: 0.6rem;
   margin: 0.75rem 0;
@@ -8,16 +7,20 @@
   box-shadow: 0 4px 20px rgba(93, 143, 193, 0.25);
 }
 
+.content {
+  text-align: left;
+  margin-left: 25px;
+}
+
 .row {
   display: flex;
   justify-content: space-between;
 }
 
-.title {
+.username {
+  font-size: 1rem;
   font-weight: 600;
   margin: 0;
-  margin-top: 0.25rem;
-  margin-bottom: 0.5rem;
 }
 
 .icons {
@@ -30,18 +33,39 @@
   cursor: pointer;
 }
 
-.options {
-  display: flex;
-  justify-content: space-between;
+.filled {
+  stroke-width: 0;
+  fill: #ffce51;
 }
 
-.option {
-  display: flex;
-  align-items: center;
+.empty {
+  stroke-width: 0;
+  fill: #e3e3e3;
 }
 
-.optionText {
-  margin: 0.25rem 0.8rem;
+.description {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #a0a0a1;
+  padding: 0;
+  margin: 0;
+  margin-top: 0.25rem;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+.description span {
+  font-size: 1.35rem !important;
+  font-weight: 600;
+  line-height: 1;
+  color: #3a3a3b;
+}
+
+.image {
+  max-height: 50px;
+  min-width: 50px;
+  width: 50px;
+  border-radius: 50%;
 }
 
 .modalHead {
@@ -63,10 +87,4 @@
 .close {
   margin-right: 0.75rem;
   cursor: pointer;
-}
-
-@media only screen and (max-width: 600px) {
-  .options {
-    flex-direction: column;
-  }
 }

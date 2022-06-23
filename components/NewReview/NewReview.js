@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
-import { ratingOptions, customSelectStyles } from '../AdminForms/AdminForms';
+import { Check } from 'lucide-react';
+import {
+  ratingOptions,
+  imagesOptions,
+  customSelectStyles,
+} from '../AdminForms/AdminForms';
 import formStyles from '../AdminForms/AdminForms.module.css';
 
 export default function NewReview(props) {
-  const [description, setDescription] = useState('');
-  const [username, setUsername] = useState('');
-  const [rating, setRating] = useState(0);
   const [image, setImage] = useState(null);
+  const [username, setUsername] = useState('');
+  const [description, setDescription] = useState('');
+  const [rating, setRating] = useState(0);
 
   const postHandler = async (e) => {
     setDescription('');
@@ -20,13 +25,39 @@ export default function NewReview(props) {
   return (
     <div>
       <h1 className="adminHeading">
-        Create a new
-        <br />
+        Add a new <br />
         Review
       </h1>
       <div>
         <form onSubmit={postHandler}>
           <div className={formStyles.inputs}>
+            <div className={formStyles.row}>
+              {imagesOptions.map((image, index) => (
+                <label key={index}>
+                  <input
+                    type="radio"
+                    name="image"
+                    value={image.value}
+                    key={index}
+                    onChange={(e) => setImage(e.target.value)}
+                  />
+                  <div className={formStyles.image}>
+                    {image.label}
+                    <Check className={formStyles.check} />
+                  </div>
+                </label>
+              ))}
+            </div>
+
+            <input
+              className="adminInput"
+              type="text"
+              name="username"
+              placeholder="Name"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+
             <textarea
               className="adminInput"
               placeholder="Description"

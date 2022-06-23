@@ -3,75 +3,91 @@ import styles from './AdminReview.module.css';
 import { Calendar, Banknote, Clock, Edit, Trash, X } from 'lucide-react';
 import Modal from 'react-modal';
 import Select from 'react-select';
+import { Star } from 'lucide-react';
 import {
   ratingOptions,
   customSelectStyles,
   customFormStyles,
 } from '../AdminForms/AdminForms';
 import formStyles from '../AdminForms/AdminForms.module.css';
+import { ReactComponent as Female1 } from '../../assets/Avatars/Female1.svg';
+import { ReactComponent as Female2 } from '../../assets/Avatars/Female2.svg';
+import { ReactComponent as Female3 } from '../../assets/Avatars/Female3.svg';
+import { ReactComponent as Female4 } from '../../assets/Avatars/Female4.svg';
+import { ReactComponent as Male1 } from '../../assets/Avatars/Male1.svg';
+import { ReactComponent as Male2 } from '../../assets/Avatars/Male2.svg';
+import { ReactComponent as Male3 } from '../../assets/Avatars/Male3.svg';
+import { ReactComponent as Male4 } from '../../assets/Avatars/Male4.svg';
 
 Modal.setAppElement('#__next');
 
 export default function AdminReview(props) {
+  const images = {
+    f1: <Female1 />,
+    f2: <Female2 />,
+    f3: <Female3 />,
+    f4: <Female4 />,
+    m1: <Male1 />,
+    m2: <Male2 />,
+    m3: <Male3 />,
+    m4: <Male4 />,
+  };
+
   // let subtitle;
-  //   const [modalIsOpen, setIsOpen] = useState(false);
-  //   const [title, setTitle] = useState(props.announcement.title);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  // const [title, setTitle] = useState(props.announcement.title);
   //   const [days, setDays] = useState(props.announcement.days);
   //   const [budget, setBudget] = useState(props.announcement.budget);
   //   const [time, setTime] = useState(props.announcement.time);
-
-  //   useEffect(() => {
-  //     console.log(days, budget, time);
-  //   }, [days, budget, time]);
 
   const openEditModal = () => {
     setIsOpen(true);
   };
 
-  //   const afterOpenModal = () => {
-  //     // references are now sync'd and can be accessed.
-  //     // subtitle.style.color = '#f00';
-  //   };
+  const afterOpenModal = () => {
+    // references are now sync'd and can be accessed.
+    // subtitle.style.color = '#f00';
+  };
 
-  //   const closeModal = () => {
-  //     setIsOpen(false);
-  //   };
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
-  //   const updateHandler = async (e) => {
-  //     e.preventDefault();
-  //     setIsOpen(false);
-  //   };
+  const updateHandler = async (e) => {
+    e.preventDefault();
+    setIsOpen(false);
+  };
 
   const deleteHandler = async (e) => {};
 
   return (
     <>
       <div className={styles.review}>
-        <div className={styles.row}>
-          <p className={styles.title}>{props.review.description}</p>
-          <div className={styles.icons}>
-            <div>
-              <Edit color="#42DF29" size={18} onClick={openEditModal} />
-            </div>
-            <div>
-              <Trash color="#CC1919" size={18} onClick={deleteHandler} />
+        <div className={styles.image}>{images[props.review.image]}</div>
+        <div className={styles.content}>
+          <div className={styles.row}>
+            <p className={styles.username}>{props.review.username}</p>
+            <div className={styles.icons}>
+              <div>
+                <Edit color="#42DF29" size={18} onClick={openEditModal} />
+              </div>
+              <div>
+                <Trash color="#CC1919" size={18} onClick={deleteHandler} />
+              </div>
             </div>
           </div>
+          {[...Array(5)].map((x, i) => (
+            <Star
+              key={i}
+              size={16}
+              className={i < props.review.rating ? styles.filled : styles.empty}
+            />
+          ))}
+          <p className={styles.description}>
+            <span>“</span>
+            {props.review.description}
+          </p>
         </div>
-        {/* <div className={styles.options}>
-          <div className={styles.option}>
-            <Calendar color="#FF6F66" />
-            <p className={styles.optionText}>{props.announcement.days}</p>
-          </div>
-          <div className={styles.option}>
-            <Banknote color="#4FC3B1" />
-            <p className={styles.optionText}>{props.announcement.budget}</p>
-          </div>
-          <div className={styles.option}>
-            <Clock color="#3E6C98" />
-            <p className={styles.optionText}>{props.announcement.time}</p>
-          </div>
-        </div> */}
       </div>
 
       {/* <Modal

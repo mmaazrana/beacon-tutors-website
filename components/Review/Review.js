@@ -1,21 +1,22 @@
 import styles from './Review.module.css';
-import {Star} from 'lucide-react';
+import { Star } from 'lucide-react';
 export default function Review(props) {
   return (
     <div className={styles.review}>
-      <div className={styles.image} >{props.image}</div>
-      <div className={styles.content} >
+      <div className={styles.image}>{props.image}</div>
+      <div className={styles.content}>
         <p className={styles.username}>{props.username}</p>
         <div className={styles.rating}>
-          {[...Array(0 + props.rating)].map(() => (
-            <Star className={styles.filled} />
-          ))}
-          {[...Array(5 - props.rating)].map(() => (
-            <Star className={styles.empty} />
+          {[...Array(5)].map((x, i) => (
+            <Star
+              key={i}
+              className={i < props.rating ? styles.filled : styles.empty}
+            />
           ))}
         </div>
         <p className={styles.description}>
-          <span>“</span>{props.description}
+          <span>“</span>
+          {props.description}
         </p>
       </div>
     </div>

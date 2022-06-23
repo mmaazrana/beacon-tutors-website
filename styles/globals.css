@@ -162,6 +162,10 @@ a {
   margin: 3rem auto;
 }
 
+.adminHeading br {
+  display: none;
+}
+
 .adminSection {
   margin: 0;
 }
@@ -194,7 +198,6 @@ a {
   color: #a1bedb;
   font-weight: 500;
 }
-
 
 .adminInput:active,
 .adminInput:focus,
@@ -260,6 +263,10 @@ a {
 @media only screen and (max-width: 1024px) {
   .adminList {
     margin: 3.65rem 1.5rem;
+  }
+
+  .adminHeading br {
+    display: block;
   }
 }
 

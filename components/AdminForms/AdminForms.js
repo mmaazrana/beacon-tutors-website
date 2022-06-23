@@ -1,3 +1,12 @@
+import { ReactComponent as Female1 } from '../../assets/Avatars/Female1.svg';
+import { ReactComponent as Female2 } from '../../assets/Avatars/Female2.svg';
+import { ReactComponent as Female3 } from '../../assets/Avatars/Female3.svg';
+import { ReactComponent as Female4 } from '../../assets/Avatars/Female4.svg';
+import { ReactComponent as Male1 } from '../../assets/Avatars/Male1.svg';
+import { ReactComponent as Male2 } from '../../assets/Avatars/Male2.svg';
+import { ReactComponent as Male3 } from '../../assets/Avatars/Male3.svg';
+import { ReactComponent as Male4 } from '../../assets/Avatars/Male4.svg';
+
 const daysOptions = [...Array(7)].map((x, i) => {
   const days = `${i + 1} ${i == 0 ? 'Day' : 'Days'}/Week`;
   return {
@@ -28,6 +37,41 @@ const ratingOptions = [...Array(5)].map((x, i) => {
     label: i + 1,
   };
 });
+
+const imagesOptions = [
+  {
+    value: 'm1',
+    label: <Male1 />,
+  },
+  {
+    value: 'm2',
+    label: <Male2 />,
+  },
+  {
+    value: 'm3',
+    label: <Male3 />,
+  },
+  {
+    value: 'm4',
+    label: <Male4 />,
+  },
+  {
+    value: 'f1',
+    label: <Female1 />,
+  },
+  {
+    value: 'f2',
+    label: <Female2 />,
+  },
+  {
+    value: 'f3',
+    label: <Female3 />,
+  },
+  {
+    value: 'f4',
+    label: <Female4 />,
+  },
+];
 
 const customSelectStyles = {
   control: (provided, state) => ({
@@ -96,6 +140,7 @@ export {
   budgetOptions,
   timeOptions,
   ratingOptions,
+  imagesOptions,
   customSelectStyles,
   customFormStyles,
 };

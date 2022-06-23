@@ -28,7 +28,7 @@ export default function Reviews(props) {
 
       {props.data.map((review, index) => (
         <Review
-          key={ index}
+          key={index}
           image={review.image}
           username={review.username}
           rating={review.rating}
