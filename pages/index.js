@@ -236,22 +236,7 @@ export default function Home() {
                 <Announcements data={reviewsData} />
             </SeparatorBox>
 
-            <LinkButton
-                primary={true}
-                link={'/onlinetutoring'}
-                text={'OnlineTutoring tutoring'}
-            />
-            <LinkButton
-                primary={true}
-                link={'/hometutoring'}
-                text={'Home Tutoring'}
-            />
-            <LinkButton
-                primary={true}
-                link={'/assignments'}
-                text={'Writing Service'}
-            />
-            <LinkButton primary={true} link={'/workastutor'} text={'Work As Tutor'}/>
+
         </>
     );
 }
