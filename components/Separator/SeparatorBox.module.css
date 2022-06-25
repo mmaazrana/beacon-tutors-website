@@ -77,3 +77,99 @@
     border-radius: 0 0 15px 15px;
     background: linear-gradient(180deg, #F2F9FE 0%, #F3FAFF 0.01%, rgba(243, 250, 255, 0) 22.74%, rgba(243, 250, 255, 0) 25.87%, rgba(243, 250, 255, 0) 74.31%, rgba(243, 250, 255, 0) 77.95%, #F3FAFF 100%, #F3FAFF 100%);
 }
+
+
+@media screen and (max-width: 1440px ){
+    .line{
+        margin-top: 39px;
+        border-top: 5px solid #A1BEDB ;
+    }
+    .text {
+        padding: 0 17px;
+        font-size: 32px;
+    }
+    .left{
+        border-left: 5px solid #A1BEDB;
+        border-radius: 15px 0 0 0;
+    }
+    .right{
+        border-right: 5px solid #A1BEDB;
+        border-radius:  0 15px 0 0;
+    }
+    .roundProfile{
+        height: 5px;
+        margin-top: -3px;
+    }
+    .separator{
+        margin: 50px 25px 0 25px ;
+    }
+    .content {
+        margin: -10px 25px 25px 25px;
+        border-radius: 0 0 15px 15px;
+        border-left: 5px solid #A1BEDB;
+        border-right: 5px solid #A1BEDB;
+        border-bottom: 5px solid #A1BEDB;
+    }
+}
+
+
+@media screen and (max-width: 1080px ){
+    .line{
+        border-top: 4px solid #A1BEDB ;
+    }
+    .text {
+        padding: 0 17px;
+        font-size: 29px;
+    }
+    .left{
+        border-left: 4px solid #A1BEDB;
+    }
+    .right{
+        border-right: 4px solid #A1BEDB;
+    }
+    .roundProfile{
+        height: 4px;
+    }
+    .content {
+        border-left: 4px solid #A1BEDB;
+        border-right: 4px solid #A1BEDB;
+        border-bottom: 4px solid #A1BEDB;
+    }
+}
+
+@media screen and (max-width: 768px ){
+    .line{
+        border-top: 3px solid #A1BEDB ;
+    }
+    .text {
+        padding: 0 15px;
+        font-size: 26px;
+    }
+    .left{
+        border-left: 3px solid #A1BEDB;
+    }
+    .right{
+        border-right: 3px solid #A1BEDB;
+    }
+    .roundProfile{
+        height: 3px;
+    }
+    .content {
+        border-left: 3px solid #A1BEDB;
+        border-right: 3px solid #A1BEDB;
+        border-bottom: 3px solid #A1BEDB;
+    }
+}
+
+@media screen and (max-width: 380px ) {
+    .text {
+        padding: 0 3.947vw;
+        font-size: 6.842vw;
+    }
+    .separator{
+        margin: 25px 15px 0 15px ;
+    }
+    .content{
+        margin: -10px 15px 25px 15px;
+    }
+}

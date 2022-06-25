@@ -163,6 +163,33 @@ export default function Home() {
             description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
         },
     ]
+    let announcementData = [
+        {
+            title: "Free job for everyone",
+            days: 5,
+            budget: 10000,
+            time: 10,
+        },
+        {
+            title: "Free job for everyone",
+            days: 5,
+            budget: 10000,
+            time: 10,
+        },
+        {
+            title: "Free job for everyone",
+            days: 5,
+            budget: 10000,
+            time: 10,
+        },
+        {
+            title: "Free job for everyone",
+            days: 5,
+            budget: 10000,
+            time: 10,
+        },
+    ]
+
     const settings = {
         dots: true,
         infinite: true,
@@ -233,7 +260,7 @@ export default function Home() {
             </SeparatorBox>
 
             <SeparatorBox text={'Announcements'} >
-                <Announcements data={reviewsData} />
+                <Announcements data={announcementData} />
             </SeparatorBox>
 
 
