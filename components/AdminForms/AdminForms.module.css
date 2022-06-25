@@ -86,6 +86,10 @@
   color: #ffffff;
 }
 
+.modalContent {
+  margin: 1rem 2.5rem 1.25rem 2.5rem;
+}
+
 .close {
   margin-right: 0.75rem;
   cursor: pointer;
@@ -113,5 +117,9 @@
 
   .last {
     margin-left: 0;
+  }
+
+  .modalContent {
+    margin: 1rem 1.5rem 1.25rem 1.5rem;
   }
 }

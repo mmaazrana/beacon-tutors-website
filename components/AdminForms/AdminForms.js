@@ -6,6 +6,7 @@ import { ReactComponent as Male1 } from '../../assets/Avatars/Male1.svg';
 import { ReactComponent as Male2 } from '../../assets/Avatars/Male2.svg';
 import { ReactComponent as Male3 } from '../../assets/Avatars/Male3.svg';
 import { ReactComponent as Male4 } from '../../assets/Avatars/Male4.svg';
+import formStyles from '../AdminForms/AdminForms.module.css';
 
 const daysOptions = [...Array(7)].map((x, i) => {
   const days = `${i + 1} ${i == 0 ? 'Day' : 'Days'}/Week`;
@@ -41,35 +42,35 @@ const ratingOptions = [...Array(5)].map((x, i) => {
 const imagesOptions = [
   {
     value: 'm1',
-    label: <Male1 />,
+    label: <Male1 className={formStyles.avatar} />,
   },
   {
     value: 'm2',
-    label: <Male2 />,
+    label: <Male2 className={formStyles.avatar} />,
   },
   {
     value: 'm3',
-    label: <Male3 />,
+    label: <Male3 className={formStyles.avatar} />,
   },
   {
     value: 'm4',
-    label: <Male4 />,
+    label: <Male4 className={formStyles.avatar} />,
   },
   {
     value: 'f1',
-    label: <Female1 />,
+    label: <Female1 className={formStyles.avatar} />,
   },
   {
     value: 'f2',
-    label: <Female2 />,
+    label: <Female2 className={formStyles.avatar} />,
   },
   {
     value: 'f3',
-    label: <Female3 />,
+    label: <Female3 className={formStyles.avatar} />,
   },
   {
     value: 'f4',
-    label: <Female4 />,
+    label: <Female4 className={formStyles.avatar} />,
   },
 ];
 
@@ -132,19 +133,21 @@ const customFormStyles = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(161, 190, 219, 0.75)',
+    backgroundColor: 'rgba(6, 21, 55, 0.4)',
+    backdropFilter: 'blur(2px)',
   },
   content: {
-    top: '12%',
-    // left: '50%',
-    // right: 'auto',
-    // bottom: 'auto',
-    // marginRight: '-50%',
-    // transform: 'translate(-50%, -50%)',
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
     padding: '0',
-    height: 'fit-content',
     borderRadius: '0.75rem',
-    border: '2px solid #a1bedb',
+    border: 'none',
+    width: '92%',
+    maxWidth: '56rem',
   },
 };
 

@@ -93,7 +93,7 @@ export default function AdminAnnouncement(props) {
             />
           </div>
           <form onSubmit={updateHandler}>
-            <div className={formStyles.inputs}>
+            <div className={formStyles.modalContent}>
               <textarea
                 className="adminInput"
                 placeholder="Title"

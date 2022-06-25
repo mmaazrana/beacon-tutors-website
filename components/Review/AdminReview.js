@@ -104,7 +104,7 @@ export default function AdminReview(props) {
             />
           </div>
           <form onSubmit={updateHandler}>
-            <div className={formStyles.inputs}>
+            <div className={formStyles.modalContent}>
               <input
                 className="adminInput"
                 type="text"
