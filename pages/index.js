@@ -232,26 +232,12 @@ export default function Home() {
                 <Testimonials testimonials={testimonialsData}/>
             </SeparatorBox>
 
-            <SeparatorBox text={'Advantages'} >
-                <Announcements announcements={testimonialsData} />
+            <SeparatorBox text={'Announcements'} >
+                <Testimonials testimonials={testimonialsData}/>
+                {/*<Announcements announcements={testimonialsData} />*/}
             </SeparatorBox>
 
-            <LinkButton
-                primary={true}
-                link={'/onlinetutoring'}
-                text={'OnlineTutoring tutoring'}
-            />
-            <LinkButton
-                primary={true}
-                link={'/hometutoring'}
-                text={'Home Tutoring'}
-            />
-            <LinkButton
-                primary={true}
-                link={'/assignments'}
-                text={'Writing Service'}
-            />
-            <LinkButton primary={true} link={'/workastutor'} text={'Work As Tutor'}/>
+
         </>
     );
 }
