@@ -1,6 +1,8 @@
 import React from 'react';
+import Layout from "../../components/Layouts/Layout";
+import Home from "../index";
 
-export default function TermsAndConditions(props) {
+export default function TermsAndConditions() {
     return (<div className = {"wrapper"}>
         <h1>Terms and Conditions</h1>
         <br/>
@@ -1054,3 +1056,7 @@ export default function TermsAndConditions(props) {
         </div>
     </div>);
 }
+
+TermsAndConditions.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+};
