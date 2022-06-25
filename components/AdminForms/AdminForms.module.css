@@ -6,6 +6,51 @@
   box-shadow: 0 1px 15px rgba(225, 221, 212, 0.25);
 }
 
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.row [type='radio'] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.image {
+  cursor: pointer;
+  max-height: 100px;
+  min-width: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.row [type='radio']:checked + .image {
+  outline: 4px solid #3d6b98;
+  box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25);
+  transition: all 0.1s;
+}
+
+.check {
+  opacity: 0;
+}
+
+.row [type='radio']:checked + .image .check {
+  position: absolute;
+  opacity: 1;
+  border-radius: 50%;
+  background-color: #3d6b98;
+  padding: 0.4rem;
+  stroke-width: 3;
+  color: #ffffff;
+  margin-top: 4rem;
+  margin-left: -2rem;
+  box-shadow: -3px 2px 20px rgba(6, 21, 55, 0.25);
+  transition: opacity box-shadow 0.1s;
+}
+
 .inputsRow {
   display: flex;
   justify-content: space-between;
@@ -23,6 +68,31 @@
 
 .last {
   margin-left: 1rem;
+}
+
+.modalHead {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3d6b98;
+}
+
+.modalHead h4 {
+  margin: 0.75rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.modalContent {
+  margin: 1rem 2.5rem 1.25rem 2.5rem;
+}
+
+.close {
+  margin-right: 0.75rem;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -47,5 +117,9 @@
 
   .last {
     margin-left: 0;
+  }
+
+  .modalContent {
+    margin: 1rem 1.5rem 1.25rem 1.5rem;
   }
 }

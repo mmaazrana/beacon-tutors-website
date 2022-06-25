@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import styles from './Announcements.module.css';
-import Announcement from '../Announcement/Announcement';
+// import styles from './Announcements.module.css';
+// import Announcement from '../Announcement/AdminAnnouncement';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 
@@ -84,11 +84,12 @@ export default function WritingAnnouncements(props) {
 
   return (
     <div
-      className={styles.announcements}
+      className="adminSection"
       id="scrollableDiv"
       style={{ height: 250, overflow: 'auto' }}
     >
-      <InfiniteScroll
+      Writing Announcements
+      {/* <InfiniteScroll
         dataLength={announcements.length}
         next={fetchMoreData}
         hasMore={true}
@@ -101,8 +102,7 @@ export default function WritingAnnouncements(props) {
             <Announcement key={index} announcement={announcement} />
           ))}
         </Slider>
-      </InfiniteScroll>
-
+      </InfiniteScroll> */}
       {/* <InfiniteScroll
         className={styles.list}
         dataLength={announcements.length}

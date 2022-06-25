@@ -1,4 +1,4 @@
-.testimonial {
+.review {
   display: flex;
   background-color: white;
   margin: 0.5rem 2rem;
@@ -13,25 +13,21 @@
   margin: 0;
 }
 
-.filled{
+.filled {
   stroke-width: 0;
-  fill: #FFCE51;
+  fill: #ffce51;
 }
 
-.empty{
+.empty {
   stroke-width: 0;
-  fill: #E3E3E3;
-}
-
-.rating {
-
+  fill: #e3e3e3;
 }
 
 .description {
   font-size: 20px;
   line-height: 28px;
   font-weight: 400;
-  color: #A0A0A1;
+  color: #a0a0a1;
   padding: 0;
   margin: 5px 0 0 0;
   display: -webkit-box;
@@ -41,15 +37,14 @@
   overflow: hidden;
 }
 
-.description span{
+.description span {
   font-size: 40px !important;
-  font-weight: 600 ;
-  line-height: 40px ;
-  color: #3A3A3B;
+  font-weight: 600;
+  line-height: 40px;
+  color: #3a3a3b;
 }
 
-
-.image{
+.image {
   max-height: 100px;
   min-width: 100px;
   width: 100px;
@@ -57,7 +52,7 @@
   background-color: red;
 }
 
-.content{
+.content {
   text-align: left;
   margin-left: 25px;
 }

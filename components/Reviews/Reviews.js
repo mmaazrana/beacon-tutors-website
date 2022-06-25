@@ -1,10 +1,10 @@
-import styles from './Testimonials.module.css';
-import Testimonial from '../Testimonial/Testimonial';
+import styles from './Reviews.module.css';
+import Review from '../Review/Review';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-export default function Testimonials(props) {
+export default function Reviews(props) {
   const settings = {
     dots: false,
     infinite: true,
@@ -24,14 +24,15 @@ export default function Testimonials(props) {
   };
 
   return (
-      <Slider {...settings} className={styles.testimonials}>
+      <Slider {...settings} className={styles.reviews}>
 
-      {props.testimonials.map((testimonial, index) => (
-        <Testimonial
-          image={testimonial.image}
-          username={testimonial.username}
-          rating={testimonial.rating}
-          description={testimonial.description}
+      {props.data.map((review, index) => (
+        <Review
+          key={index}
+          image={review.image}
+          username={review.username}
+          rating={review.rating}
+          description={review.description}
         />
       ))}
       </Slider>

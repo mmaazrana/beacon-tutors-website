@@ -1,0 +1,100 @@
+.inquiry {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 0.6rem;
+  margin: 0.75rem 0;
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0 4px 20px rgba(93, 143, 193, 0.25);
+  cursor: pointer;
+}
+
+.row,
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.infoRow {
+  align-items: center;
+}
+
+.row > *,
+.infoRow > * {
+  margin: 0;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #3a3a3b;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  color: #4fc3b1;
+  font-size: 0.7rem;
+}
+
+.icon p {
+  margin: 0;
+  margin-top: 2px;
+}
+
+.icon > * {
+  stroke-width: 4;
+  margin-right: 0.125rem;
+}
+
+.timeAgo {
+  font-size: 0.75rem;
+  color: #a0a0a1;
+  margin: 0;
+}
+
+.label {
+  color: #3a3a3b;
+  font-weight: 600;
+  width: 15rem;
+  margin: 0.5rem 0;
+}
+
+.values {
+  display: flex;
+  width: 100%;
+}
+
+.value {
+  background-color: #e7eef6;
+  color: rgba(62, 108, 152, 0.75);
+  border-radius: 0.5rem;
+  width: 100%;
+  margin: 0.4rem 0;
+}
+
+.value p {
+  margin: 0.4rem 0;
+  padding: 0 0.7rem;
+}
+
+.values .value:not(:last-child) {
+  margin-right: 0.6rem;
+}
+
+@media screen and (max-width: 600px) {
+  .infoRow {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .label {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .values {
+    flex-direction: column;
+  }
+}

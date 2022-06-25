@@ -25,8 +25,7 @@ export default function NewAnnouncement(props) {
   return (
     <div>
       <h1 className="adminHeading">
-        Create a new
-        <br />
+        Create a new <br />
         Announcement
       </h1>
       <div>
