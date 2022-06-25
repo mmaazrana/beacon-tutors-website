@@ -2,22 +2,18 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import styles from './AdminReview.module.css';
 import { Edit, Trash, Check, X, Star } from 'lucide-react';
-import Modal from 'react-modal';
+import Modal from '../Modal/Modal';
 import Select from 'react-select';
 import {
   ratingOptions,
   images,
   customSelectStyles,
-  customFormStyles,
 } from '../AdminForms/AdminForms';
 import formStyles from '../AdminForms/AdminForms.module.css';
 
-Modal.setAppElement('#__next');
-
 export default function AdminReview(props) {
-  // let subtitle;
   const { pathname } = useRouter();
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [image, setImage] = useState(props.review.image);
   const [username, setUsername] = useState(props.review.username);
   const [description, setDescription] = useState(props.review.description);
@@ -25,11 +21,6 @@ export default function AdminReview(props) {
 
   const openEditModal = () => {
     setIsOpen(true);
-  };
-
-  const afterOpenModal = () => {
-    // references are now sync'd and can be accessed.
-    // subtitle.style.color = '#f00';
   };
 
   const closeModal = () => {
@@ -41,11 +32,11 @@ export default function AdminReview(props) {
     setIsOpen(false);
   };
 
-  const deleteHandler = async (e) => {};
+  const deleteHandler = () => {};
 
-  const approveHandler = async (e) => {};
+  const approveHandler = () => {};
 
-  const discardHandler = async (e) => {};
+  const discardHandler = () => {};
 
   return (
     <>
@@ -83,63 +74,41 @@ export default function AdminReview(props) {
         </div>
       </div>
 
-      <Modal
-        closeTimeoutMS={1000}
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customFormStyles}
-        contentLabel="Edit Review"
-      >
-        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button> */}
-        <div>
-          <div className={formStyles.modalHead}>
-            <h4>Edit Review</h4>
-            <X
-              className={formStyles.close}
-              onClick={closeModal}
-              color="#ffffff"
-              size={'20'}
+      <Modal title="Edit Review" isOpen={isOpen} closeModal={closeModal}>
+        <form onSubmit={updateHandler}>
+          <input
+            className="adminInput"
+            type="text"
+            name="username"
+            placeholder="Name"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+
+          <textarea
+            className="adminInput"
+            placeholder="Description"
+            name="description"
+            rows="4"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          ></textarea>
+
+          <div className={formStyles.inputsRow}>
+            <Select
+              className="adminInput"
+              onChange={setRating}
+              options={ratingOptions}
+              styles={customSelectStyles}
+              defaultValue={{ value: rating, label: rating }}
+              placeholder="Rating"
             />
           </div>
-          <form onSubmit={updateHandler}>
-            <div className={formStyles.modalContent}>
-              <input
-                className="adminInput"
-                type="text"
-                name="username"
-                placeholder="Name"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
 
-              <textarea
-                className="adminInput"
-                placeholder="Description"
-                name="description"
-                rows="4"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              ></textarea>
-
-              <div className={formStyles.inputsRow}>
-                <Select
-                  className="adminInput"
-                  onChange={setRating}
-                  options={ratingOptions}
-                  styles={customSelectStyles}
-                  defaultValue={{ value: rating, label: rating }}
-                  placeholder="Rating"
-                />
-              </div>
-
-              <button type="submit" className="adminButton">
-                Update Review
-              </button>
-            </div>
-          </form>
-        </div>
+          <button type="submit" className="adminButton">
+            Update Review
+          </button>
+        </form>
       </Modal>
     </>
   );
