@@ -27,9 +27,6 @@
   margin-bottom: 1rem;
 }
 
-.avatar {
-}
-
 .row [type='radio']:checked + .image {
   outline: 4px solid #3d6b98;
   box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25);
@@ -73,6 +70,20 @@
   margin-left: 1rem;
 }
 
+@media only screen and (max-width: 1200px) {
+  .image {
+    min-width: 5rem;
+    max-height: 5rem;
+    width: 5rem;
+  }
+
+  .row [type='radio']:checked + .image .check {
+    margin-top: 3.25rem;
+    margin-left: -1.85rem;
+    padding: 0.4rem;
+  }
+}
+
 @media only screen and (max-width: 1024px) {
   .inputs {
     margin: 1.5rem;
@@ -88,6 +99,15 @@
   .image {
     flex-basis: 25%;
     box-sizing: border-box;
+    min-width: 6.25rem;
+    max-height: 6.25rem;
+    width: 6.25rem;
+  }
+
+  .row [type='radio']:checked + .image .check {
+    padding: 0.4rem;
+    margin-top: 4rem;
+    margin-left: -2rem;
   }
 }
 
@@ -107,5 +127,23 @@
 
   .last {
     margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .image {
+    min-width: 4rem;
+    max-height: 4rem;
+    width: 4rem;
+  }
+
+  .row {
+    min-width: 18rem;
+  }
+
+  .row [type='radio']:checked + .image .check {
+    margin-top: 2.25rem;
+    margin-left: -1.85rem;
+    padding: 0.2rem;
   }
 }
