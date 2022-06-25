@@ -7,6 +7,7 @@ import Select from 'react-select';
 import {
   ratingOptions,
   images,
+  imagesOptions,
   customSelectStyles,
 } from '../AdminForms/AdminForms';
 import formStyles from '../AdminForms/AdminForms.module.css';
@@ -45,17 +46,37 @@ export default function AdminReview(props) {
         <div className={styles.content}>
           <div className={styles.row}>
             <p className={styles.username}>{props.review.username}</p>
-            <div className={styles.icons}>
+            <div className="icons">
               {pathname === '/admin/managereviews' && (
                 <>
-                  <Edit color="#42DF29" size={18} onClick={openEditModal} />
-                  <Trash color="#CC1919" size={18} onClick={deleteHandler} />
+                  <Edit
+                    color="#4FC3B1"
+                    size={18}
+                    onClick={openEditModal}
+                    className="editIcon"
+                  />
+                  <Trash
+                    color="#FF6F66"
+                    size={18}
+                    onClick={deleteHandler}
+                    className="trashIcon"
+                  />
                 </>
               )}
               {pathname === '/admin/approvereviews' && (
                 <>
-                  <Check color="#42DF29" size={18} onClick={approveHandler} />
-                  <X color="#CC1919" size={18} onClick={discardHandler} />
+                  <Check
+                    color="#4FC3B1"
+                    size={18}
+                    onClick={approveHandler}
+                    className="editIcon"
+                  />
+                  <X
+                    color="#FF6F66"
+                    size={18}
+                    onClick={discardHandler}
+                    className="trashIcon"
+                  />
                 </>
               )}
             </div>
@@ -76,6 +97,25 @@ export default function AdminReview(props) {
 
       <Modal title="Edit Review" isOpen={isOpen} closeModal={closeModal}>
         <form onSubmit={updateHandler}>
+          <div className={formStyles.row}>
+            {imagesOptions.map((image, index) => (
+              <label key={index}>
+                <input
+                  type="radio"
+                  name="image"
+                  value={image.value}
+                  key={index}
+                  // defaultChecked={image.value === image ? true : false}
+                  onChange={(e) => setImage(e.target.value)}
+                />
+                <div className={formStyles.image}>
+                  {image.label}
+                  <Check className={formStyles.check} />
+                </div>
+              </label>
+            ))}
+          </div>
+
           <input
             className="adminInput"
             type="text"

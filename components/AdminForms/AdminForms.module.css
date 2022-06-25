@@ -9,7 +9,6 @@
 .row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
 }
 
 .row [type='radio'] {
@@ -21,10 +20,14 @@
 
 .image {
   cursor: pointer;
-  max-height: 100px;
-  min-width: 100px;
-  width: 100px;
+  max-height: 6.25rem;
+  min-width: 6.25rem;
+  width: 6.25rem;
   border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.avatar {
 }
 
 .row [type='radio']:checked + .image {
@@ -73,6 +76,18 @@
 @media only screen and (max-width: 1024px) {
   .inputs {
     margin: 1.5rem;
+  }
+
+  .row {
+    flex-wrap: wrap;
+    width: 50%;
+    min-width: 30rem;
+    margin: 0 auto;
+  }
+
+  .image {
+    flex-basis: 25%;
+    box-sizing: border-box;
   }
 }
 

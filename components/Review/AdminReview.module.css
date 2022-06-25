@@ -24,16 +24,6 @@
   color: #3a3a3b;
 }
 
-.icons {
-  display: flex;
-  margin-top: 0.25rem;
-}
-
-.icons > * {
-  margin: 0 0.125rem;
-  cursor: pointer;
-}
-
 .filled {
   stroke-width: 0;
   fill: #ffce51;
