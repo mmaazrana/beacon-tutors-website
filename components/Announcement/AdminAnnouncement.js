@@ -39,6 +39,15 @@ export default function AdminAnnouncement(props) {
         <div className={styles.row}>
           <p className={styles.title}>{props.announcement.title}</p>
           <div className="icons">
+            <p
+              className={
+                props.announcement.page === 'Home'
+                  ? styles.homeTag
+                  : styles.onlineTag
+              }
+            >
+              {props.announcement.page}
+            </p>
             <Edit
               color="#4FC3B1"
               size={18}

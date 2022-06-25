@@ -16,8 +16,27 @@
 .title {
   font-weight: 600;
   margin: 0;
-  margin-top: 0.25rem;
   margin-bottom: 1rem;
+}
+
+.homeTag,
+.onlineTag {
+  padding: 0.15rem 0.75rem !important;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 5rem;
+  height: 1.1rem;
+  margin: 0.3rem 0.4rem 0 0;
+}
+
+.homeTag {
+  color: #ff6f66;
+  background-color: #ffebe5;
+}
+
+.onlineTag {
+  color: #4fc3b1;
+  background-color: #e2f8f3;
 }
 
 .options {
@@ -58,5 +77,11 @@
 @media only screen and (max-width: 600px) {
   .options {
     flex-direction: column;
+  }
+
+  .homeTag,
+  .onlineTag {
+    height: 1rem;
+    margin-top: 0.45rem;
   }
 }
