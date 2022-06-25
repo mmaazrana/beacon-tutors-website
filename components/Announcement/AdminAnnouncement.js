@@ -38,9 +38,19 @@ export default function AdminAnnouncement(props) {
       <div className={styles.announcement}>
         <div className={styles.row}>
           <p className={styles.title}>{props.announcement.title}</p>
-          <div className={styles.icons}>
-            <Edit color="#42DF29" size={18} onClick={openEditModal} />
-            <Trash color="#CC1919" size={18} onClick={deleteHandler} />
+          <div className="icons">
+            <Edit
+              color="#4FC3B1"
+              size={18}
+              onClick={openEditModal}
+              className="editIcon"
+            />
+            <Trash
+              color="#FF6F66"
+              size={18}
+              onClick={deleteHandler}
+              className="trashIcon"
+            />
           </div>
         </div>
         <div className={styles.options}>
