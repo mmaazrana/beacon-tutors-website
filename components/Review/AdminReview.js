@@ -7,9 +7,11 @@ import Select from 'react-select';
 import {
   ratingOptions,
   images,
+  imagesOptions,
   customSelectStyles,
 } from '../AdminForms/AdminForms';
 import formStyles from '../AdminForms/AdminForms.module.css';
+import { useEffect } from 'react';
 
 export default function AdminReview(props) {
   const { pathname } = useRouter();
@@ -76,6 +78,25 @@ export default function AdminReview(props) {
 
       <Modal title="Edit Review" isOpen={isOpen} closeModal={closeModal}>
         <form onSubmit={updateHandler}>
+          <div className={formStyles.row}>
+            {imagesOptions.map((image, index) => (
+              <label key={index}>
+                <input
+                  type="radio"
+                  name="image"
+                  value={image.value}
+                  key={index}
+                  // defaultChecked={image.value === image ? true : false}
+                  onChange={(e) => setImage(e.target.value)}
+                />
+                <div className={formStyles.image}>
+                  {image.label}
+                  <Check className={formStyles.check} />
+                </div>
+              </label>
+            ))}
+          </div>
+
           <input
             className="adminInput"
             type="text"
