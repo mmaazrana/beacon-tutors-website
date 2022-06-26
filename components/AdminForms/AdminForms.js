@@ -6,7 +6,6 @@ import { ReactComponent as Male1 } from '../../assets/Avatars/Male1.svg';
 import { ReactComponent as Male2 } from '../../assets/Avatars/Male2.svg';
 import { ReactComponent as Male3 } from '../../assets/Avatars/Male3.svg';
 import { ReactComponent as Male4 } from '../../assets/Avatars/Male4.svg';
-import formStyles from '../AdminForms/AdminForms.module.css';
 
 const daysOptions = [...Array(7)].map((x, i) => {
   const days = `${i + 1} ${i == 0 ? 'Day' : 'Days'}/Week`;
@@ -42,35 +41,35 @@ const ratingOptions = [...Array(5)].map((x, i) => {
 const imagesOptions = [
   {
     value: 'm1',
-    label: <Male1 className={formStyles.avatar} />,
+    label: <Male1 />,
   },
   {
     value: 'm2',
-    label: <Male2 className={formStyles.avatar} />,
+    label: <Male2 />,
   },
   {
     value: 'm3',
-    label: <Male3 className={formStyles.avatar} />,
+    label: <Male3 />,
   },
   {
     value: 'm4',
-    label: <Male4 className={formStyles.avatar} />,
+    label: <Male4 />,
   },
   {
     value: 'f1',
-    label: <Female1 className={formStyles.avatar} />,
+    label: <Female1 />,
   },
   {
     value: 'f2',
-    label: <Female2 className={formStyles.avatar} />,
+    label: <Female2 />,
   },
   {
     value: 'f3',
-    label: <Female3 className={formStyles.avatar} />,
+    label: <Female3 />,
   },
   {
     value: 'f4',
-    label: <Female4 className={formStyles.avatar} />,
+    label: <Female4 />,
   },
 ];
 
