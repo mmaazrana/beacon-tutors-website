@@ -1,4 +1,5 @@
 import Nav from '../Nav/Nav';
+import Footer from '../Footer/Footer';
 import { ReactComponent as Pattern } from '../../assets/background pattern.svg';
 
 export default function Layout({ children }) {
@@ -9,6 +10,7 @@ export default function Layout({ children }) {
       </div>
       <Nav className="nav" />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }
