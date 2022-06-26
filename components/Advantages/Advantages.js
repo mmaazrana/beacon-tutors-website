@@ -10,6 +10,7 @@ export default function Advantages(props) {
     dots: true,
     infinite: true,
     speed: 500,
+    arrows: false,
     autoplay: true,
     autoplaySpeed: 2000,
     slidesToShow: 1,
@@ -19,6 +20,9 @@ export default function Advantages(props) {
     pauseOnHover: true,
     swipeToSlide: true,
     focusOnSelect: true,
+    useTransform: true,
+    useCss: true,
+    cssEase: 'ease-in-out',
     centerMode: true,
   };
 

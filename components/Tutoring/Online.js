@@ -15,6 +15,17 @@ import { ReactComponent as TeachersOfYourChoice } from '../../assets/Advantages/
 import { ReactComponent as FreeTrialClasses } from '../../assets/Advantages/Home/FreeTrialClasses.svg';
 import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import Advantages from '../../components/Advantages/Advantages';
+import SeparatorBox from "../Separator/SeparatorBox";
+import Announcements from "../Announcements/Announcements";
+import Reviews from "../Reviews/Reviews";
+import {ReactComponent as Female1} from "../../assets/Avatars/Female1.svg";
+import {ReactComponent as Female2} from "../../assets/Avatars/Female2.svg";
+import {ReactComponent as Female3} from "../../assets/Avatars/Female3.svg";
+import {ReactComponent as Female4} from "../../assets/Avatars/Female4.svg";
+import {ReactComponent as Male1} from "../../assets/Avatars/Male1.svg";
+import {ReactComponent as Male2} from "../../assets/Avatars/Male2.svg";
+import {ReactComponent as Male3} from "../../assets/Avatars/Male3.svg";
+import {ReactComponent as Male4} from "../../assets/Avatars/Male4.svg";
 
 export default function Online(props) {
   const howItWorksData = [
@@ -89,6 +100,84 @@ export default function Online(props) {
     },
   ];
 
+  let reviewsData = [
+    {
+      image: <Female1/>,
+      username: "Christine Stewart",
+      rating: 4,
+      description: "Good experience",
+    },
+    {
+      image: <Female2/>,
+      username: "Taylor Swift",
+      rating: 5,
+      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
+    },
+    {
+      image: <Female3/>,
+      username: "Elizabeth Olsen",
+      rating: 3,
+      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
+    },
+    {
+      image: <Female4/>,
+      username: "Natasha Romanoff",
+      rating: 4,
+      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
+    },
+    {
+      image: <Male1/>,
+      username: "Christian Bale",
+      rating: 2,
+      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
+    },
+    {
+      image: <Male2/>,
+      username: "Jason Statham",
+      rating: 4,
+      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
+    },
+    {
+      image: <Male3/>,
+      username: "Dwayne Johnson",
+      rating: 5,
+      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage, I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
+    },
+    {
+      image: <Male4/>,
+      username: "John Wick",
+      rating: 3,
+      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
+    },
+  ]
+  let announcementData = [
+    {
+      title: "Free online "+props.keyword+" job for everyone",
+      days: 5,
+      budget: 10000,
+      time: 10,
+    },
+    {
+      title: "Free online "+props.keyword+" job for everyone",
+      days: 5,
+      budget: 10000,
+      time: 10,
+    },
+    {
+      title: "Free online "+props.keyword+" job for everyone",
+      days: 5,
+      budget: 10000,
+      time: 10,
+    },
+    {
+      title: "Free online "+props.keyword+" job for everyone",
+      days: 5,
+      budget: 10000,
+      time: 10,
+    },
+  ]
+
+
   return (
     <>
       <Main
@@ -104,8 +193,15 @@ export default function Online(props) {
       <Separator text={'Advantages'} />
       <Advantages data={advantagesData} />
 
-      <Separator text={'SeparatorBox'} />
-      <Separator text={'Announcements'} />
+      <SeparatorBox text={'Reviews'} >
+        <Reviews data={reviewsData}/>
+      </SeparatorBox>
+
+      <SeparatorBox text={'Announcements'} >
+        <Announcements data={announcementData} />
+      </SeparatorBox>
+
+
     </>
   );
 }

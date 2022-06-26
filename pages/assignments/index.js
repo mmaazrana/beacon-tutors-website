@@ -30,6 +30,8 @@ import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import Advantages from '../../components/Advantages/Advantages';
 import WritingAnnouncements from '../../components/Announcements/WritingAnnouncements';
 import Layout from '../../components/Layouts/Layout';
+import Service from "../../components/Service/Service";
+import Services from "../../components/Services/Services";
 
 export default function Assignments(props) {
   const howItWorksData = [
@@ -189,8 +191,8 @@ export default function Assignments(props) {
       />
 
       <Separator text={'Services'} />
-      <HowItWorks data={howItWorksData} />
 
+      <Services data={ServicesData} />
 
       <Separator text={'How it works'} />
       <HowItWorks data={howItWorksData} />

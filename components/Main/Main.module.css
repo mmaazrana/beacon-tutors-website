@@ -166,6 +166,11 @@
 }
 
 @media screen and (max-width: 580px) {
+
+    .main {
+        padding-top: 4.5vw;
+    }
+
     .text {
         position: relative;
         max-width: calc(100% - 60px);
@@ -191,6 +196,10 @@
 }
 
 @media screen and (max-width: 320px) {
+
+    .main {
+        padding-top: 3.5vw;
+    }
 
     .text {
         max-width: calc(100% - 30px);

@@ -73,7 +73,7 @@
     left:0;
     right:0;
     bottom:0;
-    z-index: 1000;
+    z-index: 5;
     border-radius: 0 0 15px 15px;
     background: linear-gradient(180deg, #F2F9FE 0%, #F3FAFF 0.01%, rgba(243, 250, 255, 0) 22.74%, rgba(243, 250, 255, 0) 25.87%, rgba(243, 250, 255, 0) 74.31%, rgba(243, 250, 255, 0) 77.95%, #F3FAFF 100%, #F3FAFF 100%);
 }
