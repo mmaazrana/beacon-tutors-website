@@ -29,6 +29,10 @@ export default function AdminReview(props) {
   };
 
   const updateHandler = async (e) => {
+    setImage(props.review.image);
+    setUsername(props.review.username);
+    setDescription(props.review.description);
+    setRating(props.review.rating);
     e.preventDefault();
     setIsOpen(false);
   };
@@ -136,7 +140,7 @@ export default function AdminReview(props) {
           <div className={formStyles.inputsRow}>
             <Select
               className="adminInput"
-              onChange={setRating}
+              onChange={(value) => setRating(value.value)}
               options={ratingOptions}
               styles={customSelectStyles}
               defaultValue={{ value: rating, label: rating }}
