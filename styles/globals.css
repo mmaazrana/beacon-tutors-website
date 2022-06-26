@@ -1,21 +1,21 @@
 html {
-  padding: 0 ;
-  margin: 0 ;
+  padding: 0;
+  margin: 0;
   position: relative;
   height: fit-content;
   font-family: 'Poppins', sans-serif;
 }
 
 body {
-  padding: 0 ;
-  margin: 0 ;
+  padding: 0;
+  margin: 0;
   position: inherit;
   height: inherit;
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
 }
 
-body > *{
+body > * {
   overflow-x: hidden;
 }
 
@@ -222,6 +222,18 @@ a {
   margin: 0.65rem 0;
   border-radius: 0.75rem;
   width: 100%;
+}
+
+.cancelButton {
+  background-color: #FFCCD2;
+  color: #FF4C61;
+  margin-right: 0.3rem;
+}
+
+.deleteButton {
+  background-color: #FFB3BB;
+  color: #FF334B;
+  margin-left: 0.3rem;
 }
 
 .adminButton:hover {

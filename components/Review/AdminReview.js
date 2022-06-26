@@ -4,6 +4,7 @@ import styles from './AdminReview.module.css';
 import { Edit, Trash, Check, X } from 'lucide-react';
 import { Rating } from 'react-simple-star-rating';
 import Modal from '../Modal/Modal';
+import DeleteModal from '../Modal/DeleteModal';
 import Select from 'react-select';
 import {
   ratingOptions,
@@ -16,6 +17,7 @@ import formStyles from '../AdminForms/AdminForms.module.css';
 export default function AdminReview(props) {
   const { pathname } = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
   const [image, setImage] = useState(props.review.image);
   const [username, setUsername] = useState(props.review.username);
   const [description, setDescription] = useState(props.review.description);
@@ -25,8 +27,13 @@ export default function AdminReview(props) {
     setIsOpen(true);
   };
 
+  const openDeleteModal = () => {
+    setConfirmDelete(true);
+  };
+
   const closeModal = () => {
     setIsOpen(false);
+    setConfirmDelete(false);
   };
 
   const updateHandler = async (e) => {
@@ -38,7 +45,10 @@ export default function AdminReview(props) {
     setIsOpen(false);
   };
 
-  const deleteHandler = () => {};
+  const deleteHandler = (e) => {
+    e.preventDefault();
+    setConfirmDelete(false);
+  };
 
   const approveHandler = () => {};
 
@@ -63,7 +73,7 @@ export default function AdminReview(props) {
                   <Trash
                     color="#FF6F66"
                     size={18}
-                    onClick={deleteHandler}
+                    onClick={openDeleteModal}
                     className="trashIcon"
                   />
                 </>
@@ -79,7 +89,7 @@ export default function AdminReview(props) {
                   <X
                     color="#FF6F66"
                     size={18}
-                    onClick={discardHandler}
+                    onClick={deleteHandler}
                     className="trashIcon"
                   />
                 </>
@@ -156,6 +166,13 @@ export default function AdminReview(props) {
           </button>
         </form>
       </Modal>
+
+      <DeleteModal
+        item="Review"
+        isOpen={confirmDelete}
+        closeModal={closeModal}
+        deleteHandler={deleteHandler}
+      />
     </>
   );
 }

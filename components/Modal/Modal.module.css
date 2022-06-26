@@ -24,6 +24,14 @@
   cursor: pointer;
 }
 
+.delete {
+  color: #3a3a3b;
+}
+
+.delete h2 {
+  margin-bottom: 0;
+}
+
 @media only screen and (max-width: 600px) {
   .modalContent {
     margin: 1rem 1.5rem 1.25rem 1.5rem;

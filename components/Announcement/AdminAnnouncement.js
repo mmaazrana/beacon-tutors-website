@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './AdminAnnouncement.module.css';
 import { Calendar, Banknote, Clock, Edit, Trash, X } from 'lucide-react';
 import Modal from '../Modal/Modal';
+import DeleteModal from '../Modal/DeleteModal';
 import Switch from 'react-switch';
 import Select from 'react-select';
 import {
@@ -16,6 +17,7 @@ import formStyles from '../AdminForms/AdminForms.module.css';
 
 export default function AdminAnnouncement(props) {
   const [isOpen, setIsOpen] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
   const [checked, setChecked] = useState(
     props.announcement.page === 'Online' ? true : false
   );
@@ -29,8 +31,13 @@ export default function AdminAnnouncement(props) {
     setIsOpen(true);
   };
 
+  const openDeleteModal = () => {
+    setConfirmDelete(true);
+  };
+
   const closeModal = () => {
     setIsOpen(false);
+    setConfirmDelete(false);
   };
 
   const updateHandler = async (e) => {
@@ -43,11 +50,10 @@ export default function AdminAnnouncement(props) {
     setIsOpen(false);
   };
 
-  useEffect(() => {
-    console.log(days);
-  }, [days]);
-
-  const deleteHandler = () => {};
+  const deleteHandler = (e) => {
+    e.preventDefault();
+    setConfirmDelete(false);
+  };
 
   return (
     <>
@@ -73,7 +79,7 @@ export default function AdminAnnouncement(props) {
             <Trash
               color="#FF6F66"
               size={18}
-              onClick={deleteHandler}
+              onClick={openDeleteModal}
               className="trashIcon"
             />
           </div>
@@ -180,6 +186,13 @@ export default function AdminAnnouncement(props) {
           </button>
         </form>
       </Modal>
+
+      <DeleteModal
+        item="Announcement"
+        isOpen={confirmDelete}
+        closeModal={closeModal}
+        deleteHandler={deleteHandler}
+      />
     </>
   );
 }
