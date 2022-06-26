@@ -22,6 +22,7 @@ export default function Modal(props) {
       bottom: 0,
       backgroundColor: 'rgba(6, 21, 55, 0.4)',
       backdropFilter: 'blur(2px)',
+      zIndex: '100001',
     },
     content: {
       top: '50%',

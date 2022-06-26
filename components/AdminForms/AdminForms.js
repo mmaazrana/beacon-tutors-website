@@ -84,6 +84,29 @@ const images = {
   m4: <Male4 />,
 };
 
+const customToggleOffStyles = {
+  margin: 0,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+  height: '100%',
+  color: '#ffebe5',
+  padding: 0,
+  fontSize: '1rem',
+  paddingRight: 18,
+};
+
+const customToggleOnStyles = {
+  margin: 0,
+  display: 'flex',
+  alignItems: 'center',
+  height: '100%',
+  color: '#e2f8f3',
+  padding: 0,
+  fontSize: '1rem',
+  paddingLeft: 18,
+};
+
 const customSelectStyles = {
   control: (provided, state) => ({
     ...provided,
@@ -132,5 +155,7 @@ export {
   ratingOptions,
   imagesOptions,
   images,
+  customToggleOffStyles,
+  customToggleOnStyles,
   customSelectStyles,
 };

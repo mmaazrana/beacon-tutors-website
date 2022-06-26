@@ -245,6 +245,24 @@ a {
   opacity: 0;
 }
 
+.react-switch {
+  box-shadow: 0 1px 15px rgba(225, 221, 212, 0.25);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* .react-switch-bg {
+  width: 8.125rem !important;
+  height: 3.125rem !important;
+} */
+
+.react-switch-handle {
+  top: 0.25rem !important;
+  left: 0.188rem !important;
+  height: 2.625rem !important;
+  width: 2.625rem !important;
+}
+
 .icons {
   display: flex;
   margin-top: -0.2rem;
@@ -414,6 +432,11 @@ a {
   .icons {
     display: flex;
     margin-top: -0.3rem;
+  }
+
+  .react-switch-handle {
+    top: 0.45rem !important;
+    left: 0.4rem !important;
   }
 
   .slick-dots li {
