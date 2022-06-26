@@ -70,7 +70,7 @@ export default function NewReview(props) {
             <div className={formStyles.inputsRow}>
               <Select
                 className="adminInput"
-                onChange={setRating}
+                onChange={(value) => setRating(value.value)}
                 options={ratingOptions}
                 styles={customSelectStyles}
                 placeholder="Rating"

@@ -34,9 +34,18 @@ export default function AdminAnnouncement(props) {
   };
 
   const updateHandler = async (e) => {
+    setPage(props.announcement.page);
+    setTitle(props.announcement.title);
+    setDays(props.announcement.days);
+    setBudget(props.announcement.budget);
+    setTime(props.announcement.time);
     e.preventDefault();
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    console.log(days);
+  }, [days]);
 
   const deleteHandler = () => {};
 
@@ -119,28 +128,37 @@ export default function AdminAnnouncement(props) {
           <div className={formStyles.inputsRow}>
             <Select
               className={`adminInput ${formStyles.first}`}
-              onChange={setDays}
+              onChange={(value) => setDays(value.value)}
               options={daysOptions}
               styles={customSelectStyles}
-              defaultValue={{ value: days, label: days }}
+              defaultValue={{
+                value: days,
+                label: `${days} ${days == 1 ? 'Day' : 'Days'}/Week`,
+              }}
               placeholder="Days/Week"
             />
 
             <Select
               className="adminInput"
-              onChange={setBudget}
+              onChange={(value) => setBudget(value.value)}
               options={budgetOptions}
               styles={customSelectStyles}
-              defaultValue={{ value: budget, label: budget }}
+              defaultValue={{
+                value: budget,
+                label: `${budget.toLocaleString()} PKR/Month`,
+              }}
               placeholder="Budget/Month"
             />
 
             <Select
               className={`adminInput ${formStyles.last}`}
-              onChange={setTime}
+              onChange={(value) => setTime(value.value)}
               options={timeOptions}
               styles={customSelectStyles}
-              defaultValue={{ value: time, label: time }}
+              defaultValue={{
+                value: time,
+                label: `${time} ${time == 1 ? 'Hour' : 'Hours'}/Day`,
+              }}
               placeholder="Time/Day"
             />
           </div>

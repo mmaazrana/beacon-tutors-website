@@ -15,15 +15,16 @@ export default function NewAnnouncement(props) {
   const [checked, setChecked] = useState(true);
   const [page, setPage] = useState('Online');
   const [title, setTitle] = useState('');
-  const [days, setDays] = useState(null);
-  const [budget, setBudget] = useState(null);
-  const [time, setTime] = useState(null);
+  const [days, setDays] = useState(0);
+  const [budget, setBudget] = useState(0);
+  const [time, setTime] = useState(0);
 
   const postHandler = async (e) => {
+    setPage('Online');
     setTitle('');
-    setDays(null);
-    setBudget(null);
-    setTime(null);
+    setDays(0);
+    setBudget(0);
+    setTime(0);
     e.preventDefault();
   };
 
@@ -68,7 +69,7 @@ export default function NewAnnouncement(props) {
             <div className={formStyles.inputsRow}>
               <Select
                 className={`adminInput ${formStyles.first}`}
-                onChange={setDays}
+                onChange={(value) => setDays(value.value)}
                 options={daysOptions}
                 styles={customSelectStyles}
                 placeholder="Days/Week"
@@ -76,7 +77,7 @@ export default function NewAnnouncement(props) {
 
               <Select
                 className="adminInput"
-                onChange={setBudget}
+                onChange={(value) => setBudget(value.value)}
                 options={budgetOptions}
                 styles={customSelectStyles}
                 placeholder="Budget/Month"
@@ -84,7 +85,7 @@ export default function NewAnnouncement(props) {
 
               <Select
                 className={`adminInput ${formStyles.last}`}
-                onChange={setTime}
+                onChange={(value) => setTime(value.value)}
                 options={timeOptions}
                 styles={customSelectStyles}
                 placeholder="Time/Day"

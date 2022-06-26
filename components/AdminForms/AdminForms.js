@@ -10,7 +10,7 @@ import { ReactComponent as Male4 } from '../../assets/Avatars/Male4.svg';
 const daysOptions = [...Array(7)].map((x, i) => {
   const days = `${i + 1} ${i == 0 ? 'Day' : 'Days'}/Week`;
   return {
-    value: days,
+    value: i + 1,
     label: days,
   };
 });
@@ -18,7 +18,7 @@ const daysOptions = [...Array(7)].map((x, i) => {
 const budgetOptions = [...Array(20)].map((x, i) => {
   const budget = `${((i + 1) * 5000).toLocaleString()} PKR/Month`;
   return {
-    value: budget,
+    value: (i + 1) * 5000,
     label: budget,
   };
 });
@@ -26,7 +26,7 @@ const budgetOptions = [...Array(20)].map((x, i) => {
 const timeOptions = [...Array(24)].map((x, i) => {
   const time = `${i + 1} ${i == 0 ? 'Hour' : 'Hours'}/Day`;
   return {
-    value: time,
+    value: i + 1,
     label: time,
   };
 });
