@@ -35,7 +35,11 @@ export default function Modal(props) {
       borderRadius: '0.75rem',
       border: 'none',
       width: '92%',
-      maxWidth: `${props.title.startsWith('Delete') ? '34rem' : '56rem'}`,
+      maxWidth: `${
+        props.title.startsWith('Delete') || props.title.startsWith('Reject')
+          ? '34rem'
+          : '56rem'
+      }`,
     },
   };
 

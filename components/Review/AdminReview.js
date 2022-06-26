@@ -18,6 +18,7 @@ export default function AdminReview(props) {
   const { pathname } = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
+  const [modalAction, setModalAction] = useState('');
   const [image, setImage] = useState(props.review.image);
   const [username, setUsername] = useState(props.review.username);
   const [description, setDescription] = useState(props.review.description);
@@ -52,8 +53,6 @@ export default function AdminReview(props) {
 
   const approveHandler = () => {};
 
-  const discardHandler = () => {};
-
   return (
     <>
       <div className={styles.review}>
@@ -73,7 +72,10 @@ export default function AdminReview(props) {
                   <Trash
                     color="#FF6F66"
                     size={18}
-                    onClick={openDeleteModal}
+                    onClick={() => {
+                      setModalAction('Delete');
+                      openDeleteModal();
+                    }}
                     className="trashIcon"
                   />
                 </>
@@ -89,7 +91,10 @@ export default function AdminReview(props) {
                   <X
                     color="#FF6F66"
                     size={18}
-                    onClick={deleteHandler}
+                    onClick={() => {
+                      setModalAction('Reject');
+                      openDeleteModal();
+                    }}
                     className="trashIcon"
                   />
                 </>
@@ -168,6 +173,7 @@ export default function AdminReview(props) {
       </Modal>
 
       <DeleteModal
+        action={modalAction}
         item="Review"
         isOpen={confirmDelete}
         closeModal={closeModal}

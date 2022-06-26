@@ -35,7 +35,7 @@ export async function getServerSideProps() {
           contact: '+92 314 814 2090',
           whatsappNumber: '+92 314 814 2090',
           whoAreYou: 'Student/Parent',
-          youWantToHire: ['Online Tutor', 'Home Tutor', 'Content Writer'],
+          youWantToHire: 'Online Tutor',
           comments:
             "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
           isViewed: false,
@@ -48,7 +48,7 @@ export async function getServerSideProps() {
           contact: '+92 314 814 2090',
           whatsappNumber: '+92 314 814 2090',
           whoAreYou: 'Student/Parent',
-          youWantToHire: ['Online Tutor', 'Home Tutor', 'Content Writer'],
+          youWantToHire: 'Online Tutor',
           comments:
             "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
           isViewed: false,
@@ -61,7 +61,7 @@ export async function getServerSideProps() {
           contact: '+92 314 814 2090',
           whatsappNumber: '+92 314 814 2090',
           whoAreYou: 'Student/Parent',
-          youWantToHire: ['Online Tutor', 'Home Tutor', 'Content Writer'],
+          youWantToHire: 'Content Writer',
           comments:
             "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
           isViewed: false,
@@ -74,7 +74,7 @@ export async function getServerSideProps() {
           contact: '+92 314 814 2090',
           whatsappNumber: '+92 314 814 2090',
           whoAreYou: 'Student/Parent',
-          youWantToHire: ['Online Tutor', 'Home Tutor', 'Content Writer'],
+          youWantToHire: 'Online Tutor',
           comments:
             "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
           isViewed: true,
@@ -87,7 +87,7 @@ export async function getServerSideProps() {
           contact: '+92 314 814 2090',
           whatsappNumber: '+92 314 814 2090',
           whoAreYou: 'Student/Parent',
-          youWantToHire: ['Online Tutor', 'Home Tutor', 'Content Writer'],
+          youWantToHire: 'Home Tutor',
           comments:
             "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
           isViewed: true,
@@ -100,7 +100,7 @@ export async function getServerSideProps() {
           contact: '+92 314 814 2090',
           whatsappNumber: '+92 314 814 2090',
           whoAreYou: 'Student/Parent',
-          youWantToHire: ['Online Tutor', 'Home Tutor', 'Content Writer'],
+          youWantToHire: 'Content Writer',
           comments:
             "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
           isViewed: true,

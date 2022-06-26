@@ -88,9 +88,8 @@ export default function AdminAnnouncement(props) {
           <div className={styles.option}>
             <Calendar color="#FF6F66" />
             <p className={styles.optionText}>
-              {`${props.announcement.days}-${
-                props.announcement.days == 1 ? 'Day' : 'Days'
-              }`}
+              {props.announcement.days}-
+              {props.announcement.days == 1 ? 'Day' : 'Days'}
               /Week
             </p>
           </div>
@@ -103,9 +102,8 @@ export default function AdminAnnouncement(props) {
           <div className={styles.option}>
             <Clock color="#3E6C98" />
             <p className={styles.optionText}>
-              {`${props.announcement.time}-${
-                props.announcement.time == 1 ? 'Hour' : 'Hours'
-              }`}
+              {props.announcement.time}-
+              {props.announcement.time == 1 ? 'Hour' : 'Hours'}
               /Day
             </p>
           </div>
@@ -114,7 +112,8 @@ export default function AdminAnnouncement(props) {
 
       <Modal title="Edit Announcement" isOpen={isOpen} closeModal={closeModal}>
         <form onSubmit={updateHandler}>
-          <label>
+          <label className="toggle">
+            <span>Select Page </span>
             <Switch
               checked={checked}
               onChange={(nextChecked) => {
@@ -125,8 +124,8 @@ export default function AdminAnnouncement(props) {
               onColor="#4fc3b1"
               offHandleColor="#ffebe5"
               onHandleColor="#e2f8f3"
-              height={50}
-              width={130}
+              height={42}
+              width={122}
               activeBoxShadow="none"
               uncheckedIcon={<p style={customToggleOffStyles}>Home</p>}
               checkedIcon={<p style={customToggleOnStyles}>Online</p>}
@@ -188,6 +187,7 @@ export default function AdminAnnouncement(props) {
       </Modal>
 
       <DeleteModal
+        action="Delete"
         item="Announcement"
         isOpen={confirmDelete}
         closeModal={closeModal}

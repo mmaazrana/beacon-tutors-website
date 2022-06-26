@@ -37,7 +37,8 @@ export default function NewAnnouncement(props) {
       <div>
         <form onSubmit={postHandler}>
           <div className={formStyles.inputs}>
-            <label>
+            <label className="toggle">
+              <span>Select Page </span>
               <Switch
                 checked={checked}
                 onChange={(nextChecked) => {
@@ -48,8 +49,8 @@ export default function NewAnnouncement(props) {
                 onColor="#4fc3b1"
                 offHandleColor="#ffebe5"
                 onHandleColor="#e2f8f3"
-                height={50}
-                width={130}
+                height={42}
+                width={122}
                 activeBoxShadow="none"
                 uncheckedIcon={<p style={customToggleOffStyles}>Home</p>}
                 checkedIcon={<p style={customToggleOnStyles}>Online</p>}
