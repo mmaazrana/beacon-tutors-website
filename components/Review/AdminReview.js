@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import styles from './AdminReview.module.css';
-import { Edit, Trash, Check, X, Star } from 'lucide-react';
+import { Edit, Trash, Check, X } from 'lucide-react';
+import { Rating } from 'react-simple-star-rating';
 import Modal from '../Modal/Modal';
 import Select from 'react-select';
 import {
@@ -85,13 +86,15 @@ export default function AdminReview(props) {
               )}
             </div>
           </div>
-          {[...Array(5)].map((x, i) => (
-            <Star
-              key={i}
-              size={16}
-              className={i < props.review.rating ? styles.filled : styles.empty}
-            />
-          ))}
+          <Rating
+            className={styles.rating}
+            initialValue={props.review.rating}
+            allowHalfIcon={true}
+            size={16}
+            fillColor="#ffce51"
+            emptyColor="#e3e3e3"
+            readonly={true}
+          />
           <p className={styles.description}>
             <span>“</span>
             {props.review.description}

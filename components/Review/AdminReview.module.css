@@ -24,14 +24,8 @@
   color: #3a3a3b;
 }
 
-.filled {
-  stroke-width: 0;
-  fill: #ffce51;
-}
-
-.empty {
-  stroke-width: 0;
-  fill: #e3e3e3;
+.rating {
+  margin-top: -0.35rem;
 }
 
 .description {

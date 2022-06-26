@@ -71,14 +71,14 @@ export default function Reviews(props) {
             </button>
         </div>
 
-        <Modal title = "Edit Review" isOpen = {isOpen} closeModal = {closeModal}>
+        <Modal title = "Add Review" isOpen = {isOpen} closeModal = {closeModal}>
             <form onSubmit = {updateHandler}>
                 <div className = {formStyles.row}>
                     {imagesOptions.map((image, index) => (<label key = {index}> <input
                         type = "radio"
                         name = "image"
                         value = {image.value}
-                        key = {index}// defaultChecked={image.value === image ? true : false}
+                        key = {index}
                         onChange = {(e) => setImage(e.target.value)}
                     />
                         <div className = {formStyles.image}>
@@ -108,7 +108,7 @@ export default function Reviews(props) {
                 <div className = {formStyles.inputsRow}>
                     <Select
                         className = "adminInput"
-                        onChange = {setRating}
+                        onChange = {(value)=>setRating(value.value)}
                         options = {ratingOptions}
                         styles = {customSelectStyles}
                         defaultValue = {{value: rating, label: rating}}
@@ -117,7 +117,7 @@ export default function Reviews(props) {
                 </div>
 
                 <button type = "submit" className = "adminButton">
-                    Update Review
+                    Add Review
                 </button>
             </form>
         </Modal>

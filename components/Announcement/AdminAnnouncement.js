@@ -81,15 +81,27 @@ export default function AdminAnnouncement(props) {
         <div className={styles.options}>
           <div className={styles.option}>
             <Calendar color="#FF6F66" />
-            <p className={styles.optionText}>{props.announcement.days}</p>
+            <p className={styles.optionText}>
+              {`${props.announcement.days}-${
+                props.announcement.days == 1 ? 'Day' : 'Days'
+              }`}
+              /Week
+            </p>
           </div>
           <div className={styles.option}>
             <Banknote color="#4FC3B1" />
-            <p className={styles.optionText}>{props.announcement.budget}</p>
+            <p className={styles.optionText}>
+              {props.announcement.budget.toLocaleString()}-PKR/Month
+            </p>
           </div>
           <div className={styles.option}>
             <Clock color="#3E6C98" />
-            <p className={styles.optionText}>{props.announcement.time}</p>
+            <p className={styles.optionText}>
+              {`${props.announcement.time}-${
+                props.announcement.time == 1 ? 'Hour' : 'Hours'
+              }`}
+              /Day
+            </p>
           </div>
         </div>
       </div>
@@ -133,7 +145,7 @@ export default function AdminAnnouncement(props) {
               styles={customSelectStyles}
               defaultValue={{
                 value: days,
-                label: `${days} ${days == 1 ? 'Day' : 'Days'}/Week`,
+                label: `${days}-${days == 1 ? 'Day' : 'Days'}/Week`,
               }}
               placeholder="Days/Week"
             />
@@ -145,7 +157,7 @@ export default function AdminAnnouncement(props) {
               styles={customSelectStyles}
               defaultValue={{
                 value: budget,
-                label: `${budget.toLocaleString()} PKR/Month`,
+                label: `${budget.toLocaleString()}-PKR/Month`,
               }}
               placeholder="Budget/Month"
             />
@@ -157,7 +169,7 @@ export default function AdminAnnouncement(props) {
               styles={customSelectStyles}
               defaultValue={{
                 value: time,
-                label: `${time} ${time == 1 ? 'Hour' : 'Hours'}/Day`,
+                label: `${time}-${time == 1 ? 'Hour' : 'Hours'}/Day`,
               }}
               placeholder="Time/Day"
             />

@@ -33,7 +33,7 @@ export async function getServerSideProps() {
         {
           image: 'f1',
           username: 'Fatima Mujahid',
-          rating: 4,
+          rating: 2.5,
           description:
             "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and managte.",
         },

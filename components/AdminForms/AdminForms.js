@@ -8,7 +8,7 @@ import { ReactComponent as Male3 } from '../../assets/Avatars/Male3.svg';
 import { ReactComponent as Male4 } from '../../assets/Avatars/Male4.svg';
 
 const daysOptions = [...Array(7)].map((x, i) => {
-  const days = `${i + 1} ${i == 0 ? 'Day' : 'Days'}/Week`;
+  const days = `${i + 1}-${i == 0 ? 'Day' : 'Days'}/Week`;
   return {
     value: i + 1,
     label: days,
@@ -16,7 +16,7 @@ const daysOptions = [...Array(7)].map((x, i) => {
 });
 
 const budgetOptions = [...Array(20)].map((x, i) => {
-  const budget = `${((i + 1) * 5000).toLocaleString()} PKR/Month`;
+  const budget = `${((i + 1) * 5000).toLocaleString()}-PKR/Month`;
   return {
     value: (i + 1) * 5000,
     label: budget,
@@ -24,17 +24,18 @@ const budgetOptions = [...Array(20)].map((x, i) => {
 });
 
 const timeOptions = [...Array(24)].map((x, i) => {
-  const time = `${i + 1} ${i == 0 ? 'Hour' : 'Hours'}/Day`;
+  const time = `${i + 1}-${i == 0 ? 'Hour' : 'Hours'}/Day`;
   return {
     value: i + 1,
     label: time,
   };
 });
 
-const ratingOptions = [...Array(5)].map((x, i) => {
+const ratings = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
+const ratingOptions = ratings.map((x, i) => {
   return {
-    value: i + 1,
-    label: i + 1,
+    value: x,
+    label: x,
   };
 });
 
