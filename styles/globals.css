@@ -1,20 +1,22 @@
 html {
-  padding: 0;
-  margin: 0;
+  padding: 0 ;
+  margin: 0 ;
   position: relative;
   height: fit-content;
-  min-height: 100%;
   font-family: 'Poppins', sans-serif;
 }
 
 body {
-  overflow-x: hidden;
-  padding: 0;
-  margin: 0;
+  padding: 0 ;
+  margin: 0 ;
   position: inherit;
   height: inherit;
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
+}
+
+body > *{
+  overflow-x: hidden;
 }
 
 a {
@@ -62,7 +64,6 @@ a {
 }
 
 .nav {
-  background-color: blue;
   z-index: 10000;
 }
 

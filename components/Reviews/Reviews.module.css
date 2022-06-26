@@ -2,4 +2,50 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-grow: 0;
+}
+
+.button{
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FF6F66;
+  color: #F3FAFF;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 5px 15px ;
+  margin: 0 0 -18px 0;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(93, 143, 193, 0.25);
+  transition: 0.3s;
+}
+
+.icon{
+  color: white;
+  height: 18px;
+  width: 18px;
+  stroke-width: 4px;
+}
+
+.wrapper{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  bottom: 0;
+}
+
+.button:hover{
+  transform: scale(1.02);
+  box-shadow: 0 4px 30px rgba(93, 143, 193, 0.4);
+  background-color: #f26b61;
+}
+
+.button:active{
+  transform: scale(1.03);
+  box-shadow: 0 4px 40px rgba(93, 143, 193, 0.5);
+  background-color: #e6655c;
 }

@@ -10,6 +10,10 @@
     transition: 0.2s;
 }
 
+.secondary{
+    width: 750px;
+}
+
 .main:hover {
     box-shadow: 0 8px 40px rgba(93, 143, 193, 0.4);
     transform: scale(1.02);
@@ -32,21 +36,23 @@
 .heading {
     font-size: 28px;
     margin: 0;
-    padding: 0;
+    padding: 0 25px 0 0;
     color: #3A3A3B;
     font-weight: bold;
-    max-width: 275px;
 }
 
 .description {
+    text-align: justify;
+    text-justify: inter-character;
     margin: 0 0 10px 0;
-    padding: 0;
+    padding: 0 25px 0 0;
     font-size: 18px;
     color: #A0A0A1;
-    max-width: 275px;
 }
 
 .image {
+    min-width: 250px;
+    min-height: 250px;
     width: 250px;
     height: 250px;
     border: 1px solid #A1BEDB;
@@ -58,33 +64,43 @@
 
 .image > * {
     margin: 25px;
+    min-width: 200px;
+    min-height: 200px;
     max-width: 200px;
     max-height: 200px;
 }
 
+
+
 @media screen and (max-width: 1440px ) {
     .main {
-        width: fit-content;
+        width: 500px;
         margin: 0 12px;
+    }
+
+    .secondary{
+        width: 550px;
     }
 
     .heading {
         font-size: 22px;
-        max-width: 207px;
     }
 
     .description {
         font-size: 14px;
-        max-width: 207px;
     }
 
     .image {
+        min-width: 200px;
+        min-height: 200px;
         max-width: 200px;
         max-height: 200px;
     }
 
     .image > * {
         margin: 25px;
+        min-width: 150px;
+        min-height: 150px;
         max-width: 150px;
         max-height: 150px;
     }
@@ -98,18 +114,25 @@
         align-items: center;
     }
 
+    .secondary{
+        height: 450px;
+        justify-content: flex-start;
+    }
+
+
     .heading {
         font-size: 20px;
-        max-width: 170px;
     }
 
     .description {
         font-size: 12px;
-        max-width: 170px;
+        padding: 0;
     }
 
     .image {
         margin: 25px 25px 10px 25px ;
+        min-width: 175px;
+        min-height: 125px;
         max-width: 175px;
         max-height: 125px;
     }
@@ -121,6 +144,8 @@
 
     .image > * {
         margin: 15px;
+        min-width: 150px;
+        min-height: 100px;
         max-width: 150px;
         max-height: 100px;
     }
@@ -159,8 +184,10 @@
 
     .image {
         margin: 5.882vw 5.882vw 2.353vw 5.882vw ;
-        width: 41.176vw;
-        height: 41.176vw;
+        min-width: 41.176vw;
+        min-height: 29.411vw;
+        max-width: 41.176vw;
+        max-height: 29.411vw;
         border: 0.235vw solid #A1BEDB;
         border-radius: 2.353vw;
     }
@@ -172,7 +199,9 @@
 
     .image > * {
         margin: 3.529vw;
-        width: 35.294vw;
-        height: 23.529vw;
+        min-width: 35.294vw;
+        min-height: 23.529vw;
+        max-width: 35.294vw;
+        max-height: 23.529vw;
     }
 }

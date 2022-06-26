@@ -4,10 +4,9 @@ import LinkButton from '../Buttons/LinkButton';
 import styles from './Service.module.css';
 export default function Service(props) {
   const { pathname } = useRouter();
-
   return (
     <>
-      <div className={styles.main}>
+      <div className={`${styles.main} ${pathname === '/assignments' && styles.secondary} `}>
         <div className={styles.image}>{props.image}</div>
         <div className={styles.text}>
           <h4 className={styles.heading}>{props.heading}</h4>

@@ -30,10 +30,10 @@ import {ReactComponent as Male2} from '../assets/Avatars/Male2.svg';
 import {ReactComponent as Male3} from '../assets/Avatars/Male3.svg';
 import {ReactComponent as Male4} from '../assets/Avatars/Male4.svg';
 import HowItWorks from '../components/HowItWorks/HowItWorks';
-import Slider from 'react-slick';
 import Advantages from '../components/Advantages/Advantages';
 import Reviews from '../components/Reviews/Reviews';
 import Layout from '../components/Layouts/Layout';
+import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import SeparatorBox from "../components/Separator/SeparatorBox";
@@ -163,38 +163,13 @@ export default function Home() {
             description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
         },
     ]
-    let announcementData = [
-        {
-            title: "Free job for everyone",
-            days: 5,
-            budget: 10000,
-            time: 10,
-        },
-        {
-            title: "Free job for everyone",
-            days: 5,
-            budget: 10000,
-            time: 10,
-        },
-        {
-            title: "Free job for everyone",
-            days: 5,
-            budget: 10000,
-            time: 10,
-        },
-        {
-            title: "Free job for everyone",
-            days: 5,
-            budget: 10000,
-            time: 10,
-        },
-    ]
 
     const settings = {
         dots: true,
         infinite: true,
         speed: 500,
         autoplay: true,
+        arrows: false,
         autoplaySpeed: 2000,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -203,6 +178,9 @@ export default function Home() {
         pauseOnHover: true,
         swipeToSlide: true,
         focusOnSelect: true,
+        useTransform: true,
+        useCss: true,
+        cssEase: 'ease-in-out',
         centerMode: true,
     };
     return (
@@ -258,11 +236,6 @@ export default function Home() {
             <SeparatorBox text={'Reviews'} >
                 <Reviews data={reviewsData}/>
             </SeparatorBox>
-
-            <SeparatorBox text={'Announcements'} >
-                <Announcements data={announcementData} />
-            </SeparatorBox>
-
 
         </>
     );
