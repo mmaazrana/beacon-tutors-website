@@ -105,7 +105,6 @@ export default function AdminReview(props) {
                   name="image"
                   value={image.value}
                   key={index}
-                  // defaultChecked={image.value === image ? true : false}
                   onChange={(e) => setImage(e.target.value)}
                 />
                 <div className={formStyles.image}>

@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
+import Switch from 'react-switch';
 import Select from 'react-select';
 import {
   daysOptions,
   budgetOptions,
   timeOptions,
+  customToggleOffStyles,
+  customToggleOnStyles,
   customSelectStyles,
 } from '../AdminForms/AdminForms';
 import formStyles from '../AdminForms/AdminForms.module.css';
 
 export default function NewAnnouncement(props) {
+  const [checked, setChecked] = useState(true);
+  const [page, setPage] = useState('Online');
   const [title, setTitle] = useState('');
   const [days, setDays] = useState(null);
   const [budget, setBudget] = useState(null);
@@ -31,6 +36,26 @@ export default function NewAnnouncement(props) {
       <div>
         <form onSubmit={postHandler}>
           <div className={formStyles.inputs}>
+            <label>
+              <Switch
+                checked={checked}
+                onChange={(nextChecked) => {
+                  setChecked(nextChecked);
+                  setPage(checked ? 'Online' : 'Home');
+                }}
+                offColor="#ff6f66"
+                onColor="#4fc3b1"
+                offHandleColor="#ffebe5"
+                onHandleColor="#e2f8f3"
+                height={50}
+                width={130}
+                activeBoxShadow="none"
+                uncheckedIcon={<p style={customToggleOffStyles}>Home</p>}
+                checkedIcon={<p style={customToggleOnStyles}>Online</p>}
+                className="react-switch"
+              />
+            </label>
+
             <textarea
               className="adminInput"
               placeholder="Title"

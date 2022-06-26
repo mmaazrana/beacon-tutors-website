@@ -2,17 +2,24 @@ import React, { useState, useEffect } from 'react';
 import styles from './AdminAnnouncement.module.css';
 import { Calendar, Banknote, Clock, Edit, Trash, X } from 'lucide-react';
 import Modal from '../Modal/Modal';
+import Switch from 'react-switch';
 import Select from 'react-select';
 import {
   daysOptions,
   budgetOptions,
   timeOptions,
+  customToggleOffStyles,
+  customToggleOnStyles,
   customSelectStyles,
 } from '../AdminForms/AdminForms';
 import formStyles from '../AdminForms/AdminForms.module.css';
 
 export default function AdminAnnouncement(props) {
   const [isOpen, setIsOpen] = useState(false);
+  const [checked, setChecked] = useState(
+    props.announcement.page === 'Online' ? true : false
+  );
+  const [page, setPage] = useState(props.announcement.page);
   const [title, setTitle] = useState(props.announcement.title);
   const [days, setDays] = useState(props.announcement.days);
   const [budget, setBudget] = useState(props.announcement.budget);
@@ -39,6 +46,15 @@ export default function AdminAnnouncement(props) {
         <div className={styles.row}>
           <p className={styles.title}>{props.announcement.title}</p>
           <div className="icons">
+            <p
+              className={
+                props.announcement.page === 'Home'
+                  ? styles.homeTag
+                  : styles.onlineTag
+              }
+            >
+              {props.announcement.page}
+            </p>
             <Edit
               color="#4FC3B1"
               size={18}
@@ -71,6 +87,26 @@ export default function AdminAnnouncement(props) {
 
       <Modal title="Edit Announcement" isOpen={isOpen} closeModal={closeModal}>
         <form onSubmit={updateHandler}>
+          <label>
+            <Switch
+              checked={checked}
+              onChange={(nextChecked) => {
+                setChecked(nextChecked);
+                setPage(checked ? 'Online' : 'Home');
+              }}
+              offColor="#ff6f66"
+              onColor="#4fc3b1"
+              offHandleColor="#ffebe5"
+              onHandleColor="#e2f8f3"
+              height={50}
+              width={130}
+              activeBoxShadow="none"
+              uncheckedIcon={<p style={customToggleOffStyles}>Home</p>}
+              checkedIcon={<p style={customToggleOnStyles}>Online</p>}
+              className="react-switch"
+            />
+          </label>
+
           <textarea
             className="adminInput"
             placeholder="Title"
