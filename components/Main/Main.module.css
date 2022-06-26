@@ -68,6 +68,14 @@
     max-height: inherit;
 }
 
+.button{
+    min-width: fit-content;
+    font-size: 1.5vw;
+    padding: 15px 25px;
+    margin: 15px 0;
+    border-radius: 12px;
+}
+
 @media screen and (max-width: 1440px) {
     .lottie {
         max-height: 550px;
@@ -99,6 +107,14 @@
         font-size: 1.7vw;
         max-width: calc(100% - 725px);
     }
+
+    .button{
+        font-size: 1.25vw;
+        padding: 10px 25px;
+        margin: 10px 0;
+        border-radius: 10px;
+    }
+
 
 }
 
@@ -135,6 +151,13 @@
         max-width: calc(100% - 530px);
     }
 
+    .button{
+        font-size: 1.25vw;
+        padding: 10px 15px;
+        margin: 10px 0;
+        border-radius: 10px;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -163,6 +186,12 @@
         max-width: calc(100% - 350px);
     }
 
+    .button{
+        font-size: 1.5vw;
+        padding: 10px 0;
+        margin: 5px 0;
+        border-radius: 8px;
+    }
 }
 
 @media screen and (max-width: 580px) {
@@ -192,6 +221,12 @@
         margin-top: 0;
     }
 
+    .button{
+        font-size: 3vw;
+        padding: 8px 0;
+        margin: 5px 0;
+        border-radius: 7px;
+    }
 
 }
 
@@ -203,7 +238,14 @@
 
     .text {
         max-width: calc(100% - 30px);
-        margin: 80px 15px 0 15px;
+        margin: 80px 4.688vw 0 4.688vw;
+    }
+
+    .button{
+        font-size: 3vw;
+        padding: 2.188vw 0;
+        margin: 1.563vw 0;
+        border-radius: 2.188vw;
     }
 
 }

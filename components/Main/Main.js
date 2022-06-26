@@ -1,6 +1,7 @@
 import React from 'react';
 import Lottie from "lottie-react";
 import styles from './Main.module.css'
+import LinkButton from "../Buttons/LinkButton";
 
 export default function Main(props) {
 
@@ -16,6 +17,7 @@ export default function Main(props) {
                 <p className={descriptionClass} >
                     {props.description}
                 </p>
+                <LinkButton className={styles.button} text={"Submit Inquiry"} link={""} primary={true} />
             </div>
             <Lottie className={styles.lottie} animationData={props.lottie} loop={true} autoplay={true} />
         </div>
