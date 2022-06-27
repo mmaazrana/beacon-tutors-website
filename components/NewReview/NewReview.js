@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import Select from 'react-select';
 import { Check } from 'lucide-react';
 import {
@@ -9,28 +10,34 @@ import {
 import formStyles from '../AdminForms/AdminForms.module.css';
 
 export default function NewReview(props) {
+  const { pathname } = useRouter();
+  const isAdminPage = pathname === '/admin/managereviews';
   const [image, setImage] = useState('');
   const [username, setUsername] = useState('');
   const [description, setDescription] = useState('');
   const [rating, setRating] = useState(0);
+  const [isApproved, setIsApproved] = useState(isAdminPage ? true : false);
 
   const postHandler = async (e) => {
     setImage('');
     setUsername('');
     setDescription('');
     setRating(0);
+    setIsApproved(false);
     e.preventDefault();
   };
 
   return (
     <div>
-      <h1 className="adminHeading">
-        Add a new <br />
-        Review
-      </h1>
+      {isAdminPage && (
+        <h1 className="adminHeading">
+          Add a new <br />
+          Review
+        </h1>
+      )}
       <div>
         <form onSubmit={postHandler}>
-          <div className={formStyles.inputs}>
+          <div className={isAdminPage ? formStyles.inputs : ''}>
             <div className={formStyles.row}>
               {imagesOptions.map((image, index) => (
                 <label key={index}>
