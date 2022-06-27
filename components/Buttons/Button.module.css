@@ -4,28 +4,33 @@
     font-size: 16px;
     font-weight: bold;
     transition: 0.3s;
-    padding: 7px 0;
+    padding: 0;
     border-radius: 6px;
     width: fit-content;
     margin: 0 25px 0 0;
     max-width: 275px;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
 }
 
 .nav{
-    padding: 7px 0;
+    padding: 0;
     font-size: 12px;
     margin: 0;
     transition: 0.3s;
 }
 
 .primary a{
+    height: 100%;
     color: white;
-    padding: 0 91px;
+    padding: 7px 91px;
     transition: 0.3s;
+    border-radius: 6px;
 }
 
 .nav a {
-    padding: 0 17px;
+    padding: 7px 17px;
     transition: 0.3s;
 }
 
@@ -61,13 +66,13 @@
         max-width: 207px;
     }
     .primary a {
-        padding: 0 58px;
+        padding: 7px 58px;
     }
     .nav{
-        padding: 7px 0;
+        padding: 0;
     }
     .nav a {
-        padding: 0 17px;
+        padding: 7px 17px;
     }
 }
 
@@ -78,14 +83,14 @@
     }
     .primary a {
         margin: 0;
-        padding: 0 45px;
+        padding: 7px 45px;
     }
     .nav{
-        padding: 7px 0;
+        padding: 0;
         width: fit-content;
     }
     .nav a {
-        padding: 0 17px;
+        padding: 7px 17px;
     }
 }
 
@@ -93,22 +98,23 @@
 
     .primary{
         border-radius: 1.412vw;
-        padding: 1.647vw 0;
+        padding: 0;
         margin: 0 5.882vw 0 0;
         font-size: 3.294vw;
         width: 40vw;
     }
     .primary a {
         margin: 0;
-        padding: 0 10.588vw;
+        padding: 1.647vw 10.588vw;
+        border-radius: 1.412vw;
     }
 
     .nav{
         margin: 3px 0;
-        padding: 7px 0;
+        padding: 0;
         width: fit-content;
     }
     .nav a {
-        padding: 0 17px;
+        padding: 7px 17px;
     }
 }
