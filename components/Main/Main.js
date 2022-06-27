@@ -17,7 +17,7 @@ export default function Main(props) {
                 <p className={descriptionClass} >
                     {props.description}
                 </p>
-                <LinkButton className={styles.button} text={"Submit Inquiry"} link={""} primary={true} />
+                <LinkButton className={styles.button} text={"Submit Inquiry"} link={"/submitinquiry"} primary={true} />
             </div>
             <Lottie className={styles.lottie} animationData={props.lottie} loop={true} autoplay={true} />
         </div>

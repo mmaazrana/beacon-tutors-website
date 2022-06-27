@@ -1,10 +1,16 @@
 import React from 'react';
 import Head from 'next/Head';
-import Online from '../../components/Tutoring/Online';
-import Layout from '../../components/Layouts/Layout';
+// import Online from '../../components/Tutoring/Online';
+import dynamic from "next/dynamic";
+
+// import Layout from '../../components/Layouts/Layout';
+const Layout = dynamic(() => import('../../components/Layouts/Layout'));
 
 export default function OnlineTution(props) {
-  return (
+
+    const Online = dynamic(() => import('../../components/Tutoring/Online'));
+
+    return (
     <>
       <Head>
         <title>Beacon Tutors Pakistan - Online Tution</title>

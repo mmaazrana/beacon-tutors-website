@@ -1,40 +1,76 @@
 import React from 'react';
 import Head from 'next/Head';
-import Main from '../../components/Main/Main';
+// import Main from '../../components/Main/Main';
 import WritingLottie from '../../assets/lotties/writing-service.json';
-import Separator from '../../components/Separator/Separator';
-import { ReactComponent as AssignmentWriting } from '../../assets/Services/WritingService/AssignmentWriting.svg';
-import { ReactComponent as ResearchPaperWriting } from '../../assets/Services/WritingService/ResearchPaperWriting.svg';
-import { ReactComponent as ThesisAndDissertationWriting } from '../../assets/Services/WritingService/ThesisAndDissertationWriting.svg';
-import { ReactComponent as EssayWriting } from '../../assets/Services/WritingService/EssayWriting.svg';
-import { ReactComponent as ReportWriting } from '../../assets/Services/WritingService/ReportWriting.svg';
-import { ReactComponent as ProposalWriting } from '../../assets/Services/WritingService/ProposalWriting.svg';
-import { ReactComponent as ProofReading } from '../../assets/Services/WritingService/ProofReading.svg';
-import { ReactComponent as PlagiarismRemoving } from '../../assets/Services/WritingService/PlagiarismRemoving.svg';
-import { ReactComponent as DocumentFormatting } from '../../assets/Services/WritingService/DocumentFormatting.svg';
-import { ReactComponent as SubmitYourInquiry } from '../../assets/HowItWorks/Home/SubmitYourInquiry.svg';
-import { ReactComponent as FinalizeYourRates } from '../../assets/HowItWorks/WritingService/FinalizeYourRates.svg';
-import { ReactComponent as MakeThePayment } from '../../assets/HowItWorks/WritingService/MakeThePayment.svg';
-import { ReactComponent as ReceiveYourWork } from '../../assets/HowItWorks/WritingService/ReceiveYourWork.svg';
-import { ReactComponent as Subjects1000 } from '../../assets/Advantages/WritingService/Subjects1000.svg';
-import { ReactComponent as WritingExperts5000 } from '../../assets/Advantages/WritingService/WritingExperts5000.svg';
-import { ReactComponent as AffordableCharges } from '../../assets/Advantages/WritingService/AffordableCharges.svg';
-import { ReactComponent as Timeliness } from '../../assets/Advantages/WritingService/Timeliness.svg';
-import { ReactComponent as SafeAndSecure } from '../../assets/Advantages/WritingService/SafeAndSecure.svg';
-import { ReactComponent as CustomerSupport } from '../../assets/Advantages/WritingService/CustomerSupport.svg';
-import { ReactComponent as ConfidentialityPolicy } from '../../assets/Advantages/WritingService/ConfidentialityPolicy.svg';
-import { ReactComponent as PlagiarismFree } from '../../assets/Advantages/WritingService/PlagiarismFree.svg';
-import { ReactComponent as FreeRevisions } from '../../assets/Advantages/WritingService/FreeRevisions.svg';
-import { ReactComponent as RefundPolicy } from '../../assets/Advantages/WritingService/RefundPolicy.svg';
-import HowItWorks from '../../components/HowItWorks/HowItWorks';
-import Advantages from '../../components/Advantages/Advantages';
-import WritingAnnouncements from '../../components/Announcements/WritingAnnouncements';
-import Layout from '../../components/Layouts/Layout';
-import Service from "../../components/Service/Service";
-import Services from "../../components/Services/Services";
+// import Separator from '../../components/Separator/Separator';
+// import { ReactComponent as AssignmentWriting } from '../../assets/Services/WritingService/AssignmentWriting.svg';
+// import { ReactComponent as ResearchPaperWriting } from '../../assets/Services/WritingService/ResearchPaperWriting.svg';
+// import { ReactComponent as ThesisAndDissertationWriting } from '../../assets/Services/WritingService/ThesisAndDissertationWriting.svg';
+// import { ReactComponent as EssayWriting } from '../../assets/Services/WritingService/EssayWriting.svg';
+// import { ReactComponent as ReportWriting } from '../../assets/Services/WritingService/ReportWriting.svg';
+// import { ReactComponent as ProposalWriting } from '../../assets/Services/WritingService/ProposalWriting.svg';
+// import { ReactComponent as ProofReading } from '../../assets/Services/WritingService/ProofReading.svg';
+// import { ReactComponent as PlagiarismRemoving } from '../../assets/Services/WritingService/PlagiarismRemoving.svg';
+// import { ReactComponent as DocumentFormatting } from '../../assets/Services/WritingService/DocumentFormatting.svg';
+// import { ReactComponent as SubmitYourInquiry } from '../../assets/HowItWorks/Home/SubmitYourInquiry.svg';
+// import { ReactComponent as FinalizeYourRates } from '../../assets/HowItWorks/WritingService/FinalizeYourRates.svg';
+// import { ReactComponent as MakeThePayment } from '../../assets/HowItWorks/WritingService/MakeThePayment.svg';
+// import { ReactComponent as ReceiveYourWork } from '../../assets/HowItWorks/WritingService/ReceiveYourWork.svg';
+// import { ReactComponent as Subjects1000 } from '../../assets/Advantages/WritingService/Subjects1000.svg';
+// import { ReactComponent as WritingExperts5000 } from '../../assets/Advantages/WritingService/WritingExperts5000.svg';
+// import { ReactComponent as AffordableCharges } from '../../assets/Advantages/WritingService/AffordableCharges.svg';
+// import { ReactComponent as Timeliness } from '../../assets/Advantages/WritingService/Timeliness.svg';
+// import { ReactComponent as SafeAndSecure } from '../../assets/Advantages/WritingService/SafeAndSecure.svg';
+// import { ReactComponent as CustomerSupport } from '../../assets/Advantages/WritingService/CustomerSupport.svg';
+// import { ReactComponent as ConfidentialityPolicy } from '../../assets/Advantages/WritingService/ConfidentialityPolicy.svg';
+// import { ReactComponent as PlagiarismFree } from '../../assets/Advantages/WritingService/PlagiarismFree.svg';
+// import { ReactComponent as FreeRevisions } from '../../assets/Advantages/WritingService/FreeRevisions.svg';
+// import { ReactComponent as RefundPolicy } from '../../assets/Advantages/WritingService/RefundPolicy.svg';
+// import HowItWorks from '../../components/HowItWorks/HowItWorks';
+// import Advantages from '../../components/Advantages/Advantages';
+// import WritingAnnouncements from '../../components/Announcements/WritingAnnouncements';
+// import Services from "../../components/Services/Services";
+import dynamic from "next/dynamic";
+
+// import Layout from '../../components/Layouts/Layout';
+const Layout = dynamic(() => import('../../components/Layouts/Layout'));
 
 export default function Assignments(props) {
+
+  const AssignmentWriting = dynamic(() => import('../../assets/Services/WritingService/AssignmentWriting.svg').then(module => module.ReactComponent),);
+  const ResearchPaperWriting = dynamic(() => import('../../assets/Services/WritingService/ResearchPaperWriting.svg').then(module => module.ReactComponent),);
+  const ThesisAndDissertationWriting = dynamic(() => import('../../assets/Services/WritingService/ThesisAndDissertationWriting.svg').then(module => module.ReactComponent),);
+  const EssayWriting = dynamic(() => import('../../assets/Services/WritingService/EssayWriting.svg').then(module => module.ReactComponent),);
+  const ReportWriting = dynamic(() => import('../../assets/Services/WritingService/ReportWriting.svg').then(module => module.ReactComponent),);
+  const ProposalWriting = dynamic(() => import('../../assets/Services/WritingService/ProposalWriting.svg').then(module => module.ReactComponent),);
+  const ProofReading = dynamic(() => import('../../assets/Services/WritingService/ProofReading.svg').then(module => module.ReactComponent),);
+  const PlagiarismRemoving = dynamic(() => import('../../assets/Services/WritingService/PlagiarismRemoving.svg').then(module => module.ReactComponent),);
+  const DocumentFormatting = dynamic(() => import('../../assets/Services/WritingService/DocumentFormatting.svg').then(module => module.ReactComponent),);
+  const SubmitYourInquiry = dynamic(() => import('../../assets/HowItWorks/Home/SubmitYourInquiry.svg').then(module => module.ReactComponent),);
+  const FinalizeYourRates = dynamic(() => import('../../assets/HowItWorks/WritingService/FinalizeYourRates.svg').then(module => module.ReactComponent),);
+  const MakeThePayment = dynamic(() => import('../../assets/HowItWorks/WritingService/MakeThePayment.svg').then(module => module.ReactComponent),);
+  const ReceiveYourWork = dynamic(() => import('../../assets/HowItWorks/WritingService/ReceiveYourWork.svg').then(module => module.ReactComponent),);
+  const Subjects1000 = dynamic(() => import('../../assets/Advantages/WritingService/Subjects1000.svg').then(module => module.ReactComponent),);
+  const WritingExperts5000 = dynamic(() => import('../../assets/Advantages/WritingService/WritingExperts5000.svg').then(module => module.ReactComponent),);
+  const AffordableCharges = dynamic(() => import('../../assets/Advantages/WritingService/AffordableCharges.svg').then(module => module.ReactComponent),);
+  const Timeliness = dynamic(() => import('../../assets/Advantages/WritingService/Timeliness.svg').then(module => module.ReactComponent),);
+  const SafeAndSecure = dynamic(() => import('../../assets/Advantages/WritingService/SafeAndSecure.svg').then(module => module.ReactComponent),);
+  const CustomerSupport = dynamic(() => import('../../assets/Advantages/WritingService/CustomerSupport.svg').then(module => module.ReactComponent),);
+  const ConfidentialityPolicy = dynamic(() => import('../../assets/Advantages/WritingService/ConfidentialityPolicy.svg').then(module => module.ReactComponent),);
+  const PlagiarismFree = dynamic(() => import('../../assets/Advantages/WritingService/PlagiarismFree.svg').then(module => module.ReactComponent),);
+  const FreeRevisions = dynamic(() => import('../../assets/Advantages/WritingService/FreeRevisions.svg').then(module => module.ReactComponent),);
+  const RefundPolicy = dynamic(() => import('../../assets/Advantages/WritingService/RefundPolicy.svg').then(module => module.ReactComponent),);
+
+  const Main = dynamic(() => import('../../components/Main/Main'));
+  const Separator = dynamic(() => import('../../components/Separator/Separator'));
+  const HowItWorks = dynamic(() => import('../../components/HowItWorks/HowItWorks'));
+  const Advantages = dynamic(() => import('../../components/Advantages/Advantages'));
+  const WritingAnnouncements = dynamic(() => import('../../components/Announcements/WritingAnnouncements'));
+  const Services = dynamic(() => import('../../components/Services/Services'));
+
+
   const howItWorksData = [
+
     {
       image: <SubmitYourInquiry />,
       heading: 'Submit Your Inquiry',

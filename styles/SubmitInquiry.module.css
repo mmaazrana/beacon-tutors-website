@@ -1,0 +1,222 @@
+.wrapper {
+    margin: 130px 100px 75px;
+    background-color: white;
+    padding: 50px 75px 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+    box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25);
+    border-radius: 16px
+}
+
+.question {
+    font-weight: 700;
+    font-size: 48px;
+    color: #3A3A3B;
+}
+
+.row {
+    display: flex;
+    gap: 25px
+}
+
+.columnLeft {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 25px;
+    align-items: flex-end;
+}
+
+.columnRight {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.studentButton, .teacherButton {
+    border: 4px solid #9FD1FF;
+    background: #FFFFFF;
+    border-radius: 8px;
+    min-width: 275px;
+    text-align: center;
+    padding: 15px 25px;
+    font-size: 28px;
+    margin: 0;
+}
+
+.studentButton > a, .teacherButton > a {
+    font-weight: 400;
+    color: #3E6C98;
+    min-width: 250px;
+    padding: 10px 25px;
+}
+
+.studentLottie, .teacherLottie {
+    width: 325px;
+    transition: 0.3s;
+    opacity: 0.5;
+}
+
+.studentButton:hover, .teacherButton:hover {
+    background: #3E6C98;
+    box-shadow: 0px 1px 15px rgba(225, 221, 212, 0.25);
+    border: 4px solid #3E6C98;
+}
+
+.studentButton:hover > a, .teacherButton:hover > a {
+    font-weight: 600;
+    color: white;
+}
+
+.studentButton:hover ~ .studentLottie {
+    opacity: 1;
+}
+
+.teacherButton:hover ~ .teacherLottie {
+    opacity: 1;
+}
+
+.lottieRow{
+    display: none;
+}
+
+@media screen and (max-width: 1080px) {
+    .question {
+        font-size: 32px;
+    }
+
+    .wrapper {
+        margin: 105px 75px 50px;
+        padding: 50px 25px 75px;
+    }
+
+    .studentButton, .teacherButton {
+        min-width: 200px;
+        padding: 10px 15px;
+        font-size: 20px;
+    }
+
+    .studentButton > a, .teacherButton > a {
+        min-width: 200px;
+        padding: 10px 15px;
+    }
+
+    .studentLottie, .teacherLottie {
+        width: 230px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .question {
+        font-size: 28px;
+    }
+
+    .wrapper {
+        margin: 80px 50px 25px;
+        padding: 25px 5px 50px;
+    }
+
+    .studentButton, .teacherButton {
+        min-width: 140px;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .studentButton > a, .teacherButton > a {
+        min-width: 140px;
+        padding: 10px 15px;
+    }
+
+    .studentLottie, .teacherLottie {
+        width: 170px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .studentLottie, .teacherLottie {
+        display: none;
+    }
+
+    .row {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: calc(100% - 50px );
+        gap: 10px;
+    }
+
+    .columnLeft, .columnRight{
+        min-width: 100%;
+        flex: 1 1 auto;
+    }
+
+    .studentButton, .teacherButton {
+        min-width: calc(100% - 38px);
+        width: 100% ;
+        flex: 1 1 auto;
+    }
+
+    .studentButton > a, .teacherButton > a {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .lottieRow{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 15px;
+        gap: 15px;
+    }
+
+    .lottieRow > *{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .row {
+        min-width: calc(100% - 11.905vw );
+        gap: 2.381vw;
+    }
+
+    .studentButton, .teacherButton {
+        border: 0.952vw solid #9FD1FF;
+        border-radius: 1.905vw;
+        min-width: calc(100% - 9.048vw);
+        width: calc(100% - 9.524vw);
+        padding: 2vw 3.5vw;
+        font-size: 3.333vw;
+    }
+
+    .question {
+        font-size: 6.667vw;
+    }
+
+    .wrapper {
+        box-shadow: 0 0.952vw 9.524vw rgba(93, 143, 193, 0.25);
+        border-radius: 0;
+        margin: 80px 0 5.952vw;
+        gap: 3.571vw;
+        padding: 5.952vw 1.190vw 11.905vw;
+    }
+
+    .studentButton > a, .teacherButton > a {
+        padding: 2.381vw 3.571vw;
+    }
+
+    .lottieRow{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 3.571vw;
+        gap: 3.571vw;
+    }
+
+    .lottieRow > *{
+        width: 40%;
+    }
+}
