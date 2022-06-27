@@ -129,13 +129,13 @@ export default function AdminAnnouncement(props) {
           </label>
 
           <textarea
-            className="adminInput"
-            placeholder="Title"
-            name="title"
-            rows="4"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          ></textarea>
+    className="adminInput"
+    placeholder="Title"
+    name="title"
+    rows="4"
+    value={title}
+    onChange={(e) => setTitle(e.target.value)}
+    />
 
           <div className={formStyles.inputsRow}>
             <Select

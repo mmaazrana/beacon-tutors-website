@@ -1,33 +1,67 @@
 import React from 'react';
-import Main from '../../components/Main/Main';
+// import Main from '../../components/Main/Main';
 import OnlineLottie from '../../assets/lotties/online tutoring.json';
-import Separator from '../../components/Separator/Separator';
-import { ReactComponent as SubmitYourInquiry } from '../../assets/HowItWorks/Home/SubmitYourInquiry.svg';
-import { ReactComponent as TeacherLocating } from '../../assets/HowItWorks/Home/TeacherLocating.svg';
-import { ReactComponent as ProfileSharing } from '../../assets/HowItWorks/Home/ProfileSharing.svg';
-import { ReactComponent as DemoConduction } from '../../assets/HowItWorks/Home/DemoConduction.svg';
-import { ReactComponent as SuccessfulDeal } from '../../assets/HowItWorks/Home/SuccessfulDeal.svg';
-import { ReactComponent as Tutors5000 } from '../../assets/Advantages/Home/Tutors5000.svg';
-import { ReactComponent as OneOnOneTutoring } from '../../assets/Advantages/Home/OneOnOneTutoring.svg';
-import { ReactComponent as AllGradesAndSubjects } from '../../assets/Advantages/Home/AllGradesAndSubjects.svg';
-import { ReactComponent as MaleAndFemaleTutors } from '../../assets/Advantages/Home/MaleAndFemaleTutors.svg';
-import { ReactComponent as TeachersOfYourChoice } from '../../assets/Advantages/Home/TeachersOfYourChoice.svg';
-import { ReactComponent as FreeTrialClasses } from '../../assets/Advantages/Home/FreeTrialClasses.svg';
-import HowItWorks from '../../components/HowItWorks/HowItWorks';
-import Advantages from '../../components/Advantages/Advantages';
-import SeparatorBox from "../Separator/SeparatorBox";
-import Announcements from "../Announcements/Announcements";
-import Reviews from "../Reviews/Reviews";
-import {ReactComponent as Female1} from "../../assets/Avatars/Female1.svg";
-import {ReactComponent as Female2} from "../../assets/Avatars/Female2.svg";
-import {ReactComponent as Female3} from "../../assets/Avatars/Female3.svg";
-import {ReactComponent as Female4} from "../../assets/Avatars/Female4.svg";
-import {ReactComponent as Male1} from "../../assets/Avatars/Male1.svg";
-import {ReactComponent as Male2} from "../../assets/Avatars/Male2.svg";
-import {ReactComponent as Male3} from "../../assets/Avatars/Male3.svg";
-import {ReactComponent as Male4} from "../../assets/Avatars/Male4.svg";
+// import Separator from '../../components/Separator/Separator';
+// import { ReactComponent as SubmitYourInquiry } from '../../assets/HowItWorks/Home/SubmitYourInquiry.svg';
+// import { ReactComponent as TeacherLocating } from '../../assets/HowItWorks/Home/TeacherLocating.svg';
+// import { ReactComponent as ProfileSharing } from '../../assets/HowItWorks/Home/ProfileSharing.svg';
+// import { ReactComponent as DemoConduction } from '../../assets/HowItWorks/Home/DemoConduction.svg';
+// import { ReactComponent as SuccessfulDeal } from '../../assets/HowItWorks/Home/SuccessfulDeal.svg';
+// import { ReactComponent as Tutors5000 } from '../../assets/Advantages/Home/Tutors5000.svg';
+// import { ReactComponent as OneOnOneTutoring } from '../../assets/Advantages/Home/OneOnOneTutoring.svg';
+// import { ReactComponent as AllGradesAndSubjects } from '../../assets/Advantages/Home/AllGradesAndSubjects.svg';
+// import { ReactComponent as MaleAndFemaleTutors } from '../../assets/Advantages/Home/MaleAndFemaleTutors.svg';
+// import { ReactComponent as TeachersOfYourChoice } from '../../assets/Advantages/Home/TeachersOfYourChoice.svg';
+// import { ReactComponent as FreeTrialClasses } from '../../assets/Advantages/Home/FreeTrialClasses.svg';
+// import HowItWorks from '../../components/HowItWorks/HowItWorks';
+// import Advantages from '../../components/Advantages/Advantages';
+// import SeparatorBox from "../Separator/SeparatorBox";
+// import Announcements from "../Announcements/Announcements";
+// import Reviews from "../Reviews/Reviews";
+// import {ReactComponent as Female1} from "../../assets/Avatars/Female1.svg";
+// import {ReactComponent as Female2} from "../../assets/Avatars/Female2.svg";
+// import {ReactComponent as Female3} from "../../assets/Avatars/Female3.svg";
+// import {ReactComponent as Female4} from "../../assets/Avatars/Female4.svg";
+// import {ReactComponent as Male1} from "../../assets/Avatars/Male1.svg";
+// import {ReactComponent as Male2} from "../../assets/Avatars/Male2.svg";
+// import {ReactComponent as Male3} from "../../assets/Avatars/Male3.svg";
+// import {ReactComponent as Male4} from "../../assets/Avatars/Male4.svg";
+import dynamic from "next/dynamic";
 
 export default function Online(props) {
+
+  const SubmitYourInquiry = dynamic(() => import('../../assets/HowItWorks/Home/SubmitYourInquiry.svg').then(module => module.ReactComponent),);
+  const TeacherLocating = dynamic(() => import('../../assets/HowItWorks/Home/TeacherLocating.svg').then(module => module.ReactComponent),);
+  const ProfileSharing = dynamic(() => import('../../assets/HowItWorks/Home/ProfileSharing.svg').then(module => module.ReactComponent),);
+  const DemoConduction = dynamic(() => import('../../assets/HowItWorks/Home/DemoConduction.svg').then(module => module.ReactComponent),);
+  const SuccessfulDeal = dynamic(() => import('../../assets/HowItWorks/Home/SuccessfulDeal.svg').then(module => module.ReactComponent),);
+
+  const MaleAndFemaleTutors = dynamic(() => import('../../assets/Advantages/Home/MaleAndFemaleTutors.svg').then(module => module.ReactComponent),);
+  const Tutors5000 = dynamic(() => import('../../assets/Advantages/Home/Tutors5000.svg').then(module => module.ReactComponent),);
+  const OneOnOneTutoring = dynamic(() => import('../../assets/Advantages/Home/OneOnOneTutoring.svg').then(module => module.ReactComponent),);
+  const AllGradesAndSubjects = dynamic(() => import('../../assets/Advantages/Home/AllGradesAndSubjects.svg').then(module => module.ReactComponent),);
+  const TeachersOfYourChoice = dynamic(() => import('../../assets/Advantages/Home/TeachersOfYourChoice.svg').then(module => module.ReactComponent),);
+  const FreeTrialClasses = dynamic(() => import('../../assets/Advantages/Home/FreeTrialClasses.svg').then(module => module.ReactComponent),);
+
+  const Female1 = dynamic(() => import('../../assets/Avatars/Female1.svg').then(module => module.ReactComponent),);
+  const Female2 = dynamic(() => import('../../assets/Avatars/Female2.svg').then(module => module.ReactComponent),);
+  const Female3 = dynamic(() => import('../../assets/Avatars/Female3.svg').then(module => module.ReactComponent),);
+  const Female4 = dynamic(() => import('../../assets/Avatars/Female4.svg').then(module => module.ReactComponent),);
+
+  const Male1 = dynamic(() => import('../../assets/Avatars/Male1.svg').then(module => module.ReactComponent),);
+  const Male2 = dynamic(() => import('../../assets/Avatars/Male2.svg').then(module => module.ReactComponent),);
+  const Male3 = dynamic(() => import('../../assets/Avatars/Male3.svg').then(module => module.ReactComponent),);
+  const Male4 = dynamic(() => import('../../assets/Avatars/Male4.svg').then(module => module.ReactComponent),);
+
+  const Main = dynamic(() => import('../../components/Main/Main'));
+  const Separator = dynamic(() => import('../../components/Separator/Separator'));
+  const HowItWorks = dynamic(() => import('../../components/HowItWorks/HowItWorks'));
+  const Advantages = dynamic(() => import('../../components/Advantages/Advantages'));
+  const Reviews = dynamic(() => import('../../components/Reviews/Reviews'));
+  const SeparatorBox = dynamic(() => import('../../components/Separator/SeparatorBox'));
+  const Announcements = dynamic(() => import('../Announcements/Announcements'));
+
+
   const howItWorksData = [
     {
       image: <SubmitYourInquiry />,
