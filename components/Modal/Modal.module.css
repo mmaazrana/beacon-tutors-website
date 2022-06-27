@@ -12,6 +12,7 @@
   margin: 0.75rem;
   margin-left: 1rem;
   font-weight: 500;
+  font-size: 1.125rem;
   color: #ffffff;
 }
 
@@ -22,6 +23,44 @@
 .close {
   margin-right: 1rem;
   cursor: pointer;
+}
+
+.delete {
+  color: #3a3a3b;
+}
+
+.delete h2 {
+  margin-bottom: 0;
+}
+
+.cancelButton {
+  background-color: #d0e6f6;
+  color: #345c83;
+  margin-right: 0.3rem;
+}
+
+.deleteButton {
+  background-color: #ffccd2;
+  color: #ff334b;
+  margin-left: 0.3rem;
+}
+
+.cancelButton:hover {
+  background-color: #a1bedb;
+}
+
+.deleteButton:hover {
+  background-color: #ffb3bb;
+}
+
+.cancelButton:active,
+.cancelButton:focus {
+  background-color: #7aa3cd;
+}
+
+.deleteButton:active,
+.deleteButton:focus {
+  background-color: #ff8591;
 }
 
 @media only screen and (max-width: 600px) {

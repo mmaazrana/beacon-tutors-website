@@ -12,9 +12,8 @@ export default function Announcement(props) {
           <Calendar className={styles.icon} color="#FF6F66" />
           <div className={styles.column}>
             <p className={styles.optionText}>
-              {`${props.announcement.days}-${
-                props.announcement.days == 1 ? 'Day' : 'Days'
-              }`}
+              {props.announcement.days}-
+              {props.announcement.days == 1 ? 'Day' : 'Days'}
             </p>
             <p className={styles.optionDetailText}> Per Week </p>
           </div>
@@ -32,9 +31,8 @@ export default function Announcement(props) {
           <Clock className={styles.icon} color="#3E6C98" />
           <div className={styles.column}>
             <p className={styles.optionText}>
-              {`${props.announcement.time}-${
-                props.announcement.time == 1 ? 'Hour' : 'Hours'
-              }`}
+              {props.announcement.time}-
+              {props.announcement.time == 1 ? 'Hour' : 'Hours'}
             </p>
             <p className={styles.optionDetailText}> Per Day </p>
           </div>

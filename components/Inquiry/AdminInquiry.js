@@ -47,7 +47,11 @@ export default function AdminInquiry(props) {
           value={props.inquiry.whatsappNumber}
         />
         <InfoField label="Who are You" value={props.inquiry.whoAreYou} />
-        <div className={styles.infoRow}>
+        <InfoField
+          label="You want to Hire"
+          value={props.inquiry.youWantToHire}
+        />
+        {/* <div className={styles.infoRow}>
           <p className={styles.label}>You want to Hire</p>
           <div className={styles.values}>
             {props.inquiry.youWantToHire.map((value, index) => (
@@ -56,7 +60,7 @@ export default function AdminInquiry(props) {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
         <InfoField label="Comments" value={props.inquiry.comments} />
 
         {!props.inquiry.isViewed && (
