@@ -41,12 +41,12 @@ export default function AdminAnnouncement(props) {
   };
 
   const updateHandler = async (e) => {
+    e.preventDefault();
     setPage(props.announcement.page);
     setTitle(props.announcement.title);
     setDays(props.announcement.days);
     setBudget(props.announcement.budget);
     setTime(props.announcement.time);
-    e.preventDefault();
     setIsOpen(false);
   };
 
@@ -134,13 +134,13 @@ export default function AdminAnnouncement(props) {
           </label>
 
           <textarea
-    className="adminInput"
-    placeholder="Title"
-    name="title"
-    rows="4"
-    value={title}
-    onChange={(e) => setTitle(e.target.value)}
-    />
+            className="adminInput"
+            placeholder="Title"
+            name="title"
+            rows="4"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
 
           <div className={formStyles.inputsRow}>
             <Select

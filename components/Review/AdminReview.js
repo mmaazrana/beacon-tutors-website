@@ -38,11 +38,11 @@ export default function AdminReview(props) {
   };
 
   const updateHandler = async (e) => {
+    e.preventDefault();
     setImage(props.review.image);
     setUsername(props.review.username);
     setDescription(props.review.description);
     setRating(props.review.rating);
-    e.preventDefault();
     setIsOpen(false);
   };
 

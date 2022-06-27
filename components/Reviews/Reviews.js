@@ -62,7 +62,7 @@ export default function Reviews(props) {
       </div>
 
       <Modal title="Add Review" isOpen={isOpen} closeModal={closeModal}>
-        <NewReview />
+        <NewReview closeModal={closeModal} />
       </Modal>
     </>
   );
