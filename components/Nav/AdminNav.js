@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import LinkButton from '../Buttons/LinkButton';
@@ -6,15 +6,10 @@ import styles from './Nav.module.css';
 import { ReactComponent as Logo } from '../../assets/beacon-tutors.svg';
 import toast from 'react-hot-toast';
 import { auth } from '../../firebase';
-import { signOut, onAuthStateChanged } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 
-export default function AdminNav() {
+export default function AdminNav(props) {
   const router = useRouter();
-  const [user, setUser] = useState(null);
-
-  onAuthStateChanged(auth, (user_) => {
-    user_ & setUser(user_);
-  });
 
   const signoutHandler = async (e) => {
     try {
@@ -37,16 +32,18 @@ export default function AdminNav() {
     <>
       <div
         className={`${styles.nav} ${styles.adminNav} ${
-          user ? styles.spaceBetween : styles.center
+          props.user ? styles.spaceBetween : styles.center
         }`}
       >
         <div className={styles.logo}>
           <Logo height="25px" width="200px" />
-          <Link href={user ? '/admin/manageannouncements' : '/admin/signin'}>
+          <Link
+            href={props.user ? '/admin/manageannouncements' : '/admin/signin'}
+          >
             Logo
           </Link>
         </div>
-        {user && (
+        {props.user && (
           <div onClick={signoutHandler}>
             <LinkButton nav={true} link="" text="Sign Out" />
           </div>

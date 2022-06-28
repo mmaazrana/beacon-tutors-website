@@ -7,6 +7,8 @@ import AdminLayout from '../../components/Layouts/AdminLayout';
 import toast from 'react-hot-toast';
 import { auth } from '../../firebase';
 import {
+  setPersistence,
+  browserSessionPersistence,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
@@ -31,13 +33,14 @@ export default function SignIn() {
     e.preventDefault();
     try {
       await toast.promise(
-        signInWithEmailAndPassword(auth, email, password).then(
-          (userCredential) => {
-            const user = userCredential.user;
-            console.log(user);
-            router.push('/admin/manageannouncements');
-          }
-        ),
+        setPersistence(auth, browserSessionPersistence).then(() => {
+          signInWithEmailAndPassword(auth, email, password).then(
+            (userCredential) => {
+              const user = userCredential.user;
+              router.push('/admin/manageannouncements');
+            }
+          );
+        }),
         {
           loading: 'Verifying credentials...',
           success: 'Signed in successfully',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import AdminNav from '../Nav/AdminNav';
 import Tabs from '../Tabs/Tabs';
@@ -11,9 +11,11 @@ export default function AdminLayout({ children }) {
   const { pathname } = useRouter();
   const [user, setUser] = useState(null);
 
-  onAuthStateChanged(auth, (user_) => {
-    user_ && setUser(user_);
-  });
+  useEffect(() => {
+    onAuthStateChanged(auth, (user_) => {
+      setUser(user_);
+    });
+  }, [user]);
 
   const Pattern = dynamic(() =>
     import('../../assets/background pattern.svg').then(
@@ -26,7 +28,7 @@ export default function AdminLayout({ children }) {
       <div className={'background'}>
         <Pattern viewBox="0 0 100% 0" />
       </div>
-      <AdminNav />
+      <AdminNav user={user} />
       {!(pathname === '/admin/signin') && user && <Tabs />}
       <main>{children}</main>
     </>

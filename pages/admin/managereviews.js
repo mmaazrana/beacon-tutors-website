@@ -13,26 +13,27 @@ export default function ManageReviews(props) {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user_) => {
-      user_ ? setUser(user_) : router.push('/admin/signin');
+      setUser(user_);
+      !user_ && router.push('/admin/signin');
     });
   }, [user]);
 
   return (
-    <>
-      <Head>
-        <title>Manage Reviews - Beacon Tutors Pakistan</title>
-        <meta
-          name="description"
-          content="Meta description for the Admin Manage Reviews page"
-        />
-      </Head>
-      {user && (
+    user && (
+      <>
+        <Head>
+          <title>Manage Reviews - Beacon Tutors Pakistan</title>
+          <meta
+            name="description"
+            content="Meta description for the Admin Manage Reviews page"
+          />
+        </Head>
         <>
           <NewReview />
           <AdminReviews reviews={props.reviews} />
         </>
-      )}
-    </>
+      </>
+    )
   );
 }
 

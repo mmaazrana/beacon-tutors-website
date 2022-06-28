@@ -12,20 +12,22 @@ export default function ViewInquiries(props) {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user_) => {
-      user_ ? setUser(user_) : router.push('/admin/signin');
+      setUser(user_);
+      !user_ && router.push('/admin/signin');
     });
   }, [user]);
 
   return (
-    <>
-      <Head>
-        <title>View Inquiries - Beacon Tutors Pakistan</title>
-        <meta
-          name="description"
-          content="Meta description for the Admin View Inquiries page"
-        />
-      </Head>
-      {user && (
+    user && (
+      <>
+        <Head>
+          <title>View Inquiries - Beacon Tutors Pakistan</title>
+          <meta
+            name="description"
+            content="Meta description for the Admin View Inquiries page"
+          />
+        </Head>
+
         <div className="adminSection">
           <div className="adminList adminListBig">
             {props.inquiries?.map((inquiry, index) => (
@@ -33,8 +35,8 @@ export default function ViewInquiries(props) {
             ))}
           </div>
         </div>
-      )}
-    </>
+      </>
+    )
   );
 }
 

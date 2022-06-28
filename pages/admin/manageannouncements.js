@@ -13,26 +13,27 @@ export default function ManageAnnouncements(props) {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user_) => {
-      user_ ? setUser(user_) : router.push('/admin/signin');
+      setUser(user_);
+      !user_ && router.push('/admin/signin');
     });
   }, [user]);
 
   return (
-    <>
-      <Head>
-        <title>Manage Announcements - Beacon Tutors Pakistan</title>
-        <meta
-          name="description"
-          content="Meta description for the Admin Manage Announcements page"
-        />
-      </Head>
-      {user && (
+    user && (
+      <>
+        <Head>
+          <title>Manage Announcements - Beacon Tutors Pakistan</title>
+          <meta
+            name="description"
+            content="Meta description for the Admin Manage Announcements page"
+          />
+        </Head>
         <>
           <NewAnnouncement />
           <AdminAnnouncements announcements={props.announcements} />
         </>
-      )}
-    </>
+      </>
+    )
   );
 }
 

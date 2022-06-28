@@ -12,20 +12,21 @@ export default function ApproveReviews(props) {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user_) => {
-      user_ ? setUser(user_) : router.push('/admin/signin');
+      setUser(user_);
+      !user_ && router.push('/admin/signin');
     });
   }, [user]);
 
   return (
-    <>
-      <Head>
-        <title>Approve Reviews - Beacon Tutors Pakistan</title>
-        <meta
-          name="description"
-          content="Meta description for the Admin Approve Reviews page"
-        />
-      </Head>
-      {user && (
+    user && (
+      <>
+        <Head>
+          <title>Approve Reviews - Beacon Tutors Pakistan</title>
+          <meta
+            name="description"
+            content="Meta description for the Admin Approve Reviews page"
+          />
+        </Head>
         <div className="adminSection">
           <div className="adminList adminListBig">
             {props.reviews?.map((review, index) => (
@@ -33,8 +34,8 @@ export default function ApproveReviews(props) {
             ))}
           </div>
         </div>
-      )}
-    </>
+      </>
+    )
   );
 }
 
