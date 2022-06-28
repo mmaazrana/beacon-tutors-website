@@ -1,10 +1,15 @@
 import { useRouter } from 'next/router';
 import AdminNav from '../Nav/AdminNav';
 import Tabs from '../Tabs/Tabs';
-import { ReactComponent as Pattern } from '../../assets/background pattern.svg';
+import dynamic from 'next/dynamic';
 
 export default function AdminLayout({ children }) {
   const { pathname } = useRouter();
+  const Pattern = dynamic(() =>
+    import('../../assets/background pattern.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
 
   return (
     <>

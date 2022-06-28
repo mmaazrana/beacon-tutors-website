@@ -4,6 +4,11 @@ import Head from 'next/Head';
 import { Eye, EyeOff } from 'lucide-react';
 import styles from '../../styles/SignIn.module.css';
 import AdminLayout from '../../components/Layouts/AdminLayout';
+import { auth } from '../../firebase';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
@@ -15,8 +20,15 @@ export default function SignIn() {
     inputType === 'password' ? setInputType('text') : setInputType('password');
   };
 
+  // createUserWithEmailAndPassword(
+  //   auth,
+  //   'devs.testing.01@gmail.com',
+  //   'Admin123*'
+  // );
+
   const signinHandler = async (e) => {
     e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password).then().catch();
     router.push('/admin/manageannouncements');
   };
 

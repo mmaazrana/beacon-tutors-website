@@ -20,12 +20,12 @@ export default function NewAnnouncement(props) {
   const [time, setTime] = useState(0);
 
   const postHandler = async (e) => {
+    e.preventDefault();
     setPage('Online');
     setTitle('');
     setDays(0);
     setBudget(0);
     setTime(0);
-    e.preventDefault();
   };
 
   return (

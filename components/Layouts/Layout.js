@@ -1,24 +1,22 @@
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-import {ReactComponent as Pattern} from '../../assets/background pattern.svg';
-import {motion} from "framer-motion"
+import dynamic from 'next/dynamic';
 
-export default function Layout({children}) {
+export default function Layout({ children }) {
+  const Pattern = dynamic(() =>
+    import('../../assets/background pattern.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
 
-
-    return (<>
-            {/*<motion.div style={{opacity: 0}}*/}
-            {/*    animate = {{opacity: 1}}*/}
-            {/*    transition = {{duration: 0.3}}*/}
-            {/*>*/}
-                <div className = {'background'}>
-                    <Pattern viewBox = "0 0 100% 0"/>
-                </div>
-                <Nav className = "nav"/>
-                <main>{children}</main>
-                <Footer/>
-            {/*</motion.div>*/}
-        </>
-
-    );
+  return (
+    <>
+      <div className={'background'}>
+        <Pattern viewBox="0 0 100% 0" />
+      </div>
+      <Nav className="nav" />
+      <main>{children}</main>
+      <Footer />
+    </>
+  );
 }

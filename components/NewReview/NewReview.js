@@ -19,12 +19,13 @@ export default function NewReview(props) {
   const [isApproved, setIsApproved] = useState(isAdminPage ? true : false);
 
   const postHandler = async (e) => {
+    e.preventDefault();
     setImage('');
     setUsername('');
     setDescription('');
     setRating(0);
     setIsApproved(false);
-    e.preventDefault();
+    !isAdminPage && props.closeModal();
   };
 
   return (
