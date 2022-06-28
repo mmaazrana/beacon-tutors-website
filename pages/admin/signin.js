@@ -4,6 +4,7 @@ import Head from 'next/Head';
 import { Eye, EyeOff } from 'lucide-react';
 import styles from '../../styles/SignIn.module.css';
 import AdminLayout from '../../components/Layouts/AdminLayout';
+import toast from 'react-hot-toast';
 import { auth } from '../../firebase';
 import {
   createUserWithEmailAndPassword,
@@ -11,10 +12,10 @@ import {
 } from 'firebase/auth';
 
 export default function SignIn() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [inputType, setInputType] = useState('password');
-  const router = useRouter();
 
   const showPassword = () => {
     inputType === 'password' ? setInputType('text') : setInputType('password');
@@ -28,8 +29,24 @@ export default function SignIn() {
 
   const signinHandler = async (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password).then().catch();
-    router.push('/admin/manageannouncements');
+    try {
+      await toast.promise(
+        signInWithEmailAndPassword(auth, email, password).then(
+          (userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+            router.push('/admin/manageannouncements');
+          }
+        ),
+        {
+          loading: 'Verifying credentials...',
+          success: 'Signed in successfully',
+          error: 'Invalid credentials',
+        }
+      );
+    } catch (error) {
+      console.log(error.code, error.message);
+    }
   };
 
   return (

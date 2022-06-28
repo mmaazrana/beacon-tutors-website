@@ -9,7 +9,7 @@
 
 .content {
   text-align: left;
-  margin-left: 25px;
+  margin-left: 1.5rem;
 }
 
 .row {
@@ -47,8 +47,32 @@
 }
 
 .image {
-  max-height: 50px;
-  min-width: 50px;
-  width: 50px;
+  max-height: 3.125rem;
+  min-width: 3.125rem;
+  width: 3.125rem;
   border-radius: 50%;
+}
+
+@media only screen and (max-width: 480px) {
+  .image {
+    max-height: 2.5rem;
+    min-width: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .content {
+    margin-left: 1rem;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .row :global(.icons) {
+    align-self: flex-end;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+  }
 }

@@ -1,9 +1,23 @@
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Head from 'next/Head';
 import NewReview from '../../components/NewReview/NewReview';
 import AdminReviews from '../../components/Reviews/AdminReviews';
 import AdminLayout from '../../components/Layouts/AdminLayout';
+import { auth } from '../../firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 export default function ManageReviews(props) {
+  const router = useRouter();
+  const [user, setUser] = useState(null);
+
+  onAuthStateChanged(auth, (user_) => {
+    user_ && setUser(user_);
+  });
+
+  useEffect(() => {
+    !user && router.push('/admin/signin');
+  }, [user]);
   return (
     <>
       <Head>
@@ -13,8 +27,12 @@ export default function ManageReviews(props) {
           content="Meta description for the Admin Manage Reviews page"
         />
       </Head>
-      <NewReview />
-      <AdminReviews reviews={props.reviews} />
+      {user && (
+        <>
+          <NewReview />
+          <AdminReviews reviews={props.reviews} />
+        </>
+      )}
     </>
   );
 }
