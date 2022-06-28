@@ -1,11 +1,11 @@
 // beacontutorspk.com
 
 import Head from 'next/Head';
-import React, {Suspense} from 'react';
+import React from 'react';
 import MainLottie from '../assets/lotties/main-page.json';
-// import Main from '../components/Main/Main';
-// import Separator from '../components/Separator/Separator';
-// import Service from '../components/Service/Service';
+import Main from '../components/Main/Main';
+import Separator from '../components/Separator/Separator';
+import Service from '../components/Service/Service';
 // import {ReactComponent as DemoConduction} from '../assets/HowItWorks/Home/DemoConduction.svg';
 // import {ReactComponent as ProfileSharing} from '../assets/HowItWorks/Home/ProfileSharing.svg';
 // import {ReactComponent as SubmitYourInquiry} from '../assets/HowItWorks/Home/SubmitYourInquiry.svg';
@@ -25,18 +25,17 @@ import MainLottie from '../assets/lotties/main-page.json';
 // import {ReactComponent as Male2} from '../assets/Avatars/Male2.svg';
 // import {ReactComponent as Male3} from '../assets/Avatars/Male3.svg';
 // import {ReactComponent as Male4} from '../assets/Avatars/Male4.svg';
-// import HowItWorks from '../components/HowItWorks/HowItWorks';
-// import Advantages from '../components/Advantages/Advantages';
-// import Reviews from '../components/Reviews/Reviews';
-// import Slider from 'react-slick';
+import HowItWorks from '../components/HowItWorks/HowItWorks';
+import Advantages from '../components/Advantages/Advantages';
+import Reviews from '../components/Reviews/Reviews';
+import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-// import SeparatorBox from "../components/Separator/SeparatorBox";
+import SeparatorBox from "../components/Separator/SeparatorBox";
 import dynamic from 'next/dynamic'
 
-// import Layout from '../components/Layouts/Layout';
-const Layout = dynamic(() => import('../components/Layouts/Layout'));
-
+import Layout from '../components/Layouts/Layout';
+// const Layout = dynamic(() => import('../components/Layouts/Layout'));
 
 export default function Home() {
     // const homeTutoringSvg = <HomeTutoring/>;
@@ -75,15 +74,14 @@ export default function Home() {
     const Male3 = dynamic(() => import('../assets/Avatars/Male3.svg').then(module => module.ReactComponent),);
     const Male4 = dynamic(() => import('../assets/Avatars/Male4.svg').then(module => module.ReactComponent),);
 
-    const Main = dynamic(() => import('../components/Main/Main'));
-    const Separator = dynamic(() => import('../components/Separator/Separator'));
-    const HowItWorks = dynamic(() => import('../components/HowItWorks/HowItWorks'));
-    const Advantages = dynamic(() => import('../components/Advantages/Advantages'));
-    const Reviews = dynamic(() => import('../components/Reviews/Reviews'));
-    const SeparatorBox = dynamic(() => import('../components/Separator/SeparatorBox'));
-    const Service = dynamic(() => import('../components/Service/Service'));
-    const Slider = dynamic(() => import('react-slick'));
-
+    // const Main = dynamic(() => import('../components/Main/Main'));
+    // const Separator = dynamic(() => import('../components/Separator/Separator'));
+    // const HowItWorks = dynamic(() => import('../components/HowItWorks/HowItWorks'));
+    // const Advantages = dynamic(() => import('../components/Advantages/Advantages'));
+    // const Reviews = dynamic(() => import('../components/Reviews/Reviews'));
+    // const SeparatorBox = dynamic(() => import('../components/Separator/SeparatorBox'));
+    // const Service = dynamic(() => import('../components/Service/Service'));
+    // const Slider = dynamic(() => import('react-slick'));
 
 
     const howItWorksData = [
@@ -226,8 +224,13 @@ export default function Home() {
         cssEase: 'ease-in-out',
         centerMode: true,
     };
+
+
     return (
-        <>
+
+        <
+
+        >
             <Head>
                 <title>Beacon Tutors Pakistan - Home</title>
                 <meta name = "description" content = "Meta description for the Home page"/>
@@ -276,7 +279,9 @@ export default function Home() {
             <SeparatorBox text = {'Reviews'}> <Reviews data = {reviewsData}/> </SeparatorBox>
 
         </>
-    );
+
+)
+    ;
 }
 
 Home.getLayout = function getLayout(page) {

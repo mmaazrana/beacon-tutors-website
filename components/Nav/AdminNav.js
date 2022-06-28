@@ -42,7 +42,9 @@ export default function AdminNav() {
       >
         <div className={styles.logo}>
           <Logo height="25px" width="200px" />
-          <Link href="/">Logo</Link>
+          <Link href={user ? '/admin/manageannouncements' : '/admin/signin'}>
+            Logo
+          </Link>
         </div>
         {user && (
           <div onClick={signoutHandler}>

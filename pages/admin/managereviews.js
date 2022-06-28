@@ -11,13 +11,12 @@ export default function ManageReviews(props) {
   const router = useRouter();
   const [user, setUser] = useState(null);
 
-  onAuthStateChanged(auth, (user_) => {
-    user_ && setUser(user_);
-  });
-
   useEffect(() => {
-    !user && router.push('/admin/signin');
+    onAuthStateChanged(auth, (user_) => {
+      user_ ? setUser(user_) : router.push('/admin/signin');
+    });
   }, [user]);
+
   return (
     <>
       <Head>
