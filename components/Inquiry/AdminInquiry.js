@@ -73,16 +73,6 @@ export default function AdminInquiry(props) {
           label="You want to Hire"
           value={props.inquiry.youWantToHire}
         />
-        {/* <div className={styles.infoRow}>
-          <p className={styles.label}>You want to Hire</p>
-          <div className={styles.values}>
-            {props.inquiry.youWantToHire.map((value, index) => (
-              <div key={index} className={styles.value}>
-                <p>{value}</p>
-              </div>
-            ))}
-          </div>
-        </div> */}
         <InfoField label="Comments" value={props.inquiry.comments} />
 
         {!props.inquiry.isViewed && (

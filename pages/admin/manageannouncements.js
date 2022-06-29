@@ -70,45 +70,6 @@ export async function getServerSideProps() {
   console.log(announcements);
   return {
     props: { announcements },
-    // props: {
-    //   announcements: [
-    //     {
-    //       title: 'Need an experienced female tutor for O-level Biology',
-    //       days: 5,
-    //       budget: 20000,
-    //       time: 1,
-    //       page: 'Online',
-    //     },
-    //     {
-    //       title: 'Need an experienced female tutor for O-level Biology',
-    //       days: 5,
-    //       budget: 20000,
-    //       time: 1,
-    //       page: 'Home',
-    //     },
-    //     {
-    //       title: 'Need an experienced female tutor for O-level Biology',
-    //       days: 5,
-    //       budget: 20000,
-    //       time: 1,
-    //       page: 'Home',
-    //     },
-    //     {
-    //       title: 'Need an experienced female tutor for O-level Biology',
-    //       days: 5,
-    //       budget: 20000,
-    //       time: 1,
-    //       page: 'Online',
-    //     },
-    //     {
-    //       title: 'Need an experienced female tutor for O-level Biology',
-    //       days: 5,
-    //       budget: 20000,
-    //       time: 1,
-    //       page: 'Online',
-    //     },
-    //   ],
-    // },
   };
 }
 

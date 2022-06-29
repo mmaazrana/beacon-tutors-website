@@ -31,25 +31,6 @@ export default function SignIn() {
 
   const signinHandler = async (e) => {
     e.preventDefault();
-    // try {
-    //   await toast.promise(
-    //     setPersistence(auth, browserSessionPersistence).then(() => {
-    //       signInWithEmailAndPassword(auth, email, password).then(
-    //         (userCredential) => {
-    //           const user = userCredential.user;
-    //           router.push('/admin/manageannouncements');
-    //         }
-    //       );
-    //     }),
-    //     {
-    //       loading: 'Verifying credentials...',
-    //       success: 'Signed in successfully',
-    //       error: 'Invalid credentials',
-    //     }
-    //   );
-    // } catch (error) {
-    //   console.log(error.code, error.message);
-    // }
     try {
       await setPersistence(auth, browserSessionPersistence);
       try {
