@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Loading from '../components/Loading/Loading';
+import toast from 'react-hot-toast';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -11,6 +12,10 @@ function MyApp({ Component, pageProps }) {
   const Toaster = dynamic(() =>
     import('react-hot-toast').then((module) => module.Toaster)
   );
+
+  useEffect(() => {
+    if (router.pathname !== '/admin/signin') toast.dismiss();
+  }, [router]);
 
   useEffect(() => {
     const handleStart = (url) => {
@@ -33,8 +38,12 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Beacon Tutors Pakistan</title>
       </Head>
+      <Loading loading={loading} />
       <Toaster
         position="bottom-right"
+        containerStyle={{
+          zIndex: '10000001',
+        }}
         toastOptions={{
           className: 'toast',
           success: {
@@ -52,7 +61,6 @@ function MyApp({ Component, pageProps }) {
           },
         }}
       />
-      <Loading loading={loading} />
       <Component className={'body'} {...pageProps}></Component>
     </>
   );

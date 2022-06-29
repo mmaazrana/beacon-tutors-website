@@ -51,7 +51,7 @@ export default function NewReview(props) {
     } catch (error) {
       console.log(error.code, error.message);
     }
-    router.replace(router.asPath, undefined, { scroll: false });
+    isAdminPage && router.replace(router.asPath, undefined, { scroll: false });
   };
 
   return (

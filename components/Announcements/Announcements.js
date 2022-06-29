@@ -29,9 +29,14 @@ export default function Announcements(props) {
     }
 
     return (
-        <Slider {...settings} >
-            {props.data?.map((announcement, index) => (
-                <Announcement key = {index} announcement = {announcement}/>))}
-        </Slider>
-    )
+      <Slider {...settings}>
+        {props.data?.map((announcement) => (
+          <Announcement
+            // uncomment key after firebase integration
+            // key={announcement.id}
+            announcement={announcement}
+          />
+        ))}
+      </Slider>
+    );
 }

@@ -37,8 +37,8 @@ export default function ApproveReviews(props) {
         </Head>
         <div className="adminSection">
           <div className="adminList adminListBig">
-            {props.reviews?.map((review, index) => (
-              <AdminReview key={index} review={review} />
+            {props.reviews?.map((review) => (
+              <AdminReview key={review.id} review={review} />
             ))}
           </div>
         </div>

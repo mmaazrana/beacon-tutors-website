@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import styles from './AdminInquiry.module.css';
 import { CheckCircle } from 'lucide-react';
 import moment from 'moment';
 import Modal from '../Modal/Modal';
 import InfoField from './InfoField';
+import toast from 'react-hot-toast';
+import { db } from '../../firebase';
+import { doc, updateDoc } from 'firebase/firestore';
 
 export default function AdminInquiry(props) {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
   const openViewModal = () => {
@@ -16,8 +21,25 @@ export default function AdminInquiry(props) {
     setIsOpen(false);
   };
 
-  const viewedHandler = () => {
-    setIsOpen(false);
+  const viewedHandler = async (e) => {
+    e.preventDefault();
+    try {
+      await toast.promise(
+        updateDoc(doc(db, 'inquiries', props.inquiry.id), {
+          isViewed: true,
+        }).then(() => {
+          setIsOpen(false);
+        }),
+        {
+          loading: 'Marking inquiry as viewed...',
+          success: 'Marked as viewed successfully',
+          error: 'Error marking as viewed',
+        }
+      );
+    } catch (error) {
+      console.log(error.code, error.message);
+    }
+    router.replace(router.asPath, undefined, { scroll: false });
   };
 
   return (
@@ -33,7 +55,7 @@ export default function AdminInquiry(props) {
           )}
         </div>
         <p className={styles.timeAgo}>
-          Submitted {moment(props.inquiry.date).fromNow()}
+          Submitted {moment(props.inquiry.timestamp).fromNow()}
         </p>
       </div>
 

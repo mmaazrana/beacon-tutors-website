@@ -45,9 +45,10 @@ export default function Reviews(props) {
   return (
     <>
       <Slider {...settings} className={styles.reviews}>
-        {props.data.map((review, index) => (
+        {props.data.map((review) => (
           <Review
-            key={index}
+            // uncomment key after firebase integration
+            // key={review.id}
             image={review.image}
             username={review.username}
             rating={review.rating}
