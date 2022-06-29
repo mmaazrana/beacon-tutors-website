@@ -7,7 +7,6 @@ import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 
 export default function AdminLayout({ children }) {
-  const router = useRouter();
   const { pathname } = useRouter();
   const [user, setUser] = useState(null);
 
@@ -26,7 +25,7 @@ export default function AdminLayout({ children }) {
   return (
     <>
       <div className={'background'}>
-        <Pattern viewBox="0 0 100 0" />
+        <Pattern viewBox="0 0 100% 100%" />
       </div>
       <AdminNav user={user} />
       {!(pathname === '/admin/signin') && user && <Tabs />}

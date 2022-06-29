@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Switch from 'react-switch';
 import Select from 'react-select';
@@ -26,7 +26,6 @@ export default function NewAnnouncement(props) {
   const postHandler = async (e) => {
     e.preventDefault();
     try {
-      console.log(checked);
       await toast.promise(
         addDoc(collection(db, 'announcements'), {
           page: checked ? 'Online' : 'Home',
@@ -92,7 +91,7 @@ export default function NewAnnouncement(props) {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
-            ></textarea>
+            />
 
             <div className={formStyles.inputsRow}>
               <Select

@@ -8,9 +8,13 @@ import {
   customSelectStyles,
 } from '../AdminForms/AdminForms';
 import formStyles from '../AdminForms/AdminForms.module.css';
+import toast from 'react-hot-toast';
+import { db } from '../../firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function NewReview(props) {
   const { pathname } = useRouter();
+  const router = useRouter();
   const isAdminPage = pathname === '/admin/managereviews';
   const [image, setImage] = useState('');
   const [username, setUsername] = useState('');
@@ -20,12 +24,34 @@ export default function NewReview(props) {
 
   const postHandler = async (e) => {
     e.preventDefault();
-    setImage('');
-    setUsername('');
-    setDescription('');
-    setRating(0);
-    setIsApproved(false);
-    !isAdminPage && props.closeModal();
+    try {
+      await toast.promise(
+        addDoc(collection(db, 'reviews'), {
+          image,
+          username,
+          description,
+          rating,
+          isApproved,
+          timestamp: serverTimestamp(),
+        }).then((docRef) => {
+          console.log(docRef.id);
+          setImage('');
+          setUsername('');
+          setDescription('');
+          setRating(0);
+          setIsApproved(isAdminPage ? true : false);
+          !isAdminPage && props.closeModal();
+        }),
+        {
+          loading: 'Adding review...',
+          success: 'Review added successfully',
+          error: 'Error adding review',
+        }
+      );
+    } catch (error) {
+      console.log(error.code, error.message);
+    }
+    router.replace(router.asPath, undefined, { scroll: false });
   };
 
   return (
@@ -64,6 +90,7 @@ export default function NewReview(props) {
               placeholder="Name"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              required
             />
 
             <textarea
@@ -73,7 +100,8 @@ export default function NewReview(props) {
               rows="4"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
+              required
+            />
 
             <div className={formStyles.inputsRow}>
               <Select
@@ -82,6 +110,7 @@ export default function NewReview(props) {
                 options={ratingOptions}
                 styles={customSelectStyles}
                 placeholder="Rating"
+                value={rating > 0 && { value: rating, label: rating }}
               />
             </div>
 
