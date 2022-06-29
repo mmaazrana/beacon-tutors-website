@@ -23,9 +23,7 @@ body > * {
 a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.toast {
-  z-index: 10000000 !important;
-}
+
 button {
   border: none;
   outline: none;
@@ -308,6 +306,15 @@ a {
   background-color: rgba(255, 111, 102, 0.5);
 }
 
+.noRecords {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #3d6b98;
+  text-align: center;
+  margin: 3rem auto;
+}
+
 /*Phone input custom styles*/
 
 .PhoneInput {
@@ -364,39 +371,38 @@ option {
 /*Appear transition*/
 
 .fade-appear {
-    opacity: 0;
+  opacity: 0;
 }
 
 .fade-appear.fade-appear-active {
-    opacity: 1;
-    transition: opacity 300ms linear;
+  opacity: 1;
+  transition: opacity 300ms linear;
 }
 
 /*Exit transition*/
 
 .fade-exit {
-    opacity: 1;
+  opacity: 1;
 }
 
 .fade-exit.fade-exit-active {
-    opacity: 0;
-    transition: opacity 300ms linear;
+  opacity: 0;
+  transition: opacity 300ms linear;
 }
 
-.fade-exit-done{
-    opacity: 0;
+.fade-exit-done {
+  opacity: 0;
 }
-
 
 /*Enter transition*/
 
 .fade-enter {
-    opacity: 0;
+  opacity: 0;
 }
 
 .fade-enter.fade-enter-active {
-    opacity: 1;
-    transition: opacity 300ms linear;
+  opacity: 1;
+  transition: opacity 300ms linear;
 }
 
 @media screen and (max-width: 1440px) {

@@ -36,11 +36,15 @@ export default function ApproveReviews(props) {
           />
         </Head>
         <div className="adminSection">
-          <div className="adminList adminListBig">
-            {props.reviews?.map((review) => (
-              <AdminReview key={review.id} review={review} />
-            ))}
-          </div>
+          {props.reviews.length > 0 ? (
+            <div className="adminList adminListBig">
+              {props.reviews?.map((review) => (
+                <AdminReview key={review.id} review={review} />
+              ))}
+            </div>
+          ) : (
+            <p className="noRecords">No User Reviews Yet</p>
+          )}
         </div>
       </>
     )

@@ -37,11 +37,15 @@ export default function ViewInquiries(props) {
         </Head>
 
         <div className="adminSection">
-          <div className="adminList adminListBig">
-            {props.inquiries?.map((inquiry) => (
-              <AdminInquiry key={inquiry.id} inquiry={inquiry} />
-            ))}
-          </div>
+          {props.inquiries.length > 0 ? (
+            <div className="adminList adminListBig">
+              {props.inquiries?.map((inquiry) => (
+                <AdminInquiry key={inquiry.id} inquiry={inquiry} />
+              ))}
+            </div>
+          ) : (
+            <p className="noRecords">No Inquiries Yet</p>
+          )}
         </div>
       </>
     )
