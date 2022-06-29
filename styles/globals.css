@@ -20,230 +20,232 @@ body > * {
 }
 
 a {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
+.toast {
+  z-index: 10000000 !important;
+}
 button {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: 0.3s;
-    font-family: 'Poppins', sans-serif;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Poppins', sans-serif;
 }
 
 input,
 textarea,
 select {
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 input::-ms-reveal,
 input::-ms-clear {
-    display: none;
+  display: none;
 }
 
 .background {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-color: #f3faff;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #f3faff;
 }
 
 .background > * {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0.15;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
 }
 
 a {
-    color: black;
-    text-decoration: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  color: black;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .nav {
-    z-index: 10000;
+  z-index: 10000;
 }
 
 .body {
-    z-index: 1;
+  z-index: 1;
 }
 
 .row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .scroll-container {
-    flex: 1;
-    display: flex;
-    cursor: grab;
-    overflow: auto;
-    width: 100vw;
+  flex: 1;
+  display: flex;
+  cursor: grab;
+  overflow: auto;
+  width: 100vw;
 }
 
 .slider {
-    /*display: flex;*/
-    /*width: 1950px;*/
-    /*margin-left: -125px;*/
+  /*display: flex;*/
+  /*width: 1950px;*/
+  /*margin-left: -125px;*/
 }
 
 .row-reverse {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
 }
 
 .column-reverse {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }
 
 .services > div {
-    padding: 50px 50px 50px 50px !important;
-    margin-top: -50px;
-    cursor: grab;
+  padding: 50px 50px 50px 50px !important;
+  margin-top: -50px;
+  cursor: grab;
 }
 
 .slick-dots li {
-    border: 2px solid #a1bedb;
-    max-height: 15px;
-    max-width: 15px;
-    border-radius: 50%;
+  border: 2px solid #a1bedb;
+  max-height: 15px;
+  max-width: 15px;
+  border-radius: 50%;
 }
 
 .slick-dots li button {
-    padding: 7px;
-    height: 15px !important;
-    width: 15px !important;
+  padding: 7px;
+  height: 15px !important;
+  width: 15px !important;
 }
 
 .slick-dots li button:before {
-    color: rgba(255, 255, 255, 0) !important;
+  color: rgba(255, 255, 255, 0) !important;
 }
 
 .slick-dots li.slick-active {
-    background-color: #607385;
-    border: 2px solid #607385;
-    border-radius: 50%;
+  background-color: #607385;
+  border: 2px solid #607385;
+  border-radius: 50%;
 }
 
 ::-webkit-scrollbar {
-    width: 1.2rem;
+  width: 1.2rem;
 }
 
 ::-webkit-scrollbar-thumb {
-    border: 0.44rem solid transparent;
-    background-clip: padding-box;
-    border-radius: 2rem;
-    background-color: #3d6b98;
+  border: 0.44rem solid transparent;
+  background-clip: padding-box;
+  border-radius: 2rem;
+  background-color: #3d6b98;
 }
 
 /* Admin panel global styles */
 
 .adminHeading {
-    font-size: 2.25rem;
-    font-weight: 600;
-    line-height: 1.15;
-    color: #3d6b98;
-    background-color: #ffffff;
-    text-align: center;
-    box-shadow: 0 4px 40px rgba(93, 143, 193, 0.2);
-    padding: 1.5rem;
-    margin: 3rem auto;
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: #3d6b98;
+  background-color: #ffffff;
+  text-align: center;
+  box-shadow: 0 4px 40px rgba(93, 143, 193, 0.2);
+  padding: 1.5rem;
+  margin: 3rem auto;
 }
 
 .adminHeading br {
-    display: none;
+  display: none;
 }
 
 .adminSection {
-    margin: 0;
+  margin: 0;
 }
 
 .adminList {
-    margin: 3.65rem 15%;
-    background-color: #ffffffff;
-    border-radius: 1rem;
-    padding: 0.5rem 1rem;
-    border: 0.25rem solid #a1bedb;
-    max-height: 40rem;
-    overflow-y: auto;
-    box-shadow: 0 4px 40px rgba(225, 221, 212, 0.25);
+  margin: 3.65rem 15%;
+  background-color: #ffffffff;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  border: 0.25rem solid #a1bedb;
+  max-height: 40rem;
+  overflow-y: auto;
+  box-shadow: 0 4px 40px rgba(225, 221, 212, 0.25);
 }
 
 .adminListBig {
-    margin: 3.65rem 10%;
-    max-height: 45rem;
+  margin: 3.65rem 10%;
+  max-height: 45rem;
 }
 
 .adminInput {
-    box-sizing: border-box;
-    padding: 0.75rem 1rem;
-    margin: 0.65rem 0;
-    border-radius: 0.6rem;
-    border: 2px solid #a1bedb;
-    width: 100%;
-    font-size: 1rem;
-    color: #3d6b98;
-    caret-color: #3d6b98;
-    transition: 0.3s;
+  box-sizing: border-box;
+  padding: 0.75rem 1rem;
+  margin: 0.65rem 0;
+  border-radius: 0.6rem;
+  border: 2px solid #a1bedb;
+  width: 100%;
+  font-size: 1rem;
+  color: #3d6b98;
+  caret-color: #3d6b98;
+  transition: 0.3s;
 }
 
 .adminInput::placeholder {
-    color: #a1bedb;
-    font-weight: 500;
+  color: #a1bedb;
+  font-weight: 500;
 }
 
 .adminInput:active,
 .adminInput:focus,
 .adminInput:focus-visible {
-    outline: none;
-    border-color: #3d6b98;
-    box-shadow: 0 4px 20px rgba(93, 143, 193, 0.2);
+  outline: none;
+  border-color: #3d6b98;
+  box-shadow: 0 4px 20px rgba(93, 143, 193, 0.2);
 }
 
 .adminButton {
-    background-color: #3d6b98;
-    color: #d0e6f6;
-    font-weight: 600;
-    font-size: 1.125rem;
-    padding: 0.75rem 0;
-    margin: 0.65rem 0;
-    border-radius: 0.75rem;
-    width: 100%;
+  background-color: #3d6b98;
+  color: #d0e6f6;
+  font-weight: 600;
+  font-size: 1.125rem;
+  padding: 0.75rem 0;
+  margin: 0.65rem 0;
+  border-radius: 0.75rem;
+  width: 100%;
 }
 
 .adminButton:hover {
-    background-color: #345c83;
+  background-color: #345c83;
 }
 
 .adminButton:active,
 .adminButton:focus {
-    background-color: #2f5275;
+  background-color: #2f5275;
 }
 
 .ReactModal__Overlay {
-    opacity: 0;
-    transition: opacity 400ms;
+  opacity: 0;
+  transition: opacity 400ms;
 }
 
 .ReactModal__Overlay--after-open {
-    opacity: 1;
+  opacity: 1;
 }
 
 .ReactModal__Overlay--before-close {
-    opacity: 0;
+  opacity: 0;
 }
 
 .toggle {
@@ -273,208 +275,205 @@ a {
 }
 
 .icons {
-    display: flex;
-    margin-top: -0.2rem;
+  display: flex;
+  margin-top: -0.2rem;
 }
 
 .icons > *:not(p) {
-    margin: 0 1px;
-    cursor: pointer;
-    padding: 0.4rem;
+  margin: 0 1px;
+  cursor: pointer;
+  padding: 0.4rem;
 }
 
 .editIcon:hover,
 .trashIcon:hover {
-    border-radius: 25%;
-    transition: background-color 0.3s;
+  border-radius: 25%;
+  transition: background-color 0.3s;
 }
 
 .editIcon:hover {
-    background-color: rgba(79, 195, 177, 0.25);
+  background-color: rgba(79, 195, 177, 0.25);
 }
 
 .editIcon:active {
-    background-color: rgba(79, 195, 177, 0.5);
+  background-color: rgba(79, 195, 177, 0.5);
 }
 
 .trashIcon:hover {
-    background-color: rgba(255, 111, 102, 0.25);
+  background-color: rgba(255, 111, 102, 0.25);
 }
 
 .trashIcon:active {
-    background-color: rgba(255, 111, 102, 0.5);
+  background-color: rgba(255, 111, 102, 0.5);
 }
-
 
 /*Phone input custom styles*/
 
 .PhoneInput {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 .PhoneInputInput {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 27px;
-    color: #3d6b98;
-    outline: none;
-    margin: 0;
-    padding: 10px 25px 10px 10px;
-    background: #FFFFFF;
-    opacity: 0.75;
-    border: none;
-    /*border-right: 4px solid #A1BEDB;*/
-    box-shadow: 0px 1px 15px rgba(225, 221, 212, 0.25);
-    border-radius: 0px 8px 8px 0px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  color: #3d6b98;
+  outline: none;
+  margin: 0;
+  padding: 10px 25px 10px 10px;
+  background: #ffffff;
+  opacity: 0.75;
+  border: none;
+  /*border-right: 4px solid #A1BEDB;*/
+  box-shadow: 0px 1px 15px rgba(225, 221, 212, 0.25);
+  border-radius: 0px 8px 8px 0px;
 }
 
 .PhoneInputInput::placeholder {
-    color: #A1BEDB;
+  color: #a1bedb;
 }
-
 
 .PhoneInputCountry {
-    padding: 10px 15px 10px 25px;
-    background: rgba(161, 190, 219, 0.25);
-    opacity: 0.75;
-    border-width: 0px 4px 0px 0px;
-    border-style: solid;
-    border-color: #A1BEDB;
-    gap: 5px;
+  padding: 10px 15px 10px 25px;
+  background: rgba(161, 190, 219, 0.25);
+  opacity: 0.75;
+  border-width: 0px 4px 0px 0px;
+  border-style: solid;
+  border-color: #a1bedb;
+  gap: 5px;
 }
 
-
 .PhoneInputCountryIcon--border {
-    overflow: hidden;
-    border-radius: 2px;
+  overflow: hidden;
+  border-radius: 2px;
 }
 
 .PhoneInputCountrySelectArrow {
-    border-width: 0 4px 4px 0 !important;
-    border-radius: 0 2px 2px 2px;
+  border-width: 0 4px 4px 0 !important;
+  border-radius: 0 2px 2px 2px;
 }
 
 /*Phone input custom styles end*/
 
-option{
-    background-color:  white;
-    color: #1D1D1D;
+option {
+  background-color: white;
+  color: #1d1d1d;
 }
 
 @media screen and (max-width: 1440px) {
-    .services {
-        margin-bottom: 75px !important;
-    }
+  .services {
+    margin-bottom: 75px !important;
+  }
 
-    .services > div {
-        padding-bottom: 25px !important;
-    }
+  .services > div {
+    padding-bottom: 25px !important;
+  }
 
-    .slick-dots li {
-        max-height: 12px;
-        max-width: 12px;
-    }
+  .slick-dots li {
+    max-height: 12px;
+    max-width: 12px;
+  }
 
-    .slick-dots li button {
-        padding: 5px;
-        height: 12px !important;
-        width: 12px !important;
-    }
+  .slick-dots li button {
+    padding: 5px;
+    height: 12px !important;
+    width: 12px !important;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
-    .adminList {
-        margin: 3.65rem 1.5rem;
-    }
+  .adminList {
+    margin: 3.65rem 1.5rem;
+  }
 
-    .adminHeading br {
-        display: block;
-    }
+  .adminHeading br {
+    display: block;
+  }
 }
 
 @media (max-width: 600px) {
-    html {
-        font-size: 14px;
-    }
+  html {
+    font-size: 14px;
+  }
 
-    .adminHeading {
-        margin: 2rem auto;
-    }
+  .adminHeading {
+    margin: 2rem auto;
+  }
 
-    .adminList {
-        margin: 2.5rem 1.5rem;
-    }
+  .adminList {
+    margin: 2.5rem 1.5rem;
+  }
 
-    .icons {
-        display: flex;
-        margin-top: -0.3rem;
-    }
+  .icons {
+    display: flex;
+    margin-top: -0.3rem;
+  }
 
-    .react-switch-handle {
-        top: 0.45rem !important;
-        left: 0.4rem !important;
-    }
+  .react-switch-handle {
+    top: 0.45rem !important;
+    left: 0.4rem !important;
+  }
 
-    .slick-dots li {
-        max-height: 10px;
-        max-width: 10px;
-    }
+  .slick-dots li {
+    max-height: 10px;
+    max-width: 10px;
+  }
 
-    .slick-dots li button {
-        padding: 5px;
-        height: 10px !important;
-        width: 10px !important;
-    }
+  .slick-dots li button {
+    padding: 5px;
+    height: 10px !important;
+    width: 10px !important;
+  }
 }
 
 @media screen and (max-width: 425px) {
-    .services {
-        margin-bottom: 17.647vw !important;
-    }
+  .services {
+    margin-bottom: 17.647vw !important;
+  }
 
-    .services > div {
-        padding-bottom: 3.529vw !important;
-    }
+  .services > div {
+    padding-bottom: 3.529vw !important;
+  }
 
-    .slick-dots {
-        margin: 0 !important;
-        padding: 0 !important;
-    }
+  .slick-dots {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
-    .slick-dots li {
-        border: 0.5vw solid #a1bedb;
-        max-height: 1.765vw;
-        max-width: 1.765vw;
-    }
+  .slick-dots li {
+    border: 0.5vw solid #a1bedb;
+    max-height: 1.765vw;
+    max-width: 1.765vw;
+  }
 
-    .slick-dots li button {
-        padding: 0.706vw;
-        border: 0.5vw solid #607385;
-        max-height: 1.765vw !important;
-        max-width: 1.765vw !important;
-    }
+  .slick-dots li button {
+    padding: 0.706vw;
+    border: 0.5vw solid #607385;
+    max-height: 1.765vw !important;
+    max-width: 1.765vw !important;
+  }
 }
 
 @media screen and (max-width: 380px) {
-    .PhoneInputInput {
-        font-size: 14px;
-        line-height: 15px;
-        padding: 15px 15px 15px 10px;
-    }
-    .PhoneInputCountry {
-        padding: 10px 10px 10px 15px;
-    }
+  .PhoneInputInput {
+    font-size: 14px;
+    line-height: 15px;
+    padding: 15px 15px 15px 10px;
+  }
+  .PhoneInputCountry {
+    padding: 10px 10px 10px 15px;
+  }
 }
 
 @media (max-width: 320px) {
-    ::-webkit-scrollbar {
-        width: 6vw;
-    }
+  ::-webkit-scrollbar {
+    width: 6vw;
+  }
 
-    ::-webkit-scrollbar-thumb {
-        border: 2.2vw solid transparent;
-        background-clip: padding-box;
-        border-radius: 10vw;
-        background-color: #3d6b98;
-    }
+  ::-webkit-scrollbar-thumb {
+    border: 2.2vw solid transparent;
+    background-clip: padding-box;
+    border-radius: 10vw;
+    background-color: #3d6b98;
+  }
 }

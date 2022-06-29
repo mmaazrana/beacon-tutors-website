@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Switch from 'react-switch';
 import Select from 'react-select';
 import {
@@ -10,10 +11,13 @@ import {
   customSelectStyles,
 } from '../AdminForms/AdminForms';
 import formStyles from '../AdminForms/AdminForms.module.css';
+import toast from 'react-hot-toast';
+import { db } from '../../firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function NewAnnouncement(props) {
+  const router = useRouter();
   const [checked, setChecked] = useState(true);
-  const [page, setPage] = useState('Online');
   const [title, setTitle] = useState('');
   const [days, setDays] = useState(0);
   const [budget, setBudget] = useState(0);
@@ -21,11 +25,34 @@ export default function NewAnnouncement(props) {
 
   const postHandler = async (e) => {
     e.preventDefault();
-    setPage('Online');
-    setTitle('');
-    setDays(0);
-    setBudget(0);
-    setTime(0);
+    try {
+      console.log(checked);
+      await toast.promise(
+        addDoc(collection(db, 'announcements'), {
+          page: checked ? 'Online' : 'Home',
+          title,
+          days,
+          budget,
+          time,
+          timestamp: serverTimestamp(),
+        }).then((docRef) => {
+          console.log(docRef.id);
+          setChecked(true);
+          setTitle('');
+          setDays(0);
+          setBudget(0);
+          setTime(0);
+        }),
+        {
+          loading: 'Creating announcement...',
+          success: 'Announcement created successfully',
+          error: 'Error creating announcement',
+        }
+      );
+    } catch (error) {
+      console.log(error.code, error.message);
+    }
+    router.replace(router.asPath, undefined, { scroll: false });
   };
 
   return (
@@ -43,7 +70,6 @@ export default function NewAnnouncement(props) {
                 checked={checked}
                 onChange={(nextChecked) => {
                   setChecked(nextChecked);
-                  setPage(checked ? 'Online' : 'Home');
                 }}
                 offColor="#ff6f66"
                 onColor="#4fc3b1"
@@ -65,6 +91,7 @@ export default function NewAnnouncement(props) {
               rows="4"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              required
             ></textarea>
 
             <div className={formStyles.inputsRow}>
@@ -74,6 +101,12 @@ export default function NewAnnouncement(props) {
                 options={daysOptions}
                 styles={customSelectStyles}
                 placeholder="Days/Week"
+                value={
+                  days > 0 && {
+                    value: days,
+                    label: `${days}-${days == 1 ? 'Day' : 'Days'}/Week`,
+                  }
+                }
               />
 
               <Select
@@ -82,6 +115,12 @@ export default function NewAnnouncement(props) {
                 options={budgetOptions}
                 styles={customSelectStyles}
                 placeholder="Budget/Month"
+                value={
+                  budget > 0 && {
+                    value: budget,
+                    label: `${budget.toLocaleString()}-PKR/Month`,
+                  }
+                }
               />
 
               <Select
@@ -90,6 +129,12 @@ export default function NewAnnouncement(props) {
                 options={timeOptions}
                 styles={customSelectStyles}
                 placeholder="Time/Day"
+                value={
+                  time > 0 && {
+                    value: time,
+                    label: `${time}-${time == 1 ? 'Hour' : 'Hours'}/Day`,
+                  }
+                }
               />
             </div>
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import styles from './AdminAnnouncement.module.css';
 import { Calendar, Banknote, Clock, Edit, Trash, X } from 'lucide-react';
 import Modal from '../Modal/Modal';
@@ -14,8 +15,12 @@ import {
   customSelectStyles,
 } from '../AdminForms/AdminForms';
 import formStyles from '../AdminForms/AdminForms.module.css';
+import toast from 'react-hot-toast';
+import { db } from '../../firebase';
+import { doc, updateDoc, deleteDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function AdminAnnouncement(props) {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [checked, setChecked] = useState(
@@ -42,17 +47,47 @@ export default function AdminAnnouncement(props) {
 
   const updateHandler = async (e) => {
     e.preventDefault();
-    setPage(props.announcement.page);
-    setTitle(props.announcement.title);
-    setDays(props.announcement.days);
-    setBudget(props.announcement.budget);
-    setTime(props.announcement.time);
-    setIsOpen(false);
+    try {
+      await toast.promise(
+        updateDoc(doc(db, 'announcements', props.announcement.id), {
+          page: checked ? 'Online' : 'Home',
+          title,
+          days,
+          budget,
+          time,
+          timestamp: serverTimestamp(),
+        }).then(() => {
+          setIsOpen(false);
+        }),
+        {
+          loading: 'Updating announcement...',
+          success: 'Announcement updated successfully',
+          error: 'Error updating announcement',
+        }
+      );
+    } catch (error) {
+      console.log(error.code, error.message);
+    }
+    router.replace(router.asPath, undefined, { scroll: false });
   };
 
-  const deleteHandler = (e) => {
+  const deleteHandler = async (e) => {
     e.preventDefault();
-    setConfirmDelete(false);
+    try {
+      await toast.promise(
+        deleteDoc(doc(db, 'announcements', props.announcement.id)).then(() =>
+          setConfirmDelete(false)
+        ),
+        {
+          loading: 'Deleting announcement...',
+          success: 'Announcement deleted successfully',
+          error: 'Error deleting announcement',
+        }
+      );
+    } catch (error) {
+      console.log(error.code, error.message);
+    }
+    router.replace(router.asPath, undefined, { scroll: false });
   };
 
   return (
@@ -118,7 +153,6 @@ export default function AdminAnnouncement(props) {
               checked={checked}
               onChange={(nextChecked) => {
                 setChecked(nextChecked);
-                setPage(checked ? 'Online' : 'Home');
               }}
               offColor="#ff6f66"
               onColor="#4fc3b1"
@@ -148,7 +182,7 @@ export default function AdminAnnouncement(props) {
               onChange={(value) => setDays(value.value)}
               options={daysOptions}
               styles={customSelectStyles}
-              defaultValue={{
+              value={{
                 value: days,
                 label: `${days}-${days == 1 ? 'Day' : 'Days'}/Week`,
               }}
@@ -160,7 +194,7 @@ export default function AdminAnnouncement(props) {
               onChange={(value) => setBudget(value.value)}
               options={budgetOptions}
               styles={customSelectStyles}
-              defaultValue={{
+              value={{
                 value: budget,
                 label: `${budget.toLocaleString()}-PKR/Month`,
               }}
@@ -172,7 +206,7 @@ export default function AdminAnnouncement(props) {
               onChange={(value) => setTime(value.value)}
               options={timeOptions}
               styles={customSelectStyles}
-              defaultValue={{
+              value={{
                 value: time,
                 label: `${time}-${time == 1 ? 'Hour' : 'Hours'}/Day`,
               }}

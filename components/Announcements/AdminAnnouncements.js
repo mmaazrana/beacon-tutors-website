@@ -5,8 +5,8 @@ export default function AdminAnnouncements(props) {
     <div className="adminSection">
       <h1 className="adminHeading">All Announcements</h1>
       <div className="adminList">
-        {props.announcements?.map((announcement, index) => (
-          <AdminAnnouncement key={index} announcement={announcement} />
+        {props.announcements?.map((announcement) => (
+          <AdminAnnouncement key={announcement.id} announcement={announcement} />
         ))}
       </div>
     </div>

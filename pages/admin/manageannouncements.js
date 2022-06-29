@@ -6,6 +6,8 @@ import AdminAnnouncements from '../../components/Announcements/AdminAnnouncement
 import AdminLayout from '../../components/Layouts/AdminLayout';
 import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
+import { db } from '../../firebase';
+import { collection,getDocs, query, orderBy, onSnapshot } from 'firebase/firestore';
 
 export default function ManageAnnouncements(props) {
   const router = useRouter();
@@ -38,46 +40,69 @@ export default function ManageAnnouncements(props) {
 }
 
 export async function getServerSideProps() {
+  let announcements = [];
+  // const announcementsRef = collection(db, 'announcements');
+  // const q = query(announcementsRef, orderBy('timestamp', 'desc'));
+  // console.log(q);
+  // onSnapshot(q, (snapshot) => {
+  //   snapshot.docs.forEach((doc) => {
+  //     console.log(doc);
+  //     announcements.push({
+  //       ...doc.data(),
+  //       id: doc.id,
+  //     });
+  //   });
+  // });
+  const querySnapshot = await getDocs(collection(db, 'announcements'));
+  querySnapshot.forEach((doc) => {
+    announcements.push({
+      ...doc.data(),
+      id: doc.id,
+      timestamp: JSON.parse(JSON.stringify(doc.data().timestamp)),
+    });
+  });
+  console.log(announcements);
   return {
-    props: {
-      announcements: [
-        {
-          title: 'Need an experienced female tutor for O-level Biology',
-          days: 5,
-          budget: 20000,
-          time: 1,
-          page: 'Online',
-        },
-        {
-          title: 'Need an experienced female tutor for O-level Biology',
-          days: 5,
-          budget: 20000,
-          time: 1,
-          page: 'Home',
-        },
-        {
-          title: 'Need an experienced female tutor for O-level Biology',
-          days: 5,
-          budget: 20000,
-          time: 1,
-          page: 'Home',
-        },
-        {
-          title: 'Need an experienced female tutor for O-level Biology',
-          days: 5,
-          budget: 20000,
-          time: 1,
-          page: 'Online',
-        },
-        {
-          title: 'Need an experienced female tutor for O-level Biology',
-          days: 5,
-          budget: 20000,
-          time: 1,
-          page: 'Online',
-        },
-      ],
-    },
+    props: { announcements },
+    // props: {
+    //   announcements: [
+    //     {
+    //       title: 'Need an experienced female tutor for O-level Biology',
+    //       days: 5,
+    //       budget: 20000,
+    //       time: 1,
+    //       page: 'Online',
+    //     },
+    //     {
+    //       title: 'Need an experienced female tutor for O-level Biology',
+    //       days: 5,
+    //       budget: 20000,
+    //       time: 1,
+    //       page: 'Home',
+    //     },
+    //     {
+    //       title: 'Need an experienced female tutor for O-level Biology',
+    //       days: 5,
+    //       budget: 20000,
+    //       time: 1,
+    //       page: 'Home',
+    //     },
+    //     {
+    //       title: 'Need an experienced female tutor for O-level Biology',
+    //       days: 5,
+    //       budget: 20000,
+    //       time: 1,
+    //       page: 'Online',
+    //     },
+    //     {
+    //       title: 'Need an experienced female tutor for O-level Biology',
+    //       days: 5,
+    //       budget: 20000,
+    //       time: 1,
+    //       page: 'Online',
+    //     },
+    //   ],
+    // },
   };
 }
 

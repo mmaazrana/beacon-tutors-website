@@ -36,6 +36,7 @@ function MyApp({ Component, pageProps }) {
       <Toaster
         position="bottom-right"
         toastOptions={{
+          className: 'toast',
           success: {
             iconTheme: {
               primary: '#4FC3B1',
@@ -45,6 +46,9 @@ function MyApp({ Component, pageProps }) {
             iconTheme: {
               primary: '#FF6F66',
             },
+          },
+          style: {
+            zIndex: '10000000 !important',
           },
         }}
       />
