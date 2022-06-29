@@ -39,9 +39,10 @@
   right: 1.25rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 580px) {
   .signIn {
     border-radius: 0;
+    max-width: 100%;
   }
 }
 

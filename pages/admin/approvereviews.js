@@ -1,25 +1,41 @@
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Head from 'next/Head';
 import AdminReview from '../../components/Review/AdminReview';
 import AdminLayout from '../../components/Layouts/AdminLayout';
+import { auth } from '../../firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 export default function ApproveReviews(props) {
+  const router = useRouter();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user_) => {
+      setUser(user_);
+      !user_ && router.push('/admin/signin');
+    });
+  }, [user]);
+
   return (
-    <>
-      <Head>
-        <title>Approve Reviews - Beacon Tutors Pakistan</title>
-        <meta
-          name="description"
-          content="Meta description for the Admin Approve Reviews page"
-        />
-      </Head>
-      <div className="adminSection">
-        <div className="adminList adminListBig">
-          {props.reviews?.map((review, index) => (
-            <AdminReview key={index} review={review} />
-          ))}
+    user && (
+      <>
+        <Head>
+          <title>Approve Reviews - Beacon Tutors Pakistan</title>
+          <meta
+            name="description"
+            content="Meta description for the Admin Approve Reviews page"
+          />
+        </Head>
+        <div className="adminSection">
+          <div className="adminList adminListBig">
+            {props.reviews?.map((review, index) => (
+              <AdminReview key={index} review={review} />
+            ))}
+          </div>
         </div>
-      </div>
-    </>
+      </>
+    )
   );
 }
 

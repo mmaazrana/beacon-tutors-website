@@ -1,175 +1,182 @@
-.nav{
-    height: 55px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: calc(100% - 40px);
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    justify-content: space-between;
-    background-color: white;
-    box-shadow: 0 4px 40px rgba(93, 143, 193, 0.2);
-    z-index: 100000 !important;
+.nav {
+  height: 55px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100% - 40px);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 0 4px 40px rgba(93, 143, 193, 0.2);
+  z-index: 100000 !important;
 }
 
-.nav > *{
-    z-index: 100000;
+.nav > * {
+  z-index: 100000;
 }
 
-.adminNav {
-    justify-content: center;
+.spaceBetween {
+  justify-content: space-between;
 }
 
-
-.buttons{
-    display: flex;
-    align-items: center;
-    transition: visibility 0s, opacity 0.3s;
+.center {
+  justify-content: center;
 }
 
-.buttonsSecondary{
-    padding-right: 15px;
-    display: flex;
-    transition: visibility 0s, opacity 0.3s;
+.buttons {
+  display: flex;
+  align-items: center;
+  transition: visibility 0s, opacity 0.3s;
 }
 
-.buttonsSecondary > *{
-    transition: 0.3s
+.buttonsSecondary {
+  padding-right: 15px;
+  display: flex;
+  transition: visibility 0s, opacity 0.3s;
 }
 
-.logo{
-    max-width: 200px;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+.buttonsSecondary > * {
+  transition: 0.3s;
+}
+
+.logo {
+  max-width: 200px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .logo a {
-    opacity: 0;
-    position: absolute;
-    left: 0;
-    width: 100%;
-    max-width: 200px;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  max-width: 200px;
 }
 
-.menu{
-    color: #D3D3D4;
-    display: none;
-    margin: 0 18px;
-    padding: 3px;
-    transition: 0.3s;
+.menu {
+  color: #d3d3d4;
+  display: none;
+  margin: 0 18px;
+  padding: 3px;
+  transition: 0.3s;
 }
 
 .menu:hover {
-    background-color: #f2f2f2;
-    color: #bfbfbf;
-    border-radius: 4px;
+  background-color: #f2f2f2;
+  color: #bfbfbf;
+  border-radius: 4px;
 }
 
 .menu:active {
-    background-color: #e6e6e6;
-    color: #ababab;
-    border-radius: 4px;
+  background-color: #e6e6e6;
+  color: #ababab;
+  border-radius: 4px;
 }
 
-.logo a:active{
+.logo a:active {
+  opacity: 0;
+}
+
+.logo a:focus {
+  opacity: 0;
+}
+
+@media screen and (max-width: 880px) {
+  .menu {
+    display: block;
+  }
+  .buttonsSecondary {
+    visibility: hidden;
     opacity: 0;
+    flex-direction: column;
+    position: absolute;
+    top: 55px;
+    right: 20px;
+    background-color: white;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 40px rgba(93, 143, 193, 0.2);
+  }
+
+  .buttonsSecondary.open {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
-.logo a:focus{
+@media screen and (max-width: 480px) {
+  .menu {
+    margin: 0;
+  }
+
+  .nav {
+    padding: 0 14px;
+    width: calc(100% - 30px);
+  }
+
+  .buttons {
+    visibility: hidden;
+    position: absolute;
     opacity: 0;
+    top: 55px;
+    width: fit-content;
+    right: 20px;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 4px 40px rgba(93, 143, 193, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .buttons.open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .buttonsSecondary {
+    position: relative;
+    top: 0;
+    right: 0;
+    box-shadow: none;
+    padding: 0 0 5px 0;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .logo {
+    margin: auto;
+    padding-left: 30px;
+  }
+
+  .adminNav .logo {
+    padding-left: 0;
+  }
 }
 
-@media screen and (max-width: 880px){
-    .menu{
-        display: block;
-    }
-    .buttonsSecondary{
-        visibility: hidden;
-        opacity: 0;
-        flex-direction: column;
-        position: absolute;
-        top: 55px;
-        right: 20px;
-        background-color: white;
-        justify-content: center;
-        padding: 10px;
-        border-radius: 8px;
-        box-shadow: 0 4px 40px rgba(93, 143, 193, 0.2);
-    }
+@media screen and (max-width: 320px) {
+  .menu {
+    max-width: 20px;
+    margin: 0 0 10px 0;
+  }
 
-    .buttonsSecondary.open{
-        visibility: visible;
-        opacity: 1;
-    }
-}
+  .nav {
+    height: 65px;
+    flex-direction: column;
+  }
 
-@media screen and (max-width: 480px){
-    .menu{
-        margin: 0;
-    }
+  .buttons {
+    right: 0;
+  }
 
-    .nav{
-        padding : 0 14px;
-        width: calc(100% - 30px);
-    }
-
-    .buttons{
-        visibility: hidden;
-        position: absolute;
-        opacity: 0;
-        top: 55px;
-        width: fit-content;
-        right: 20px;
-        flex-direction: column;
-        background-color: white;
-        box-shadow: 0 4px 40px rgba(93, 143, 193, 0.2);
-        padding: 10px;
-        border-radius: 10px;
-    }
-    .buttons.open{
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .buttonsSecondary{
-        position: relative;
-        top: 0;
-        right: 0;
-        box-shadow: none;
-        padding: 0 0 5px 0 ;
-        width: 100%;
-        border-radius: 0;
-    }
-
-    .logo{
-        margin:auto;
-        padding-left: 30px;
-    }
-}
-
-@media screen and (max-width: 320px){
-    .menu{
-        max-width: 20px;
-        margin: 0 0 10px 0;
-    }
-
-    .nav{
-        height: 65px;
-        flex-direction: column;
-    }
-
-    .buttons {
-        right: 0;
-    }
-
-    .logo{
-        max-width: fit-content;
-        padding-left: 0;
-        margin: 5px 0 5px 0;
-        height: 5vw;
-    }
+  .logo {
+    max-width: fit-content;
+    padding-left: 0;
+    margin: 5px 0 5px 0;
+    height: 5vw;
+  }
 }

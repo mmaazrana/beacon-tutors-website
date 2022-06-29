@@ -23,7 +23,6 @@
     opacity: 0;
     transform: scale(0);
     transition-duration: 100ms;
-    transition-delay: 250ms;
 }
 
 .exitDone{
