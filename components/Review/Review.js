@@ -8,7 +8,6 @@ export default function Review(props) {
       <div className={styles.content}>
         <p className={styles.username}>{props.username}</p>
         <Rating
-            ratingValue={props.rating}
           className={styles.rating}
           initialValue={props.rating}
           allowHalfIcon={true}
@@ -23,6 +22,5 @@ export default function Review(props) {
         </p>
       </div>
     </div>
-
   );
 }

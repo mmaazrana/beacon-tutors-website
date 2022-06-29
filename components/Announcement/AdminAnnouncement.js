@@ -174,6 +174,7 @@ export default function AdminAnnouncement(props) {
             rows="4"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            required
           />
 
           <div className={formStyles.inputsRow}>
@@ -182,11 +183,11 @@ export default function AdminAnnouncement(props) {
               onChange={(value) => setDays(value.value)}
               options={daysOptions}
               styles={customSelectStyles}
+              placeholder="Days/Week"
               value={{
                 value: days,
                 label: `${days}-${days == 1 ? 'Day' : 'Days'}/Week`,
               }}
-              placeholder="Days/Week"
             />
 
             <Select
@@ -194,11 +195,11 @@ export default function AdminAnnouncement(props) {
               onChange={(value) => setBudget(value.value)}
               options={budgetOptions}
               styles={customSelectStyles}
+              placeholder="Budget/Month"
               value={{
                 value: budget,
                 label: `${budget.toLocaleString()}-PKR/Month`,
               }}
-              placeholder="Budget/Month"
             />
 
             <Select
@@ -206,11 +207,11 @@ export default function AdminAnnouncement(props) {
               onChange={(value) => setTime(value.value)}
               options={timeOptions}
               styles={customSelectStyles}
+              placeholder="Time/Day"
               value={{
                 value: time,
                 label: `${time}-${time == 1 ? 'Hour' : 'Hours'}/Day`,
               }}
-              placeholder="Time/Day"
             />
           </div>
 

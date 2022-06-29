@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router';
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import styles from './AdminReview.module.css';
 import { Edit, Trash, Check, X } from 'lucide-react';
 import { Rating } from 'react-simple-star-rating';
@@ -13,9 +13,13 @@ import {
   customSelectStyles,
 } from '../AdminForms/AdminForms';
 import formStyles from '../AdminForms/AdminForms.module.css';
+import toast from 'react-hot-toast';
+import { db } from '../../firebase';
+import { doc, updateDoc, deleteDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function AdminReview(props) {
   const { pathname } = useRouter();
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [modalAction, setModalAction] = useState('');
@@ -39,16 +43,46 @@ export default function AdminReview(props) {
 
   const updateHandler = async (e) => {
     e.preventDefault();
-    setImage(props.review.image);
-    setUsername(props.review.username);
-    setDescription(props.review.description);
-    setRating(props.review.rating);
-    setIsOpen(false);
+    try {
+      await toast.promise(
+        updateDoc(doc(db, 'reviews', props.review.id), {
+          image,
+          username,
+          description,
+          rating,
+          timestamp: serverTimestamp(),
+        }).then(() => {
+          setIsOpen(false);
+        }),
+        {
+          loading: 'Updating review...',
+          success: 'Review updated successfully',
+          error: 'Error updating review',
+        }
+      );
+    } catch (error) {
+      console.log(error.code, error.message);
+    }
+    router.replace(router.asPath, undefined, { scroll: false });
   };
 
-  const deleteHandler = (e) => {
+  const deleteHandler = async (e) => {
     e.preventDefault();
-    setConfirmDelete(false);
+    try {
+      await toast.promise(
+        deleteDoc(doc(db, 'reviews', props.review.id)).then(() =>
+          setConfirmDelete(false)
+        ),
+        {
+          loading: 'Deleting review...',
+          success: 'Review deleted successfully',
+          error: 'Error deleting review',
+        }
+      );
+    } catch (error) {
+      console.log(error.code, error.message);
+    }
+    router.replace(router.asPath, undefined, { scroll: false });
   };
 
   const approveHandler = () => {};
@@ -144,6 +178,7 @@ export default function AdminReview(props) {
             placeholder="Name"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            required
           />
 
           <textarea
@@ -153,7 +188,8 @@ export default function AdminReview(props) {
             rows="4"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-          ></textarea>
+            required
+          />
 
           <div className={formStyles.inputsRow}>
             <Select
@@ -161,8 +197,8 @@ export default function AdminReview(props) {
               onChange={(value) => setRating(value.value)}
               options={ratingOptions}
               styles={customSelectStyles}
-              defaultValue={{ value: rating, label: rating }}
               placeholder="Rating"
+              value={{ value: rating, label: rating }}
             />
           </div>
 

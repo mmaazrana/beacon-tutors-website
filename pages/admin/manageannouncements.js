@@ -7,7 +7,13 @@ import AdminLayout from '../../components/Layouts/AdminLayout';
 import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { db } from '../../firebase';
-import { collection,getDocs, query, orderBy, onSnapshot } from 'firebase/firestore';
+import {
+  collection,
+  getDocs,
+  query,
+  orderBy,
+  onSnapshot,
+} from 'firebase/firestore';
 
 export default function ManageAnnouncements(props) {
   const router = useRouter();
