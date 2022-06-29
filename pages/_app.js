@@ -1,11 +1,11 @@
 import '../styles/globals.css';
 import Head from 'next/Head';
-// import { ReactComponent as Pattern } from '../assets/background pattern.svg';
-import 'react-perfect-scrollbar/dist/css/styles.css';
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import Loading from "../components/Loading/Loading";
+import React from "react";
+
 
 function MyApp({Component, pageProps}) {
 
@@ -27,6 +27,7 @@ function MyApp({Component, pageProps}) {
     return getLayout(
         <>
             <Head>
+
                 <meta charSet = "UTF-8"/>
                 <meta name = "keywords" content = "titla, meta, nextjs"/>
                 <meta name = "author" content = "Syamlal CM"/>
@@ -35,7 +36,9 @@ function MyApp({Component, pageProps}) {
             </Head>
 
             <Loading loading = {loading}/>
+
             <Component className = {'body'} {...pageProps} />
+
         </>
     );
 

@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Advantage from '../Advantage/Advantage';
 import styles from './Advantages.module.css';
 
+
 export default function Advantages(props) {
   const settings = {
     dots: true,
@@ -27,7 +28,7 @@ export default function Advantages(props) {
   };
 
   return (
-    <>
+
       <Slider {...settings} className={styles.main}>
         {props.data?.map((advantage, index) => (
           <Advantage
@@ -39,6 +40,6 @@ export default function Advantages(props) {
           />
         ))}
       </Slider>
-    </>
+
   );
 }

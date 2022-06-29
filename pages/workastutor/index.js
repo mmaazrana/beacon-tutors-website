@@ -1,8 +1,8 @@
 import React from 'react';
 import Head from 'next/Head';
-// import Main from '../../components/Main/Main';
+import Main from '../../components/Main/Main';
 import BecomeLottie from '../../assets/lotties/be a tutor final.json';
-// import Separator from '../../components/Separator/Separator';
+import Separator from '../../components/Separator/Separator';
 // import { ReactComponent as CustomerSupport } from '../../assets/Advantages/WritingService/CustomerSupport.svg';
 // import { ReactComponent as JoinOurOfficialGroup } from '../../assets/HowItWorks/WorkAsTutor/JoinOurOfficialGroup.svg';
 // import { ReactComponent as ApplyforRegistration } from '../../assets/HowItWorks/WorkAsTutor/ApplyforRegistration.svg';
@@ -12,12 +12,12 @@ import BecomeLottie from '../../assets/lotties/be a tutor final.json';
 // import { ReactComponent as TeachAsYourPreference } from '../../assets/Advantages/WorkAsTutor/TeachAsYourPreference.svg';
 // import { ReactComponent as PartTimeFlexibleHours } from '../../assets/Advantages/WorkAsTutor/PartTimeFlexibleHours.svg';
 // import { ReactComponent as EarnMoreThanAFullTimeJob } from '../../assets/Advantages/WorkAsTutor/EarnMoreThanAFullTimeJob.svg';
-// import HowItWorks from '../../components/HowItWorks/HowItWorks';
-// import Advantages from '../../components/Advantages/Advantages';
+import HowItWorks from '../../components/HowItWorks/HowItWorks';
+import Advantages from '../../components/Advantages/Advantages';
 import dynamic from "next/dynamic";
 
-// import Layout from '../../components/Layouts/Layout';
-const Layout = dynamic(() => import('../../components/Layouts/Layout'));
+import Layout from '../../components/Layouts/Layout';
+// const Layout = dynamic(() => import('../../components/Layouts/Layout'));
 
 export default function WorkAsTutor(props) {
 
@@ -31,10 +31,10 @@ export default function WorkAsTutor(props) {
   const PartTimeFlexibleHours = dynamic(() => import('../../assets/Advantages/WorkAsTutor/PartTimeFlexibleHours.svg').then(module => module.ReactComponent),);
   const EarnMoreThanAFullTimeJob = dynamic(() => import('../../assets/Advantages/WorkAsTutor/EarnMoreThanAFullTimeJob.svg').then(module => module.ReactComponent),);
 
-  const Main = dynamic(() => import('../../components/Main/Main'));
-  const Separator = dynamic(() => import('../../components/Separator/Separator'));
-  const HowItWorks = dynamic(() => import('../../components/HowItWorks/HowItWorks'));
-  const Advantages = dynamic(() => import('../../components/Advantages/Advantages'));
+  // const Main = dynamic(() => import('../../components/Main/Main'));
+  // const Separator = dynamic(() => import('../../components/Separator/Separator'));
+  // const HowItWorks = dynamic(() => import('../../components/HowItWorks/HowItWorks'));
+  // const Advantages = dynamic(() => import('../../components/Advantages/Advantages'));
 
 
   const howItWorksData = [

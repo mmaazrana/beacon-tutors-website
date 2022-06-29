@@ -3,13 +3,13 @@ import Link from "next/link";
 import styles from './Nav.module.css'
 import LinkButton from "../Buttons/LinkButton";
 import {Menu} from 'lucide-react'
-// import {ReactComponent as Logo3} from "../../assets/beacon-tutors.svg";
-import dynamic from "next/dynamic";
+import {ReactComponent as Logo3} from "../../assets/beacon-tutors.svg";
+// import dynamic from "next/dynamic";
 export default function Nav() {
 
     const [isExpanded, setIsExpanded] = useState(false);
 
-    const Logo3 = dynamic(() => import('../../assets/beacon-tutors.svg').then(module => module.ReactComponent),);
+    // const Logo3 = dynamic(() => import('../../assets/beacon-tutors.svg').then(module => module.ReactComponent),);
 
     function toggleMenu() {
         setIsExpanded(!isExpanded);

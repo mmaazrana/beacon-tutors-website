@@ -14,7 +14,7 @@ export default function AdminLayout({ children }) {
   return (
     <>
       <div className={'background'}>
-        <Pattern viewBox="0 0 100% 0" />
+        <Pattern viewBox="0 0 100 0" />
       </div>
       <AdminNav />
       {!(pathname === '/admin/signin') && <Tabs />}

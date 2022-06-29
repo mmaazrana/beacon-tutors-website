@@ -1,7 +1,12 @@
 import React from 'react';
-// import Main from '../../components/Main/Main';
+import Main from '../../components/Main/Main';
 import OnlineLottie from '../../assets/lotties/online tutoring.json';
-// import Separator from '../../components/Separator/Separator';
+import Separator from '../../components/Separator/Separator';
+import HowItWorks from '../../components/HowItWorks/HowItWorks';
+import Advantages from '../../components/Advantages/Advantages';
+import SeparatorBox from "../Separator/SeparatorBox";
+import Announcements from "../Announcements/Announcements";
+import Reviews from "../Reviews/Reviews";
 // import { ReactComponent as SubmitYourInquiry } from '../../assets/HowItWorks/Home/SubmitYourInquiry.svg';
 // import { ReactComponent as TeacherLocating } from '../../assets/HowItWorks/Home/TeacherLocating.svg';
 // import { ReactComponent as ProfileSharing } from '../../assets/HowItWorks/Home/ProfileSharing.svg';
@@ -13,11 +18,6 @@ import OnlineLottie from '../../assets/lotties/online tutoring.json';
 // import { ReactComponent as MaleAndFemaleTutors } from '../../assets/Advantages/Home/MaleAndFemaleTutors.svg';
 // import { ReactComponent as TeachersOfYourChoice } from '../../assets/Advantages/Home/TeachersOfYourChoice.svg';
 // import { ReactComponent as FreeTrialClasses } from '../../assets/Advantages/Home/FreeTrialClasses.svg';
-// import HowItWorks from '../../components/HowItWorks/HowItWorks';
-// import Advantages from '../../components/Advantages/Advantages';
-// import SeparatorBox from "../Separator/SeparatorBox";
-// import Announcements from "../Announcements/Announcements";
-// import Reviews from "../Reviews/Reviews";
 // import {ReactComponent as Female1} from "../../assets/Avatars/Female1.svg";
 // import {ReactComponent as Female2} from "../../assets/Avatars/Female2.svg";
 // import {ReactComponent as Female3} from "../../assets/Avatars/Female3.svg";
@@ -53,13 +53,13 @@ export default function Online(props) {
   const Male3 = dynamic(() => import('../../assets/Avatars/Male3.svg').then(module => module.ReactComponent),);
   const Male4 = dynamic(() => import('../../assets/Avatars/Male4.svg').then(module => module.ReactComponent),);
 
-  const Main = dynamic(() => import('../../components/Main/Main'));
-  const Separator = dynamic(() => import('../../components/Separator/Separator'));
-  const HowItWorks = dynamic(() => import('../../components/HowItWorks/HowItWorks'));
-  const Advantages = dynamic(() => import('../../components/Advantages/Advantages'));
-  const Reviews = dynamic(() => import('../../components/Reviews/Reviews'));
-  const SeparatorBox = dynamic(() => import('../../components/Separator/SeparatorBox'));
-  const Announcements = dynamic(() => import('../Announcements/Announcements'));
+  // const Main = dynamic(() => import('../../components/Main/Main'));
+  // const Separator = dynamic(() => import('../../components/Separator/Separator'));
+  // const HowItWorks = dynamic(() => import('../../components/HowItWorks/HowItWorks'));
+  // const Advantages = dynamic(() => import('../../components/Advantages/Advantages'));
+  // const Reviews = dynamic(() => import('../../components/Reviews/Reviews'));
+  // const SeparatorBox = dynamic(() => import('../../components/Separator/SeparatorBox'));
+  // const Announcements = dynamic(() => import('../Announcements/Announcements'));
 
 
   const howItWorksData = [
