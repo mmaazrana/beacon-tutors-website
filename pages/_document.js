@@ -6,7 +6,6 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
-                <title>Document</title>
                 <link rel = "stylesheet" href =
                     "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
                 <link
