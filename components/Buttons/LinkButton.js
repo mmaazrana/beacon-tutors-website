@@ -21,7 +21,7 @@ export default function LinkButton(props) {
             {state => (
                 <div
                     className = {`${buttonClass} ${props.className}`}>
-                    <Link href = {props.link}><a>{props.text}</a></Link>
+                    <Link href = {props.link}><a  >{props.text}</a></Link>
                 </div>
 
             )}

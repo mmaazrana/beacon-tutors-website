@@ -4,6 +4,7 @@ import styles from './Nav.module.css'
 import LinkButton from "../Buttons/LinkButton";
 import {Menu} from 'lucide-react'
 import {ReactComponent as Logo3} from "../../assets/beacon-tutors.svg";
+import {useRouter} from "next/router";
 // import dynamic from "next/dynamic";
 export default function Nav() {
 
@@ -14,6 +15,7 @@ export default function Nav() {
     function toggleMenu() {
         setIsExpanded(!isExpanded);
     }
+    const router = useRouter()
 
     return (<>
         <div className={styles.nav}>
@@ -29,7 +31,7 @@ export default function Nav() {
                 <div className={isExpanded ? `${styles.buttons} ${styles.open}` :  styles.buttons } >
                     <div className={isExpanded ? `${styles.buttonsSecondary} ${styles.open}` :  styles.buttonsSecondary }>
                         <LinkButton link={'/'} text={'Home'}/>
-                        <LinkButton link={'/'} text={'Our Services'}/>
+                        <LinkButton link={'/#services'} text={'Our Services'} />
                         <LinkButton link={'/workastutor'} text={'Work as a Tutor'}/>
                         <LinkButton link={'/termsandconditions'} text={'Terms & Conditions'}/>
                     </div>

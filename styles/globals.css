@@ -4,6 +4,7 @@ html {
   position: relative;
   height: fit-content;
   font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {

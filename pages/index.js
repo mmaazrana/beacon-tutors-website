@@ -254,11 +254,12 @@ export default function Home() {
             }
             lottie = {MainLottie}
         />
+            <div id={"services"}>
+            <Separator  text = {'Services'}/> {/*<ScrollContainer className="scroll-container">*/}
+            </div>
 
-            <Separator text = {'Services'}/> {/*<ScrollContainer className="scroll-container">*/}
 
-
-            <div>
+            <div >
             <Slider {...settings} className = {'services'}> <Service
                 heading = {'Online Tutoring'}
                 description = {
