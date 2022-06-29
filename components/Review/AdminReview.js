@@ -66,7 +66,7 @@ export default function AdminReview(props) {
     router.replace(router.asPath, undefined, { scroll: false });
   };
 
-  const deleteHandler = async (e) => {
+  const deleteHandler = async (e, modalAction) => {
     e.preventDefault();
     try {
       await toast.promise(
@@ -74,9 +74,15 @@ export default function AdminReview(props) {
           setConfirmDelete(false)
         ),
         {
-          loading: 'Deleting review...',
-          success: 'Review deleted successfully',
-          error: 'Error deleting review',
+          loading: `${
+            modalAction === 'Delete' ? 'Deleting' : 'Rejecting'
+          } review...`,
+          success: `Review ${
+            modalAction === 'Delete' ? 'deleted' : 'rejected'
+          } successfully`,
+          error: `Error ${
+            modalAction === 'Delete' ? 'deleting' : 'rejecting'
+          } review`,
         }
       );
     } catch (error) {
@@ -85,7 +91,27 @@ export default function AdminReview(props) {
     router.replace(router.asPath, undefined, { scroll: false });
   };
 
-  const approveHandler = () => {};
+  const approveHandler = async (e) => {
+    e.preventDefault();
+    try {
+      await toast.promise(
+        updateDoc(doc(db, 'reviews', props.review.id), {
+          isApproved: true,
+          timestamp: serverTimestamp(),
+        }).then(() => {
+          setIsOpen(false);
+        }),
+        {
+          loading: 'Approving review...',
+          success: 'Review approved successfully',
+          error: 'Error approving review',
+        }
+      );
+    } catch (error) {
+      console.log(error.code, error.message);
+    }
+    router.replace(router.asPath, undefined, { scroll: false });
+  };
 
   return (
     <>
@@ -213,7 +239,7 @@ export default function AdminReview(props) {
         item="Review"
         isOpen={confirmDelete}
         closeModal={closeModal}
-        deleteHandler={deleteHandler}
+        deleteHandler={(e) => deleteHandler(e, modalAction)}
       />
     </>
   );

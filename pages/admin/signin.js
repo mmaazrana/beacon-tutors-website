@@ -72,25 +72,6 @@ export default function SignIn() {
     } catch (error) {
       console.log(error.code, error.message);
     }
-    // try{
-    // await toast.promise(
-    //   setPersistence(auth, browserSessionPersistence).then(() => {
-    //     signInWithEmailAndPassword(auth, email, password).then(
-    //       (userCredential) => {
-    //         const user = userCredential.user;
-    //         router.push('/admin/manageannouncements');
-    //       }
-    //     );
-    //   }),
-    //   {
-    //     loading: 'Verifying credentials...',
-    //     success: 'Signed in successfully',
-    //     error: 'Invalid credentials',
-    //   }
-    // );
-    // } catch (error) {
-    //   console.log(error.code, error.message);
-    // }
   };
 
   return (

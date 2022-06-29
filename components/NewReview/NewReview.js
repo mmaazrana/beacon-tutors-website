@@ -66,17 +66,17 @@ export default function NewReview(props) {
         <form onSubmit={postHandler}>
           <div className={isAdminPage ? formStyles.inputs : ''}>
             <div className={formStyles.row}>
-              {imagesOptions.map((image, index) => (
+              {imagesOptions.map((imageOption, index) => (
                 <label key={index}>
                   <input
                     type="radio"
                     name="image"
-                    value={image.value}
+                    value={imageOption.value}
                     key={index}
                     onChange={(e) => setImage(e.target.value)}
                   />
                   <div className={formStyles.image}>
-                    {image.label}
+                    {imageOption.label}
                     <Check className={formStyles.check} />
                   </div>
                 </label>
