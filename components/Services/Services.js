@@ -2,7 +2,6 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Announcement from "../Announcement/Announcement";
 import Service from "../Service/Service";
 
 export default function Services(props) {
@@ -28,16 +27,16 @@ export default function Services(props) {
     };
 
     return (
+
         <>
-            <Slider {...settings} className={'services'}>
-                {props.data?.map((service, index) => (
-                    <Service key = {index} heading={service.heading}
-                             description={ service.description }
-                             image={service.image}
-                    />
-                ))}
+            <Slider {...settings} className = {'services'}>
+                {props.data?.map((service, index) => (<Service key = {index} heading = {service.heading}
+                                                               description = {service.description}
+                                                               image = {service.image}
+                />))}
             </Slider>
         </>
+
     );
 }
 

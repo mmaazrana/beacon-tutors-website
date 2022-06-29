@@ -1,12 +1,24 @@
 import React from 'react';
 import styles from "./Loading.module.css";
+import animationStyles from "../../styles/Animations/FadeAnimations.module.css";
+import {CSSTransition, SwitchTransition} from 'react-transition-group';
+import {useRouter} from "next/router";
 
 export default function Loading(props) {
 
-    return (
+    const router = useRouter();
 
-        <div
-            className = {props.loading ? styles.body_loading : styles.none}>
+    return (
+        <SwitchTransition mode='out-in'>
+            <CSSTransition
+                key = {router.pathname}
+                in = {true}
+                appear = {true}
+                timeout = {500}
+                unmountOnExit
+                classNames = {animationStyles}>
+                {state => (
+        <div  className = {props.loading ? styles.body_loading : styles.none}>
             <div
                 className = {styles.lds_ellipsis}
             >
@@ -16,7 +28,9 @@ export default function Loading(props) {
                 <div/>
             </div>
         </div>
-
+                )}
+            </CSSTransition>
+        </SwitchTransition>
     );
 }
 

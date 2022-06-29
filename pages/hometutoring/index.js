@@ -1,14 +1,14 @@
 import React from 'react';
 import Head from 'next/Head';
-// import Home from '../../components/Tutoring/Home';
-import dynamic from "next/dynamic";
+import Home from '../../components/Tutoring/Home';
+// import dynamic from "next/dynamic";
 
-// import Layout from '../../components/Layouts/Layout';
-const Layout = dynamic(() => import('../../components/Layouts/Layout'));
+import Layout from '../../components/Layouts/Layout';
+// const Layout = dynamic(() => import('../../components/Layouts/Layout'));
 
 export default function HomeTutoring(props) {
 
-    const Home = dynamic(() => import('../../components/Tutoring/Home'));
+    // const Home = dynamic(() => import('../../components/Tutoring/Home'));
 
 
     return (

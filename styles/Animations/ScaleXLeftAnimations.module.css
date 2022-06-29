@@ -1,0 +1,47 @@
+/*Appear transition*/
+
+.appear {
+    transform: scaleX(0);
+    transform-origin: left center;
+}
+
+.appearActive {
+    transform: scaleX(1);
+    transform-origin: left center;
+    transition-duration: 250ms;
+
+}
+
+/*Exit transition*/
+
+.exit {
+    transform-origin: left center;
+    transform: scaleX(1);
+}
+
+.exitActive {
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition-duration: 100ms;
+
+}
+
+.exitDone{
+    transform-origin: left center;
+    transform: scaleX(0);
+}
+
+
+/*Enter transition*/
+
+.enter {
+    transform-origin: left center;
+    transform: scaleX(0);
+}
+
+.enterActive {
+    transform-origin: left center;
+    transform: scaleX(1);
+    transition-duration: 250ms;
+
+}

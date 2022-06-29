@@ -1,8 +1,8 @@
 import React from 'react';
 import Head from 'next/Head';
-// import Main from '../../components/Main/Main';
+import Main from '../../components/Main/Main';
 import WritingLottie from '../../assets/lotties/writing-service.json';
-// import Separator from '../../components/Separator/Separator';
+import Separator from '../../components/Separator/Separator';
 // import { ReactComponent as AssignmentWriting } from '../../assets/Services/WritingService/AssignmentWriting.svg';
 // import { ReactComponent as ResearchPaperWriting } from '../../assets/Services/WritingService/ResearchPaperWriting.svg';
 // import { ReactComponent as ThesisAndDissertationWriting } from '../../assets/Services/WritingService/ThesisAndDissertationWriting.svg';
@@ -26,10 +26,10 @@ import WritingLottie from '../../assets/lotties/writing-service.json';
 // import { ReactComponent as PlagiarismFree } from '../../assets/Advantages/WritingService/PlagiarismFree.svg';
 // import { ReactComponent as FreeRevisions } from '../../assets/Advantages/WritingService/FreeRevisions.svg';
 // import { ReactComponent as RefundPolicy } from '../../assets/Advantages/WritingService/RefundPolicy.svg';
-// import HowItWorks from '../../components/HowItWorks/HowItWorks';
-// import Advantages from '../../components/Advantages/Advantages';
-// import WritingAnnouncements from '../../components/Announcements/WritingAnnouncements';
-// import Services from "../../components/Services/Services";
+import HowItWorks from '../../components/HowItWorks/HowItWorks';
+import Advantages from '../../components/Advantages/Advantages';
+import WritingAnnouncements from '../../components/Announcements/WritingAnnouncements';
+import Services from "../../components/Services/Services";
 import dynamic from "next/dynamic";
 
 // import Layout from '../../components/Layouts/Layout';
@@ -61,12 +61,12 @@ export default function Assignments(props) {
   const FreeRevisions = dynamic(() => import('../../assets/Advantages/WritingService/FreeRevisions.svg').then(module => module.ReactComponent),);
   const RefundPolicy = dynamic(() => import('../../assets/Advantages/WritingService/RefundPolicy.svg').then(module => module.ReactComponent),);
 
-  const Main = dynamic(() => import('../../components/Main/Main'));
-  const Separator = dynamic(() => import('../../components/Separator/Separator'));
-  const HowItWorks = dynamic(() => import('../../components/HowItWorks/HowItWorks'));
-  const Advantages = dynamic(() => import('../../components/Advantages/Advantages'));
-  const WritingAnnouncements = dynamic(() => import('../../components/Announcements/WritingAnnouncements'));
-  const Services = dynamic(() => import('../../components/Services/Services'));
+  // const Main = dynamic(() => import('../../components/Main/Main'));
+  // const Separator = dynamic(() => import('../../components/Separator/Separator'));
+  // const HowItWorks = dynamic(() => import('../../components/HowItWorks/HowItWorks'));
+  // const Advantages = dynamic(() => import('../../components/Advantages/Advantages'));
+  // const WritingAnnouncements = dynamic(() => import('../../components/Announcements/WritingAnnouncements'));
+  // const Services = dynamic(() => import('../../components/Services/Services'));
 
 
   const howItWorksData = [

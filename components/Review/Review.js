@@ -1,5 +1,6 @@
 import styles from './Review.module.css';
 import { Rating } from 'react-simple-star-rating';
+
 export default function Review(props) {
   return (
     <div className={styles.review}>
@@ -7,6 +8,7 @@ export default function Review(props) {
       <div className={styles.content}>
         <p className={styles.username}>{props.username}</p>
         <Rating
+            ratingValue={props.rating}
           className={styles.rating}
           initialValue={props.rating}
           allowHalfIcon={true}
@@ -21,5 +23,6 @@ export default function Review(props) {
         </p>
       </div>
     </div>
+
   );
 }

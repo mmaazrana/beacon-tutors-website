@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@svgr/webpack": "^6.2.1",
-    "framer-motion": "^6.3.16",
     "firebase": "^9.8.4",
     "lottie-react": "^2.2.1",
     "lucide-react": "^0.61.0",
@@ -27,6 +26,8 @@
     "react-simple-star-rating": "^4.0.5",
     "react-slick": "^0.29.0",
     "react-switch": "^7.0.0",
+    "react-transition-group": "^4.4.2",
+    "react-waypoint": "^10.3.0",
     "slick-carousel": "^1.8.1",
     "url-loader": "^4.1.1"
   },

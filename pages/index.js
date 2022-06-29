@@ -1,7 +1,7 @@
 // beacontutorspk.com
 
 import Head from 'next/Head';
-import React from 'react';
+import React, {useRef} from 'react';
 import MainLottie from '../assets/lotties/main-page.json';
 import Main from '../components/Main/Main';
 import Separator from '../components/Separator/Separator';
@@ -35,16 +35,19 @@ import SeparatorBox from "../components/Separator/SeparatorBox";
 import dynamic from 'next/dynamic'
 
 import Layout from '../components/Layouts/Layout';
+import {Waypoint} from "react-waypoint";
+import scaleAnimationStyles from "../styles/Animations/ScaleFadeAnimations.module.css";
+import {useState} from "react";
+import {useRouter} from "next/router";
 // const Layout = dynamic(() => import('../components/Layouts/Layout'));
+import {CSSTransition} from 'react-transition-group';
+// import {ReactComponent as HomeTutoringSvg} from "../assets/Services/home-tutoring.svg";
+
 
 export default function Home() {
     // const homeTutoringSvg = <HomeTutoring/>;
     // const onlineTutoringSvg = <OnlineTutoring/>;
     // const writingServiceSvg = <WritingService/>;
-
-    const dummy = (async () => await import('../assets/lotties/main-page.json').then(mod => {
-        console.log(mod)
-    }));
 
     const HomeTutoringSvg = dynamic(() => import('../assets/Services/home-tutoring.svg').then(module => module.ReactComponent),);
     const OnlineTutoringSvg = dynamic(() => import('../assets/Services/online-tutoring.svg').then(module => module.ReactComponent),);
@@ -82,6 +85,7 @@ export default function Home() {
     // const SeparatorBox = dynamic(() => import('../components/Separator/SeparatorBox'));
     // const Service = dynamic(() => import('../components/Service/Service'));
     // const Slider = dynamic(() => import('react-slick'));
+
 
 
     const howItWorksData = [
@@ -215,7 +219,7 @@ export default function Home() {
         slidesToShow: 1,
         slidesToScroll: 1,
         variableWidth: true,
-        adaptiveHeight: true,
+        // adaptiveHeight: true,
         pauseOnHover: true,
         swipeToSlide: true,
         focusOnSelect: true,
@@ -225,6 +229,9 @@ export default function Home() {
         centerMode: true,
     };
 
+    const ref = useRef();
+    const [scrollIn, setScrollIn] = useState(false);
+    const router = useRouter();
 
     return (
 
@@ -234,14 +241,24 @@ export default function Home() {
             <Head>
                 <title>Beacon Tutors Pakistan - Home</title>
                 <meta name = "description" content = "Meta description for the Home page"/>
-            </Head> <Main
+
+            </Head>
+
+
+
+
+            <Main
             heading = {'Largest Tutoring Network \n' + 'of Pakistan'}
             description = {
                 'Hire a tutor/teacher for understanding, learning, and gaining in-depth knowledge about a specific subject.'
             }
             lottie = {MainLottie}
-        /> <Separator text = {'Services'}/> {/*<ScrollContainer className="scroll-container">*/}
+        />
 
+            <Separator text = {'Services'}/> {/*<ScrollContainer className="scroll-container">*/}
+
+
+            <div>
             <Slider {...settings} className = {'services'}> <Service
                 heading = {'Online Tutoring'}
                 description = {
@@ -271,12 +288,36 @@ export default function Home() {
                 }
                 link = {'/assignments'}
             /> {/*</div>*/}
-            </Slider> {/*</ScrollContainer>*/} <Separator text = {'How it works'}/> <HowItWorks
+            </Slider> {/*</ScrollContainer>*/}
+            </div>
+
+
+            <Separator text = {'How it works'}/>
+
+            <HowItWorks
             data = {howItWorksData}/>
 
             <Separator text = {'Advantages'}/> <Advantages data = {advantagesData}/>
+            {/*<Waypoint*/}
+            {/*    scrollableAncestor={"window"}*/}
+            {/*    onEnter = {(props) => {*/}
+            {/*    // setScrollIn(true)*/}
+            {/*    console.log('scrolled the last section')*/}
+            {/*    console.log("previousPosition")*/}
+            {/*    console.log(props)*/}
+            {/*}} onLeave={(props) =>{*/}
+            {/*    console.log('scrolled out of the last section')*/}
+            {/*    console.log("previousPosition")*/}
+            {/*    console.log(props)*/}
+            {/*}}*/}
+            {/*onPositionChange={()=>{*/}
+            {/*    console.log("position changed")*/}
+            {/*}}*/}
+            {/*          style={{backgroundColor: 'red',}}*/}
 
-            <SeparatorBox text = {'Reviews'}> <Reviews data = {reviewsData}/> </SeparatorBox>
+            {/*>*/}
+                <SeparatorBox ref={ref} text = {'Reviews'}> <Reviews data = {reviewsData}/> </SeparatorBox>
+            {/*</Waypoint>*/}
 
         </>
 

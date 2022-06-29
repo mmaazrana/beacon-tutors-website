@@ -3,7 +3,6 @@
     color: white;
     font-size: 16px;
     font-weight: bold;
-    transition: 0.3s;
     padding: 0;
     border-radius: 6px;
     width: fit-content;
@@ -12,26 +11,31 @@
     display: flex;
     align-items: stretch;
     flex-direction: column;
+    transition: 0.2s;
+    transition-timing-function: linear;
 }
 
 .nav{
     padding: 0;
     font-size: 12px;
     margin: 0;
-    transition: 0.3s;
+    transition: 0.2s;
+    transition-timing-function: linear;
 }
 
 .primary a{
     height: 100%;
     color: white;
     padding: 7px 91px;
-    transition: 0.3s;
+    transition: 0.2s;
+    transition-timing-function: linear;
     border-radius: 6px;
 }
 
 .nav a {
     padding: 7px 17px;
-    transition: 0.3s;
+    transition: 0.2s;
+    transition-timing-function: linear;
 }
 
 .secondary{
@@ -40,7 +44,8 @@
     padding: 7px 15px;
     font-size: 12px;
     border-radius: 6px;
-    transition: 0.3s;
+    transition: 0.2s;
+    transition-timing-function: linear;
 }
 
 
