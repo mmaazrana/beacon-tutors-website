@@ -4,7 +4,6 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Loading from '../components/Loading/Loading';
-import toast from 'react-hot-toast';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -12,10 +11,6 @@ function MyApp({ Component, pageProps }) {
   const Toaster = dynamic(() =>
     import('react-hot-toast').then((module) => module.Toaster)
   );
-
-  useEffect(() => {
-    if (router.pathname !== '/admin/signin') toast.dismiss();
-  }, [router]);
 
   useEffect(() => {
     const handleStart = (url) => {

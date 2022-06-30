@@ -13,9 +13,8 @@ import { db } from '../../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function NewReview(props) {
-  const { pathname } = useRouter();
   const router = useRouter();
-  const isAdminPage = pathname === '/admin/managereviews';
+  const isAdminPage = router.pathname === '/admin/managereviews';
   const [image, setImage] = useState('');
   const [username, setUsername] = useState('');
   const [description, setDescription] = useState('');

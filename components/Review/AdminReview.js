@@ -18,7 +18,6 @@ import { db } from '../../firebase';
 import { doc, updateDoc, deleteDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function AdminReview(props) {
-  const { pathname } = useRouter();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
@@ -128,7 +127,7 @@ export default function AdminReview(props) {
           <div className={styles.row}>
             <p className={styles.username}>{props.review.username}</p>
             <div className="icons">
-              {pathname === '/admin/managereviews' && (
+              {router.pathname === '/admin/managereviews' && (
                 <>
                   <Edit
                     color="#4FC3B1"
@@ -147,7 +146,7 @@ export default function AdminReview(props) {
                   />
                 </>
               )}
-              {pathname === '/admin/approvereviews' && (
+              {router.pathname === '/admin/approvereviews' && (
                 <>
                   <Check
                     color="#4FC3B1"
