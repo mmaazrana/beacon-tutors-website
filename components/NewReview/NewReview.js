@@ -21,10 +21,12 @@ export default function NewReview(props) {
   const [description, setDescription] = useState('');
   const [rating, setRating] = useState(0);
   const [isApproved, setIsApproved] = useState(isAdminPage ? true : false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const postHandler = async (e) => {
     e.preventDefault();
     try {
+      setIsDisabled(true);
       await toast.promise(
         addDoc(collection(db, 'reviews'), {
           image,
@@ -41,6 +43,8 @@ export default function NewReview(props) {
           setRating(0);
           setIsApproved(isAdminPage ? true : false);
           !isAdminPage && props.closeModal();
+          isAdminPage &&
+            router.replace(router.asPath, undefined, { scroll: false });
         }),
         {
           loading: 'Adding review...',
@@ -51,7 +55,7 @@ export default function NewReview(props) {
     } catch (error) {
       console.log(error.code, error.message);
     }
-    isAdminPage && router.replace(router.asPath, undefined, { scroll: false });
+    setIsDisabled(false);
   };
 
   return (
@@ -114,7 +118,7 @@ export default function NewReview(props) {
               />
             </div>
 
-            <button type="submit" className="adminButton">
+            <button type="submit" className="adminButton" disabled={isDisabled}>
               Post Review
             </button>
           </div>

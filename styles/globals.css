@@ -315,6 +315,16 @@ a {
   margin: 3rem auto;
 }
 
+button:disabled,
+.disabled {
+  pointer-events: none;
+}
+
+button:disabled {
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+
 /*Phone input custom styles*/
 
 .PhoneInput {

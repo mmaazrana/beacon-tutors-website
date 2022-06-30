@@ -7,14 +7,7 @@ import AdminLayout from '../../components/Layouts/AdminLayout';
 import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { db } from '../../firebase';
-import {
-  collection,
-  getDocs,
-  query,
-  orderBy,
-  where,
-  onSnapshot,
-} from 'firebase/firestore';
+import { collection, getDocs, query, orderBy, where } from 'firebase/firestore';
 
 export default function ManageReviews(props) {
   const router = useRouter();
@@ -48,18 +41,6 @@ export default function ManageReviews(props) {
 
 export async function getServerSideProps() {
   let reviews = [];
-  // const announcementsRef = collection(db, 'announcements');
-  // const q = query(announcementsRef, orderBy('timestamp', 'desc'));
-  // console.log(q);
-  // onSnapshot(q, (snapshot) => {
-  //   snapshot.docs.forEach((doc) => {
-  //     console.log(doc);
-  //     announcements.push({
-  //       ...doc.data(),
-  //       id: doc.id,
-  //     });
-  //   });
-  // });
   try {
     const q = query(
       collection(db, 'reviews'),

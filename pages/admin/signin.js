@@ -18,6 +18,7 @@ export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [inputType, setInputType] = useState('password');
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const showPassword = () => {
     inputType === 'password' ? setInputType('text') : setInputType('password');
@@ -32,6 +33,7 @@ export default function SignIn() {
   const signinHandler = async (e) => {
     e.preventDefault();
     try {
+      setIsDisabled(true);
       await setPersistence(auth, browserSessionPersistence);
       try {
         await toast.promise(
@@ -53,6 +55,7 @@ export default function SignIn() {
     } catch (error) {
       console.log(error.code, error.message);
     }
+    setIsDisabled(false);
   };
 
   return (
@@ -95,7 +98,7 @@ export default function SignIn() {
                 )}
               </div>
             </div>
-            <button type="submit" className="adminButton">
+            <button type="submit" className="adminButton" disabled={isDisabled}>
               Sign In
             </button>
           </form>

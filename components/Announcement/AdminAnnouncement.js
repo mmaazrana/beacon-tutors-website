@@ -31,6 +31,7 @@ export default function AdminAnnouncement(props) {
   const [days, setDays] = useState(props.announcement.days);
   const [budget, setBudget] = useState(props.announcement.budget);
   const [time, setTime] = useState(props.announcement.time);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const openEditModal = () => {
     setIsOpen(true);
@@ -48,6 +49,7 @@ export default function AdminAnnouncement(props) {
   const updateHandler = async (e) => {
     e.preventDefault();
     try {
+      setIsDisabled(true);
       await toast.promise(
         updateDoc(doc(db, 'announcements', props.announcement.id), {
           page: checked ? 'Online' : 'Home',
@@ -58,6 +60,7 @@ export default function AdminAnnouncement(props) {
           timestamp: serverTimestamp(),
         }).then(() => {
           setIsOpen(false);
+          router.replace(router.asPath, undefined, { scroll: false });
         }),
         {
           loading: 'Updating announcement...',
@@ -68,16 +71,18 @@ export default function AdminAnnouncement(props) {
     } catch (error) {
       console.log(error.code, error.message);
     }
-    router.replace(router.asPath, undefined, { scroll: false });
+    setIsDisabled(false);
   };
 
   const deleteHandler = async (e) => {
     e.preventDefault();
     try {
+      setIsDisabled(true);
       await toast.promise(
-        deleteDoc(doc(db, 'announcements', props.announcement.id)).then(() =>
-          setConfirmDelete(false)
-        ),
+        deleteDoc(doc(db, 'announcements', props.announcement.id)).then(() => {
+          setConfirmDelete(false);
+          router.replace(router.asPath, undefined, { scroll: false });
+        }),
         {
           loading: 'Deleting announcement...',
           success: 'Announcement deleted successfully',
@@ -87,7 +92,7 @@ export default function AdminAnnouncement(props) {
     } catch (error) {
       console.log(error.code, error.message);
     }
-    router.replace(router.asPath, undefined, { scroll: false });
+    setIsDisabled(false);
   };
 
   return (
@@ -215,7 +220,7 @@ export default function AdminAnnouncement(props) {
             />
           </div>
 
-          <button type="submit" className="adminButton">
+          <button type="submit" className="adminButton" disabled={isDisabled}>
             Update Announcement
           </button>
         </form>
@@ -227,6 +232,7 @@ export default function AdminAnnouncement(props) {
         isOpen={confirmDelete}
         closeModal={closeModal}
         deleteHandler={deleteHandler}
+        isDisabled={isDisabled}
       />
     </>
   );

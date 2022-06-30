@@ -22,10 +22,12 @@ export default function NewAnnouncement(props) {
   const [days, setDays] = useState(0);
   const [budget, setBudget] = useState(0);
   const [time, setTime] = useState(0);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const postHandler = async (e) => {
     e.preventDefault();
     try {
+      setIsDisabled(true);
       await toast.promise(
         addDoc(collection(db, 'announcements'), {
           page: checked ? 'Online' : 'Home',
@@ -41,6 +43,7 @@ export default function NewAnnouncement(props) {
           setDays(0);
           setBudget(0);
           setTime(0);
+          router.replace(router.asPath, undefined, { scroll: false });
         }),
         {
           loading: 'Creating announcement...',
@@ -51,7 +54,7 @@ export default function NewAnnouncement(props) {
     } catch (error) {
       console.log(error.code, error.message);
     }
-    router.replace(router.asPath, undefined, { scroll: false });
+    setIsDisabled(false);
   };
 
   return (
@@ -137,7 +140,7 @@ export default function NewAnnouncement(props) {
               />
             </div>
 
-            <button type="submit" className="adminButton">
+            <button type="submit" className="adminButton" disabled={isDisabled}>
               Post Announcement
             </button>
           </div>

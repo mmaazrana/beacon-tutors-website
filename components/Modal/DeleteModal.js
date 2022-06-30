@@ -28,6 +28,7 @@ export default function DeleteModal(props) {
           type="submit"
           className={`adminButton ${styles.deleteButton}`}
           onClick={props.deleteHandler}
+          disabled={props.isDisabled}
         >
           {props.action}
         </button>
