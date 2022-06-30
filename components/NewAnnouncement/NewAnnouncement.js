@@ -26,35 +26,39 @@ export default function NewAnnouncement(props) {
 
   const postHandler = async (e) => {
     e.preventDefault();
-    try {
-      setIsDisabled(true);
-      await toast.promise(
-        addDoc(collection(db, 'announcements'), {
-          page: checked ? 'Online' : 'Home',
-          title,
-          days,
-          budget,
-          time,
-          timestamp: serverTimestamp(),
-        }).then((docRef) => {
-          console.log(docRef.id);
-          setChecked(true);
-          setTitle('');
-          setDays(0);
-          setBudget(0);
-          setTime(0);
-          router.replace(router.asPath, undefined, { scroll: false });
-        }),
-        {
-          loading: 'Creating announcement...',
-          success: 'Announcement created successfully',
-          error: 'Error creating announcement',
-        }
-      );
-    } catch (error) {
-      console.log(error.code, error.message);
+    if (title === '' || days === 0 || budget === 0 || time === 0)
+      toast.error('Announcement fields cannot be empty');
+    else {
+      try {
+        setIsDisabled(true);
+        await toast.promise(
+          addDoc(collection(db, 'announcements'), {
+            page: checked ? 'Online' : 'Home',
+            title,
+            days,
+            budget,
+            time,
+            timestamp: serverTimestamp(),
+          }).then((docRef) => {
+            console.log(docRef.id);
+            setChecked(true);
+            setTitle('');
+            setDays(0);
+            setBudget(0);
+            setTime(0);
+            router.replace(router.asPath, undefined, { scroll: false });
+          }),
+          {
+            loading: 'Creating announcement...',
+            success: 'Announcement created successfully',
+            error: 'Error creating announcement',
+          }
+        );
+      } catch (error) {
+        console.log(error.code, error.message);
+      }
+      setIsDisabled(false);
     }
-    setIsDisabled(false);
   };
 
   return (

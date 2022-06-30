@@ -16,7 +16,7 @@ export default function NewReview(props) {
   const { pathname } = useRouter();
   const router = useRouter();
   const isAdminPage = pathname === '/admin/managereviews';
-  const [image, setImage] = useState('m1');
+  const [image, setImage] = useState('');
   const [username, setUsername] = useState('');
   const [description, setDescription] = useState('');
   const [rating, setRating] = useState(0);
@@ -25,37 +25,42 @@ export default function NewReview(props) {
 
   const postHandler = async (e) => {
     e.preventDefault();
-    try {
-      setIsDisabled(true);
-      await toast.promise(
-        addDoc(collection(db, 'reviews'), {
-          image,
-          username,
-          description,
-          rating,
-          isApproved,
-          timestamp: serverTimestamp(),
-        }).then((docRef) => {
-          console.log(docRef.id);
-          // setImage('');
-          setUsername('');
-          setDescription('');
-          setRating(0);
-          setIsApproved(isAdminPage ? true : false);
-          !isAdminPage && props.closeModal();
-          isAdminPage &&
-            router.replace(router.asPath, undefined, { scroll: false });
-        }),
-        {
-          loading: 'Adding review...',
-          success: 'Review added successfully',
-          error: 'Error adding review',
-        }
-      );
-    } catch (error) {
-      console.log(error.code, error.message);
+    if (image === '') toast.error('Please select an avatar');
+    else if (username === '' || description === 0 || rating === 0)
+      toast.error('Review fields cannot be empty');
+    else {
+      try {
+        setIsDisabled(true);
+        await toast.promise(
+          addDoc(collection(db, 'reviews'), {
+            image,
+            username,
+            description,
+            rating,
+            isApproved,
+            timestamp: serverTimestamp(),
+          }).then((docRef) => {
+            console.log(docRef.id);
+            // setImage('');
+            setUsername('');
+            setDescription('');
+            setRating(0);
+            setIsApproved(isAdminPage ? true : false);
+            !isAdminPage && props.closeModal();
+            isAdminPage &&
+              router.replace(router.asPath, undefined, { scroll: false });
+          }),
+          {
+            loading: 'Adding review...',
+            success: 'Review added successfully',
+            error: 'Error adding review',
+          }
+        );
+      } catch (error) {
+        console.log(error.code, error.message);
+      }
+      setIsDisabled(false);
     }
-    setIsDisabled(false);
   };
 
   return (
