@@ -11,6 +11,7 @@ import {
   getDocs,
   query,
   orderBy,
+  where,
   onSnapshot,
 } from 'firebase/firestore';
 
@@ -65,14 +66,23 @@ export async function getServerSideProps() {
   //     });
   //   });
   // });
-  const querySnapshot = await getDocs(collection(db, 'reviews'));
-  querySnapshot.forEach((doc) => {
-    reviews.push({
-      ...doc.data(),
-      id: doc.id,
-      timestamp: JSON.parse(JSON.stringify(doc.data().timestamp)),
+  try {
+    const q = query(
+      collection(db, 'reviews'),
+      where('isApproved', '==', false),
+      orderBy('timestamp', 'desc')
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      reviews.push({
+        ...doc.data(),
+        id: doc.id,
+        timestamp: JSON.parse(JSON.stringify(doc.data().timestamp)),
+      });
     });
-  });
+  } catch (error) {
+    console.log(error.code, error.message);
+  }
   console.log(reviews);
   return {
     props: { reviews },

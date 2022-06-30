@@ -16,7 +16,7 @@ export default function NewReview(props) {
   const { pathname } = useRouter();
   const router = useRouter();
   const isAdminPage = pathname === '/admin/managereviews';
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState('m1');
   const [username, setUsername] = useState('');
   const [description, setDescription] = useState('');
   const [rating, setRating] = useState(0);
@@ -35,7 +35,7 @@ export default function NewReview(props) {
           timestamp: serverTimestamp(),
         }).then((docRef) => {
           console.log(docRef.id);
-          setImage('');
+          // setImage('');
           setUsername('');
           setDescription('');
           setRating(0);

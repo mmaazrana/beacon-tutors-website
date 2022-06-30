@@ -66,14 +66,19 @@ export async function getServerSideProps() {
   //     });
   //   });
   // });
-  const querySnapshot = await getDocs(collection(db, 'inquiries'));
-  querySnapshot.forEach((doc) => {
-    inquiries.push({
-      ...doc.data(),
-      id: doc.id,
-      timestamp: JSON.parse(JSON.stringify(doc.data().timestamp.toDate())),
+  try {
+    const q = query(collection(db, 'inquiries'), orderBy('timestamp', 'desc'));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      inquiries.push({
+        ...doc.data(),
+        id: doc.id,
+        timestamp: JSON.parse(JSON.stringify(doc.data().timestamp.toDate())),
+      });
     });
-  });
+  } catch (error) {
+    console.log(error.code, error.message);
+  }
   console.log(inquiries);
   return {
     props: { inquiries },
