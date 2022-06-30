@@ -40,6 +40,7 @@ export default function Modal(props) {
           ? '34rem'
           : '56rem'
       }`,
+      maxHeight: '92%',
     },
   };
 

@@ -4,6 +4,7 @@
 
 .inputs textarea {
   box-shadow: 0 1px 15px rgba(225, 221, 212, 0.25);
+  max-height: 8rem;
 }
 
 .row {
