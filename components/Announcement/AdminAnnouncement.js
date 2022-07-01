@@ -48,30 +48,34 @@ export default function AdminAnnouncement(props) {
 
   const updateHandler = async (e) => {
     e.preventDefault();
-    try {
-      setIsDisabled(true);
-      await toast.promise(
-        updateDoc(doc(db, 'announcements', props.announcement.id), {
-          page: checked ? 'Online' : 'Home',
-          title,
-          days,
-          budget,
-          time,
-          timestamp: serverTimestamp(),
-        }).then(() => {
-          setIsOpen(false);
-          router.replace(router.asPath, undefined, { scroll: false });
-        }),
-        {
-          loading: 'Updating announcement...',
-          success: 'Announcement updated successfully',
-          error: 'Error updating announcement',
-        }
-      );
-    } catch (error) {
-      console.log(error.code, error.message);
+    if (title === '' || days === 0 || budget === 0 || time === 0)
+      toast.error('Announcement fields cannot be empty');
+    else {
+      try {
+        setIsDisabled(true);
+        await toast.promise(
+          updateDoc(doc(db, 'announcements', props.announcement.id), {
+            page: checked ? 'Online' : 'Home',
+            title,
+            days,
+            budget,
+            time,
+            timestamp: serverTimestamp(),
+          }).then(() => {
+            setIsOpen(false);
+            router.replace(router.asPath, undefined, { scroll: false });
+          }),
+          {
+            loading: 'Updating announcement...',
+            success: 'Announcement updated successfully',
+            error: 'Error updating announcement',
+          }
+        );
+      } catch (error) {
+        console.log(error.code, error.message);
+      }
+      setIsDisabled(false);
     }
-    setIsDisabled(false);
   };
 
   const deleteHandler = async (e) => {
@@ -179,7 +183,6 @@ export default function AdminAnnouncement(props) {
             rows="4"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            required
           />
 
           <div className={formStyles.inputsRow}>

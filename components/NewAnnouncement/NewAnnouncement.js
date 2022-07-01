@@ -97,7 +97,6 @@ export default function NewAnnouncement(props) {
               rows="4"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              required
             />
 
             <div className={formStyles.inputsRow}>

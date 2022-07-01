@@ -25,7 +25,7 @@ export default function NewReview(props) {
   const postHandler = async (e) => {
     e.preventDefault();
     if (image === '') toast.error('Please select an avatar');
-    else if (username === '' || description === 0 || rating === 0)
+    else if (username === '' || description === '' || rating === 0)
       toast.error('Review fields cannot be empty');
     else {
       try {
@@ -98,7 +98,6 @@ export default function NewReview(props) {
               placeholder="Name"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              required
             />
 
             <textarea
@@ -108,7 +107,6 @@ export default function NewReview(props) {
               rows="4"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              required
             />
 
             <div className={formStyles.inputsRow}>

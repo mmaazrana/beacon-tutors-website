@@ -43,29 +43,34 @@ export default function AdminReview(props) {
 
   const updateHandler = async (e) => {
     e.preventDefault();
-    try {
-      setIsDisabled(true);
-      await toast.promise(
-        updateDoc(doc(db, 'reviews', props.review.id), {
-          image,
-          username,
-          description,
-          rating,
-          timestamp: serverTimestamp(),
-        }).then(() => {
-          setIsOpen(false);
-          router.replace(router.asPath, undefined, { scroll: false });
-        }),
-        {
-          loading: 'Updating review...',
-          success: 'Review updated successfully',
-          error: 'Error updating review',
-        }
-      );
-    } catch (error) {
-      console.log(error.code, error.message);
+    if (image === '') toast.error('Please select an avatar');
+    else if (username === '' || description === '' || rating === 0)
+      toast.error('Review fields cannot be empty');
+    else {
+      try {
+        setIsDisabled(true);
+        await toast.promise(
+          updateDoc(doc(db, 'reviews', props.review.id), {
+            image,
+            username,
+            description,
+            rating,
+            timestamp: serverTimestamp(),
+          }).then(() => {
+            setIsOpen(false);
+            router.replace(router.asPath, undefined, { scroll: false });
+          }),
+          {
+            loading: 'Updating review...',
+            success: 'Review updated successfully',
+            error: 'Error updating review',
+          }
+        );
+      } catch (error) {
+        console.log(error.code, error.message);
+      }
+      setIsDisabled(false);
     }
-    setIsDisabled(false);
   };
 
   const deleteHandler = async (e, modalAction) => {
@@ -210,7 +215,6 @@ export default function AdminReview(props) {
             placeholder="Name"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            required
           />
 
           <textarea
@@ -220,7 +224,6 @@ export default function AdminReview(props) {
             rows="4"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            required
           />
 
           <div className={formStyles.inputsRow}>
