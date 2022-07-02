@@ -164,3 +164,21 @@
     padding: 0.2rem;
   }
 }
+
+@media only screen and (max-width: 380px) {
+  .image {
+    min-width: 3.25rem;
+    max-height: 3.25rem;
+    width: 3.25rem;
+  }
+
+  .row {
+    min-width: 15rem;
+  }
+
+  .row [type='radio']:checked + .image .check {
+    margin-top: 1.75rem;
+    margin-left: -1.5rem;
+    padding: 0.1rem;
+  }
+}

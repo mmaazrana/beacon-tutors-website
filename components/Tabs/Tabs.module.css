@@ -33,7 +33,7 @@
 
 @media screen and (max-width: 1024px) {
   .tabs {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 }
 
@@ -48,5 +48,11 @@
   .tab {
     margin: 0.275rem 0.55rem;
     width: 12rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tab {
+    width: 11rem;
   }
 }

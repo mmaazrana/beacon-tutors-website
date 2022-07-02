@@ -452,6 +452,7 @@ option {
   }
 
   .adminHeading {
+    font-size: 2rem;
     margin: 2rem auto;
   }
 
@@ -469,6 +470,10 @@ option {
     left: 0.4rem !important;
   }
 
+  .noRecords {
+    font-size: 1.3rem;
+  }
+
   .slick-dots li {
     max-height: 10px;
     max-width: 10px;
@@ -482,6 +487,11 @@ option {
 }
 
 @media screen and (max-width: 425px) {
+  .adminHeading {
+    font-size: 1.5rem;
+    margin: 1rem auto;
+  }
+
   .services {
     margin-bottom: 17.647vw !important;
   }

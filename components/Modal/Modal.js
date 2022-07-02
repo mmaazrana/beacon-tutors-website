@@ -6,13 +6,6 @@ import { X } from 'lucide-react';
 ModalComponent.setAppElement('#__next');
 
 export default function Modal(props) {
-  // let subtitle;
-
-  const afterOpenModal = () => {
-    // references are now sync'd and can be accessed.
-    // subtitle.style.color = '#f00';
-  };
-
   const customStyles = {
     overlay: {
       position: 'fixed',
@@ -40,7 +33,7 @@ export default function Modal(props) {
           ? '34rem'
           : '56rem'
       }`,
-      maxHeight: '92%',
+      maxHeight: '94%',
     },
   };
 
@@ -48,13 +41,10 @@ export default function Modal(props) {
     <ModalComponent
       closeTimeoutMS={400}
       isOpen={props.isOpen}
-      onAfterOpen={afterOpenModal}
       onRequestClose={props.closeModal}
       style={customStyles}
       contentLabel={props.title}
     >
-      {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button> */}
       <div>
         <div className={styles.modalHead}>
           <h4>{props.title}</h4>
