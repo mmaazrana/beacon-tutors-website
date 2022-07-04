@@ -25,7 +25,7 @@ export default function AdminInquiry(props) {
   const viewedHandler = async (e) => {
     e.preventDefault();
     try {
-       setIsDisabled(true);
+      setIsDisabled(true);
       await toast.promise(
         updateDoc(doc(db, 'inquiries', props.inquiry.id), {
           isViewed: true,
@@ -42,7 +42,7 @@ export default function AdminInquiry(props) {
     } catch (error) {
       console.log(error.code, error.message);
     }
-     setIsDisabled(false);
+    setIsDisabled(false);
   };
 
   return (
@@ -76,10 +76,17 @@ export default function AdminInquiry(props) {
           label="You want to Hire"
           value={props.inquiry.youWantToHire}
         />
-        <InfoField label="Comments" value={props.inquiry.comments} />
+        {props.inquiry.comments && (
+          <InfoField label="Comments" value={props.inquiry.comments} />
+        )}
 
         {!props.inquiry.isViewed && (
-          <button type="submit" className="adminButton" onClick={viewedHandler} disabled={isDisabled}>
+          <button
+            type="submit"
+            className="adminButton"
+            onClick={viewedHandler}
+            disabled={isDisabled}
+          >
             Mark as Viewed
           </button>
         )}
