@@ -12,7 +12,8 @@ export default function Error(props) {
             loop={true}
             autoplay={true}
           />
-          <h2>{props.error}</h2>
+          {props.code && <h1>{props.code}</h1>}
+          <p>{props.error}</p>
         </div>
       </div>
     </>

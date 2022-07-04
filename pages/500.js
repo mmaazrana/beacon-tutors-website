@@ -1,5 +1,5 @@
 import Head from 'next/Head';
-import Error500Lottie from '../assets/lotties/404-notfound.json';
+import Error500Lottie from '../assets/lotties/500-server-error.json';
 import Error from '../components/Error/Error';
 import Layout from '../components/Layouts/Layout';
 
@@ -13,7 +13,7 @@ export default function Custom500() {
           content="Meta description for the 500 Interval Server Error page"
         />
       </Head>
-      <Error error="500 - Server-side error occurred" lottie={Error500Lottie} />
+      <Error code="500" error="Internal Server Error" lottie={Error500Lottie} />
     </>
   );
 }
