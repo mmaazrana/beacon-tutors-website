@@ -4,6 +4,8 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Loading from '../components/Loading/Loading';
+import {collection, getDocs, orderBy, query, where} from "firebase/firestore";
+import {db} from "../firebase";
 
 function MyApp({ Component, pageProps, reviews }) {
   const router = useRouter();
@@ -64,18 +66,22 @@ function MyApp({ Component, pageProps, reviews }) {
 MyApp.getInitialProps = async ({ Component, context }) => {
   let reviews = [];
   let pageProps = {};
-
-  const querySnapshot = await getDocs(collection(db, 'reviews'));
-  querySnapshot.forEach((doc) => {
-    reviews.push({
-      ...doc.data(),
-      id: doc.id,
-      timestamp: JSON.parse(JSON.stringify(doc.data().timestamp)),
+  try {
+    const q = query(
+        collection(db, 'reviews'),
+        where('isApproved', '==', true),
+  );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      reviews.push({
+        ...doc.data(),
+        id: doc.id,
+        timestamp: JSON.parse(JSON.stringify(doc.data().timestamp)),
+      });
     });
-  });
-  // if (Component.getInitialProps) {
-    // pageProps = await Component.getInitialProps(context);
-  // }
+  } catch (error) {
+      console.log(error.code, error.message);
+  }
   return {
     pageProps,
     reviews,
