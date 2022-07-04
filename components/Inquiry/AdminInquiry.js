@@ -71,10 +71,19 @@ export default function AdminInquiry(props) {
           label="Whatsapp Number"
           value={props.inquiry.whatsappNumber}
         />
-        <InfoField label="Who are You" value={props.inquiry.whoAreYou} />
         <InfoField
-          label="You want to Hire"
-          value={props.inquiry.youWantToHire}
+          label="Who are You"
+          value={
+            props.inquiry.description === 'teacher'
+              ? 'Teacher'
+              : 'Student/Parent'
+          }
+        />
+        <InfoField
+          label={`You want to ${
+            props.inquiry.description === 'teacher' ? 'Work' : 'Hire'
+          }`}
+          value={props.inquiry.service}
         />
         {props.inquiry.comments && (
           <InfoField label="Comments" value={props.inquiry.comments} />
