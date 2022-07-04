@@ -18,6 +18,7 @@ export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [inputType, setInputType] = useState('password');
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const showPassword = () => {
     inputType === 'password' ? setInputType('text') : setInputType('password');
@@ -31,27 +32,32 @@ export default function SignIn() {
 
   const signinHandler = async (e) => {
     e.preventDefault();
-    try {
-      await setPersistence(auth, browserSessionPersistence);
+    if (email === '' || password === '') toast.error('Missing credentials');
+    else {
       try {
-        await toast.promise(
-          signInWithEmailAndPassword(auth, email, password).then(
-            (userCredential) => {
-              const user = userCredential.user;
-              router.push('/adminpanel/manageannouncements');
+        setIsDisabled(true);
+        await setPersistence(auth, browserSessionPersistence);
+        try {
+          await toast.promise(
+            signInWithEmailAndPassword(auth, email, password).then(
+              (userCredential) => {
+                const user = userCredential.user;
+                router.push('/adminpanel/manageannouncements');
+              }
+            ),
+            {
+              loading: 'Verifying credentials...',
+              success: 'Signed in successfully',
+              error: 'Invalid credentials',
             }
-          ),
-          {
-            loading: 'Verifying credentials...',
-            success: 'Signed in successfully',
-            error: 'Invalid credentials',
-          }
-        );
+          );
+        } catch (error) {
+          console.log(error.code, error.message);
+        }
       } catch (error) {
         console.log(error.code, error.message);
       }
-    } catch (error) {
-      console.log(error.code, error.message);
+      setIsDisabled(false);
     }
   };
 
@@ -75,7 +81,6 @@ export default function SignIn() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
             />
             <div className={styles.password}>
               <input
@@ -85,7 +90,6 @@ export default function SignIn() {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
               />
               <div className={styles.eye} onClick={showPassword}>
                 {inputType === 'password' ? (
@@ -95,7 +99,7 @@ export default function SignIn() {
                 )}
               </div>
             </div>
-            <button type="submit" className="adminButton">
+            <button type="submit" className="adminButton" disabled={isDisabled}>
               Sign In
             </button>
           </form>

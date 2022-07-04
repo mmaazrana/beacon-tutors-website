@@ -12,6 +12,7 @@ import { doc, updateDoc } from 'firebase/firestore';
 export default function AdminInquiry(props) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const openViewModal = () => {
     setIsOpen(true);
@@ -24,11 +25,13 @@ export default function AdminInquiry(props) {
   const viewedHandler = async (e) => {
     e.preventDefault();
     try {
+      setIsDisabled(true);
       await toast.promise(
         updateDoc(doc(db, 'inquiries', props.inquiry.id), {
           isViewed: true,
         }).then(() => {
           setIsOpen(false);
+          router.replace(router.asPath, undefined, { scroll: false });
         }),
         {
           loading: 'Marking inquiry as viewed...',
@@ -39,7 +42,7 @@ export default function AdminInquiry(props) {
     } catch (error) {
       console.log(error.code, error.message);
     }
-    router.replace(router.asPath, undefined, { scroll: false });
+    setIsDisabled(false);
   };
 
   return (
@@ -68,15 +71,31 @@ export default function AdminInquiry(props) {
           label="Whatsapp Number"
           value={props.inquiry.whatsappNumber}
         />
-        <InfoField label="Who are You" value={props.inquiry.whoAreYou} />
         <InfoField
-          label="You want to Hire"
-          value={props.inquiry.youWantToHire}
+          label="Who are You"
+          value={
+            props.inquiry.description === 'teacher'
+              ? 'Teacher'
+              : 'Student/Parent'
+          }
         />
-        <InfoField label="Comments" value={props.inquiry.comments} />
+        <InfoField
+          label={`You want to ${
+            props.inquiry.description === 'teacher' ? 'Work' : 'Hire'
+          }`}
+          value={props.inquiry.service}
+        />
+        {props.inquiry.comments && (
+          <InfoField label="Comments" value={props.inquiry.comments} />
+        )}
 
         {!props.inquiry.isViewed && (
-          <button type="submit" className="adminButton" onClick={viewedHandler}>
+          <button
+            type="submit"
+            className="adminButton"
+            onClick={viewedHandler}
+            disabled={isDisabled}
+          >
             Mark as Viewed
           </button>
         )}

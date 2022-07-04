@@ -13,7 +13,6 @@ import { db } from '../../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function NewReview(props) {
-  const { pathname } = useRouter();
   const router = useRouter();
   const isAdminPage = pathname === '/adminpanel/managereviews';
   const [image, setImage] = useState('');
@@ -21,37 +20,46 @@ export default function NewReview(props) {
   const [description, setDescription] = useState('');
   const [rating, setRating] = useState(0);
   const [isApproved, setIsApproved] = useState(isAdminPage ? true : false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const postHandler = async (e) => {
     e.preventDefault();
-    try {
-      await toast.promise(
-        addDoc(collection(db, 'reviews'), {
-          image,
-          username,
-          description,
-          rating,
-          isApproved,
-          timestamp: serverTimestamp(),
-        }).then((docRef) => {
-          console.log(docRef.id);
-          setImage('');
-          setUsername('');
-          setDescription('');
-          setRating(0);
-          setIsApproved(isAdminPage ? true : false);
-          !isAdminPage && props.closeModal();
-        }),
-        {
-          loading: 'Adding review...',
-          success: 'Review added successfully',
-          error: 'Error adding review',
-        }
-      );
-    } catch (error) {
-      console.log(error.code, error.message);
+    if (image === '') toast.error('Please select an avatar');
+    else if (username === '' || description === '' || rating === 0)
+      toast.error('Review fields cannot be empty');
+    else {
+      try {
+        setIsDisabled(true);
+        await toast.promise(
+          addDoc(collection(db, 'reviews'), {
+            image,
+            username,
+            description,
+            rating,
+            isApproved,
+            timestamp: serverTimestamp(),
+          }).then((docRef) => {
+            console.log(docRef.id);
+            // setImage('');
+            setUsername('');
+            setDescription('');
+            setRating(0);
+            setIsApproved(isAdminPage ? true : false);
+            !isAdminPage && props.closeModal();
+            isAdminPage &&
+              router.replace(router.asPath, undefined, { scroll: false });
+          }),
+          {
+            loading: 'Adding review...',
+            success: 'Review added successfully',
+            error: 'Error adding review',
+          }
+        );
+      } catch (error) {
+        console.log(error.code, error.message);
+      }
+      setIsDisabled(false);
     }
-    isAdminPage && router.replace(router.asPath, undefined, { scroll: false });
   };
 
   return (
@@ -90,7 +98,6 @@ export default function NewReview(props) {
               placeholder="Name"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              required
             />
 
             <textarea
@@ -100,7 +107,6 @@ export default function NewReview(props) {
               rows="4"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              required
             />
 
             <div className={formStyles.inputsRow}>
@@ -114,7 +120,7 @@ export default function NewReview(props) {
               />
             </div>
 
-            <button type="submit" className="adminButton">
+            <button type="submit" className="adminButton" disabled={isDisabled}>
               Post Review
             </button>
           </div>

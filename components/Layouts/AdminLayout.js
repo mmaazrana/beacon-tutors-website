@@ -5,9 +5,10 @@ import Tabs from '../Tabs/Tabs';
 import dynamic from 'next/dynamic';
 import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
+import toast from 'react-hot-toast';
 
 export default function AdminLayout({ children }) {
-  const { pathname } = useRouter();
+  const router = useRouter();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -15,6 +16,10 @@ export default function AdminLayout({ children }) {
       setUser(user_);
     });
   }, [user]);
+
+  useEffect(() => {
+    if (router.pathname !== '/adminpanel/signin') toast.dismiss();
+  }, [router]);
 
   const Pattern = dynamic(() =>
     import('../../assets/background pattern.svg').then(

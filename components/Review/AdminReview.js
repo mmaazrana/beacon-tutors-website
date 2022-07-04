@@ -19,7 +19,6 @@ import { db } from '../../firebase';
 import { doc, updateDoc, deleteDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function AdminReview(props) {
-  const { pathname } = useRouter();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
@@ -28,6 +27,7 @@ export default function AdminReview(props) {
   const [username, setUsername] = useState(props.review.username);
   const [description, setDescription] = useState(props.review.description);
   const [rating, setRating] = useState(props.review.rating);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const openEditModal = () => {
     setIsOpen(true);
@@ -44,36 +44,45 @@ export default function AdminReview(props) {
 
   const updateHandler = async (e) => {
     e.preventDefault();
-    try {
-      await toast.promise(
-        updateDoc(doc(db, 'reviews', props.review.id), {
-          image,
-          username,
-          description,
-          rating,
-          timestamp: serverTimestamp(),
-        }).then(() => {
-          setIsOpen(false);
-        }),
-        {
-          loading: 'Updating review...',
-          success: 'Review updated successfully',
-          error: 'Error updating review',
-        }
-      );
-    } catch (error) {
-      console.log(error.code, error.message);
+    if (image === '') toast.error('Please select an avatar');
+    else if (username === '' || description === '' || rating === 0)
+      toast.error('Review fields cannot be empty');
+    else {
+      try {
+        setIsDisabled(true);
+        await toast.promise(
+          updateDoc(doc(db, 'reviews', props.review.id), {
+            image,
+            username,
+            description,
+            rating,
+            timestamp: serverTimestamp(),
+          }).then(() => {
+            setIsOpen(false);
+            router.replace(router.asPath, undefined, { scroll: false });
+          }),
+          {
+            loading: 'Updating review...',
+            success: 'Review updated successfully',
+            error: 'Error updating review',
+          }
+        );
+      } catch (error) {
+        console.log(error.code, error.message);
+      }
+      setIsDisabled(false);
     }
-    router.replace(router.asPath, undefined, { scroll: false });
   };
 
   const deleteHandler = async (e, modalAction) => {
     e.preventDefault();
     try {
+      setIsDisabled(true);
       await toast.promise(
-        deleteDoc(doc(db, 'reviews', props.review.id)).then(() =>
-          setConfirmDelete(false)
-        ),
+        deleteDoc(doc(db, 'reviews', props.review.id)).then(() => {
+          setConfirmDelete(false);
+          router.replace(router.asPath, undefined, { scroll: false });
+        }),
         {
           loading: `${
             modalAction === 'Delete' ? 'Deleting' : 'Rejecting'
@@ -89,18 +98,20 @@ export default function AdminReview(props) {
     } catch (error) {
       console.log(error.code, error.message);
     }
-    router.replace(router.asPath, undefined, { scroll: false });
+    setIsDisabled(false);
   };
 
   const approveHandler = async (e) => {
     e.preventDefault();
     try {
+      setIsDisabled(true);
       await toast.promise(
         updateDoc(doc(db, 'reviews', props.review.id), {
           isApproved: true,
           timestamp: serverTimestamp(),
         }).then(() => {
           setIsOpen(false);
+          router.replace(router.asPath, undefined, { scroll: false });
         }),
         {
           loading: 'Approving review...',
@@ -111,7 +122,7 @@ export default function AdminReview(props) {
     } catch (error) {
       console.log(error.code, error.message);
     }
-    router.replace(router.asPath, undefined, { scroll: false });
+    setIsDisabled(false);
   };
 
   return (
@@ -147,7 +158,7 @@ export default function AdminReview(props) {
                     color="#4FC3B1"
                     size={18}
                     onClick={approveHandler}
-                    className="editIcon"
+                    className={`editIcon ${isDisabled && 'disabled'}`}
                   />
                   <X
                     color="#FF6F66"
@@ -205,7 +216,6 @@ export default function AdminReview(props) {
             placeholder="Name"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            required
           />
 
           <textarea
@@ -215,7 +225,6 @@ export default function AdminReview(props) {
             rows="4"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            required
           />
 
           <div className={formStyles.inputsRow}>
@@ -229,7 +238,7 @@ export default function AdminReview(props) {
             />
           </div>
 
-          <button type="submit" className="adminButton">
+          <button type="submit" className="adminButton" disabled={isDisabled}>
             Update Review
           </button>
         </form>
@@ -241,6 +250,7 @@ export default function AdminReview(props) {
         isOpen={confirmDelete}
         closeModal={closeModal}
         deleteHandler={(e) => deleteHandler(e, modalAction)}
+        isDisabled={isDisabled}
       />
     </>
   );

@@ -6,13 +6,7 @@ import AdminLayout from '../../components/Layouts/AdminLayout';
 import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { db } from '../../firebase';
-import {
-  collection,
-  getDocs,
-  query,
-  orderBy,
-  onSnapshot,
-} from 'firebase/firestore';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 
 export default function ViewInquiries(props) {
   const router = useRouter();
@@ -54,26 +48,19 @@ export default function ViewInquiries(props) {
 
 export async function getServerSideProps() {
   let inquiries = [];
-  // const announcementsRef = collection(db, 'announcements');
-  // const q = query(announcementsRef, orderBy('timestamp', 'desc'));
-  // console.log(q);
-  // onSnapshot(q, (snapshot) => {
-  //   snapshot.docs.forEach((doc) => {
-  //     console.log(doc);
-  //     announcements.push({
-  //       ...doc.data(),
-  //       id: doc.id,
-  //     });
-  //   });
-  // });
-  const querySnapshot = await getDocs(collection(db, 'inquiries'));
-  querySnapshot.forEach((doc) => {
-    inquiries.push({
-      ...doc.data(),
-      id: doc.id,
-      timestamp: JSON.parse(JSON.stringify(doc.data().timestamp.toDate())),
+  try {
+    const q = query(collection(db, 'inquiries'), orderBy('timestamp', 'desc'));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      inquiries.push({
+        ...doc.data(),
+        id: doc.id,
+        timestamp: JSON.parse(JSON.stringify(doc.data().timestamp.toDate())),
+      });
     });
-  });
+  } catch (error) {
+    console.log(error.code, error.message);
+  }
   console.log(inquiries);
   return {
     props: { inquiries },

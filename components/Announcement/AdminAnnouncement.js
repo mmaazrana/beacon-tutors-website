@@ -31,6 +31,7 @@ export default function AdminAnnouncement(props) {
   const [days, setDays] = useState(props.announcement.days);
   const [budget, setBudget] = useState(props.announcement.budget);
   const [time, setTime] = useState(props.announcement.time);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const openEditModal = () => {
     setIsOpen(true);
@@ -47,37 +48,45 @@ export default function AdminAnnouncement(props) {
 
   const updateHandler = async (e) => {
     e.preventDefault();
-    try {
-      await toast.promise(
-        updateDoc(doc(db, 'announcements', props.announcement.id), {
-          page: checked ? 'Online' : 'Home',
-          title,
-          days,
-          budget,
-          time,
-          timestamp: serverTimestamp(),
-        }).then(() => {
-          setIsOpen(false);
-        }),
-        {
-          loading: 'Updating announcement...',
-          success: 'Announcement updated successfully',
-          error: 'Error updating announcement',
-        }
-      );
-    } catch (error) {
-      console.log(error.code, error.message);
+    if (title === '' || days === 0 || budget === 0 || time === 0)
+      toast.error('Announcement fields cannot be empty');
+    else {
+      try {
+        setIsDisabled(true);
+        await toast.promise(
+          updateDoc(doc(db, 'announcements', props.announcement.id), {
+            page: checked ? 'Online' : 'Home',
+            title,
+            days,
+            budget,
+            time,
+            timestamp: serverTimestamp(),
+          }).then(() => {
+            setIsOpen(false);
+            router.replace(router.asPath, undefined, { scroll: false });
+          }),
+          {
+            loading: 'Updating announcement...',
+            success: 'Announcement updated successfully',
+            error: 'Error updating announcement',
+          }
+        );
+      } catch (error) {
+        console.log(error.code, error.message);
+      }
+      setIsDisabled(false);
     }
-    router.replace(router.asPath, undefined, { scroll: false });
   };
 
   const deleteHandler = async (e) => {
     e.preventDefault();
     try {
+      setIsDisabled(true);
       await toast.promise(
-        deleteDoc(doc(db, 'announcements', props.announcement.id)).then(() =>
-          setConfirmDelete(false)
-        ),
+        deleteDoc(doc(db, 'announcements', props.announcement.id)).then(() => {
+          setConfirmDelete(false);
+          router.replace(router.asPath, undefined, { scroll: false });
+        }),
         {
           loading: 'Deleting announcement...',
           success: 'Announcement deleted successfully',
@@ -87,7 +96,7 @@ export default function AdminAnnouncement(props) {
     } catch (error) {
       console.log(error.code, error.message);
     }
-    router.replace(router.asPath, undefined, { scroll: false });
+    setIsDisabled(false);
   };
 
   return (
@@ -174,7 +183,6 @@ export default function AdminAnnouncement(props) {
             rows="4"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            required
           />
 
           <div className={formStyles.inputsRow}>
@@ -215,7 +223,7 @@ export default function AdminAnnouncement(props) {
             />
           </div>
 
-          <button type="submit" className="adminButton">
+          <button type="submit" className="adminButton" disabled={isDisabled}>
             Update Announcement
           </button>
         </form>
@@ -227,6 +235,7 @@ export default function AdminAnnouncement(props) {
         isOpen={confirmDelete}
         closeModal={closeModal}
         deleteHandler={deleteHandler}
+        isDisabled={isDisabled}
       />
     </>
   );

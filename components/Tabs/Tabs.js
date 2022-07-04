@@ -14,28 +14,28 @@ export default function Tabs() {
       <div className={styles.tabs}>
         <div>
           <Tab
-            href="/admin/manageannouncements"
+            href="/adminpanel/manageannouncements"
             title="Announcements"
             isSelected={isTabOneSelected}
           />
         </div>
         <div>
           <Tab
-            href="/admin/managereviews"
+            href="/adminpanel/managereviews"
             title="Reviews"
             isSelected={isTabTwoSelected}
           />
         </div>
         <div>
           <Tab
-            href="/admin/viewinquiries"
+            href="/adminpanel/viewinquiries"
             title="Inquiries"
             isSelected={isTabThreeSelected}
           />
         </div>
         <div>
           <Tab
-            href="/admin/approvereviews"
+            href="/adminpanel/approvereviews"
             title="Approvals"
             isSelected={isTabFourSelected}
           />

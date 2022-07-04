@@ -1,7 +1,7 @@
 import Head from 'next/Head';
 import AdminLayout from '../../components/Layouts/AdminLayout';
 
-export default function Admin(props) {
+export default function AdminPanel(props) {
   return (
     <>
       <Head>
@@ -16,6 +16,6 @@ export default function Admin(props) {
   );
 }
 
-Admin.getLayout = function getLayout(page) {
+AdminPanel.getLayout = function getLayout(page) {
   return <AdminLayout>{page}</AdminLayout>;
 };

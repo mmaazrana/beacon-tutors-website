@@ -22,36 +22,43 @@ export default function NewAnnouncement(props) {
   const [days, setDays] = useState(0);
   const [budget, setBudget] = useState(0);
   const [time, setTime] = useState(0);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const postHandler = async (e) => {
     e.preventDefault();
-    try {
-      await toast.promise(
-        addDoc(collection(db, 'announcements'), {
-          page: checked ? 'Online' : 'Home',
-          title,
-          days,
-          budget,
-          time,
-          timestamp: serverTimestamp(),
-        }).then((docRef) => {
-          console.log(docRef.id);
-          setChecked(true);
-          setTitle('');
-          setDays(0);
-          setBudget(0);
-          setTime(0);
-        }),
-        {
-          loading: 'Creating announcement...',
-          success: 'Announcement created successfully',
-          error: 'Error creating announcement',
-        }
-      );
-    } catch (error) {
-      console.log(error.code, error.message);
+    if (title === '' || days === 0 || budget === 0 || time === 0)
+      toast.error('Announcement fields cannot be empty');
+    else {
+      try {
+        setIsDisabled(true);
+        await toast.promise(
+          addDoc(collection(db, 'announcements'), {
+            page: checked ? 'Online' : 'Home',
+            title,
+            days,
+            budget,
+            time,
+            timestamp: serverTimestamp(),
+          }).then((docRef) => {
+            console.log(docRef.id);
+            setChecked(true);
+            setTitle('');
+            setDays(0);
+            setBudget(0);
+            setTime(0);
+            router.replace(router.asPath, undefined, { scroll: false });
+          }),
+          {
+            loading: 'Creating announcement...',
+            success: 'Announcement created successfully',
+            error: 'Error creating announcement',
+          }
+        );
+      } catch (error) {
+        console.log(error.code, error.message);
+      }
+      setIsDisabled(false);
     }
-    router.replace(router.asPath, undefined, { scroll: false });
   };
 
   return (
@@ -90,7 +97,6 @@ export default function NewAnnouncement(props) {
               rows="4"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              required
             />
 
             <div className={formStyles.inputsRow}>
@@ -137,7 +143,7 @@ export default function NewAnnouncement(props) {
               />
             </div>
 
-            <button type="submit" className="adminButton">
+            <button type="submit" className="adminButton" disabled={isDisabled}>
               Post Announcement
             </button>
           </div>

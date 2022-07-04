@@ -1,0 +1,86 @@
+.container {
+  margin-top: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 111px);
+}
+
+.error {
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(93, 143, 193, 0.25);
+  margin: 2rem;
+  max-height: 23rem;
+  text-align: center;
+}
+
+.lottie {
+  height: auto;
+  max-height: 20rem;
+  width: 25rem;
+  max-width: 100%;
+  min-width: 26rem;
+}
+
+.lottie svg {
+  width: auto !important;
+  max-width: 100%;
+  height: auto;
+  max-height: inherit;
+}
+
+.error h1 {
+  margin: 0;
+  margin-top: -2.75rem;
+  margin-bottom: -0.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #3d6b98;
+}
+
+.error p {
+  margin: 0;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  line-height: 1.15;
+  color: #3d6b98;
+}
+
+@media screen and (max-width: 600px) {
+  .error h1 {
+    font-size: 2.25rem;
+  }
+
+  .error p {
+    font-size: 1.35rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .lottie {
+    min-width: auto;
+    width: fit-content;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .error {
+    margin: 2rem 1rem;
+    padding: 1.25rem;
+  }
+
+  .error h1 {
+    font-size: 2rem;
+  }
+
+  .error p {
+    font-size: 1rem;
+  }
+
+  .container {
+    min-height: calc(100vh - 127px);
+  }
+}
