@@ -25,6 +25,25 @@
     font-weight: bold;
     font-size: 4.2rem;
     padding: 0 30px;
+
+}
+
+.fancyText{
+    display: flex;
+}
+
+.fancyText > h1:first-child{
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.fancyText > h1:last-child{
+    margin-left: 0;
+    padding-left: 0;
+    text-decoration: wavy underline #FF6F66 9px ;
+    text-underline-offset: 2px;
+    text-decoration-skip-ink: none;
+    /*text-underline-position: under;*/
 }
 
 
@@ -40,6 +59,9 @@
     .separator{
         margin: 45px 0;
     }
+    .fancyText > h1:last-child {
+        text-decoration-thickness: 6px;
+    }
 }
 
 
@@ -50,7 +72,9 @@
     .text {
         padding: 0 17px;
         font-size: 29px;
-
+    }
+    .fancyText > h1:last-child {
+        text-decoration-thickness: 5px;
     }
 }
 
@@ -62,6 +86,9 @@
         padding: 0 15px;
         font-size: 26px;
     }
+    .fancyText > h1:last-child {
+        text-decoration-thickness: 4px;
+    }
 }
 
 @media screen and (max-width: 320px ) {
@@ -70,5 +97,8 @@
     }
     .separator{
         margin: 25px 0;
+    }
+    .fancyText > h1:last-child {
+        text-decoration-thickness: 1.2vw;
     }
 }

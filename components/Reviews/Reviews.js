@@ -7,9 +7,13 @@ import Modal from '../Modal/Modal';
 import { Plus } from 'lucide-react';
 import { useState } from 'react';
 import NewReview from '../../components/NewReview/NewReview';
+import scaleAnimationStyles from "../../styles/Animations/ScaleFadeAnimations.module.css";
+import {Waypoint} from 'react-waypoint';
+import {CSSTransition} from 'react-transition-group';
 
 export default function Reviews(props) {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrollIn, setScrollIn] = useState(false);
 
   const settings = {
     dots: false,
@@ -57,9 +61,31 @@ export default function Reviews(props) {
         ))}
       </Slider>
       <div className={styles.wrapper}>
+        <Waypoint
+            scrollableAncestor = {"window"}
+            onEnter = {() => {
+              setScrollIn(true)
+            }}
+            onLeave = {() => {
+              setScrollIn(false)
+            }}
+        >
+
+          <div>
+            <CSSTransition
+                in = {scrollIn}
+                appear = {scrollIn}
+                timeout = {250}
+                classNames = {scaleAnimationStyles}>
+              <div>
         <button className={styles.button} onClick={openModal}>
-          <Plus className={styles.icon} /> Submit your review
+          <Plus className={styles.icon} /> Your Cut
         </button>
+              </div>
+
+            </CSSTransition>
+          </div>
+        </Waypoint>
       </div>
 
       <Modal title="Add Review" isOpen={isOpen} closeModal={closeModal}>

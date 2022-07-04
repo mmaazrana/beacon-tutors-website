@@ -69,15 +69,15 @@
 }
 
 .button{
-    min-width: fit-content;
-    font-size: 1.5vw;
-    margin: 15px 0;
-    border-radius: 10px;
+    min-width: fit-content !important;
+    font-size: 1.5vw !important;
+    margin: 15px 0 !important;
+    border-radius: 10px !important;
 }
 
 .button a {
-    padding: 23px 116px;
-    border-radius: 10px;
+    padding: 23px 116px !important;
+    border-radius: 10px !important;
 }
 
 @media screen and (max-width: 1440px) {
@@ -113,16 +113,16 @@
     }
 
     .button{
-        font-size: 1.25vw;
-        padding: 0;
-        margin: 10px 0;
-        border-radius: 10px;
+        font-size: 1.5vw !important;
+        padding: 0 !important;
+        margin: 10px 0 !important;
+        border-radius: 10px !important;
     }
 
     .button a{
-        padding: 17px 83px;
-        margin: 0;
-        border-radius: 10px;
+        padding: 17px 83px !important;
+        margin: 0 !important;
+        border-radius: 10px !important;
     }
 
 }
@@ -161,16 +161,16 @@
     }
 
     .button{
-        font-size: 1.25vw;
-        padding: 0;
-        margin: 10px 0;
-        border-radius: 8px;
+        font-size: 1.45vw !important;
+        padding: 0 !important;
+        margin: 10px 0 !important;
+        border-radius: 8px !important;
     }
 
     .button a{
-        padding: 17px 83px;
-        margin: 0;
-        border-radius: 8px;
+        padding: 17px 83px !important;
+        margin: 0 !important;
+        border-radius: 8px !important;
     }
 
 }
@@ -202,15 +202,15 @@
     }
 
     .button{
-        font-size: 1.5vw;
-        padding: 0;
-        margin: 5px 0;
-        border-radius: 6px;
+        font-size: 2vw !important;
+        padding: 0 !important;
+        margin: 5px 0 !important;
+        border-radius: 6px !important;
     }
 
     .button a{
-        padding: 10px 45px;
-        border-radius: 6px;
+        padding: 10px 45px !important;
+        border-radius: 6px !important;
     }
 
 }
@@ -222,62 +222,108 @@
     }
 
     .text {
-        position: relative;
-        max-width: calc(100% - 60px);
-        margin: 105px 30px 0 30px;
+        margin: 40px 0 0 15px;
+        max-height: 47vw;
+        /*background-color: red;*/
+    }
+
+    .alternateText{
+        margin: 31px 0 0 15px;
+        max-height: 42.5vw;
     }
 
     .heading {
-        font-size: 6.5vw;
-        line-height: 7.5vw;
-        max-width: 100%;
+        font-size: 5vw;
+        line-height: 6vw;
+        max-width: 51.724vw;
     }
 
     .description {
-        font-size: 3.4vw;
-        max-width: 100%;
+        font-size: 2.2vw;
+        max-width: calc(100% - 43.103vw);
+        display: none;
     }
 
     .lottie {
-        margin-top: 0;
+        margin-top: 25px;
+        margin-right: 0;
+        width: 100%;
+        max-height: 91.875vw;
+        align-items: flex-end;
+        justify-content: flex-end;
+        display: flex;
+    }
+
+
+
+    .lottie svg{
+        /*margin-bottom: -5px;*/
+        margin-left: 8.621vw;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+
+    .alternateLottie svg{
+        margin-left: 41.724vw;
     }
 
     .button{
-        font-size: 3vw;
-        padding: 0;
-        margin: 5px 0;
-        border-radius: 5px;
+        font-size: 2vw !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border-radius: 1.034vw !important;
+        max-width: fit-content !important;
     }
 
     .button a{
-        padding: 8px 45px;
-        margin: 0;
-        border-radius: 5px;
+        padding: 1.379vw 6.897vw !important;
+        margin: 0 !important;
+        border-radius: 1.034vw !important;
     }
+
 
 }
 
 @media screen and (max-width: 320px) {
 
     .main {
-        padding-top: 3.5vw;
+        padding-bottom: 0;
+        margin-bottom: 0;
     }
 
     .text {
-        max-width: calc(100% - 30px);
-        margin: 80px 4.688vw 0 4.688vw;
+        margin: 60px 0 0 10px;
+        padding-bottom: 0;
+        max-height: 50vw;
+    }
+
+    .alternateText{
+        margin: 51px 0 0 10px;
+        max-height: 43vw;
+    }
+
+    .heading{
+        font-size: 4.8vw;
+        max-width: 50vw;
     }
 
     .button{
-        font-size: 3vw;
-        padding: 0;
-        margin: 1.563vw 0;
-        border-radius: 1.588vw;
+        font-size: 2vw !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border-radius: 1.034vw !important;
+        max-width: fit-content !important;
     }
 
+    .lottie {
+        margin-top: 55px;
+    }
+
+
     .button a{
-        padding: 2.188vw 10.588vw;
-        border-radius: 1.588vw;
+        padding: 1.379vw 6.897vw !important;
+        margin: 0 !important;
+        border-radius: 1.034vw !important;
     }
 
 }

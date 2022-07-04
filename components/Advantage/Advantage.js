@@ -13,7 +13,6 @@ export default function Advantage(props) {
             <Waypoint
                 topOffset = {"55px"}
                 scrollableAncestor = {"window"}
-                debug = {true}
                 onEnter = {() => {
                     setScrollIn(true)
                     console.log("entered")

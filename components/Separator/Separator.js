@@ -40,7 +40,17 @@ export default function Separator(props) {
                     appear = {scrollIn}
                     timeout = {500+250}
                     classNames = {fadeDelayAnimationStyles}>
-            <h1 className = {styles.text}>{props.text}</h1>
+                <div className={styles.fancyText}>
+
+                    <h1 className = {styles.text}>
+                {props.text}
+                </h1>
+                    &nbsp;
+                    <h1 className = {styles.text}>
+                        {props.underLineText}
+                    </h1>
+                </div>
+
                 </CSSTransition>
                 <CSSTransition
                     in = {scrollIn}

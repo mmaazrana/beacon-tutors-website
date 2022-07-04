@@ -12,6 +12,8 @@ export default function Main(props) {
 
     const headingClass = props.limitWidth ? `${styles.heading} ${styles.alternateH}` : styles.heading;
     const descriptionClass = props.limitWidth ? `${styles.description} ${styles.alternateD}` : styles.description;
+    const textClass = props.limitWidth ? `${styles.text} ${styles.alternateText}` : styles.text;
+    const lottieClass = props.limitWidth ? `${styles.lottie} ${styles.alternateLottie}` : styles.lottie;
 
     return (
         <SwitchTransition mode = 'out-in'>
@@ -25,7 +27,7 @@ export default function Main(props) {
             {state => (
                 <div className = {styles.main}>
                     <div
-                        className = {styles.text}>
+                        className = {textClass}>
 
                         <h1 className = {headingClass}>
                             {props.heading}
@@ -37,13 +39,13 @@ export default function Main(props) {
                         </p>
 
 
-                        <LinkButton className = {styles.button} text = {"Submit Inquiry"} link = {"/submitinquiry"}
+                        <LinkButton className = {styles.button} text = {"Submit Inquiry"} link = {"/identity"}
                                     primary = {true}/>
 
                     </div>
                     <div>
 
-                        <Lottie className = {styles.lottie} animationData = {props.lottie} loop = {true}
+                        <Lottie className = {lottieClass} animationData = {props.lottie} loop = {true}
                                 autoplay = {true}/>
                     </div>
                 </div>

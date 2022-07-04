@@ -5,8 +5,10 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Loading from '../components/Loading/Loading';
 import toast from 'react-hot-toast';
+import {collection, getDocs} from "firebase/firestore";
+import {db} from "../firebase";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, reviews }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const Toaster = dynamic(() =>
@@ -14,7 +16,7 @@ function MyApp({ Component, pageProps }) {
   );
 
   useEffect(() => {
-    if (router.pathname !== '/admin/signin') toast.dismiss();
+    if (router.pathname !== '/adminpanel/signin') toast.dismiss();
   }, [router]);
 
   useEffect(() => {
@@ -61,9 +63,30 @@ function MyApp({ Component, pageProps }) {
           },
         }}
       />
-      <Component className={'body'} {...pageProps}></Component>
+      <Component className={'body'} reviews={reviews} {...pageProps}  />
     </>
   );
+}
+
+MyApp.getInitialProps = async ({ Component, context }) => {
+  let reviews = [];
+  let pageProps = {};
+
+  const querySnapshot = await getDocs(collection(db, 'reviews'));
+  querySnapshot.forEach((doc) => {
+    reviews.push({
+      ...doc.data(),
+      id: doc.id,
+      timestamp: JSON.parse(JSON.stringify(doc.data().timestamp)),
+    });
+  });
+  // if (Component.getInitialProps) {
+    // pageProps = await Component.getInitialProps(context);
+  // }
+  return {
+    pageProps,
+    reviews,
+  };
 }
 
 export default MyApp;

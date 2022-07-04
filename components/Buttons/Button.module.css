@@ -24,6 +24,7 @@
 }
 
 .primary a{
+    text-align: center;
     height: 100%;
     color: white;
     padding: 7px 91px;
@@ -104,7 +105,7 @@
     .primary{
         border-radius: 1.412vw;
         padding: 0;
-        margin: 0 5.882vw 0 0;
+        margin: 0 0 0 0;
         font-size: 3.294vw;
         width: 40vw;
     }

@@ -41,10 +41,12 @@ import {useState} from "react";
 import {useRouter} from "next/router";
 // const Layout = dynamic(() => import('../components/Layouts/Layout'));
 import {CSSTransition} from 'react-transition-group';
+import {collection, getDocs} from "firebase/firestore";
+import {db} from "../firebase";
 // import {ReactComponent as HomeTutoringSvg} from "../assets/Services/home-tutoring.svg";
 
 
-export default function Home() {
+export default function Home(props) {
     // const homeTutoringSvg = <HomeTutoring/>;
     // const onlineTutoringSvg = <OnlineTutoring/>;
     // const writingServiceSvg = <WritingService/>;
@@ -67,15 +69,7 @@ export default function Home() {
     const TeachersOfYourChoice = dynamic(() => import('../assets/Advantages/Home/TeachersOfYourChoice.svg').then(module => module.ReactComponent),);
     const FreeTrialClasses = dynamic(() => import('../assets/Advantages/Home/FreeTrialClasses.svg').then(module => module.ReactComponent),);
 
-    const Female1 = dynamic(() => import('../assets/Avatars/Female1.svg').then(module => module.ReactComponent),);
-    const Female2 = dynamic(() => import('../assets/Avatars/Female2.svg').then(module => module.ReactComponent),);
-    const Female3 = dynamic(() => import('../assets/Avatars/Female3.svg').then(module => module.ReactComponent),);
-    const Female4 = dynamic(() => import('../assets/Avatars/Female4.svg').then(module => module.ReactComponent),);
 
-    const Male1 = dynamic(() => import('../assets/Avatars/Male1.svg').then(module => module.ReactComponent),);
-    const Male2 = dynamic(() => import('../assets/Avatars/Male2.svg').then(module => module.ReactComponent),);
-    const Male3 = dynamic(() => import('../assets/Avatars/Male3.svg').then(module => module.ReactComponent),);
-    const Male4 = dynamic(() => import('../assets/Avatars/Male4.svg').then(module => module.ReactComponent),);
 
     // const Main = dynamic(() => import('../components/Main/Main'));
     // const Separator = dynamic(() => import('../components/Separator/Separator'));
@@ -158,56 +152,56 @@ export default function Home() {
                 'Have a free of cost demo class to determine if the tutor fulfils your requirements.',
         },
     ];
-    let reviewsData = [
-        {
-            image: <Female1/>,
-            username: "Christine Stewart",
-            rating: 4,
-            description: "Good experience",
-        },
-        {
-            image: <Female2/>,
-            username: "Taylor Swift",
-            rating: 5,
-            description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
-        },
-        {
-            image: <Female3/>,
-            username: "Elizabeth Olsen",
-            rating: 3,
-            description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
-        },
-        {
-            image: <Female4/>,
-            username: "Natasha Romanoff",
-            rating: 4,
-            description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
-        },
-        {
-            image: <Male1/>,
-            username: "Christian Bale",
-            rating: 2,
-            description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
-        },
-        {
-            image: <Male2/>,
-            username: "Jason Statham",
-            rating: 4,
-            description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
-        },
-        {
-            image: <Male3/>,
-            username: "Dwayne Johnson",
-            rating: 5,
-            description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage, I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
-        },
-        {
-            image: <Male4/>,
-            username: "John Wick",
-            rating: 3,
-            description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
-        },
-    ]
+    // let reviewsData = [
+    //     {
+    //         image: <Female1/>,
+    //         username: "Christine Stewart",
+    //         rating: 4,
+    //         description: "Good experience",
+    //     },
+    //     {
+    //         image: <Female2/>,
+    //         username: "Taylor Swift",
+    //         rating: 5,
+    //         description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
+    //     },
+    //     {
+    //         image: <Female3/>,
+    //         username: "Elizabeth Olsen",
+    //         rating: 3,
+    //         description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
+    //     },
+    //     {
+    //         image: <Female4/>,
+    //         username: "Natasha Romanoff",
+    //         rating: 4,
+    //         description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
+    //     },
+    //     {
+    //         image: <Male1/>,
+    //         username: "Christian Bale",
+    //         rating: 2,
+    //         description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
+    //     },
+    //     {
+    //         image: <Male2/>,
+    //         username: "Jason Statham",
+    //         rating: 4,
+    //         description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
+    //     },
+    //     {
+    //         image: <Male3/>,
+    //         username: "Dwayne Johnson",
+    //         rating: 5,
+    //         description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage, I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
+    //     },
+    //     {
+    //         image: <Male4/>,
+    //         username: "John Wick",
+    //         rating: 3,
+    //         description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
+    //     },
+    // ]
 
     const settings = {
         dots: true,
@@ -219,7 +213,7 @@ export default function Home() {
         slidesToShow: 1,
         slidesToScroll: 1,
         variableWidth: true,
-        // adaptiveHeight: true,
+        adaptiveHeight: true,
         pauseOnHover: true,
         swipeToSlide: true,
         focusOnSelect: true,
@@ -255,7 +249,7 @@ export default function Home() {
             lottie = {MainLottie}
         />
             <div id={"services"}>
-            <Separator  text = {'Services'}/> {/*<ScrollContainer className="scroll-container">*/}
+            <Separator  underLineText = {'Services'}/> {/*<ScrollContainer className="scroll-container">*/}
             </div>
 
 
@@ -293,38 +287,23 @@ export default function Home() {
             </div>
 
 
-            <Separator text = {'How it works'}/>
+            <Separator text = {'How it'} underLineText={'works'}/>
 
             <HowItWorks
             data = {howItWorksData}/>
 
             <Separator text = {'Advantages'}/> <Advantages data = {advantagesData}/>
-            {/*<Waypoint*/}
-            {/*    scrollableAncestor={"window"}*/}
-            {/*    onEnter = {(props) => {*/}
-            {/*    // setScrollIn(true)*/}
-            {/*    console.log('scrolled the last section')*/}
-            {/*    console.log("previousPosition")*/}
-            {/*    console.log(props)*/}
-            {/*}} onLeave={(props) =>{*/}
-            {/*    console.log('scrolled out of the last section')*/}
-            {/*    console.log("previousPosition")*/}
-            {/*    console.log(props)*/}
-            {/*}}*/}
-            {/*onPositionChange={()=>{*/}
-            {/*    console.log("position changed")*/}
-            {/*}}*/}
-            {/*          style={{backgroundColor: 'red',}}*/}
 
-            {/*>*/}
-                <SeparatorBox ref={ref} text = {'Reviews'}> <Reviews data = {reviewsData}/> </SeparatorBox>
-            {/*</Waypoint>*/}
+            <SeparatorBox text = {'Reviews'}> <Reviews data = {props.reviews}/> </SeparatorBox>
+
 
         </>
 
 )
     ;
 }
+
+
 
 Home.getLayout = function getLayout(page) {
     return <Layout>{page}</Layout>;

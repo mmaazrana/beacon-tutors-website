@@ -31,6 +31,8 @@ import Advantages from '../../components/Advantages/Advantages';
 import WritingAnnouncements from '../../components/Announcements/WritingAnnouncements';
 import Services from "../../components/Services/Services";
 import dynamic from "next/dynamic";
+import SeparatorBox from "../../components/Separator/SeparatorBox";
+import Reviews from "../../components/Reviews/Reviews";
 
 // import Layout from '../../components/Layouts/Layout';
 const Layout = dynamic(() => import('../../components/Layouts/Layout'));
@@ -60,6 +62,16 @@ export default function Assignments(props) {
   const PlagiarismFree = dynamic(() => import('../../assets/Advantages/WritingService/PlagiarismFree.svg').then(module => module.ReactComponent),);
   const FreeRevisions = dynamic(() => import('../../assets/Advantages/WritingService/FreeRevisions.svg').then(module => module.ReactComponent),);
   const RefundPolicy = dynamic(() => import('../../assets/Advantages/WritingService/RefundPolicy.svg').then(module => module.ReactComponent),);
+
+  const Female1 = dynamic(() => import('../../assets/Avatars/Female1.svg').then(module => module.ReactComponent),);
+  const Female2 = dynamic(() => import('../../assets/Avatars/Female2.svg').then(module => module.ReactComponent),);
+  const Female3 = dynamic(() => import('../../assets/Avatars/Female3.svg').then(module => module.ReactComponent),);
+  const Female4 = dynamic(() => import('../../assets/Avatars/Female4.svg').then(module => module.ReactComponent),);
+
+  const Male1 = dynamic(() => import('../../assets/Avatars/Male1.svg').then(module => module.ReactComponent),);
+  const Male2 = dynamic(() => import('../../assets/Avatars/Male2.svg').then(module => module.ReactComponent),);
+  const Male3 = dynamic(() => import('../../assets/Avatars/Male3.svg').then(module => module.ReactComponent),);
+  const Male4 = dynamic(() => import('../../assets/Avatars/Male4.svg').then(module => module.ReactComponent),);
 
   // const Main = dynamic(() => import('../../components/Main/Main'));
   // const Separator = dynamic(() => import('../../components/Separator/Separator'));
@@ -208,6 +220,56 @@ export default function Assignments(props) {
     },
   ];
 
+  let reviewsData = [
+    {
+      image: <Female1/>,
+      username: "Christine Stewart",
+      rating: 4,
+      description: "Good experience",
+    },
+    {
+      image: <Female2/>,
+      username: "Taylor Swift",
+      rating: 5,
+      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
+    },
+    {
+      image: <Female3/>,
+      username: "Elizabeth Olsen",
+      rating: 3,
+      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
+    },
+    {
+      image: <Female4/>,
+      username: "Natasha Romanoff",
+      rating: 4,
+      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
+    },
+    {
+      image: <Male1/>,
+      username: "Christian Bale",
+      rating: 2,
+      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
+    },
+    {
+      image: <Male2/>,
+      username: "Jason Statham",
+      rating: 4,
+      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
+    },
+    {
+      image: <Male3/>,
+      username: "Dwayne Johnson",
+      rating: 5,
+      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage, I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
+    },
+    {
+      image: <Male4/>,
+      username: "John Wick",
+      rating: 3,
+      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
+    },
+  ]
   return (
     <>
       <Head>
@@ -226,20 +288,19 @@ export default function Assignments(props) {
         lottie={WritingLottie}
       />
 
-      <Separator text={'Services'} />
+      <Separator underLineText={'Services'} />
 
       <Services data={ServicesData} />
 
-      <Separator text={'How it works'} />
+      <Separator text = {'How it'} underLineText={'works'}/>
+
       <HowItWorks data={howItWorksData} />
 
       <Separator text={'Advantages'} />
       <Advantages data={advantagesData} />
 
-      <Separator text={'Reviews'} />
+      <SeparatorBox text = {'Reviews'}> <Reviews data = {reviewsData}/> </SeparatorBox>
 
-      <Separator text={'Announcements'} />
-      <WritingAnnouncements />
     </>
   );
 }

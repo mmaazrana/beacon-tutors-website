@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/Head';
-import AdminInquiry from '../../components/Inquiry/AdminInquiry';
+import NewReview from '../../components/NewReview/NewReview';
+import AdminReviews from '../../components/Reviews/AdminReviews';
 import AdminLayout from '../../components/Layouts/AdminLayout';
 import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -14,14 +15,14 @@ import {
   onSnapshot,
 } from 'firebase/firestore';
 
-export default function ViewInquiries(props) {
+export default function ManageReviews(props) {
   const router = useRouter();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user_) => {
       setUser(user_);
-      !user_ && router.push('/admin/signin');
+      !user_ && router.push('/adminpanel/signin');
     });
   }, [user]);
 
@@ -29,31 +30,23 @@ export default function ViewInquiries(props) {
     user && (
       <>
         <Head>
-          <title>View Inquiries - Beacon Tutors Pakistan</title>
+          <title>Manage Reviews - Beacon Tutors Pakistan</title>
           <meta
             name="description"
-            content="Meta description for the Admin View Inquiries page"
+            content="Meta description for the Admin Manage Reviews page"
           />
         </Head>
-
-        <div className="adminSection">
-          {props.inquiries.length > 0 ? (
-            <div className="adminList adminListBig">
-              {props.inquiries?.map((inquiry) => (
-                <AdminInquiry key={inquiry.id} inquiry={inquiry} />
-              ))}
-            </div>
-          ) : (
-            <p className="noRecords">No Inquiries Yet</p>
-          )}
-        </div>
+        <>
+          <NewReview />
+          <AdminReviews reviews={props.reviews} />
+        </>
       </>
     )
   );
 }
 
 export async function getServerSideProps() {
-  let inquiries = [];
+  let reviews = [];
   // const announcementsRef = collection(db, 'announcements');
   // const q = query(announcementsRef, orderBy('timestamp', 'desc'));
   // console.log(q);
@@ -66,20 +59,20 @@ export async function getServerSideProps() {
   //     });
   //   });
   // });
-  const querySnapshot = await getDocs(collection(db, 'inquiries'));
+  const querySnapshot = await getDocs(collection(db, 'reviews'));
   querySnapshot.forEach((doc) => {
-    inquiries.push({
+    reviews.push({
       ...doc.data(),
       id: doc.id,
-      timestamp: JSON.parse(JSON.stringify(doc.data().timestamp.toDate())),
+      timestamp: JSON.parse(JSON.stringify(doc.data().timestamp)),
     });
   });
-  console.log(inquiries);
+  console.log(reviews);
   return {
-    props: { inquiries },
+    props: { reviews },
   };
 }
 
-ViewInquiries.getLayout = function getLayout(page) {
+ManageReviews.getLayout = function getLayout(page) {
   return <AdminLayout>{page}</AdminLayout>;
 };

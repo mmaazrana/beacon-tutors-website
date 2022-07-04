@@ -1,10 +1,13 @@
 import styles from './Review.module.css';
 import { Rating } from 'react-simple-star-rating';
-
+import {
+    getImage,
+} from '../AdminForms/AdminForms';
 export default function Review(props) {
+
   return (
     <div className={styles.review}>
-      <div className={styles.image}>{props.image}</div>
+      <div className={styles.image}>{getImage(props.image)}</div>
       <div className={styles.content}>
         <p className={styles.username}>{props.username}</p>
         <Rating

@@ -219,7 +219,7 @@ export default function Home(props) {
         lottie={HomeLottie}
       />
 
-      <Separator text={'How it works'} />
+      <Separator text = {'How it'} underLineText={'works'}/>
       <HowItWorks data={howItWorksData} />
 
       <Separator text={'Advantages'} />

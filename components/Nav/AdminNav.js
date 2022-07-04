@@ -15,7 +15,7 @@ export default function AdminNav(props) {
     try {
       await toast.promise(
         signOut(auth).then(() => {
-          router.push('/admin/signin');
+          router.push('/adminpanel/signin');
         }),
         {
           loading: 'Signing out...',
@@ -38,7 +38,7 @@ export default function AdminNav(props) {
         <div className={styles.logo}>
           <Logo height="25px" width="200px" />
           <Link
-            href={props.user ? '/admin/manageannouncements' : '/admin/signin'}
+            href={props.user ? '/adminpanel/manageannouncements' : '/adminpanel/signin'}
           >
             Logo
           </Link>

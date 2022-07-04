@@ -221,7 +221,7 @@ export default function Online(props) {
         lottie={OnlineLottie}
       />
 
-      <Separator text={'How it works'} />
+      <Separator text = {'How it'} underLineText={'works'}/>
       <HowItWorks data={howItWorksData} />
 
       <Separator text={'Advantages'} />

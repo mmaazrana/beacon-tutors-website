@@ -6,6 +6,7 @@ import { ReactComponent as Male1 } from '../../assets/Avatars/Male1.svg';
 import { ReactComponent as Male2 } from '../../assets/Avatars/Male2.svg';
 import { ReactComponent as Male3 } from '../../assets/Avatars/Male3.svg';
 import { ReactComponent as Male4 } from '../../assets/Avatars/Male4.svg';
+import dynamic from "next/dynamic";
 
 const daysOptions = [...Array(7)].map((x, i) => {
   const days = `${i + 1}-${i == 0 ? 'Day' : 'Days'}/Week`;
@@ -31,7 +32,7 @@ const timeOptions = [...Array(24)].map((x, i) => {
   };
 });
 
-const ratings = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
+const ratings = [5, 4.5, 4, 3.5, 3, 2.5, 2, 1.5, 1, 0.5];
 const ratingOptions = ratings.map((x, i) => {
   return {
     value: x,
@@ -74,16 +75,51 @@ const imagesOptions = [
   },
 ];
 
-const images = {
-  f1: <Female1 />,
-  f2: <Female2 />,
-  f3: <Female3 />,
-  f4: <Female4 />,
-  m1: <Male1 />,
-  m2: <Male2 />,
-  m3: <Male3 />,
-  m4: <Male4 />,
-};
+// const images = {
+//   f1: <Female1 />,
+//   f2: <Female2 />,
+//   f3: <Female3 />,
+//   f4: <Female4 />,
+//   m1: <Male1 />,
+//   m2: <Male2 />,
+//   m3: <Male3 />,
+//   m4: <Male4 />,
+// };
+
+const getImage = (str)=> {
+  let Image
+
+  switch(str) {
+    case "m1":
+      Image = dynamic(() => import('../../assets/Avatars/Male1.svg').then(module => module.ReactComponent),);
+      break
+    case "m2":
+      Image = dynamic(() => import('../../assets/Avatars/Male2.svg').then(module => module.ReactComponent),);
+      break
+    case "m3":
+      Image = dynamic(() => import('../../assets/Avatars/Male3.svg').then(module => module.ReactComponent),);
+      break
+    case "m4":
+      Image = dynamic(() => import('../../assets/Avatars/Male4.svg').then(module => module.ReactComponent),);
+      break
+    case "f1":
+      Image = dynamic(() => import('../../assets/Avatars/Female1.svg').then(module => module.ReactComponent),);
+      break
+    case "f2":
+      Image = dynamic(() => import('../../assets/Avatars/Female2.svg').then(module => module.ReactComponent),);
+      break
+    case "f3":
+      Image = dynamic(() => import('../../assets/Avatars/Female3.svg').then(module => module.ReactComponent),);
+      break
+    case "f4":
+      Image = dynamic(() => import('../../assets/Avatars/Female4.svg').then(module => module.ReactComponent),);
+      break
+    default:
+      Image = dynamic(() => import('../../assets/Avatars/Male1.svg').then(module => module.ReactComponent),);
+      // code block
+  }
+  return <Image/>
+}
 
 const customToggleOffStyles = {
   margin: 0,
@@ -155,7 +191,7 @@ export {
   timeOptions,
   ratingOptions,
   imagesOptions,
-  images,
+  getImage,
   customToggleOffStyles,
   customToggleOnStyles,
   customSelectStyles,

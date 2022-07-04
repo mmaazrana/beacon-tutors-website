@@ -17,6 +17,8 @@ import Advantages from '../../components/Advantages/Advantages';
 import dynamic from "next/dynamic";
 
 import Layout from '../../components/Layouts/Layout';
+import SeparatorBox from "../../components/Separator/SeparatorBox";
+import Reviews from "../../components/Reviews/Reviews";
 // const Layout = dynamic(() => import('../../components/Layouts/Layout'));
 
 export default function WorkAsTutor(props) {
@@ -54,7 +56,7 @@ export default function WorkAsTutor(props) {
       image: <ApplyforRegistration />,
       heading: 'Apply for Registration',
       description:
-        'Once everything is cleared out to you and you find yourself a perfect match for our services, apply for registration by asking your group admin the process of that.',
+        'Once everything is cleared out to you and you find yourself a perfect match for our services, apply for registration by asking your group adminpanel the process of that.',
     },
     {
       image: <ProfileVerification />,
@@ -114,13 +116,14 @@ export default function WorkAsTutor(props) {
         lottie={BecomeLottie}
       />
 
-      <Separator text={'How it works'} />
+      <Separator text = {'How it'} underLineText={'works'}/>
+
       <HowItWorks data={howItWorksData} />
 
       <Separator text={'Advantages'} />
       <Advantages data={advantagesData} />
+      <SeparatorBox text = {'Reviews'}> <Reviews data = {props.reviews}/> </SeparatorBox>
 
-      <Separator text={'SeparatorBox'} />
     </>
   );
 }

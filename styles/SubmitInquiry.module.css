@@ -1,15 +1,44 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 50px;
+    margin: 105px 0 25px;
+}
+
+.main::before {
+    content: "Next";
+    flex: 1;
+    width: 220px;
+    min-width: 220px;
+    max-width: 220px;
+    margin: 0 25px 0 25px;
+    visibility: hidden;
+}
+
+.nextButton {
+    flex: 1;
+    width: 220px;
+    min-width: 220px;
+    max-width: 220px;
+    margin: 0 25px 0 25px;
+    padding: 0;
+}
+
 .wrapper {
-    margin: 130px 100px 75px;
     background-color: white;
-    padding: 50px 75px 75px;
+    padding: 25px 75px 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 25px;
+    gap: 10px;
     box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25);
     border-radius: 16px
 }
+
+
 
 .question {
     font-weight: 700;
@@ -36,167 +65,226 @@
     align-items: flex-start;
 }
 
-.studentButton, .teacherButton {
+
+
+.button {
     border: 4px solid #9FD1FF;
     background: #FFFFFF;
     border-radius: 8px;
     min-width: 275px;
     text-align: center;
-    padding: 15px 25px;
-    font-size: 28px;
+    padding: 10px 25px;
+    font-size: 24px;
     margin: 0;
-}
-
-.studentButton > a, .teacherButton > a {
     font-weight: 400;
     color: #3E6C98;
-    min-width: 250px;
-    padding: 10px 25px;
 }
 
 .studentLottie, .teacherLottie {
-    width: 325px;
     transition: 0.3s;
     opacity: 0.5;
 }
 
-.studentButton:hover, .teacherButton:hover {
+.button:hover {
     background: #3E6C98;
     box-shadow: 0px 1px 15px rgba(225, 221, 212, 0.25);
     border: 4px solid #3E6C98;
-}
-
-.studentButton:hover > a, .teacherButton:hover > a {
-    font-weight: 600;
     color: white;
 }
 
-.studentButton:hover ~ .studentLottie {
+.button:active {
+    background: #345b80;
+    box-shadow: 0 1px 15px rgba(225, 221, 212, 0.5);
+    border: 4px solid #345b80;
+    color: white;
+    font-weight: 600;
+}
+
+.selected {
+    background: #3E6C98;
+    box-shadow: 0px 1px 15px rgba(225, 221, 212, 0.25);
+    border: 4px solid #3E6C98;
+    color: white;
+    font-weight: 600;
+}
+
+.selected:hover {
+    background: #345b80;
+    border: 4px solid #345b80;
+    box-shadow: 0 1px 15px rgba(225, 221, 212, 0.5);
+}
+
+.selected:active {
+    background: #2a4966;
+    box-shadow: 0 1px 15px rgba(225, 221, 212, 0.75);
+}
+
+.lottieRow {
+    /*display: none;*/
+    /*visibility: hidden;*/
+    /*opacity: 0;*/
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 25px;
+}
+
+.lottie {
+    box-sizing: border-box;
+    padding: 0 25px;
+    max-width: 275px;
+    width: 275px;
+    opacity: 0.25;
+}
+
+.active {
     opacity: 1;
 }
 
-.teacherButton:hover ~ .teacherLottie {
-    opacity: 1;
-}
 
-.lottieRow{
-    display: none;
-}
 
+@media screen and (max-width: 1440px) {
+    .main{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .main::before {
+        display: none;
+    }
+    .nextButton {
+        width: 153px;
+        min-width: 153px;
+        max-width: 153px;
+    }
+}
 @media screen and (max-width: 1080px) {
+
     .question {
         font-size: 32px;
     }
 
     .wrapper {
-        margin: 105px 75px 50px;
-        padding: 50px 25px 75px;
+        padding: 25px 50px 40px;
     }
 
-    .studentButton, .teacherButton {
+    .button {
         min-width: 200px;
-        padding: 10px 15px;
-        font-size: 20px;
+        padding: 7px 15px;
+        font-size: 18px;
     }
 
-    .studentButton > a, .teacherButton > a {
-        min-width: 200px;
-        padding: 10px 15px;
+    .lottie {
+        max-width: 275px;
+        width: 200px;
     }
 
-    .studentLottie, .teacherLottie {
-        width: 230px;
-    }
+
+
 }
 
 @media screen and (max-width: 768px) {
+    .main{
+        gap:25px;
+    }
+
     .question {
         font-size: 28px;
     }
 
     .wrapper {
-        margin: 80px 50px 25px;
-        padding: 25px 5px 50px;
+        margin: 0 50px;
+        padding: 25px 5px 35px;
     }
 
-    .studentButton, .teacherButton {
+    .button {
         min-width: 140px;
-        padding: 10px 15px;
+        padding: 6px 15px;
         font-size: 14px;
     }
-
-    .studentButton > a, .teacherButton > a {
-        min-width: 140px;
-        padding: 10px 15px;
-    }
-
     .studentLottie, .teacherLottie {
         width: 170px;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .studentLottie, .teacherLottie {
-        display: none;
+
+    .wrapper{
+        align-items: stretch;
+        margin: 0 50px;
+        font-size: 24px;
+    }
+
+    .question{
+        text-align: center;
     }
 
     .row {
         flex-direction: column;
-        align-items: center;
         justify-content: center;
-        min-width: calc(100% - 50px );
+        flex: 1;
+        padding: 0 25px;
         gap: 10px;
     }
 
-    .columnLeft, .columnRight{
-        min-width: 100%;
-        flex: 1 1 auto;
+    .button {
+        flex: 1;
     }
 
-    .studentButton, .teacherButton {
-        min-width: calc(100% - 38px);
-        width: 100% ;
-        flex: 1 1 auto;
-    }
-
-    .studentButton > a, .teacherButton > a {
-        min-width: 100%;
-        width: 100%;
-    }
-
-    .lottieRow{
+    .lottieRow {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0 15px;
+        padding: 0 25px;
         gap: 15px;
     }
 
-    .lottieRow > *{
-        width: 40%;
+    .lottie{
+        max-width: 35.807vw;
+        width: 26.042vw;
+        padding: 0 10px;
     }
 }
 
 @media screen and (max-width: 420px) {
+
+
+
     .row {
-        min-width: calc(100% - 11.905vw );
         gap: 2.381vw;
+        padding: 0 5.952vw;
     }
 
-    .studentButton, .teacherButton {
+    .button {
         border: 0.952vw solid #9FD1FF;
         border-radius: 1.905vw;
-        min-width: calc(100% - 9.048vw);
-        width: calc(100% - 9.524vw);
-        padding: 2vw 3.5vw;
+        padding: 2vw 0;
         font-size: 3.333vw;
+        min-width: 0;
     }
 
     .question {
         font-size: 6.667vw;
     }
 
+    .main{
+        padding: 0 ;
+        margin: 0;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    .nextButton{
+        flex:1;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+    }
+
     .wrapper {
+        flex: 1;
         box-shadow: 0 0.952vw 9.524vw rgba(93, 143, 193, 0.25);
         border-radius: 0;
         margin: 80px 0 5.952vw;
@@ -204,11 +292,7 @@
         padding: 5.952vw 1.190vw 11.905vw;
     }
 
-    .studentButton > a, .teacherButton > a {
-        padding: 2.381vw 3.571vw;
-    }
-
-    .lottieRow{
+    .lottieRow {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -216,7 +300,9 @@
         gap: 3.571vw;
     }
 
-    .lottieRow > *{
-        width: 40%;
+    .lottie{
+        max-width: 47.619vw;
+        width: 41.667vw;
+        padding: 0 2.381vw;
     }
 }
