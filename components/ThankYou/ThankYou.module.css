@@ -1,0 +1,88 @@
+.wrapper {
+    padding: 80px 50px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 160px);
+    min-width: 250px;
+    overflow-y: scroll;
+    gap: 15px;
+    max-width: fit-content;
+    margin: auto;
+}
+
+.lottie {
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 170px;
+    max-height: 100vh;
+    min-width: 170px;
+    max-width: 100vw;
+    box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25);
+}
+
+.lottie > * {
+    width: 100vw;
+    height: 100vh;
+}
+
+.contact {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+}
+
+.primaryButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    background-color: #FF6F66;
+    /*border: 4px solid #FF6F66;*/
+    padding: 10px 25px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25);
+    animation-name: float;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(5%);
+    }
+    50% {
+        transform: translateY(-5%);
+    }
+    100% {
+        transform: translateY(5%);
+    }
+}
+
+.primaryButton > * {
+    height: 25px;
+}
+
+.secondaryButton {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: white;
+    padding: 10px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3D6B98;
+    border-radius: 8px;
+    box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25);
+
+}
+
+.secondaryButton > * {
+    height: 20px;
+}
