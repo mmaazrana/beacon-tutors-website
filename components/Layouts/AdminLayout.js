@@ -33,7 +33,7 @@ export default function AdminLayout({ children }) {
         <Pattern viewBox="0 0 100% 100%" />
       </div>
       <AdminNav user={user} />
-      {!(pathname === '/adminpanel/signin') && user && <Tabs />}
+      {!(router.pathname === '/adminpanel/signin') && user && <Tabs />}
       <main>{children}</main>
     </>
   );
