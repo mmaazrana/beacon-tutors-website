@@ -49,3 +49,47 @@
   box-shadow: 0 4px 40px rgba(93, 143, 193, 0.5);
   background-color: #e6655c;
 }
+
+.swiper{
+  padding: 250px 0 !important;
+}
+
+@media screen and (max-width: 1080px) {
+  .swiper{
+    padding: 150px 0 !important;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .swiper{
+    padding: 100px 0 !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .swiper{
+    padding: 31.250vw 0 !important;
+  }
+  .button{
+    font-size: 5vw;
+    border-radius: 2.5vw;
+    padding: 1.563vw 4.688vw ;
+    margin: 0 0 -5.625vw 0;
+    gap: 3.125vw;
+    box-shadow: 0 1.250vw 6.250vw rgba(93, 143, 193, 0.25);
+  }
+  .button:hover{
+    box-shadow: 0 1.250vw 9.375vw rgba(93, 143, 193, 0.4);
+  }
+
+  .button:active{
+    box-shadow: 0 1.250vw 12.500vw rgba(93, 143, 193, 0.5);
+  }
+
+  .icon{
+    height: 5.625vw;
+    width: 5.625vw;
+    stroke-width: 1.250vw;
+  }
+
+}

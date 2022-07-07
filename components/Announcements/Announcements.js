@@ -2,41 +2,46 @@ import Announcement from '../Announcement/Announcement';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import styles from '../Reviews/Reviews.module.css'
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
 
 export default function Announcements(props) {
 
-    const settings = {
-        dots: false,
-        infinite: true,
-        lazyLoad: true,
-        vertical: true,
-        verticalSwiping: true,
-        speed: 500,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        adaptiveHeight: true,
-        pauseOnHover: true,
-        arrows: false,
-        centerPadding: '150px',
-        useTransform: true,
-        useCss: true,
-        cssEase: 'ease-in-out',
-        // swipeToSlide: true,
-        focusOnSelect: true,
-        centerMode: true,
-    }
 
     return (
-      <Slider {...settings}>
+        <Swiper
+            slidesPerView={"auto"}
+            centeredSlides={true}
+            direction={'vertical'}
+            grabCursor={true}
+            disableOnInteraction={false}
+            loop={true}
+            loopedSlides={3}
+            speed={500}
+            height={500}
+            createElements={true}
+            autoHeight={true}
+            slideToClickedSlide={true}
+            autoplay={
+                {
+                    delay:"2500",
+                    pauseOnMouseEnter: true,
+                }
+            }
+            className={styles.swiper}
+        >
         {props.data?.map((announcement) => (
-          <Announcement
+            <SwiperSlide>
+            <Announcement
             // uncomment key after firebase integration
             // key={announcement.id}
             announcement={announcement}
-          />
+            />
+            </SwiperSlide>
         ))}
-      </Slider>
+        </Swiper>
     );
 }

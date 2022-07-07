@@ -81,6 +81,11 @@
     width: 250px;
 }
 
+.altArrow {
+    position: absolute;
+    display: none;
+}
+
 .rightWrapper {
     justify-content: flex-end;
     margin-right: -30px;
@@ -201,7 +206,7 @@
     }
 
     .working {
-        margin: 25px 25px;
+        margin: 50px 25px;
 
     }
 
@@ -213,8 +218,22 @@
         display: none;
     }
 
+    .altArrow {
+        width: 6.034vw;
+        display: block;
+    }
+
+    .arrowWrapper {
+        margin-left: -6.897vw;
+        margin-top: 12.931vw;
+    }
+
+    .rightWrapper {
+        margin-right: -6.897vw;
+    }
+
     .working {
-        margin: 10vw 4.310vw;
+        margin: 15vw 4.310vw;
     }
 
     .content {
@@ -228,6 +247,7 @@
         max-width: 100%;
         width: 55.8vw;
     }
+
     .image {
         width: 27vw;
         max-height: 12.069vw;
@@ -237,8 +257,11 @@
     .heading {
         width: 100%;
         font-size: 3.5vw;
-        padding: 0 5vw;
+        padding: 0;
         min-width: 0;
+    }
+    .rightHeading{
+        padding: 0 8vw;
     }
 }
 

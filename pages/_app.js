@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import Loading from '../components/Loading/Loading';
 import {collection, getDocs, orderBy, query, where} from "firebase/firestore";
 import {db} from "../firebase";
+import SwiperCore, { Autoplay } from 'swiper';
 
 function MyApp({ Component, pageProps, reviews }) {
   const router = useRouter();
@@ -13,6 +14,8 @@ function MyApp({ Component, pageProps, reviews }) {
   const Toaster = dynamic(() =>
     import('react-hot-toast').then((module) => module.Toaster)
   );
+
+  SwiperCore.use([Autoplay])
 
   useEffect(() => {
     const handleStart = (url) => {
