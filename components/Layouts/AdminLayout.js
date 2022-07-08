@@ -18,7 +18,7 @@ export default function AdminLayout({ children }) {
   }, [user]);
 
   useEffect(() => {
-    if (router.pathname !== '/adminpanel/signin') toast.dismiss();
+    if (router.pathname !== '/adminpanel') toast.dismiss();
   }, [router]);
 
   const Pattern = dynamic(() =>
@@ -33,7 +33,7 @@ export default function AdminLayout({ children }) {
         <Pattern viewBox="0 0 100% 100%" />
       </div>
       <AdminNav user={user} />
-      {!(router.pathname === '/adminpanel/signin') && user && <Tabs />}
+      {!(router.pathname === '/adminpanel') && user && <Tabs />}
       <main>{children}</main>
     </>
   );

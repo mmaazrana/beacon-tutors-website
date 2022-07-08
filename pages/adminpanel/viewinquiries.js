@@ -15,7 +15,7 @@ export default function ViewInquiries(props) {
   useEffect(() => {
     onAuthStateChanged(auth, (user_) => {
       setUser(user_);
-      !user_ && router.push('/adminpanel/signin');
+      !user_ && router.push('/adminpanel');
     });
   }, [user]);
 

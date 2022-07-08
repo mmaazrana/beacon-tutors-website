@@ -33,12 +33,12 @@ export default function Announcements(props) {
             }
             className={styles.swiper}
         >
-        {props.data?.map((announcement) => (
+        {props.data?.map((announcement,index) => (
             <SwiperSlide>
             <Announcement
-            // uncomment key after firebase integration
-            // key={announcement.id}
+            key={announcement.id}
             announcement={announcement}
+            index={index}
             />
             </SwiperSlide>
         ))}

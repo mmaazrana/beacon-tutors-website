@@ -6,14 +6,14 @@ import styles from './Announcement.module.css';
 export default function Announcement(props) {
   return (
     <div className={styles.announcement}>
-      <p className={styles.title}>{props.announcement.title}</p>
+      <p className={styles.title}>{props.announcement.title} {props.index}</p>
       <div className={styles.options}>
         <div className={styles.daysOption}>
           <Calendar className={styles.icon} color="#FF6F66" />
           <div className={styles.column}>
             <p className={styles.optionText}>
               {props.announcement.days}-
-              {props.announcement.days == 1 ? 'Day' : 'Days'}
+              {props.announcement.days === 1 ? 'Day' : 'Days'}
             </p>
             <p className={styles.optionDetailText}> Per Week </p>
           </div>
@@ -32,7 +32,7 @@ export default function Announcement(props) {
           <div className={styles.column}>
             <p className={styles.optionText}>
               {props.announcement.time}-
-              {props.announcement.time == 1 ? 'Hour' : 'Hours'}
+              {props.announcement.time === 1 ? 'Hour' : 'Hours'}
             </p>
             <p className={styles.optionDetailText}> Per Day </p>
           </div>
