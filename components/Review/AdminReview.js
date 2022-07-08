@@ -8,7 +8,6 @@ import DeleteModal from '../Modal/DeleteModal';
 import Select from 'react-select';
 import {
   ratingOptions,
-  // images,
   getImage,
   imagesOptions,
   customSelectStyles,
@@ -128,12 +127,12 @@ export default function AdminReview(props) {
   return (
     <>
       <div className={styles.review}>
-        <div className={styles.image}>{images[props.review.image]}</div>
+        <div className={styles.image}>{getImage(props.review.image)}</div>
         <div className={styles.content}>
           <div className={styles.row}>
             <p className={styles.username}>{props.review.username}</p>
             <div className="icons">
-              {pathname === '/adminpanel/managereviews' && (
+              {router.pathname === '/adminpanel/managereviews' && (
                 <>
                   <Edit
                     color="#4FC3B1"
@@ -152,7 +151,7 @@ export default function AdminReview(props) {
                   />
                 </>
               )}
-              {pathname === '/adminpanel/approvereviews' && (
+              {router.pathname === '/adminpanel/approvereviews' && (
                 <>
                   <Check
                     color="#4FC3B1"

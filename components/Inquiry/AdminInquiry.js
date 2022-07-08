@@ -13,6 +13,15 @@ export default function AdminInquiry(props) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
+  const descriptions = {
+    student: 'Student/Parent',
+    teacher: 'Teacher',
+  };
+  const services = {
+    online: 'Online Tutoring',
+    home: 'Home Tutoring',
+    content: 'Content Writing',
+  };
 
   const openViewModal = () => {
     setIsOpen(true);
@@ -73,17 +82,13 @@ export default function AdminInquiry(props) {
         />
         <InfoField
           label="Who are You"
-          value={
-            props.inquiry.description === 'teacher'
-              ? 'Teacher'
-              : 'Student/Parent'
-          }
+          value={descriptions[props.inquiry.description]}
         />
         <InfoField
           label={`You want to ${
             props.inquiry.description === 'teacher' ? 'Work' : 'Hire'
           }`}
-          value={props.inquiry.service}
+          value={services[props.inquiry.service]}
         />
         {props.inquiry.comments && (
           <InfoField label="Comments" value={props.inquiry.comments} />

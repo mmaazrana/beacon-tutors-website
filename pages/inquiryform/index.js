@@ -71,15 +71,15 @@ export default function InquiryForm(props) {
     };
 
     const locationOptions = [{
-        value: 'lahore', label: 'Lahore',
+        value: 'Lahore', label: 'Lahore',
     }, {
-        value: 'islamabad', label: 'Islamabad',
+        value: 'Islamabad', label: 'Islamabad',
     }, {
-        value: 'rawalpindi', label: 'Rawalpindi',
+        value: 'Rawalpindi', label: 'Rawalpindi',
     }, {
-        value: 'karachi', label: 'Karachi',
+        value: 'Karachi', label: 'Karachi',
     }, {
-        value: 'other', label: 'Other',
+        value: 'Other', label: 'Other',
     },];
 
     const descriptionOptions = [{
