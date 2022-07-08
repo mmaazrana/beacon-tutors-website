@@ -156,7 +156,7 @@ export default function Online(props) {
       </SeparatorBox>
 
       <SeparatorBox text={'Announcements'} >
-        <Announcements data={props.announcements} />
+        <Announcements keyword={props.keyword} data={props.announcements} />
       </SeparatorBox>
 
 

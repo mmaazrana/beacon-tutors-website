@@ -21,9 +21,13 @@ export default function LinkButton(props) {
             {state => (
                 <div
                     className = {`${buttonClass} ${props.className}`}>
-                    <Link href = {{pathname:props.link,
-                                    query:props.data ? props.data : "",
-                    }}><a>{props.text}</a></Link>
+                    <Link href = {
+                        {
+                            pathname:props.link,
+                            hash: props.hash,
+                            query:props.data ? props.data : null,
+                        }
+                    }><a>{props.text}</a></Link>
                 </div>
 
             )}

@@ -43,6 +43,7 @@ import {useRouter} from "next/router";
 import {CSSTransition} from 'react-transition-group';
 import {collection, getDocs} from "firebase/firestore";
 import {db} from "../firebase";
+import {fetchAnnouncements, fetchReviews} from "../components/Functions/Functions";
 // import {ReactComponent as HomeTutoringSvg} from "../assets/Services/home-tutoring.svg";
 
 
@@ -253,7 +254,14 @@ export default function Home(props) {
     ;
 }
 
-
+export async function getStaticProps() {
+    const reviews = []
+    await fetchReviews(reviews)
+    return {
+        props: {reviews},
+        revalidate: 21600,
+    };
+}
 
 Home.getLayout = function getLayout(page) {
     return <Layout>{page}</Layout>;

@@ -33,6 +33,7 @@ import Services from "../../components/Services/Services";
 import dynamic from "next/dynamic";
 import SeparatorBox from "../../components/Separator/SeparatorBox";
 import Reviews from "../../components/Reviews/Reviews";
+import {fetchAnnouncements, fetchReviews} from "../../components/Functions/Functions";
 
 // import Layout from '../../components/Layouts/Layout';
 const Layout = dynamic(() => import('../../components/Layouts/Layout'));
@@ -253,6 +254,15 @@ export default function Assignments(props) {
 
     </>
   );
+}
+
+export async function getStaticProps() {
+  const reviews = []
+  await fetchReviews(reviews)
+  return {
+    props: {reviews},
+    revalidate: 21600,
+  };
 }
 
 Assignments.getLayout = function getLayout(page) {

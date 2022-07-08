@@ -34,11 +34,11 @@ export default function Announcements(props) {
             className={styles.swiper}
         >
         {props.data?.map((announcement,index) => (
-            <SwiperSlide>
+            <SwiperSlide key={announcement.id} >
             <Announcement
+            keyword={props.keyword}
             key={announcement.id}
             announcement={announcement}
-            index={index}
             />
             </SwiperSlide>
         ))}

@@ -31,7 +31,7 @@ export default function Nav() {
                 <div className={isExpanded ? `${styles.buttons} ${styles.open}` :  styles.buttons } >
                     <div className={isExpanded ? `${styles.buttonsSecondary} ${styles.open}` :  styles.buttonsSecondary }>
                         <LinkButton link={'/'} text={'Home'}/>
-                        <LinkButton link={'/#services'} text={'Our Services'} />
+                        <LinkButton link={'/'} hash={'services'} text={'Our Services'} />
                         <LinkButton link={'/work'} text={'Work as a Tutor'}/>
                         <LinkButton link={'/terms'} text={'Terms & Conditions'}/>
                     </div>

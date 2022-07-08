@@ -181,7 +181,7 @@ export default function Home(props) {
       </SeparatorBox>
 
       <SeparatorBox text={'Announcements'} >
-        <Announcements data={announcementData} />
+        <Announcements keyword={props.keyword} data={props.announcements} />
       </SeparatorBox>
 
     </>

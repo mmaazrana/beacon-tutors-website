@@ -51,7 +51,7 @@ export default function Reviews(props) {
             className={styles.swiper}
         >
         {props.data.map((review) => (
-            <SwiperSlide>
+            <SwiperSlide key={review.id} >
               <Review
                 key={review.id}
                 image={review.image}

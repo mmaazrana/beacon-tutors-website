@@ -8,7 +8,7 @@ import {collection, getDocs, orderBy, query, where} from "firebase/firestore";
 import {db} from "../firebase";
 import SwiperCore, { Autoplay } from 'swiper';
 
-function MyApp({ Component, pageProps, reviews }) {
+function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const Toaster = dynamic(() =>
@@ -61,34 +61,9 @@ function MyApp({ Component, pageProps, reviews }) {
           },
         }}
       />
-      <Component className={'body'} reviews={reviews} {...pageProps}  />
+      <Component className={'body'} {...pageProps}  />
     </>
   );
-}
-
-MyApp.getInitialProps = async ({ Component, context }) => {
-  let reviews = [];
-  let pageProps = {};
-  try {
-    const q = query(
-        collection(db, 'reviews'),
-        where('isApproved', '==', true),
-  );
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      reviews.push({
-        ...doc.data(),
-        id: doc.id,
-        timestamp: JSON.parse(JSON.stringify(doc.data().timestamp)),
-      });
-    });
-  } catch (error) {
-      console.log(error.code, error.message);
-  }
-  return {
-    pageProps,
-    reviews,
-  };
 }
 
 export default MyApp;

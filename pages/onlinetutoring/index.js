@@ -5,6 +5,7 @@ import Online from '../../components/Tutoring/Online';
 import Layout from '../../components/Layouts/Layout';
 import {collection, getDocs, query, where} from "firebase/firestore";
 import {db} from "../../firebase";
+import {fetchAnnouncements, fetchReviews} from "../../components/Functions/Functions";
 // const Layout = dynamic(() => import('../../components/Layouts/Layout'));
 
 export default function OnlineTutoring(props) {
@@ -19,36 +20,19 @@ export default function OnlineTutoring(props) {
                     name = "description"
                     content = "Meta description for the Online Tutoring page"
                 />
-            </Head> <Online keyword = {'Tutoring'} announcements = {props.announcements} reviews = {props.reviews}/>
+            </Head> <Online keyword = {'tutoring'} announcements = {props.announcements} reviews = {props.reviews}/>
         </>);
 }
 
+
 export async function getStaticProps() {
-    let announcements = [];
-    try {
-        const q = query(
-            collection(db, 'announcements'),
-            where('page', '==', 'Online'),
-        );
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-            announcements.push({
-                ...doc.data(), id: doc.id, timestamp: JSON.parse(JSON.stringify(doc.data().timestamp)),
-            });
-        });
-        for (let i = announcements.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [announcements[i], announcements[j]] = [announcements[j], announcements[i]];
-        }
-    } catch (error) {
-        console.log(error.code, error.message);
-    }
-    console.log("\n\n\n announcements start \n\n\n");
-    console.log(announcements);
-    console.log("\n\n\n announcements end \n\n\n");
+    const reviews = []
+    await fetchReviews(reviews)
+    const announcements = []
+    await fetchAnnouncements(announcements,'Online')
     return {
-        props: {announcements},
-        revalidate: 600,
+        props: {reviews,announcements},
+        revalidate: 21600,
     };
 }
 

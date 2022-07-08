@@ -19,6 +19,7 @@ import dynamic from "next/dynamic";
 import Layout from '../../components/Layouts/Layout';
 import SeparatorBox from "../../components/Separator/SeparatorBox";
 import Reviews from "../../components/Reviews/Reviews";
+import {fetchAnnouncements, fetchReviews} from "../../components/Functions/Functions";
 // const Layout = dynamic(() => import('../../components/Layouts/Layout'));
 
 export default function WorkAsTutor(props) {
@@ -126,6 +127,15 @@ export default function WorkAsTutor(props) {
 
     </>
   );
+}
+
+export async function getStaticProps() {
+  const reviews = []
+  await fetchReviews(reviews)
+  return {
+    props: {reviews},
+    revalidate: 21600,
+  };
 }
 
 WorkAsTutor.getLayout = function getLayout(page) {
