@@ -134,82 +134,6 @@ export default function Online(props) {
     },
   ];
 
-  let reviewsData = [
-    {
-      image: <Female1/>,
-      username: "Christine Stewart",
-      rating: 4,
-      description: "Good experience",
-    },
-    {
-      image: <Female2/>,
-      username: "Taylor Swift",
-      rating: 5,
-      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
-    },
-    {
-      image: <Female3/>,
-      username: "Elizabeth Olsen",
-      rating: 3,
-      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
-    },
-    {
-      image: <Female4/>,
-      username: "Natasha Romanoff",
-      rating: 4,
-      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
-    },
-    {
-      image: <Male1/>,
-      username: "Christian Bale",
-      rating: 2,
-      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
-    },
-    {
-      image: <Male2/>,
-      username: "Jason Statham",
-      rating: 4,
-      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you.",
-    },
-    {
-      image: <Male3/>,
-      username: "Dwayne Johnson",
-      rating: 5,
-      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage, I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
-    },
-    {
-      image: <Male4/>,
-      username: "John Wick",
-      rating: 3,
-      description: "I just wanted to share a quick note and let you know that you guys do a really good job. I'm glad I decided to work with you. It's really great how easy your websites are to update and manage.",
-    },
-  ]
-  let announcementData = [
-    {
-      title: "Free online "+props.keyword+" job for everyone",
-      days: 5,
-      budget: 10000,
-      time: 10,
-    },
-    {
-      title: "Free online "+props.keyword+" job for everyone",
-      days: 5,
-      budget: 10000,
-      time: 10,
-    },
-    {
-      title: "Free online "+props.keyword+" job for everyone",
-      days: 5,
-      budget: 10000,
-      time: 10,
-    },
-    {
-      title: "Free online "+props.keyword+" job for everyone",
-      days: 5,
-      budget: 10000,
-      time: 10,
-    },
-  ]
 
 
   return (
@@ -228,11 +152,11 @@ export default function Online(props) {
       <Advantages data={advantagesData} />
 
       <SeparatorBox text={'Reviews'} >
-        <Reviews data={reviewsData}/>
+        <Reviews data={props.reviews}/>
       </SeparatorBox>
 
       <SeparatorBox text={'Announcements'} >
-        <Announcements data={announcementData} />
+        <Announcements data={props.announcements} />
       </SeparatorBox>
 
 

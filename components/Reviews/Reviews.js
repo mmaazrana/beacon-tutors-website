@@ -10,33 +10,14 @@ import NewReview from '../../components/NewReview/NewReview';
 import scaleAnimationStyles from "../../styles/Animations/ScaleFadeAnimations.module.css";
 import {Waypoint} from 'react-waypoint';
 import {CSSTransition} from 'react-transition-group';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
 
 export default function Reviews(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollIn, setScrollIn] = useState(false);
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    lazyLoad: true,
-    vertical: true,
-    verticalSwiping: true,
-    speed: 500,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    adaptiveHeight: true,
-    pauseOnHover: true,
-    arrows: false,
-    centerPadding: '150px', // fade: true,
-    // swipeToSlide: true,
-    useTransform: true,
-    useCss: true,
-    cssEase: 'ease-in-out',
-    focusOnSelect: true,
-    centerMode: true,
-  };
 
   const openModal = () => {
     setIsOpen(true);
@@ -48,18 +29,39 @@ export default function Reviews(props) {
 
   return (
     <>
-      <Slider {...settings} className={styles.reviews}>
+        <Swiper
+            slidesPerView={"auto"}
+            centeredSlides={true}
+            direction={'vertical'}
+            grabCursor={true}
+            disableOnInteraction={false}
+            loop={true}
+            loopedSlides={3}
+            speed={500}
+            height={500}
+            createElements={true}
+            autoHeight={true}
+            slideToClickedSlide={true}
+            autoplay={
+              {
+                delay:"2500",
+                pauseOnMouseEnter: true,
+              }
+            }
+            className={styles.swiper}
+        >
         {props.data.map((review) => (
-          <Review
-            // uncomment key after firebase integration
-            // key={review.id}
-            image={review.image}
-            username={review.username}
-            rating={review.rating}
-            description={review.description}
-          />
+            <SwiperSlide>
+              <Review
+                key={review.id}
+                image={review.image}
+                username={review.username}
+                rating={review.rating}
+                description={review.description}
+              />
+            </SwiperSlide>
         ))}
-      </Slider>
+        </Swiper>
       <div className={styles.wrapper}>
         <Waypoint
             scrollableAncestor = {"window"}

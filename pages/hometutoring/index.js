@@ -20,7 +20,7 @@ export default function HomeTutoring(props) {
           content="Meta description for the Home Tutoring page"
         />
       </Head>
-      <Home keyword={'Tutoring'} />
+      <Home keyword={'Tutoring'} reviews={props.reviews} />
     </>
   );
 }

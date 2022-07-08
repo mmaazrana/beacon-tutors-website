@@ -92,3 +92,16 @@
         stroke-dashoffset: 0;
     }
 }
+
+@media screen and (max-width: 580px) {
+
+    .appearActive  > svg > g > g> path:last-child{
+        transition-delay: 500ms;
+    }
+
+    .enterActive  > svg > g > g> path:last-child{
+        transition-delay: 500ms;
+    }
+
+
+}
