@@ -140,11 +140,7 @@ export default function InquiryForm(props) {
         e.preventDefault();
         if(service==='content')
         {
-            if(isMobile){
-                await router.replace("https://wa.me/923148142090")
-            } else{
-                await router.replace("/")
-            }
+            await router.replace("https://wa.me/923136612514")
         }
         else if(isValid()){
             try {
@@ -161,7 +157,7 @@ export default function InquiryForm(props) {
                     isViewed: false,
                     timestamp: serverTimestamp(),
                 }).then(() => {
-                    if(description==="teacher" && data.user === "teacher"){
+                    if(description==="teacher" || data.user === "teacher"){
                         router.replace("/tutorconv")
                     }else if (service === "home"){
                         router.replace("/stdhomeconv")

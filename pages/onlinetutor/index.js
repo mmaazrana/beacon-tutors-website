@@ -20,7 +20,7 @@ export default function OnlineTutor(props) {
           content="Meta description for the Online Tutor page"
         />
       </Head>
-      <Online keyword={'Tutor'} />
+      <Online keyword={'Tutor'} reviews={props.reviews} />
     </>
   );
 }
