@@ -38,7 +38,7 @@
 .exitActive  > svg > g > g> path:first-child{
     stroke-dasharray: 0;
     stroke-dashoffset: 0;
-    animation: dash 100ms linear  ;
+    animation: dash 1ms linear  ;
 }
 
 .exitDone  > svg > g > g> path:first-child{
@@ -52,7 +52,7 @@
 
 .exitActive  > svg > g > g> path:last-child{
     opacity: 0;
-    transition-duration: 100ms;
+    transition-duration: 1ms;
 }
 
 .exitDone  > svg > g > g> path:last-child{

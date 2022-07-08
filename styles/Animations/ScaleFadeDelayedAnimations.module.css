@@ -22,7 +22,7 @@
 .exitActive {
     opacity: 0;
     transform: scale(0);
-    transition-duration: 100ms;
+    transition-duration: 1ms;
 }
 
 .exitDone{

@@ -7,7 +7,6 @@ import Loading from '../components/Loading/Loading';
 import {collection, getDocs, orderBy, query, where} from "firebase/firestore";
 import {db} from "../firebase";
 import SwiperCore, { Autoplay } from 'swiper';
-
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
