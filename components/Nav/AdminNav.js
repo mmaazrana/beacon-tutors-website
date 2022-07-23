@@ -37,11 +37,7 @@ export default function AdminNav(props) {
       >
         <div className={styles.logo}>
           <Logo height="25px" width="200px" />
-          <Link
-            href={props.user ? '/adminpanel/manageannouncements' : '/adminpanel'}
-          >
-            Logo
-          </Link>
+          <Link href="/">Logo</Link>
         </div>
         {props.user && (
           <div onClick={signoutHandler}>

@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/Head';
-import NewAnnouncement from '../../components/NewAnnouncement/NewAnnouncement';
-import AdminAnnouncements from '../../components/Announcements/AdminAnnouncements';
+import AdminReview from '../../components/Review/AdminReview';
 import AdminLayout from '../../components/Layouts/AdminLayout';
 import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { db } from '../../firebase';
-import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy, where } from 'firebase/firestore';
 
-export default function ManageAnnouncements(props) {
+export default function Approvals(props) {
   const router = useRouter();
   const [user, setUser] = useState(null);
 
@@ -24,31 +23,39 @@ export default function ManageAnnouncements(props) {
     user && (
       <>
         <Head>
-          <title>Manage Announcements - Beacon Tutors Pakistan</title>
+          <title>Approve Reviews - Beacon Tutors Pakistan</title>
           <meta
             name="description"
-            content="Meta description for the Admin Manage Announcements page"
+            content="Meta description for the Admin Approve Reviews page"
           />
         </Head>
-        <>
-          <NewAnnouncement />
-          <AdminAnnouncements announcements={props.announcements} />
-        </>
+        <div className="adminSection">
+          {props.reviews.length > 0 ? (
+            <div className="adminList adminListBig">
+              {props.reviews?.map((review) => (
+                <AdminReview key={review.id} review={review} />
+              ))}
+            </div>
+          ) : (
+            <p className="noRecords">No User Reviews Yet</p>
+          )}
+        </div>
       </>
     )
   );
 }
 
 export async function getServerSideProps() {
-  let announcements = [];
+  let reviews = [];
   try {
     const q = query(
-      collection(db, 'announcements'),
+      collection(db, 'reviews'),
+      where('isApproved', '==', false),
       orderBy('timestamp', 'desc')
     );
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      announcements.push({
+      reviews.push({
         ...doc.data(),
         id: doc.id,
         timestamp: JSON.parse(JSON.stringify(doc.data().timestamp)),
@@ -57,12 +64,12 @@ export async function getServerSideProps() {
   } catch (error) {
     console.log(error.code, error.message);
   }
-  console.log(announcements);
+  console.log(reviews);
   return {
-    props: { announcements },
+    props: { reviews },
   };
 }
 
-ManageAnnouncements.getLayout = function getLayout(page) {
+Approvals.getLayout = function getLayout(page) {
   return <AdminLayout>{page}</AdminLayout>;
 };

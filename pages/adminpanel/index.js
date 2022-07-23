@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/Head';
 import { Eye, EyeOff } from 'lucide-react';
@@ -11,14 +11,23 @@ import {
   browserSessionPersistence,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
 } from 'firebase/auth';
 
 export default function SignIn() {
   const router = useRouter();
+  const [user, setUser] = useState(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [inputType, setInputType] = useState('password');
   const [isDisabled, setIsDisabled] = useState(false);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user_) => {
+      setUser(user_);
+      user_ && router.push('/adminpanel/announcements');
+    });
+  }, [user]);
 
   const showPassword = () => {
     inputType === 'password' ? setInputType('text') : setInputType('password');
@@ -42,7 +51,7 @@ export default function SignIn() {
             signInWithEmailAndPassword(auth, email, password).then(
               (userCredential) => {
                 const user = userCredential.user;
-                router.push('/adminpanel/manageannouncements');
+                router.push('/adminpanel/announcements');
               }
             ),
             {
@@ -62,50 +71,56 @@ export default function SignIn() {
   };
 
   return (
-    <>
-      <Head>
-        <title>Admin Sign In - Beacon Tutors Pakistan</title>
-        <meta
-          name="description"
-          content="Meta description for the Admin Sign In page"
-        />
-      </Head>
-      <div className={styles.container}>
-        <div className={styles.signIn}>
-          <h2>Sign In</h2>
-          <form onSubmit={signinHandler}>
-            <input
-              className="adminInput"
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <div className={styles.password}>
+    !user && (
+      <>
+        <Head>
+          <title>Admin Sign In - Beacon Tutors Pakistan</title>
+          <meta
+            name="description"
+            content="Meta description for the Admin Sign In page"
+          />
+        </Head>
+        <div className={styles.container}>
+          <div className={styles.signIn}>
+            <h2>Sign In</h2>
+            <form onSubmit={signinHandler}>
               <input
                 className="adminInput"
-                type={inputType}
-                name="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
-              <div className={styles.eye} onClick={showPassword}>
-                {inputType === 'password' ? (
-                  <EyeOff color="#a1bedb" />
-                ) : (
-                  <Eye color="#a1bedb" />
-                )}
+              <div className={styles.password}>
+                <input
+                  className="adminInput"
+                  type={inputType}
+                  name="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <div className={styles.eye} onClick={showPassword}>
+                  {inputType === 'password' ? (
+                    <EyeOff color="#a1bedb" />
+                  ) : (
+                    <Eye color="#a1bedb" />
+                  )}
+                </div>
               </div>
-            </div>
-            <button type="submit" className="adminButton" disabled={isDisabled}>
-              Sign In
-            </button>
-          </form>
+              <button
+                type="submit"
+                className="adminButton"
+                disabled={isDisabled}
+              >
+                Sign In
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
-    </>
+      </>
+    )
   );
 }
 

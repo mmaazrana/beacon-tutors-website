@@ -4,38 +4,38 @@ import Tab from './Tab';
 
 export default function Tabs() {
   const { pathname } = useRouter();
-  const isTabOneSelected = pathname === '/adminpanel/manageannouncements';
-  const isTabTwoSelected = pathname === '/adminpanel/managereviews';
-  const isTabThreeSelected = pathname === '/adminpanel/viewinquiries';
-  const isTabFourSelected = pathname === '/adminpanel/approvereviews';
+  const isTabOneSelected = pathname === '/adminpanel/announcements';
+  const isTabTwoSelected = pathname === '/adminpanel/reviews';
+  const isTabThreeSelected = pathname === '/adminpanel/inquiries';
+  const isTabFourSelected = pathname === '/adminpanel/approvals';
 
   return (
     <div className={styles.container}>
       <div className={styles.tabs}>
         <div>
           <Tab
-            href="/adminpanel/manageannouncements"
+            href="/adminpanel/announcements"
             title="Announcements"
             isSelected={isTabOneSelected}
           />
         </div>
         <div>
           <Tab
-            href="/adminpanel/managereviews"
+            href="/adminpanel/reviews"
             title="Reviews"
             isSelected={isTabTwoSelected}
           />
         </div>
         <div>
           <Tab
-            href="/adminpanel/viewinquiries"
+            href="/adminpanel/inquiries"
             title="Inquiries"
             isSelected={isTabThreeSelected}
           />
         </div>
         <div>
           <Tab
-            href="/adminpanel/approvereviews"
+            href="/adminpanel/approvals"
             title="Approvals"
             isSelected={isTabFourSelected}
           />

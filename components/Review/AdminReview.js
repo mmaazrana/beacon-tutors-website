@@ -132,7 +132,7 @@ export default function AdminReview(props) {
           <div className={styles.row}>
             <p className={styles.username}>{props.review.username}</p>
             <div className="icons">
-              {router.pathname === '/adminpanel/managereviews' && (
+              {router.pathname === '/adminpanel/reviews' && (
                 <>
                   <Edit
                     color="#4FC3B1"
@@ -151,7 +151,7 @@ export default function AdminReview(props) {
                   />
                 </>
               )}
-              {router.pathname === '/adminpanel/approvereviews' && (
+              {router.pathname === '/adminpanel/approvals' && (
                 <>
                   <Check
                     color="#4FC3B1"

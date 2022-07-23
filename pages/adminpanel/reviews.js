@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/Head';
-import AdminReview from '../../components/Review/AdminReview';
+import NewReview from '../../components/NewReview/NewReview';
+import AdminReviews from '../../components/Reviews/AdminReviews';
 import AdminLayout from '../../components/Layouts/AdminLayout';
 import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { db } from '../../firebase';
 import { collection, getDocs, query, orderBy, where } from 'firebase/firestore';
 
-export default function ApproveReviews(props) {
+export default function Reviews(props) {
   const router = useRouter();
   const [user, setUser] = useState(null);
 
@@ -23,23 +24,16 @@ export default function ApproveReviews(props) {
     user && (
       <>
         <Head>
-          <title>Approve Reviews - Beacon Tutors Pakistan</title>
+          <title>Manage Reviews - Beacon Tutors Pakistan</title>
           <meta
             name="description"
-            content="Meta description for the Admin Approve Reviews page"
+            content="Meta description for the Admin Manage Reviews page"
           />
         </Head>
-        <div className="adminSection">
-          {props.reviews.length > 0 ? (
-            <div className="adminList adminListBig">
-              {props.reviews?.map((review) => (
-                <AdminReview key={review.id} review={review} />
-              ))}
-            </div>
-          ) : (
-            <p className="noRecords">No User Reviews Yet</p>
-          )}
-        </div>
+        <>
+          <NewReview />
+          <AdminReviews reviews={props.reviews} />
+        </>
       </>
     )
   );
@@ -50,7 +44,7 @@ export async function getServerSideProps() {
   try {
     const q = query(
       collection(db, 'reviews'),
-      where('isApproved', '==', false),
+      where('isApproved', '==', true),
       orderBy('timestamp', 'desc')
     );
     const querySnapshot = await getDocs(q);
@@ -70,6 +64,6 @@ export async function getServerSideProps() {
   };
 }
 
-ApproveReviews.getLayout = function getLayout(page) {
+Reviews.getLayout = function getLayout(page) {
   return <AdminLayout>{page}</AdminLayout>;
 };

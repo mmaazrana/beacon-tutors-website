@@ -8,7 +8,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { db } from '../../firebase';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 
-export default function ViewInquiries(props) {
+export default function Inquiries(props) {
   const router = useRouter();
   const [user, setUser] = useState(null);
 
@@ -67,6 +67,6 @@ export async function getServerSideProps() {
   };
 }
 
-ViewInquiries.getLayout = function getLayout(page) {
+Inquiries.getLayout = function getLayout(page) {
   return <AdminLayout>{page}</AdminLayout>;
 };
