@@ -75,17 +75,6 @@ const imagesOptions = [
   },
 ];
 
-// const images = {
-//   f1: <Female1 />,
-//   f2: <Female2 />,
-//   f3: <Female3 />,
-//   f4: <Female4 />,
-//   m1: <Male1 />,
-//   m2: <Male2 />,
-//   m3: <Male3 />,
-//   m4: <Male4 />,
-// };
-
 const getImage = (str)=> {
   let Image
 
@@ -116,7 +105,6 @@ const getImage = (str)=> {
       break
     default:
       Image = dynamic(() => import('../../assets/Avatars/Male1.svg').then(module => module.ReactComponent),);
-      // code block
   }
   return <Image/>
 }
