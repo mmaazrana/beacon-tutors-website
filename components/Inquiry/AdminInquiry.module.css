@@ -1,11 +1,4 @@
 .inquiry {
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  border-radius: 0.6rem;
-  margin: 0.75rem 0;
-  padding: 1.5rem 1.25rem;
-  box-shadow: 0 4px 20px rgba(93, 143, 193, 0.25);
   cursor: pointer;
 }
 
@@ -60,11 +53,6 @@
   width: 15rem;
   margin: 0.5rem 0;
 }
-
-/* .values {
-  display: flex;
-  width: 100%;
-} */
 
 .value {
   background-color: #e7eef6;

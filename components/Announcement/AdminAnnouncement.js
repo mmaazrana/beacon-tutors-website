@@ -101,7 +101,7 @@ export default function AdminAnnouncement(props) {
 
   return (
     <>
-      <div className={styles.announcement}>
+      <div className="adminCard">
         <div className={styles.row}>
           <p className={styles.title}>{props.announcement.title}</p>
           <div className="icons">

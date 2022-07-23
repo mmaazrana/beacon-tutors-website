@@ -58,7 +58,6 @@ export async function getServerSideProps() {
   } catch (error) {
     console.log(error.code, error.message);
   }
-  console.log(reviews);
   return {
     props: { reviews },
   };

@@ -57,7 +57,6 @@ export async function getServerSideProps() {
   } catch (error) {
     console.log(error.code, error.message);
   }
-  console.log(announcements);
   return {
     props: { announcements },
   };

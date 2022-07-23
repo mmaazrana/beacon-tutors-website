@@ -188,6 +188,16 @@ a {
   max-height: 45rem;
 }
 
+.adminCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 0.6rem;
+  margin: 0.75rem 0;
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0 4px 20px rgba(93, 143, 193, 0.25);
+}
+
 .adminInput {
   box-sizing: border-box;
   padding: 0.75rem 1rem;

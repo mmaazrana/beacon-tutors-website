@@ -56,7 +56,7 @@ export default function AdminInquiry(props) {
 
   return (
     <>
-      <div className={styles.inquiry} onClick={openViewModal}>
+      <div className={`adminCard ${styles.inquiry}`} onClick={openViewModal}>
         <div className={styles.row}>
           <p className={styles.name}>{props.inquiry.name}</p>
           {props.inquiry.isViewed && (

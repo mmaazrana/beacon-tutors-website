@@ -126,7 +126,7 @@ export default function AdminReview(props) {
 
   return (
     <>
-      <div className={styles.review}>
+      <div className={`adminCard ${styles.review}`}>
         <div className={styles.image}>{getImage(props.review.image)}</div>
         <div className={styles.content}>
           <div className={styles.row}>
