@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import Switch from 'react-switch';
+import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 import Select from 'react-select';
 import {
   daysOptions,
   budgetOptions,
   timeOptions,
-  customToggleOffStyles,
-  customToggleOnStyles,
   customSelectStyles,
 } from '../AdminForms/AdminForms';
 import formStyles from '../AdminForms/AdminForms.module.css';
@@ -70,25 +68,12 @@ export default function NewAnnouncement(props) {
       <div>
         <form onSubmit={postHandler}>
           <div className={formStyles.inputs}>
-            <label className="toggle">
-              <span>Select Page </span>
-              <Switch
-                checked={checked}
-                onChange={(nextChecked) => {
-                  setChecked(nextChecked);
-                }}
-                offColor="#ff6f66"
-                onColor="#4fc3b1"
-                offHandleColor="#ffebe5"
-                onHandleColor="#e2f8f3"
-                height={42}
-                width={122}
-                activeBoxShadow="none"
-                uncheckedIcon={<p style={customToggleOffStyles}>Home</p>}
-                checkedIcon={<p style={customToggleOnStyles}>Online</p>}
-                className="react-switch"
-              />
-            </label>
+            <ToggleSwitch
+              checked={checked}
+              onChange={(nextChecked) => {
+                setChecked(nextChecked);
+              }}
+            />
 
             <textarea
               className="adminInput"

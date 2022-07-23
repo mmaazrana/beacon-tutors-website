@@ -4,14 +4,12 @@ import styles from './AdminAnnouncement.module.css';
 import { Calendar, Banknote, Clock, Edit, Trash, X } from 'lucide-react';
 import Modal from '../Modal/Modal';
 import DeleteModal from '../Modal/DeleteModal';
-import Switch from 'react-switch';
+import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 import Select from 'react-select';
 import {
   daysOptions,
   budgetOptions,
   timeOptions,
-  customToggleOffStyles,
-  customToggleOnStyles,
   customSelectStyles,
 } from '../AdminForms/AdminForms';
 import formStyles from '../AdminForms/AdminForms.module.css';
@@ -156,25 +154,12 @@ export default function AdminAnnouncement(props) {
 
       <Modal title="Edit Announcement" isOpen={isOpen} closeModal={closeModal}>
         <form onSubmit={updateHandler}>
-          <label className="toggle">
-            <span>Select Page </span>
-            <Switch
-              checked={checked}
-              onChange={(nextChecked) => {
-                setChecked(nextChecked);
-              }}
-              offColor="#ff6f66"
-              onColor="#4fc3b1"
-              offHandleColor="#ffebe5"
-              onHandleColor="#e2f8f3"
-              height={42}
-              width={122}
-              activeBoxShadow="none"
-              uncheckedIcon={<p style={customToggleOffStyles}>Home</p>}
-              checkedIcon={<p style={customToggleOnStyles}>Online</p>}
-              className="react-switch"
-            />
-          </label>
+          <ToggleSwitch
+            checked={checked}
+            onChange={(nextChecked) => {
+              setChecked(nextChecked);
+            }}
+          />
 
           <textarea
             className="adminInput"
