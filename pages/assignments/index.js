@@ -28,7 +28,6 @@ import Separator from '../../components/Separator/Separator';
 // import { ReactComponent as RefundPolicy } from '../../assets/Advantages/WritingService/RefundPolicy.svg';
 import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import Advantages from '../../components/Advantages/Advantages';
-import WritingAnnouncements from '../../components/Announcements/WritingAnnouncements';
 import Services from "../../components/Services/Services";
 import dynamic from "next/dynamic";
 import SeparatorBox from "../../components/Separator/SeparatorBox";

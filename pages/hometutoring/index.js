@@ -4,7 +4,7 @@ import Home from '../../components/Tutoring/Home';
 // import dynamic from "next/dynamic";
 
 import Layout from '../../components/Layouts/Layout';
-import {collection, getDocs, query, where} from "firebase/firestore";
+import {collection, getDocs, query, where} from "firebase/firestore/lite";
 import {db} from "../../firebase";
 import {fetchAnnouncements, fetchReviews} from "../../components/Functions/Functions";
 // const Layout = dynamic(() => import('../../components/Layouts/Layout'));

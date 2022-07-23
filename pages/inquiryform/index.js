@@ -8,7 +8,7 @@ import PhoneInput, {isValidPhoneNumber} from 'react-phone-number-input'
 import fadeAnimationStyles from "../../styles/Animations/FadeAnimations.module.css";
 import {CSSTransition} from 'react-transition-group';
 import toast from "react-hot-toast";
-import {addDoc, collection, doc, serverTimestamp} from "firebase/firestore";
+import {addDoc, collection, doc, serverTimestamp} from "firebase/firestore/lite";
 import {db} from "../../firebase";
 import {useRouter} from "next/router";
 import {isMobile} from 'react-device-detect';

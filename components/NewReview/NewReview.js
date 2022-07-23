@@ -10,7 +10,7 @@ import {
 import formStyles from '../AdminForms/AdminForms.module.css';
 import toast from 'react-hot-toast';
 import { db } from '../../firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore/lite';
 
 export default function NewReview(props) {
   const router = useRouter();

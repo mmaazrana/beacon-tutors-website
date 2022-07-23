@@ -7,7 +7,7 @@ import Modal from '../Modal/Modal';
 import InfoField from './InfoField';
 import toast from 'react-hot-toast';
 import { db } from '../../firebase';
-import { doc, updateDoc } from 'firebase/firestore';
+import { doc, updateDoc } from 'firebase/firestore/lite';
 
 export default function AdminInquiry(props) {
   const router = useRouter();

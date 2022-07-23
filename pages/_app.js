@@ -4,8 +4,6 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Loading from '../components/Loading/Loading';
-import {collection, getDocs, orderBy, query, where} from "firebase/firestore";
-import {db} from "../firebase";
 import SwiperCore, { Autoplay } from 'swiper';
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

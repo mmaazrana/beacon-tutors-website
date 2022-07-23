@@ -41,7 +41,7 @@ import {useState} from "react";
 import {useRouter} from "next/router";
 // const Layout = dynamic(() => import('../components/Layouts/Layout'));
 import {CSSTransition} from 'react-transition-group';
-import {collection, getDocs} from "firebase/firestore";
+import {collection, getDocs} from "firebase/firestore/lite";
 import {db} from "../firebase";
 import {fetchAnnouncements, fetchReviews} from "../components/Functions/Functions";
 // import {ReactComponent as HomeTutoringSvg} from "../assets/Services/home-tutoring.svg";

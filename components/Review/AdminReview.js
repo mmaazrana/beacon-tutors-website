@@ -15,7 +15,7 @@ import {
 import formStyles from '../AdminForms/AdminForms.module.css';
 import toast from 'react-hot-toast';
 import { db } from '../../firebase';
-import { doc, updateDoc, deleteDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, updateDoc, deleteDoc, serverTimestamp } from 'firebase/firestore/lite';
 
 export default function AdminReview(props) {
   const router = useRouter();
