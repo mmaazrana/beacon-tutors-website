@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Head from 'next/Head';
+import Head from 'next/head';
 import { Eye, EyeOff } from 'lucide-react';
 import styles from '../../styles/SignIn.module.css';
 import AdminLayout from '../../components/Layouts/AdminLayout';

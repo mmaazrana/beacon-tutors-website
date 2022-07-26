@@ -1,6 +1,6 @@
 // beacontutorspk.com
 
-import Head from 'next/Head';
+import Head from 'next/head';
 import React, {useRef} from 'react';
 import MainLottie from '../assets/lotties/main-page.json';
 import Main from '../components/Main/Main';
