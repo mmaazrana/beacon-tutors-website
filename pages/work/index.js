@@ -3,15 +3,7 @@ import Head from 'next/head';
 import Main from '../../components/Main/Main';
 import BecomeLottie from '../../assets/lotties/be a tutor final.json';
 import Separator from '../../components/Separator/Separator';
-// import { ReactComponent as CustomerSupport } from '../../assets/Advantages/WritingService/CustomerSupport.svg';
-// import { ReactComponent as JoinOurOfficialGroup } from '../../assets/HowItWorks/WorkAsTutor/JoinOurOfficialGroup.svg';
-// import { ReactComponent as ApplyforRegistration } from '../../assets/HowItWorks/WorkAsTutor/ApplyforRegistration.svg';
-// import { ReactComponent as ProfileVerification } from '../../assets/HowItWorks/WorkAsTutor/ProfileVerification.svg';
-// import { ReactComponent as StartApplying } from '../../assets/HowItWorks/WorkAsTutor/StartApplying.svg';
-// import { ReactComponent as BeATutorOfYourChoice } from '../../assets/Advantages/WorkAsTutor/BeATutorOfYourChoice.svg';
-// import { ReactComponent as TeachAsYourPreference } from '../../assets/Advantages/WorkAsTutor/TeachAsYourPreference.svg';
-// import { ReactComponent as PartTimeFlexibleHours } from '../../assets/Advantages/WorkAsTutor/PartTimeFlexibleHours.svg';
-// import { ReactComponent as EarnMoreThanAFullTimeJob } from '../../assets/Advantages/WorkAsTutor/EarnMoreThanAFullTimeJob.svg';
+
 import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import Advantages from '../../components/Advantages/Advantages';
 import dynamic from "next/dynamic";
@@ -20,13 +12,14 @@ import Layout from '../../components/Layouts/Layout';
 import SeparatorBox from "../../components/Separator/SeparatorBox";
 import Reviews from "../../components/Reviews/Reviews";
 import {fetchAnnouncements, fetchReviews} from "../../components/Functions/Functions";
+
 // const Layout = dynamic(() => import('../../components/Layouts/Layout'));
 
 export default function WorkAsTutor(props) {
 
   const CustomerSupport = dynamic(() => import('../../assets/Advantages/WritingService/CustomerSupport.svg').then(module => module.ReactComponent),);
   const JoinOurOfficialGroup = dynamic(() => import('../../assets/HowItWorks/WorkAsTutor/JoinOurOfficialGroup.svg').then(module => module.ReactComponent),);
-  const ApplyforRegistration = dynamic(() => import('../../assets/HowItWorks/WorkAsTutor/ApplyforRegistration.svg').then(module => module.ReactComponent),);
+  const ApplyForRegistration = dynamic(() => import('../../assets/HowItWorks/WorkAsTutor/ApplyForRegistration.svg').then(module => module.ReactComponent),);
   const ProfileVerification = dynamic(() => import('../../assets/HowItWorks/WorkAsTutor/ProfileVerification.svg').then(module => module.ReactComponent),);
   const StartApplying = dynamic(() => import('../../assets/HowItWorks/WorkAsTutor/StartApplying.svg').then(module => module.ReactComponent),);
   const BeATutorOfYourChoice = dynamic(() => import('../../assets/Advantages/WorkAsTutor/BeATutorOfYourChoice.svg').then(module => module.ReactComponent),);
@@ -54,7 +47,7 @@ export default function WorkAsTutor(props) {
         "Join one of our teacher's group to see what sort of services we provide. The group will enable you to check the received tuition inquiries of the students.",
     },
     {
-      image: <ApplyforRegistration />,
+      image: <ApplyForRegistration />,
       heading: 'Apply for Registration',
       description:
         'Once everything is cleared out to you and you find yourself a perfect match for our services, apply for registration by asking your group adminpanel the process of that.',
