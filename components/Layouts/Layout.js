@@ -16,8 +16,8 @@ export default function Layout({children}) {
                 appear = {true}
                 timeout = {750}
                 unmountOnExit
+                mountOnEnter
                 classNames = {animationStyles}>
-
         <div className = {'background'}>
             <Pattern viewBox = "0 0 100% 100%"/>
         </div>
