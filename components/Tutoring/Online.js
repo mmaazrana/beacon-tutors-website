@@ -43,25 +43,6 @@ export default function Online(props) {
   const TeachersOfYourChoice = dynamic(() => import('../../assets/Advantages/Home/TeachersOfYourChoice.svg').then(module => module.ReactComponent),);
   const FreeTrialClasses = dynamic(() => import('../../assets/Advantages/Home/FreeTrialClasses.svg').then(module => module.ReactComponent),);
 
-  const Female1 = dynamic(() => import('../../assets/Avatars/Female1.svg').then(module => module.ReactComponent),);
-  const Female2 = dynamic(() => import('../../assets/Avatars/Female2.svg').then(module => module.ReactComponent),);
-  const Female3 = dynamic(() => import('../../assets/Avatars/Female3.svg').then(module => module.ReactComponent),);
-  const Female4 = dynamic(() => import('../../assets/Avatars/Female4.svg').then(module => module.ReactComponent),);
-
-  const Male1 = dynamic(() => import('../../assets/Avatars/Male1.svg').then(module => module.ReactComponent),);
-  const Male2 = dynamic(() => import('../../assets/Avatars/Male2.svg').then(module => module.ReactComponent),);
-  const Male3 = dynamic(() => import('../../assets/Avatars/Male3.svg').then(module => module.ReactComponent),);
-  const Male4 = dynamic(() => import('../../assets/Avatars/Male4.svg').then(module => module.ReactComponent),);
-
-  // const Main = dynamic(() => import('../../components/Main/Main'));
-  // const Separator = dynamic(() => import('../../components/Separator/Separator'));
-  // const HowItWorks = dynamic(() => import('../../components/HowItWorks/HowItWorks'));
-  // const Advantages = dynamic(() => import('../../components/Advantages/Advantages'));
-  // const Reviews = dynamic(() => import('../../components/Reviews/Reviews'));
-  // const SeparatorBox = dynamic(() => import('../../components/Separator/SeparatorBox'));
-  // const Announcements = dynamic(() => import('../Announcements/Announcements'));
-
-
   const howItWorksData = [
     {
       image: <SubmitYourInquiry />,
@@ -134,7 +115,31 @@ export default function Online(props) {
     },
   ];
 
+    let staticAnnouncements = [
+        {
+            title: "Teacher required for online tutor service for O-Levels Biology",
+            days: 5,
+            budget: 25000,
+            time: 1,
+            id: 1,
+        },
+        {
+            title: "Teacher required for online tutor service for A-Levels Physics ",
+            days: 5,
+            budget: 30000,
+            time: 1,
+            id: 2,
+        },
+        {
+            title: "Teacher required for online tutor service for 6th class Maths, Science and English ",
+            days: 5,
+            budget: 20000,
+            time: 2,
+            id: 3,
+        }
+    ]
 
+    const announcements = props.announcements.length > 0 ? props.announcements : staticAnnouncements
 
   return (
     <>
@@ -156,7 +161,7 @@ export default function Online(props) {
       </SeparatorBox>
 
       <SeparatorBox text={'Announcements'} >
-        <Announcements keyword={props.keyword} data={props.announcements} />
+        <Announcements keyword={props.keyword} data={announcements} />
       </SeparatorBox>
 
 

@@ -51,7 +51,7 @@ export default function NewReview(props) {
           }),
           {
             loading: 'Adding review...',
-            success: 'Review added successfully',
+            success: 'Your review is submitted and will be live shortly',
             error: 'Error adding review',
           }
         );

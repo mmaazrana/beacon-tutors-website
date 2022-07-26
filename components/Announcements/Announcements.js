@@ -19,6 +19,7 @@ export default function Announcements(props) {
             grabCursor={true}
             disableOnInteraction={false}
             loop={true}
+            draggable={true}
             loopedSlides={3}
             speed={500}
             height={500}

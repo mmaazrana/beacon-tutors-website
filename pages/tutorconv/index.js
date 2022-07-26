@@ -5,7 +5,7 @@ import Layout from "../../components/Layouts/Layout";
 export default function TutorConv(props) {
     return (
         <>
-            <ThankYou/>
+            <ThankYou text={"Thankyou for submitting your inquiry. It is requested to click on the button below to talk with one of our agent. "}/>
         </>
     );
 }

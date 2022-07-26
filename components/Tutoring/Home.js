@@ -43,26 +43,6 @@ export default function Home(props) {
   const FreeTrialClasses = dynamic(() => import('../../assets/Advantages/Home/FreeTrialClasses.svg').then(module => module.ReactComponent),);
   const TeachersOfYourChoice = dynamic(() => import('../../assets/Advantages/Home/TeachersOfYourChoice.svg').then(module => module.ReactComponent),);
 
-
-  const Female1 = dynamic(() => import('../../assets/Avatars/Female1.svg').then(module => module.ReactComponent),);
-  const Female2 = dynamic(() => import('../../assets/Avatars/Female2.svg').then(module => module.ReactComponent),);
-  const Female3 = dynamic(() => import('../../assets/Avatars/Female3.svg').then(module => module.ReactComponent),);
-  const Female4 = dynamic(() => import('../../assets/Avatars/Female4.svg').then(module => module.ReactComponent),);
-
-  const Male1 = dynamic(() => import('../../assets/Avatars/Male1.svg').then(module => module.ReactComponent),);
-  const Male2 = dynamic(() => import('../../assets/Avatars/Male2.svg').then(module => module.ReactComponent),);
-  const Male3 = dynamic(() => import('../../assets/Avatars/Male3.svg').then(module => module.ReactComponent),);
-  const Male4 = dynamic(() => import('../../assets/Avatars/Male4.svg').then(module => module.ReactComponent),);
-
-
-  // const Main = dynamic(() => import('../../components/Main/Main'));
-  // const Separator = dynamic(() => import('../../components/Separator/Separator'));
-  // const HowItWorks = dynamic(() => import('../../components/HowItWorks/HowItWorks'));
-  // const Advantages = dynamic(() => import('../../components/Advantages/Advantages'));
-  // const SeparatorBox = dynamic(() => import('../Separator/SeparatorBox'));
-  // const Announcements = dynamic(() => import('../Announcements/Announcements'));
-  // const Reviews = dynamic(() => import('../Reviews/Reviews'));
-
   const howItWorksData = [
     {
       image: <SubmitYourInquiry />,
@@ -135,32 +115,32 @@ export default function Home(props) {
     },
   ];
 
-  let announcementData = [
+  let staticAnnouncements = [
     {
-      title: "Free home "+props.keyword+" job for everyone",
+      title: "Female teacher required for home tutor service in F-6, Islamabad for 5th class",
       days: 5,
-      budget: 10000,
-      time: 10,
+      budget: 20000,
+      time: 1,
+      id: 1,
     },
     {
-      title: "Free home "+props.keyword+" job for everyone",
+      title: "Female teacher required for home tutor service in F-10, Islamabad for 4th class ",
       days: 5,
-      budget: 10000,
-      time: 10,
+      budget: 25000,
+      time: 1,
+      id: 2,
     },
     {
-      title: "Free home "+props.keyword+" job for everyone",
+      title: "Male teacher required for home tutor service in I-8 Islamabad for 6th class student",
       days: 5,
-      budget: 10000,
-      time: 10,
-    },
-    {
-      title: "Free home "+props.keyword+" job for everyone",
-      days: 5,
-      budget: 10000,
-      time: 10,
-    },
+      budget: 25000,
+      time: 2,
+      id: 3,
+    }
   ]
+
+  const announcements = props.announcements.length > 0 ? props.announcements : staticAnnouncements
+
   return (
     <>
       <Main
@@ -181,7 +161,7 @@ export default function Home(props) {
       </SeparatorBox>
 
       <SeparatorBox text={'Announcements'} >
-        <Announcements keyword={props.keyword} data={props.announcements} />
+        <Announcements keyword={props.keyword} data={announcements} />
       </SeparatorBox>
 
     </>

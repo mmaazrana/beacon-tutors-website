@@ -50,7 +50,9 @@
 }
 
 .secondary a {
-    padding: 7px 15px;
+    padding: 7px 15px !important;
+    transition: 0.2s;
+    border-radius: 6px;
 }
 
 .primary:hover{
@@ -61,11 +63,20 @@
     background-color: #f2f2f2;
 }
 
+.secondary a:hover {
+    background-color: #f2f2f2;
+}
+
+
 .primary:active,.primary:focus{
     background-color: #cc5a52;
 }
 
 .secondary:active,.secondary:focus{
+    background-color: #e6e6e6;
+}
+
+.secondary a:active,.secondary a:focus{
     background-color: #e6e6e6;
 }
 
@@ -87,10 +98,10 @@
 @media screen and (max-width: 580px ) {
     .primary{
         font-size: 14px;
-        max-width: 170px;
+        width: 170px;
     }
     .primary a {
-        /*margin: 0;*/
+        margin: 0;
         padding: 7px 45px;
     }
     .nav{

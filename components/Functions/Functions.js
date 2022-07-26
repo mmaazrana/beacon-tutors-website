@@ -15,6 +15,10 @@ const fetchReviews = async (reviews) => {
                 timestamp: JSON.parse(JSON.stringify(doc.data().timestamp)),
             });
         });
+        for (let i = reviews.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [reviews[i], reviews[j]] = [reviews[j], reviews[i]];
+        }
     } catch (error) {
         console.log(error.code, error.message);
     }

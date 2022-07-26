@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 160px);
+    min-height: calc(100vh - 160px);
     min-width: 250px;
     overflow-y: scroll;
     gap: 15px;
@@ -13,19 +13,33 @@
 }
 
 .lottie {
-    border-radius: 12px;
     overflow: hidden;
     min-height: 170px;
     max-height: 100vh;
     min-width: 170px;
     max-width: 100vw;
-    box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25);
 }
 
 .lottie > * {
     width: 100vw;
     height: 100vh;
 }
+
+.lottieWrapper{
+    background-color: white;
+    padding: 25px 75px;
+    border-radius: 16px;
+    box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25);
+}
+
+.lottieWrapper p {
+    text-align: justify;
+    text-align-last: center;
+    text-justify: inter-word;
+    font-size: 18px;
+    max-width: 35ch;
+}
+
 
 .contact {
     display: flex;
@@ -41,7 +55,7 @@
     width: 100%;
     background-color: #FF6F66;
     /*border: 4px solid #FF6F66;*/
-    padding: 10px 25px;
+    padding: 7.5px 25px;
     font-size: 14px;
     font-weight: 600;
     color: white;
@@ -66,7 +80,7 @@
 }
 
 .primaryButton > * {
-    height: 25px;
+    height: 30px;
 }
 
 .secondaryButton {
@@ -85,4 +99,41 @@
 
 .secondaryButton > * {
     height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .lottieWrapper{
+        padding: 15px 50px;
+        border-radius: 16px;
+    }
+
+    .lottieWrapper p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .lottieWrapper{
+        padding: 15px 30px;
+        border-radius: 14px;
+    }
+
+    .lottieWrapper p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .lottieWrapper{
+        padding: 3.947vw 7.895vw;
+        border-radius: 3.684vw;
+    }
+
+    .lottieWrapper p {
+        font-size: 3.684vw;
+    }
+
+    .wrapper {
+        padding: 80px 0 25px 3.947vw;
+    }
 }

@@ -5,7 +5,7 @@ import Layout from "../../components/Layouts/Layout";
 export default function StdOnlineConv(props) {
     return (
         <>
-            <ThankYou/>
+            <ThankYou text={"Thankyou for submitting your inquiry. One of our agent will get back to you very soon. "}/>
         </>
     );
 }
