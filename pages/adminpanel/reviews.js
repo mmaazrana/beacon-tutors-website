@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Head from 'next/Head';
+import Head from 'next/head';
 import NewReview from '../../components/NewReview/NewReview';
 import AdminReviews from '../../components/Reviews/AdminReviews';
 import AdminLayout from '../../components/Layouts/AdminLayout';
