@@ -32,6 +32,23 @@
     box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25);
 }
 
+.alternateWrapper{
+    background-color: white;
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.alternateWrapper h1{
+    padding: 0;
+    margin-bottom: 0;
+}
+
 .lottieWrapper p {
     text-align: justify;
     text-align-last: center;
@@ -40,6 +57,31 @@
     max-width: 35ch;
 }
 
+.alternateWrapper p{
+    text-align: justify;
+    text-align-last: center;
+    text-justify: inter-word;
+    font-size: 18px;
+    max-width: 45ch;
+}
+
+.whatsapp{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #f2f2f2;
+    border-radius: 12px;
+}
+
+.illustration{
+    max-height: 25vw;
+}
+
+.icon{
+    height: 45px;
+}
 
 .contact {
     display: flex;
@@ -110,6 +152,19 @@
     .lottieWrapper p {
         font-size: 16px;
     }
+
+    .alternateWrapper{
+        padding: 25px;
+        border-radius: 16px;
+    }
+
+    .alternateWrapper p {
+        font-size: 16px;
+    }
+
+    .alternateWrapper h1{
+        font-size: 24px;
+    }
 }
 
 @media screen and (max-width: 580px) {
@@ -136,4 +191,13 @@
     .wrapper {
         padding: 80px 0 25px 3.947vw;
     }
+
+    .alternateWrapper p {
+        font-size: 4.211vw;
+    }
+
+    .alternateWrapper h1{
+        font-size: 6.316vw;
+    }
+
 }

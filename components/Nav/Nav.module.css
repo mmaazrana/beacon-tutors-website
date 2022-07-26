@@ -23,6 +23,11 @@
 
 .center {
   justify-content: center;
+  text-align: center;
+}
+
+.center a{
+  left: calc(50vw - 100px) !important;
 }
 
 .buttons {

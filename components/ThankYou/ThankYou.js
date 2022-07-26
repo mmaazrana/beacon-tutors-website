@@ -9,11 +9,15 @@ import {useRouter} from "next/router";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import {PhoneCall} from 'lucide-react'
+import {isMobile} from "react-device-detect";
 export default function ThankYou(props) {
     const router = useRouter();
 
     const MobileView = dynamic(() =>
         import('react-device-detect').then((module) => module.MobileView)
+    );
+    const WebView = dynamic(() =>
+        import('react-device-detect').then((module) => module.BrowserView)
     );
     const WhatsappSvg = dynamic(() =>
         import('../../assets/whatsapp.svg').then((module) => module.ReactComponent)
@@ -30,7 +34,8 @@ export default function ThankYou(props) {
             <div className = {styles.lottieWrapper} >
                 <Lottie className = {styles.lottie} loop= {0}  animationData = {ThankYouLottie}
                         autoplay = {true} initialSegment={[0,120]}/>
-                <p>{props.text}</p>
+                <p><MobileView> Thankyou for submitting your inquiry. It is requested to click on the button below to talk with one of our agent.</MobileView>
+                    <WebView> Thankyou for submitting your inquiry. One of our agent will get back to you very soon.</WebView> </p>
             </div>
             <CSSTransition
                 key = {router.pathname}
