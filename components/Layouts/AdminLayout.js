@@ -17,10 +17,6 @@ export default function AdminLayout({ children }) {
     });
   }, [user]);
 
-  // useEffect(() => {
-  //   if (router.pathname !== '/adminpanel') toast.dismiss();
-  // }, [router]);
-
   const Pattern = dynamic(() =>
     import('../../assets/background pattern.svg').then(
       (module) => module.ReactComponent
