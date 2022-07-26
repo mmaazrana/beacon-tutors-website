@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Head from 'next/Head';
+import Head from 'next/head';
 import AdminInquiry from '../../components/Inquiry/AdminInquiry';
 import AdminLayout from '../../components/Layouts/AdminLayout';
 import { auth } from '../../firebase';

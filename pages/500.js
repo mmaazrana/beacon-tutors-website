@@ -1,4 +1,4 @@
-import Head from 'next/Head';
+import Head from 'next/head';
 import Error500Lottie from '../assets/lotties/500-server-error.json';
 import Error from '../components/Error/Error';
 import Layout from '../components/Layouts/Layout';

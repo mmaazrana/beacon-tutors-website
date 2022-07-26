@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Head from 'next/Head';
+import Head from 'next/head';
 import NewAnnouncement from '../../components/NewAnnouncement/NewAnnouncement';
 import AdminAnnouncements from '../../components/Announcements/AdminAnnouncements';
 import AdminLayout from '../../components/Layouts/AdminLayout';

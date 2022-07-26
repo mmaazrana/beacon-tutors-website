@@ -1,4 +1,4 @@
-import Head from 'next/Head';
+import Head from 'next/head';
 import Error404Lottie from '../assets/lotties/404-not-found.json';
 import Error from '../components/Error/Error';
 import Layout from '../components/Layouts/Layout';
