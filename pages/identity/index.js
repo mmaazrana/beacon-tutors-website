@@ -58,6 +58,8 @@ export default function SubmitInquiry(props) {
             appear = {true}
             timeout = {250}
             classNames = {fadeAnimationStyles}>
+            <div className = {styles.body} >
+
             <div className = {styles.main}>
                 <div className = {styles.wrapper}>
 
@@ -101,6 +103,8 @@ export default function SubmitInquiry(props) {
                     </div>
                 </CSSTransition>
             </div>
+            </div>
+
         </CSSTransition>
     );
 }

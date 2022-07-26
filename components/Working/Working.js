@@ -37,10 +37,6 @@ export default function Working(props) {
             scrollableAncestor={"window"}
             onEnter = {() => {
                 setScrollIn(true)
-                console.log("entered")
-            }}
-            onLeave = {() => {
-                setScrollIn(false)
             }}
         >
         <div

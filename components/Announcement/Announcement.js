@@ -1,6 +1,5 @@
 // import styles from './Announcement.module.css';
 import { Banknote, Calendar, Clock } from 'lucide-react';
-// import React from "@types/react";
 import styles from './Announcement.module.css';
 
 export default function Announcement(props) {

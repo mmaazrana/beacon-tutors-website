@@ -16,9 +16,6 @@ export default function SeparatorBox(props) {
             onEnter = {() => {
                 setScrollIn(true)
             }}
-            onLeave = {() => {
-                setScrollIn(false)
-            }}
         >
 
             <div>

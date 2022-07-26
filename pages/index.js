@@ -51,6 +51,7 @@ export default function Home(props) {
     // const homeTutoringSvg = <HomeTutoring/>;
     // const onlineTutoringSvg = <OnlineTutoring/>;
     // const writingServiceSvg = <WritingService/>;
+    const [play, setPlay] = useState(true);
 
     const HomeTutoringSvg = dynamic(() => import('../assets/Services/home-tutoring.svg').then(module => module.ReactComponent),);
     const OnlineTutoringSvg = dynamic(() => import('../assets/Services/online-tutoring.svg').then(module => module.ReactComponent),);
@@ -154,18 +155,21 @@ export default function Home(props) {
         },
     ];
 
+
     const settings = {
         dots: true,
         infinite: true,
         speed: 500,
-        autoplay: true,
+        autoplay: play,
         arrows: false,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 2500,
         slidesToShow: 1,
         slidesToScroll: 1,
         variableWidth: true,
         adaptiveHeight: true,
         pauseOnHover: true,
+        pauseOnFocus: true,
+        pauseOnDotsHover: true,
         swipeToSlide: true,
         focusOnSelect: true,
         useTransform: true,
@@ -214,6 +218,9 @@ export default function Home(props) {
                     <OnlineTutoringSvg/>
                 }
                 link = {'/onlinetutoring'}
+                onclick={() => {
+                    setPlay(false)
+                }}
             /> <Service
                 heading = {'Home Tutoring'}
                 description = {
@@ -224,6 +231,9 @@ export default function Home(props) {
 
                 }
                 link = {'/hometutoring'}
+                onclick={() => {
+                    setPlay(false)
+                }}
             /> <Service
                 heading = {'Writing Service'}
                 description = {
@@ -233,6 +243,9 @@ export default function Home(props) {
                     <WritingServiceSvg/>
                 }
                 link = {'/assignments'}
+                onclick={() => {
+                    setPlay(false)
+                }}
             /> {/*</div>*/}
             </Slider> {/*</ScrollContainer>*/}
             </div>

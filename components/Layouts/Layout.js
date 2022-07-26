@@ -17,21 +17,17 @@ export default function Layout({children}) {
                 timeout = {750}
                 unmountOnExit
                 classNames = {animationStyles}>
-        <div>
 
         <div className = {'background'}>
             <Pattern viewBox = "0 0 100% 100%"/>
         </div>
-
-                )}
+            </CSSTransition>
 
         <Nav className = "nav"/>
 
         <main>{children}</main>
         <Footer/>
-        </div>
 
-            </CSSTransition>
 
     </>);
 }

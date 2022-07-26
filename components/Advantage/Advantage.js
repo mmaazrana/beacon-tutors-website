@@ -15,10 +15,6 @@ export default function Advantage(props) {
                 scrollableAncestor = {"window"}
                 onEnter = {() => {
                     setScrollIn(true)
-                    console.log("entered")
-                }}
-                onLeave = {() => {
-                    setScrollIn(false)
                 }}
             >
                 <div>

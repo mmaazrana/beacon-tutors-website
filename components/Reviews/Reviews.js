@@ -68,9 +68,6 @@ export default function Reviews(props) {
             onEnter = {() => {
               setScrollIn(true)
             }}
-            onLeave = {() => {
-              setScrollIn(false)
-            }}
         >
 
           <div>

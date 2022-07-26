@@ -18,9 +18,6 @@ export default function Separator(props) {
             onEnter = {() => {
                 setScrollIn(true)
             }}
-            onLeave = {() => {
-                setScrollIn(false)
-            }}
         >
 
         <div className = {styles.separator}>

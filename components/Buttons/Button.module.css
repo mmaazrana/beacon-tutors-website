@@ -41,15 +41,17 @@
 
 .secondary{
     color : #3A3A3B;
+    padding: 0;
     background-color: white;
-    padding: 7px 15px;
     font-size: 12px;
     border-radius: 6px;
     transition: 0.2s;
     transition-timing-function: linear;
 }
 
-
+.secondary a {
+    padding: 7px 15px;
+}
 
 .primary:hover{
     background-color: #e6655c;
@@ -85,10 +87,10 @@
 @media screen and (max-width: 580px ) {
     .primary{
         font-size: 14px;
-        width: 170px;
+        max-width: 170px;
     }
     .primary a {
-        margin: 0;
+        /*margin: 0;*/
         padding: 7px 45px;
     }
     .nav{

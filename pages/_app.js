@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Loading from '../components/Loading/Loading';
 import SwiperCore, { Autoplay } from 'swiper';
+import React from "react";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -24,12 +25,24 @@ function MyApp({ Component, pageProps }) {
     router.events.on('routeChangeError', handleComplete);
   }, [router]);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const loader = document.getElementById('globalLoader');
+      if (loader)
+        loader.style.display = 'none';
+    }
+  }, []);
+
   const getLayout = Component.getLayout || ((page) => page);
 
   return getLayout(
     <>
       <Head>
         <meta charSet="UTF-8" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
         <meta name="keywords" content="titla, meta, nextjs" />
         <meta name="author" content="Syamlal CM" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
