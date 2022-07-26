@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 111px);
+  min-height: calc(100vh - 86px);
 }
 
 .error {
@@ -81,6 +81,6 @@
   }
 
   .container {
-    min-height: calc(100vh - 127px);
+    min-height: calc(100vh - 102px);
   }
 }
