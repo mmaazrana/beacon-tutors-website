@@ -47,10 +47,12 @@
     border-radius: 6px;
     transition: 0.2s;
     transition-timing-function: linear;
+    display: flex;
 }
 
 .secondary a {
     padding: 7px 15px !important;
+    width: 100% !important;
     transition: 0.2s;
     border-radius: 6px;
 }
