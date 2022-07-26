@@ -40,7 +40,6 @@ export default function NewReview(props) {
             timestamp: serverTimestamp(),
           }).then((docRef) => {
             console.log(docRef.id);
-            // setImage('');
             setUsername('');
             setDescription('');
             setRating(0);
@@ -49,11 +48,17 @@ export default function NewReview(props) {
             isAdminPage &&
               router.replace(router.asPath, undefined, { scroll: false });
           }),
-          {
-            loading: 'Adding review...',
-            success: 'Your review is submitted and will be live shortly',
-            error: 'Error adding review',
-          }
+          isAdminPage
+            ? {
+                loading: 'Adding review...',
+                success: 'Review added successfully',
+                error: 'Error adding review',
+              }
+            : {
+                loading: 'Submitting review...',
+                success: 'Your review is submitted and will be live shortly',
+                error: 'Error submitting review',
+              }
         );
       } catch (error) {
         console.log(error.code, error.message);
