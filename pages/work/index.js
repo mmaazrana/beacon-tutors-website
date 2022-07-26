@@ -3,17 +3,13 @@ import Head from 'next/head';
 import Main from '../../components/Main/Main';
 import BecomeLottie from '../../assets/lotties/be a tutor final.json';
 import Separator from '../../components/Separator/Separator';
-
 import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import Advantages from '../../components/Advantages/Advantages';
 import dynamic from "next/dynamic";
-
 import Layout from '../../components/Layouts/Layout';
 import SeparatorBox from "../../components/Separator/SeparatorBox";
 import Reviews from "../../components/Reviews/Reviews";
 import {fetchAnnouncements, fetchReviews} from "../../components/Functions/Functions";
-
-// const Layout = dynamic(() => import('../../components/Layouts/Layout'));
 
 export default function WorkAsTutor(props) {
 
@@ -26,12 +22,6 @@ export default function WorkAsTutor(props) {
   const TeachAsYourPreference = dynamic(() => import('../../assets/Advantages/WorkAsTutor/TeachAsYourPreference.svg').then(module => module.ReactComponent),);
   const PartTimeFlexibleHours = dynamic(() => import('../../assets/Advantages/WorkAsTutor/PartTimeFlexibleHours.svg').then(module => module.ReactComponent),);
   const EarnMoreThanAFullTimeJob = dynamic(() => import('../../assets/Advantages/WorkAsTutor/EarnMoreThanAFullTimeJob.svg').then(module => module.ReactComponent),);
-
-  // const Main = dynamic(() => import('../../components/Main/Main'));
-  // const Separator = dynamic(() => import('../../components/Separator/Separator'));
-  // const HowItWorks = dynamic(() => import('../../components/HowItWorks/HowItWorks'));
-  // const Advantages = dynamic(() => import('../../components/Advantages/Advantages'));
-
 
   const howItWorksData = [
     {

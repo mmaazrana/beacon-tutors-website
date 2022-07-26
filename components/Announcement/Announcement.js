@@ -1,4 +1,3 @@
-// import styles from './Announcement.module.css';
 import { Banknote, Calendar, Clock } from 'lucide-react';
 import styles from './Announcement.module.css';
 
