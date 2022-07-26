@@ -56,6 +56,7 @@ function MyApp({ Component, pageProps }) {
         }}
         toastOptions={{
           className: 'toast',
+          duration: 5000,
           success: {
             iconTheme: {
               primary: '#4FC3B1',
