@@ -3,8 +3,6 @@ import Layout from "../../components/Layouts/Layout";
 import styles from '../../styles/SubmitInquiry.module.css'
 import dynamic from "next/dynamic";
 import selectAnimationStyles from "../../styles/Animations/SelectAnimations.module.css";
-// import {ReactComponent as OneOnOneTutoring} from "../../assets/Advantages/Home/OneOnOneTutoring.svg";
-// import {ReactComponent as MaleAndFemaleTutors} from "../../assets/Advantages/Home/MaleAndFemaleTutors.svg";
 import {CSSTransition} from 'react-transition-group';
 import LinkButton from "../../components/Buttons/LinkButton";
 import fadeAnimationStyles from "../../styles/Animations/FadeAnimations.module.css";

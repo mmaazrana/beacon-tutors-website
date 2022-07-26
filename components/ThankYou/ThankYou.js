@@ -9,7 +9,6 @@ import {useRouter} from "next/router";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import {PhoneCall} from 'lucide-react'
-import {isMobile} from "react-device-detect";
 export default function ThankYou(props) {
     const router = useRouter();
 

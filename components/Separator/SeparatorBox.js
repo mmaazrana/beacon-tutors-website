@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './SeparatorBox.module.css';
 import scaleAnimationStyles from "../../styles/Animations/ScaleFadeAnimations.module.css";
 import {Waypoint} from 'react-waypoint';
-import fadeDelayAnimationStyles from "../../styles/Animations/FadeDelayAnimations.module.css";
 import {CSSTransition} from 'react-transition-group';
 import {useState} from "react";
 

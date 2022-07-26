@@ -9,9 +9,7 @@ import NewReview from '../../components/NewReview/NewReview';
 import scaleAnimationStyles from "../../styles/Animations/ScaleFadeAnimations.module.css";
 import {Waypoint} from 'react-waypoint';
 import {CSSTransition} from 'react-transition-group';
-// Import Swiper React components
 import {Swiper, SwiperSlide} from 'swiper/react';
-// Import Swiper styles
 import 'swiper/css';
 
 export default function Reviews(props) {
