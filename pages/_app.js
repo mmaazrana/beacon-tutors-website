@@ -2,10 +2,10 @@ import '../styles/globals.css';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Loading from '../components/Loading/Loading';
 import SwiperCore, { Autoplay } from 'swiper';
-import React from "react";
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);

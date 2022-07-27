@@ -11,7 +11,6 @@ import toast from "react-hot-toast";
 import {addDoc, collection, doc, serverTimestamp} from "firebase/firestore/lite";
 import {db} from "../../firebase";
 import {useRouter} from "next/router";
-import {isMobile} from 'react-device-detect';
 
 export default function InquiryForm(props) {
 
@@ -242,7 +241,7 @@ export default function InquiryForm(props) {
                             placeholder = "Enter Contact Number"
                             value = {whatsapp}
                             onChange = {setWhatsapp}
-                        /> {/** {whatsapp ? (isValidPhoneNumber(whatsapp) ? undefined : 'Invalid phone number') : 'Phone number required'} **/}
+                        /> 
                     </div>
                     <div className = {styles.entry}>
                         <p>Location</p>

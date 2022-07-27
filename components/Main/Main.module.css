@@ -21,9 +21,7 @@
 
 .heading {
     color: #3A3A3B;
-    /*font-size: 6.4rem;*/
     font-size: 3.4vw;
-    /*line-height: 8rem;*/
     line-height: 4.2vw;
     padding: 0;
     margin: 0 0 5px 0;
@@ -32,7 +30,6 @@
 
 .description {
     color: #A0A0A1;
-    /*font-size: 3.6rem;*/
     font-size: 1.9vw;
     font-weight: 300;
     padding: 0;
@@ -224,7 +221,6 @@
     .text {
         margin: 40px 0 0 15px;
         max-height: 47vw;
-        /*background-color: red;*/
     }
 
     .alternateText{
@@ -257,7 +253,6 @@
 
 
     .lottie svg{
-        /*margin-bottom: -5px;*/
         margin-left: 8.621vw;
         align-items: flex-end;
         justify-content: flex-end;

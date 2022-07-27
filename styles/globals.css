@@ -167,9 +167,6 @@ a {
 }
 
 .slider {
-  /*display: flex;*/
-  /*width: 1950px;*/
-  /*margin-left: -125px;*/
 }
 
 .row-reverse {
@@ -426,7 +423,6 @@ button:disabled {
   background: #ffffff;
   opacity: 0.75;
   border: none;
-  /*border-right: 4px solid #A1BEDB;*/
   box-shadow: 0px 1px 15px rgba(225, 221, 212, 0.25);
   border-radius: 0px 8px 8px 0px;
 }

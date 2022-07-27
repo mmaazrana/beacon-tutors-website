@@ -3,7 +3,7 @@ import styles from './Separator.module.css';
 import fadeDelayAnimationStyles from "../../styles/Animations/FadeDelayAnimations.module.css";
 import scaleLeftAnimationStyles from "../../styles/Animations/ScaleXLeftAnimations.module.css";
 import scaleRightAnimationStyles from "../../styles/Animations/ScaleXRightAnimations.module.css";
-import {CSSTransition, SwitchTransition} from 'react-transition-group';
+import {CSSTransition} from 'react-transition-group';
 import {useRouter} from "next/router";
 import {Waypoint} from "react-waypoint";
 import {useState} from "react";

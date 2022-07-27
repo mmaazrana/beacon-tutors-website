@@ -35,8 +35,8 @@ export default function SignIn() {
 
   // createUserWithEmailAndPassword(
   //   auth,
-  //   'devs.testing.01@gmail.com',
-  //   'Admin123*'
+  //   '',
+  //   ''
   // );
 
   const signinHandler = async (e) => {

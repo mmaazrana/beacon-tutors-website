@@ -156,9 +156,6 @@ const customSelectStyles = {
 
   option: (provided, state) => ({
     ...provided,
-    // to do
-    // backgroundColor: state.isSelected && '#a1bedb',
-    // border on focus?
   }),
 
   indicatorSeparator: (provided, state) => ({
