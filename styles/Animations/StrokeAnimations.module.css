@@ -3,19 +3,14 @@
 .appear > svg > g > g> path:first-child{
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
-    /*transform: scale(0);*/
 }
 
 .appearActive  > svg > g > g> path:first-child{
     stroke-dasharray: 0;
     stroke-dashoffset: 0;
-    /*stroke-width: 0 !important;*/
-    /*stroke: red !important;*/
     animation: dash 1250ms linear  ;
     transition-delay: 1500ms;
     animation-delay: 250ms;
-
-    /*transition-duration: 2500ms;*/
 }
 
 .appear > svg > g > g> path:last-child{

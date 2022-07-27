@@ -4,7 +4,7 @@ import {ReactComponent as LeftArrow} from '../../assets/leftArrow.svg'
 import {ReactComponent as AltRightArrow} from '../../assets/altRightArrow.svg'
 import {ReactComponent as AltLeftArrow} from '../../assets/altLeftArrow.svg'
 import {useState} from "react";
-import {CSSTransition, SwitchTransition} from 'react-transition-group';
+import {CSSTransition} from 'react-transition-group';
 import {Waypoint} from "react-waypoint";
 import scaleLeftAnimationStyles from "../../styles/Animations/ScaleXLeftAnimations.module.css";
 import scaleRightAnimationStyles from "../../styles/Animations/ScaleXRightAnimations.module.css";
@@ -14,22 +14,6 @@ import strokeAnimation from "../../styles/Animations/StrokeAnimations.module.css
 
 export default function Working(props) {
     const [scrollIn, setScrollIn] = useState(false);
-
-    // const RightArrow = dynamic(() =>
-    //     import('../../assets/rightArrow.svg').then((module) => module.ReactComponent)
-    // );
-    //
-    // const LeftArrow = dynamic(() =>
-    //     import('../../assets/leftArrow.svg').then((module) => module.ReactComponent)
-    // );
-    //
-    // const AltRightArrow = dynamic(() =>
-    //     import('../../assets/altRightArrow.svg').then((module) => module.ReactComponent)
-    // );
-    //
-    // const AltLeftArrow = dynamic(() =>
-    //     import('../../assets/altLeftArrow.svg').then((module) => module.ReactComponent)
-    // );
 
     return (<>
         <Waypoint

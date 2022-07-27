@@ -1,19 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
 import Online from '../../components/Tutoring/Online';
-// import dynamic from "next/dynamic";
-
 import Layout from '../../components/Layouts/Layout';
-import {collection, getDocs, query, where} from "firebase/firestore/lite";
-import {db} from "../../firebase";
 import {fetchAnnouncements, fetchReviews} from "../../components/Functions/Functions";
-// const Layout = dynamic(() => import('../../components/Layouts/Layout'));
 
 export default function OnlineTutor(props) {
-
-    // const Online = dynamic(() => import('../../components/Tutoring/Online'));
-
-
     return (
     <>
       <Head>

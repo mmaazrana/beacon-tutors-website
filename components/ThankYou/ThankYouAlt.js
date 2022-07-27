@@ -1,14 +1,10 @@
 import React from 'react';
 import styles from './ThankYou.module.css'
-import Lottie from "lottie-react";
-import ThankYouLottie from '../../assets/lotties/thank-you.json'
 import FadeAnimationsStyles from "../../styles/Animations/FadeAnimations.module.css";
-import PopupAnimations from "../../styles/Animations/ScaleFadeDelayedAnimations.module.css";
 import {CSSTransition} from "react-transition-group";
 import {useRouter} from "next/router";
-import Link from "next/link";
 import dynamic from "next/dynamic";
-import {PhoneCall} from 'lucide-react'
+
 export default function ThankYouAlt(props) {
     const router = useRouter();
 

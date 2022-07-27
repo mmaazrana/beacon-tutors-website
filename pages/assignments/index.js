@@ -3,29 +3,6 @@ import Head from 'next/head';
 import Main from '../../components/Main/Main';
 import WritingLottie from '../../assets/lotties/writing-service.json';
 import Separator from '../../components/Separator/Separator';
-// import { ReactComponent as AssignmentWriting } from '../../assets/Services/WritingService/AssignmentWriting.svg';
-// import { ReactComponent as ResearchPaperWriting } from '../../assets/Services/WritingService/ResearchPaperWriting.svg';
-// import { ReactComponent as ThesisAndDissertationWriting } from '../../assets/Services/WritingService/ThesisAndDissertationWriting.svg';
-// import { ReactComponent as EssayWriting } from '../../assets/Services/WritingService/EssayWriting.svg';
-// import { ReactComponent as ReportWriting } from '../../assets/Services/WritingService/ReportWriting.svg';
-// import { ReactComponent as ProposalWriting } from '../../assets/Services/WritingService/ProposalWriting.svg';
-// import { ReactComponent as ProofReading } from '../../assets/Services/WritingService/ProofReading.svg';
-// import { ReactComponent as PlagiarismRemoving } from '../../assets/Services/WritingService/PlagiarismRemoving.svg';
-// import { ReactComponent as DocumentFormatting } from '../../assets/Services/WritingService/DocumentFormatting.svg';
-// import { ReactComponent as SubmitYourInquiry } from '../../assets/HowItWorks/Home/SubmitYourInquiry.svg';
-// import { ReactComponent as FinalizeYourRates } from '../../assets/HowItWorks/WritingService/FinalizeYourRates.svg';
-// import { ReactComponent as MakeThePayment } from '../../assets/HowItWorks/WritingService/MakeThePayment.svg';
-// import { ReactComponent as ReceiveYourWork } from '../../assets/HowItWorks/WritingService/ReceiveYourWork.svg';
-// import { ReactComponent as Subjects1000 } from '../../assets/Advantages/WritingService/Subjects1000.svg';
-// import { ReactComponent as WritingExperts5000 } from '../../assets/Advantages/WritingService/WritingExperts5000.svg';
-// import { ReactComponent as AffordableCharges } from '../../assets/Advantages/WritingService/AffordableCharges.svg';
-// import { ReactComponent as Timeliness } from '../../assets/Advantages/WritingService/Timeliness.svg';
-// import { ReactComponent as SafeAndSecure } from '../../assets/Advantages/WritingService/SafeAndSecure.svg';
-// import { ReactComponent as CustomerSupport } from '../../assets/Advantages/WritingService/CustomerSupport.svg';
-// import { ReactComponent as ConfidentialityPolicy } from '../../assets/Advantages/WritingService/ConfidentialityPolicy.svg';
-// import { ReactComponent as PlagiarismFree } from '../../assets/Advantages/WritingService/PlagiarismFree.svg';
-// import { ReactComponent as FreeRevisions } from '../../assets/Advantages/WritingService/FreeRevisions.svg';
-// import { ReactComponent as RefundPolicy } from '../../assets/Advantages/WritingService/RefundPolicy.svg';
 import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import Advantages from '../../components/Advantages/Advantages';
 import Services from "../../components/Services/Services";
@@ -34,7 +11,6 @@ import SeparatorBox from "../../components/Separator/SeparatorBox";
 import Reviews from "../../components/Reviews/Reviews";
 import {fetchAnnouncements, fetchReviews} from "../../components/Functions/Functions";
 
-// import Layout from '../../components/Layouts/Layout';
 const Layout = dynamic(() => import('../../components/Layouts/Layout'));
 
 export default function Assignments(props) {
@@ -73,14 +49,6 @@ export default function Assignments(props) {
   const Male3 = dynamic(() => import('../../assets/Avatars/Male3.svg').then(module => module.ReactComponent),);
   const Male4 = dynamic(() => import('../../assets/Avatars/Male4.svg').then(module => module.ReactComponent),);
 
-  // const Main = dynamic(() => import('../../components/Main/Main'));
-  // const Separator = dynamic(() => import('../../components/Separator/Separator'));
-  // const HowItWorks = dynamic(() => import('../../components/HowItWorks/HowItWorks'));
-  // const Advantages = dynamic(() => import('../../components/Advantages/Advantages'));
-  // const WritingAnnouncements = dynamic(() => import('../../components/Announcements/WritingAnnouncements'));
-  // const Services = dynamic(() => import('../../components/Services/Services'));
-
-
   const howItWorksData = [
 
     {
@@ -109,7 +77,6 @@ export default function Assignments(props) {
   ];
 
   const ServicesData=[
-    //   Services
     {
       image: <AssignmentWriting />,
       heading: 'Assignments Writing',
@@ -167,7 +134,6 @@ export default function Assignments(props) {
   ]
 
   const advantagesData = [
-    // Advantages
     {
       image: <Subjects1000 />,
       heading: '1000+ Subjects',

@@ -7,25 +7,6 @@ import Advantages from '../../components/Advantages/Advantages';
 import SeparatorBox from "../Separator/SeparatorBox";
 import Announcements from "../Announcements/Announcements";
 import Reviews from "../Reviews/Reviews";
-// import { ReactComponent as SubmitYourInquiry } from '../../assets/HowItWorks/Home/SubmitYourInquiry.svg';
-// import { ReactComponent as TeacherLocating } from '../../assets/HowItWorks/Home/TeacherLocating.svg';
-// import { ReactComponent as ProfileSharing } from '../../assets/HowItWorks/Home/ProfileSharing.svg';
-// import { ReactComponent as DemoConduction } from '../../assets/HowItWorks/Home/DemoConduction.svg';
-// import { ReactComponent as SuccessfulDeal } from '../../assets/HowItWorks/Home/SuccessfulDeal.svg';
-// import { ReactComponent as Tutors5000 } from '../../assets/Advantages/Home/Tutors5000.svg';
-// import { ReactComponent as OneOnOneTutoring } from '../../assets/Advantages/Home/OneOnOneTutoring.svg';
-// import { ReactComponent as AllGradesAndSubjects } from '../../assets/Advantages/Home/AllGradesAndSubjects.svg';
-// import { ReactComponent as MaleAndFemaleTutors } from '../../assets/Advantages/Home/MaleAndFemaleTutors.svg';
-// import { ReactComponent as TeachersOfYourChoice } from '../../assets/Advantages/Home/TeachersOfYourChoice.svg';
-// import { ReactComponent as FreeTrialClasses } from '../../assets/Advantages/Home/FreeTrialClasses.svg';
-// import {ReactComponent as Female1} from "../../assets/Avatars/Female1.svg";
-// import {ReactComponent as Female2} from "../../assets/Avatars/Female2.svg";
-// import {ReactComponent as Female3} from "../../assets/Avatars/Female3.svg";
-// import {ReactComponent as Female4} from "../../assets/Avatars/Female4.svg";
-// import {ReactComponent as Male1} from "../../assets/Avatars/Male1.svg";
-// import {ReactComponent as Male2} from "../../assets/Avatars/Male2.svg";
-// import {ReactComponent as Male3} from "../../assets/Avatars/Male3.svg";
-// import {ReactComponent as Male4} from "../../assets/Avatars/Male4.svg";
 import dynamic from "next/dynamic";
 
 export default function Online(props) {
