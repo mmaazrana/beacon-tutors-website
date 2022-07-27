@@ -10,6 +10,7 @@ export default function Layout({children}) {
     const router = useRouter();
 
     return (<>
+        <SwitchTransition mode='out-in'>
             <CSSTransition
                 key = {router.pathname}
                 in = {true}
@@ -18,11 +19,13 @@ export default function Layout({children}) {
                 unmountOnExit
                 mountOnEnter
                 classNames = {animationStyles}>
+                {state => (
         <div className = {'background'}>
             <Pattern viewBox = "0 0 100% 100%"/>
         </div>
+                )}
             </CSSTransition>
-
+        </SwitchTransition>
         <Nav className = "nav"/>
 
         <main>{children}</main>

@@ -250,6 +250,7 @@ export default function InquiryForm(props) {
                             onChange = {(value) => setLocation(value.value)}
                             options = {locationOptions}
                             styles = {customSelectStyles}
+                            isSearchable={ false }
                             defaultValue = {{
                                 value: "", label: "Select Location",
                             }}
@@ -266,6 +267,7 @@ export default function InquiryForm(props) {
                                 onChange = {(value) => setDescription(value.value)}
                                 options = {descriptionOptions}
                                 styles = {customSelectStyles}
+                                isSearchable={ false }
                                 defaultValue = {{
                                     value: "", label: "Select Description",
                                 }}
@@ -289,8 +291,9 @@ export default function InquiryForm(props) {
                                         }}
                                         options = {serviceOptions}
                                         styles = {customSelectStyles}
+                                        isSearchable={ false }
                                         defaultValue = {{
-                                            value: "days", label: "Select Service",
+                                            value: "", label: "Select Service",
                                         }}
                                         placeholder = "Select Service"
                                     />
