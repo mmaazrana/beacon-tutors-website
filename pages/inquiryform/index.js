@@ -249,6 +249,8 @@ export default function InquiryForm(props) {
                             onChange = {(value) => setLocation(value.value)}
                             options = {locationOptions}
                             styles = {customSelectStyles}
+                            isSearchable={ false }
+                            inputProps={{readOnly:true}}
                             defaultValue = {{
                                 value: "", label: "Select Location",
                             }}
@@ -265,6 +267,8 @@ export default function InquiryForm(props) {
                                 onChange = {(value) => setDescription(value.value)}
                                 options = {descriptionOptions}
                                 styles = {customSelectStyles}
+                                isSearchable={ false }
+                                inputProps={{readOnly:true}}
                                 defaultValue = {{
                                     value: "", label: "Select Description",
                                 }}
@@ -274,9 +278,10 @@ export default function InquiryForm(props) {
                         {
                             (description === 'student' || description === 'teacher') &&
                             <CSSTransition
+                                mountOnEnter
                                 in = {true}
                                 appear = {true}
-                                timeout = {500}
+                                timeout = {1000}
                                 classNames = {fadeAnimationStyles}>
                                 <div className = {styles.entry}>
                                     {description === "student" ? <p>You want to hire?</p> : <p>You want to Work as?</p>}
@@ -288,8 +293,10 @@ export default function InquiryForm(props) {
                                         }}
                                         options = {serviceOptions}
                                         styles = {customSelectStyles}
+                                        isSearchable={ false }
+                                        inputProps={{readOnly:true}}
                                         defaultValue = {{
-                                            value: "days", label: "Select Service",
+                                            value: "", label: "Select Service",
                                         }}
                                         placeholder = "Select Service"
                                     />
@@ -299,9 +306,10 @@ export default function InquiryForm(props) {
                         }
                         {description === "student" &&
                         <CSSTransition
+                            mountOnEnter
                             in = {true}
                             appear = {true}
-                            timeout = {500}
+                            timeout = {1000}
                             classNames = {fadeAnimationStyles}>
                             <div className = {styles.entry}>
                                 <p>Comments</p>
@@ -320,9 +328,10 @@ export default function InquiryForm(props) {
                     </div>
                     {(service === 'home' || service === 'online' || service === 'content')  &&
                         <CSSTransition
+                            mountOnEnter
                             in = {true}
                             appear = {true}
-                            timeout = {500}
+                            timeout = {1000}
                             classNames = {fadeAnimationStyles}>
                         <button className = {styles.button} type = {"submit"}> { service==='content'?"Contact Us":"Submit"}</button>
                         </CSSTransition>

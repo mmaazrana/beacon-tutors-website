@@ -27,9 +27,10 @@ export default function Working(props) {
             className={`${styles.working} ${props.index % 2 === 1 && styles.rightWorking}`}
         >
             <CSSTransition
+                mountOnEnter
                 in = {scrollIn}
                 appear = {scrollIn}
-                timeout = {250}
+                timeout = {750}
                 classNames = {props.index % 2 === 1 ? scaleRightAnimationStyles : scaleLeftAnimationStyles}>
             <div
                 className={`${styles.content} ${props.index % 2 === 1 && styles.rightContent}`}
@@ -37,16 +38,17 @@ export default function Working(props) {
                 <CSSTransition
                     in = {scrollIn}
                     appear = {scrollIn}
-                    timeout = {500}
+                    timeout = {1000}
                     classNames = {scaleFadeDelayedAnimations}>
                 <div className={styles.image}>
                     {props.image}
                 </div>
                 </CSSTransition>
                 <CSSTransition
+                    mountOnEnter
                     in = {scrollIn}
                     appear = {scrollIn}
-                    timeout = {500}
+                    timeout = {1000}
                     classNames = {fadeDelayAnimations}>
                 <div className={styles.text}>
                     <h4 className={`${styles.heading} ${props.index % 2 === 1 && styles.rightHeading}`}>{props.heading}</h4>
@@ -60,9 +62,10 @@ export default function Working(props) {
 
             {props.index!== props.length-1 &&
                 <CSSTransition
+                    mountOnEnter
                     in = {scrollIn}
                     appear = {scrollIn}
-                    timeout = {5000}
+                    timeout = {5500}
                     classNames = {strokeAnimation}>
             <div className={`${styles.arrowWrapper} ${props.index % 2 === 1 && styles.rightWrapper}`}>
                 {props.index % 2 === 1 ?

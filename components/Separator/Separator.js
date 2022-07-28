@@ -26,7 +26,8 @@ export default function Separator(props) {
                 <CSSTransition
                     in = {scrollIn}
                     appear = {scrollIn}
-                    timeout = {250}
+                    timeout = {750}
+                    mountOnEnter
                     classNames = {scaleLeftAnimationStyles}>
             <div
 
@@ -35,14 +36,14 @@ export default function Separator(props) {
                 <CSSTransition
                     in = {scrollIn}
                     appear = {scrollIn}
-                    timeout = {500+250}
+                    timeout = {1250}
+                    mountOnEnter
                     classNames = {fadeDelayAnimationStyles}>
                 <div className={styles.fancyText}>
 
                     <h1 className = {styles.text}>
-                {props.text}
+                {props.text}&nbsp;
                 </h1>
-                    &nbsp;
                     <h1 className = {styles.text}>
                         {props.underLineText}
                     </h1>
@@ -50,9 +51,10 @@ export default function Separator(props) {
 
                 </CSSTransition>
                 <CSSTransition
+                    mountOnEnter
                     in = {scrollIn}
                     appear = {scrollIn}
-                    timeout = {250}
+                    timeout = {750}
                     classNames = {scaleRightAnimationStyles}>
             <div
                 className = {`${styles.line} ${styles.right}`}/>

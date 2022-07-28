@@ -21,7 +21,7 @@ export default function SeparatorBox(props) {
                 <CSSTransition
                     in = {scrollIn}
                     appear = {scrollIn}
-                    timeout = {250}
+                    timeout = {750}
                     classNames = {scaleAnimationStyles}>
                     <div>
 

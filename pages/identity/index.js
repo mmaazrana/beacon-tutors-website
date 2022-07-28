@@ -52,9 +52,10 @@ export default function SubmitInquiry(props) {
 
     return (
         <CSSTransition
+            mountOnEnter
             in = {true}
             appear = {true}
-            timeout = {250}
+            timeout = {750}
             classNames = {fadeAnimationStyles}>
             <div className = {styles.body} >
 
@@ -68,7 +69,7 @@ export default function SubmitInquiry(props) {
                         <CSSTransition
                             in = {studentSelected}
                             appear = {true}
-                            timeout = {500}
+                            timeout = {1000}
                             classNames = {selectAnimationStyles}>
                             <div>
                                 <OneOnOneTutoring className = {studentLottieClass}/>
@@ -76,7 +77,7 @@ export default function SubmitInquiry(props) {
                         </CSSTransition> <CSSTransition
                         in = {teacherSelected}
                         appear = {true}
-                        timeout = {500}
+                        timeout = {1000}
                         classNames = {selectAnimationStyles}>
                         <div>
                             <MaleAndFemaleTutors className = {teacherLottieClass}/>
@@ -90,9 +91,10 @@ export default function SubmitInquiry(props) {
 
                 </div>
                 <CSSTransition
+                    mountOnEnter
                     in = {studentSelected || teacherSelected}
                     appear = {studentSelected || teacherSelected}
-                    timeout = {500}
+                    timeout = {1000}
                     classNames = {fadeAnimationStyles}>
                     <div className = {styles.nextButton}>
                         {(studentSelected || teacherSelected) &&

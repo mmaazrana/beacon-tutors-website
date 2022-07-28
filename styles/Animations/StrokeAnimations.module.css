@@ -20,7 +20,7 @@
 .appearActive  > svg > g > g> path:last-child{
     opacity: 1;
     transition-delay: 750ms;
-    transition-duration: 250ms;
+    transition-duration: 750ms;
 }
 
 /*Exit transition*/
@@ -63,7 +63,7 @@
 .enterActive  > svg > g > g> path:last-child{
     opacity: 1;
     transition-delay: 750ms;
-    transition-duration: 250ms;
+    transition-duration: 750ms;
 }
 
 .enter  > svg > g > g > path:first-child{
