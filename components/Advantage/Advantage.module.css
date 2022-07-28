@@ -100,7 +100,7 @@
     .main {
         flex-direction: column;
         width: 245px;
-        height: 300px;
+        min-height: 300px;
         justify-content: flex-start;
         align-items: center;
     }
@@ -126,7 +126,6 @@
 
     .text {
         max-width: 195px;
-        margin: 0 0 25px 0;
     }
 
     .image > * {
@@ -140,7 +139,7 @@
 @media only screen and (max-width: 425px) {
     .main {
         width: 57.647vw;
-        height: 72.765vw;
+        min-height: 72.765vw;
         border-radius: 2.824vw;
         margin: 0 2.941vw;
         box-shadow: 0 0.941vw 5.882vw rgba(93, 143, 193, 0.2);
@@ -179,7 +178,6 @@
 
     .text {
         max-width: 45.882vw;
-        margin: 0 0 5.882vw 0;
     }
 
 
