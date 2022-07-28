@@ -67,7 +67,6 @@ export default function SubmitInquiry(props) {
                     </h1>
                     <div className = {styles.lottieRow}>
                         <CSSTransition
-                            mountOnEnter
                             in = {studentSelected}
                             appear = {true}
                             timeout = {1000}
@@ -76,7 +75,6 @@ export default function SubmitInquiry(props) {
                                 <OneOnOneTutoring className = {studentLottieClass}/>
                             </div>
                         </CSSTransition> <CSSTransition
-                        mountOnEnter
                         in = {teacherSelected}
                         appear = {true}
                         timeout = {1000}

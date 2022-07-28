@@ -19,7 +19,6 @@ export default function SeparatorBox(props) {
 
             <div>
                 <CSSTransition
-                    mountOnEnter
                     in = {scrollIn}
                     appear = {scrollIn}
                     timeout = {750}
