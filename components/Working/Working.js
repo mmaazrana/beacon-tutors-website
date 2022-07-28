@@ -36,7 +36,6 @@ export default function Working(props) {
                 className={`${styles.content} ${props.index % 2 === 1 && styles.rightContent}`}
             >
                 <CSSTransition
-                    mountOnEnter
                     in = {scrollIn}
                     appear = {scrollIn}
                     timeout = {1000}
