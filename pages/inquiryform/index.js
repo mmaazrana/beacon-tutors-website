@@ -278,9 +278,10 @@ export default function InquiryForm(props) {
                         {
                             (description === 'student' || description === 'teacher') &&
                             <CSSTransition
+                                mountOnEnter
                                 in = {true}
                                 appear = {true}
-                                timeout = {500}
+                                timeout = {1000}
                                 classNames = {fadeAnimationStyles}>
                                 <div className = {styles.entry}>
                                     {description === "student" ? <p>You want to hire?</p> : <p>You want to Work as?</p>}
@@ -305,9 +306,10 @@ export default function InquiryForm(props) {
                         }
                         {description === "student" &&
                         <CSSTransition
+                            mountOnEnter
                             in = {true}
                             appear = {true}
-                            timeout = {500}
+                            timeout = {1000}
                             classNames = {fadeAnimationStyles}>
                             <div className = {styles.entry}>
                                 <p>Comments</p>
@@ -326,9 +328,10 @@ export default function InquiryForm(props) {
                     </div>
                     {(service === 'home' || service === 'online' || service === 'content')  &&
                         <CSSTransition
+                            mountOnEnter
                             in = {true}
                             appear = {true}
-                            timeout = {500}
+                            timeout = {1000}
                             classNames = {fadeAnimationStyles}>
                         <button className = {styles.button} type = {"submit"}> { service==='content'?"Contact Us":"Submit"}</button>
                         </CSSTransition>

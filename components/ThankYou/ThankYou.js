@@ -23,10 +23,11 @@ export default function ThankYou(props) {
     );
     return (
         <CSSTransition
+            mountOnEnter
             key = {router.pathname}
             in = {true}
             appear = {true}
-            timeout = {500}
+            timeout = {1000}
             unmountOnExit
             classNames = {FadeAnimationsStyles}>
         <div className = {styles.wrapper}>
@@ -37,10 +38,11 @@ export default function ThankYou(props) {
                     <WebView> Thankyou for submitting your inquiry. One of our agent will get back to you very soon.</WebView> </p>
             </div>
             <CSSTransition
+                mountOnEnter
                 key = {router.pathname}
                 in = {true}
                 appear = {true}
-                timeout = {750}
+                timeout = {1250}
                 classNames = {PopupAnimations}>
                 <div className = {styles.contact}>
             <MobileView className = {styles.contact}>

@@ -95,9 +95,10 @@ export default function Reviews(props) {
 
                     <div>
                         <CSSTransition
+                            mountOnEnter
                             in = {scrollIn}
                             appear = {scrollIn}
-                            timeout = {250}
+                            timeout = {750}
                             classNames = {scaleAnimationStyles}>
                             <div>
                                 <button className = {styles.button} onClick = {openModal}>

@@ -24,14 +24,14 @@ export default function Service(props) {
             <CSSTransition
             in = {scrollIn}
             appear = {scrollIn}
-            timeout = {250}
+            timeout = {1250}
             classNames = {scaleAnimationStyles}>
             <div
                 className = {`${styles.main} ${pathname === '/assignments' && styles.secondary} `}>
                 <CSSTransition
                     in = {scrollIn}
                     appear = {scrollIn}
-                    timeout = {750}
+                    timeout = {1250}
                     classNames = {fadeDelayAnimationStyles}>
                 <div className = {styles.image}>{props.image}</div>
                 </CSSTransition>
