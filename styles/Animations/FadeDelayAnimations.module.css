@@ -6,7 +6,7 @@
 
 .appearActive {
     opacity: 1;
-    transition: opacity 500ms linear 250ms;
+    transition: opacity 1000ms linear 250ms;
 }
 
 .appearDone {
@@ -37,7 +37,7 @@
 
 .enterActive {
     opacity: 1;
-    transition: opacity 500ms linear 250ms;
+    transition: opacity 1000ms linear 250ms;
 }
 
 .enterDone {

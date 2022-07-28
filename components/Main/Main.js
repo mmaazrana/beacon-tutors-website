@@ -18,10 +18,11 @@ export default function Main(props) {
     return (
         <SwitchTransition mode = 'out-in'>
             <CSSTransition
+            mountOnEnter
             key = {router.pathname}
             in = {true}
             appear = {true}
-            timeout = {500}
+            timeout = {1000}
             unmountOnExit
             classNames = {animationStyles}>
             {state => (

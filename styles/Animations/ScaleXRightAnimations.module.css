@@ -8,7 +8,7 @@
 .appearActive {
     transform: scaleX(1);
     transform-origin: right center;
-    transition-duration: 250ms;
+    transition-duration: 750ms;
 
 }
 
@@ -42,6 +42,6 @@
 .enterActive {
     transform-origin: right center;
     transform: scaleX(1);
-    transition-duration: 250ms;
+    transition-duration: 750ms;
 
 }

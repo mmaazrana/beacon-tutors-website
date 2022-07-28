@@ -18,10 +18,11 @@ export default function ThankYouAlt(props) {
 
     return (
         <CSSTransition
+            mountOnEnter
             key = {router.pathname}
             in = {true}
             appear = {true}
-            timeout = {500}
+            timeout = {1000}
             unmountOnExit
             classNames = {FadeAnimationsStyles}>
             <div className = {styles.wrapper}>

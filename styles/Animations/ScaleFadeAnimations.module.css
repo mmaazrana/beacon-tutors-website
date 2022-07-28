@@ -8,7 +8,7 @@
 .appearActive {
     opacity: 1;
     transform: scale(1);
-    transition-duration: 250ms;
+    transition-duration: 750ms;
 }
 
 /*Exit transition*/
@@ -40,5 +40,5 @@
 .enterActive {
     opacity: 1;
     transform: scale(1);
-    transition-duration: 250ms;
+    transition-duration: 750ms;
 }

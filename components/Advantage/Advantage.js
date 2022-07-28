@@ -22,7 +22,7 @@ export default function Advantage(props) {
                     <CSSTransition
                         in = {scrollIn}
                         appear = {scrollIn}
-                        timeout = {250}
+                        timeout = {750}
                         classNames = {scaleAnimationStyles}>
                         <div className = {styles.main}>
                             <div className = {styles.image}>

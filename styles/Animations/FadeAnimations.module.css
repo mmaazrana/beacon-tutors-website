@@ -6,7 +6,7 @@
 
 .appearActive {
     opacity: 1;
-    transition: opacity 500ms linear ;
+    transition: opacity 1000ms linear ;
 }
 
 /*Exit transition*/
@@ -33,5 +33,5 @@
 
 .enterActive {
     opacity: 1;
-    transition: opacity 500ms linear ;
+    transition: opacity 1000ms linear ;
 }

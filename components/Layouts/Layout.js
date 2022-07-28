@@ -15,7 +15,7 @@ export default function Layout({children}) {
                 key = {router.pathname}
                 in = {true}
                 appear = {true}
-                timeout = {750}
+                timeout = {1250}
                 unmountOnExit
                 mountOnEnter
                 classNames = {animationStyles}>
