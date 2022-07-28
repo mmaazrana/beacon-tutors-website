@@ -188,10 +188,6 @@ export default function Home(props) {
     centerMode: true,
   };
 
-  const ref = useRef();
-  const [scrollIn, setScrollIn] = useState(false);
-  const router = useRouter();
-
   return (
     <>
       <Head>
@@ -209,7 +205,9 @@ export default function Home(props) {
         <Separator underLineText={'Services'} />
       </div>
       <div>
-        <Slider {...settings} className={'services'}>
+        <Slider {...settings} className={'services'} onclick={() => {
+          setPlay(false);
+        }}>
           {' '}
           <Service
             heading={'Online Tutoring'}
@@ -219,6 +217,7 @@ export default function Home(props) {
             image={<OnlineTutoringSvg />}
             link={'/onlinetutoring'}
             onclick={() => {
+              alert("clicked")
               setPlay(false);
             }}
           />{' '}
@@ -230,6 +229,7 @@ export default function Home(props) {
             image={<HomeTutoringSvg />}
             link={'/hometutoring'}
             onclick={() => {
+              alert("clicked")
               setPlay(false);
             }}
           />{' '}
@@ -241,6 +241,7 @@ export default function Home(props) {
             image={<WritingServiceSvg />}
             link={'/assignments'}
             onclick={() => {
+              alert("clicked")
               setPlay(false);
             }}
           />

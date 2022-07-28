@@ -17,7 +17,7 @@ export default function Advantage(props) {
                     setScrollIn(true)
                 }}
             >
-                <div>
+                <div onClick={props.onclick}>
 
                     <CSSTransition
                         in = {scrollIn}

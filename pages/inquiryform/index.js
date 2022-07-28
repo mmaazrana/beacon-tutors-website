@@ -88,11 +88,11 @@ export default function InquiryForm(props) {
     },];
 
     const serviceOptions = [{
-        value: 'online', label: 'Online Tutoring',
+        value: 'online', label: 'Online Tutor',
     }, {
-        value: 'home', label: 'Home Tutoring',
+        value: 'home', label: 'Home Tutor',
     }, {
-        value: 'content', label: 'Content Writing',
+        value: 'content', label: 'Content Writer',
     },];
 
     const isValid = () => {
@@ -166,7 +166,7 @@ export default function InquiryForm(props) {
                 }),
                 {
                     loading: 'Submitting inquiry...',
-                    success: 'Inquiry Submitted successfully',
+                    success: 'Inquiry submitted successfully',
                     error: 'Error submitting inquiry',
                 }
             );

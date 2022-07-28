@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 export default function Services(props) {
   const [play, setPlay] = useState(true);
-
+  const ref = useRef();
   const settings = {
     dots: true,
     infinite: true,
@@ -32,7 +32,7 @@ export default function Services(props) {
 
   return (
     <>
-      <Slider {...settings} className={'services'}>
+      <Slider ref={ref} {...settings} className={'services'}>
         {props.data?.map((service, index) => (
           <Service
             key={index}
