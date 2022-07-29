@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 import {addDoc, collection, doc, serverTimestamp} from "firebase/firestore/lite";
 import {db} from "../../firebase";
 import {useRouter} from "next/router";
+import * as url from "url";
 
 export default function InquiryForm(props) {
 
@@ -156,12 +157,24 @@ export default function InquiryForm(props) {
                     isViewed: false,
                     timestamp: serverTimestamp(),
                 }).then(() => {
-                    if(description==="teacher" || data.user === "teacher"){
-                        router.replace("/tutorconv")
-                    }else if (service === "home"){
+                    if(description==="teacher" && data.user === "teacher"){
+                        router.replace({
+                            pathname: '/tutorconv',
+                            query:  {
+                                status: "match" // override the color property
+                            },
+                        },)
+                    }else if (description==="student" && data.user === "student" && service === "home"){
                         router.replace("/stdhomeconv")
-                    }else if (service === "online"){
+                    }else if (description==="student" && data.user === "student" && service === "online"){
                         router.replace("/stdonlineconv")
+                    }else{
+                        router.replace({
+                            pathname: '/tutorconv',
+                            query:  {
+                                status: "conflict" // override the color property
+                            },
+                        },)
                     }
                 }),
                 {
