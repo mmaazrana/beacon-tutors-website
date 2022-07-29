@@ -91,7 +91,6 @@ export default function SubmitInquiry(props) {
 
                 </div>
                 <CSSTransition
-                    mountOnEnter
                     in = {studentSelected || teacherSelected}
                     appear = {studentSelected || teacherSelected}
                     timeout = {1000}

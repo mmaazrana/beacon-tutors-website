@@ -205,9 +205,7 @@ export default function Home(props) {
         <Separator underLineText={'Services'} />
       </div>
       <div>
-        <Slider {...settings} className={'services'} onclick={() => {
-          setPlay(false);
-        }}>
+        <Slider {...settings} className={'services'} >
           {' '}
           <Service
             heading={'Online Tutoring'}
@@ -217,7 +215,6 @@ export default function Home(props) {
             image={<OnlineTutoringSvg />}
             link={'/onlinetutoring'}
             onclick={() => {
-              alert("clicked")
               setPlay(false);
             }}
           />{' '}
@@ -229,7 +226,6 @@ export default function Home(props) {
             image={<HomeTutoringSvg />}
             link={'/hometutoring'}
             onclick={() => {
-              alert("clicked")
               setPlay(false);
             }}
           />{' '}
@@ -241,7 +237,6 @@ export default function Home(props) {
             image={<WritingServiceSvg />}
             link={'/assignments'}
             onclick={() => {
-              alert("clicked")
               setPlay(false);
             }}
           />
