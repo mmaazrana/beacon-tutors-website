@@ -39,7 +39,6 @@ export default function NewReview(props) {
             isApproved,
             timestamp: serverTimestamp(),
           }).then((docRef) => {
-            console.log(docRef.id);
             setUsername('');
             setDescription('');
             setRating(0);
