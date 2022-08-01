@@ -9,7 +9,6 @@ import { auth } from '../../firebase';
 import {
   setPersistence,
   browserSessionPersistence,
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from 'firebase/auth';
@@ -32,12 +31,6 @@ export default function SignIn() {
   const showPassword = () => {
     inputType === 'password' ? setInputType('text') : setInputType('password');
   };
-
-  // createUserWithEmailAndPassword(
-  //   auth,
-  //   '',
-  //   ''
-  // );
 
   const signinHandler = async (e) => {
     e.preventDefault();

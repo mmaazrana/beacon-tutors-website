@@ -38,7 +38,6 @@ export default function NewAnnouncement(props) {
             time,
             timestamp: serverTimestamp(),
           }).then((docRef) => {
-            console.log(docRef.id);
             setChecked(true);
             setTitle('');
             setDays(0);
