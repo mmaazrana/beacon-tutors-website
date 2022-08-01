@@ -188,10 +188,6 @@ export default function Home(props) {
     centerMode: true,
   };
 
-  const ref = useRef();
-  const [scrollIn, setScrollIn] = useState(false);
-  const router = useRouter();
-
   return (
     <>
       <Head>
@@ -209,7 +205,7 @@ export default function Home(props) {
         <Separator underLineText={'Services'} />
       </div>
       <div>
-        <Slider {...settings} className={'services'}>
+        <Slider {...settings} className={'services'} >
           {' '}
           <Service
             heading={'Online Tutoring'}

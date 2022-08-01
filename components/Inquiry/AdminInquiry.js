@@ -18,9 +18,9 @@ export default function AdminInquiry(props) {
     teacher: 'Teacher',
   };
   const services = {
-    online: 'Online Tutoring',
-    home: 'Home Tutoring',
-    content: 'Content Writing',
+    online: 'Online Tutor',
+    home: 'Home Tutor',
+    content: 'Content Writer',
   };
 
   const openViewModal = () => {
@@ -86,7 +86,7 @@ export default function AdminInquiry(props) {
         />
         <InfoField
           label={`You want to ${
-            props.inquiry.description === 'teacher' ? 'Work' : 'Hire'
+            props.inquiry.description === 'teacher' ? 'Work as' : 'Hire'
           }`}
           value={services[props.inquiry.service]}
         />

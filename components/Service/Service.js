@@ -12,7 +12,7 @@ export default function Service(props) {
     const [scrollIn, setScrollIn] = useState(false);
 
     return (
-        <>
+        < >
             <Waypoint
             scrollableAncestor = {"window"}
             onEnter = {() => {
@@ -20,7 +20,7 @@ export default function Service(props) {
             }}
             >
 
-            <div>
+            <div onClick={props.onclick} >
             <CSSTransition
             in = {scrollIn}
             appear = {scrollIn}

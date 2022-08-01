@@ -4,7 +4,7 @@ Beacon Tutors Pakistan - Official Website, created with Next.js and Firebase.
 
 ## Motivation
 
-Cash💸, and oh learning too😆.
+Cash 💸, and oh learning too 😆.
 
 
 ## Getting Started
