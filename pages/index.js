@@ -25,7 +25,7 @@ export default function Home(props) {
   const HomeTutoringSvg = dynamic(() =>
     import('../assets/Services/home-tutoring.svg').then(
       (module) => module.ReactComponent
-    )
+    ),
   );
   const OnlineTutoringSvg = dynamic(() =>
     import('../assets/Services/online-tutoring.svg').then(
