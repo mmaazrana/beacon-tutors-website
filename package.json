@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next --max_old_space_size=4096 build",
-    "start": "next --max_old_space_size=4096 start -H 0.0.0.0 -p ${PORT:-8080",
+    "dev": "NODE_OPTIONS=\"--max_old_space_size=4096\" next dev",
+    "build": "NODE_OPTIONS=\"--max_old_space_size=4096\" next build",
+    "start": "NODE_OPTIONS=\"--max_old_space_size=4096\" next start -H 0.0.0.0 -p ${PORT:-8080",
     "lint": "next lint"
   },
   "dependencies": {
