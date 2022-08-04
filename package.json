@@ -5,11 +5,14 @@
   "scripts": {
     "dev": "NODE_OPTIONS=\"--max_old_space_size=4096\" next dev",
     "build": "NODE_OPTIONS=\"--max_old_space_size=4096\" next build",
-    "start": "NODE_OPTIONS=\"--max_old_space_size=4096\" next start -H 0.0.0.0 -p ${PORT:-8080}",
-    "lint": "next lint"
+    "start": "NODE_OPTIONS=\"--max_old_space_size=4096\" next start",
+    "lint": "next lint",
+    "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^12.2.3",
     "@svgr/webpack": "^6.2.1",
+    "cross-env": "^7.0.3",
     "firebase": "^9.8.4",
     "lottie-react": "^2.2.1",
     "lucide-react": "^0.61.0",
@@ -36,6 +39,7 @@
   "devDependencies": {
     "@svgr/webpack": "^6.2.1",
     "eslint": "8.17.0",
-    "eslint-config-next": "12.1.6"
+    "eslint-config-next": "12.1.6",
+    "webpack-bundle-analyzer": "^4.5.0"
   }
 }

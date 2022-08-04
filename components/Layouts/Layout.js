@@ -21,7 +21,7 @@ export default function Layout({children}) {
                 classNames = {animationStyles}>
                 {state => (
         <div className = {'background'}>
-            <Pattern viewBox = "0 0 100% 100%"/>
+            <Pattern width="100%" height="100%" />
         </div>
                 )}
             </CSSTransition>
