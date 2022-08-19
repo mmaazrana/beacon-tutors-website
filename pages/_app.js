@@ -34,7 +34,7 @@ function MyApp({Component, pageProps}) {
     const getLayout = Component.getLayout || ((page) => page);
 
     return getLayout(<>
-        <Head> <Script
+        <Script
             strategy = "afterInteractive"
             dangerouslySetInnerHTML = {{
                 __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -44,12 +44,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-W6Q2KQK');`,
             }}
         />
-            <noscript
-                dangerouslySetInnerHTML = {{
-                    __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W6Q2KQK"
+        <noscript
+            dangerouslySetInnerHTML = {{
+                __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W6Q2KQK"
 height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-                }}
-            />
+            }}
+        />
+        <Head>
+
             <meta charSet = "UTF-8"/>
             <link rel = "shortcut icon" href = "/favicon.ico"/>
             <link
