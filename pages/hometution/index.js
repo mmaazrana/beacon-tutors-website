@@ -8,13 +8,13 @@ export default function HomeTution(props) {
     return (
     <>
       <Head>
-        <title>Beacon Tutors Pakistan - Home Tution</title>
+        <title>Beacon Tutors Pakistan - Home Tuition</title>
         <meta
           name="description"
-          content="Meta description for the Home Tution page"
+          content="Meta description for the Home Tuition page"
         />
       </Head>
-      <Home keyword={'tution'}  announcements = {props.announcements}  reviews={props.reviews} />
+      <Home keyword={'tuition'}  announcements = {props.announcements}  reviews={props.reviews} />
     </>
   );
 }

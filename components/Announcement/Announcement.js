@@ -4,7 +4,7 @@ import styles from './Announcement.module.css';
 export default function Announcement(props) {
   return (
     <div className={styles.announcement}>
-      <p className={styles.title}>{props.announcement.title.replace('tutoring ',props.keyword+' ').replace('Tutoring ',props.keyword+' ').replace('tutor ',props.keyword+' ').replace('Tutor ',props.keyword+' ').replace('tution ',props.keyword+' ').replace('Tution ',props.keyword+' ')}</p>
+      <p className={styles.title}>{props.announcement.title.replace('tutoring ',props.keyword+' ').replace('Tutoring ',props.keyword+' ').replace('tutor ',props.keyword+' ').replace('Tutor ',props.keyword+' ').replace('tuition ',props.keyword+' ').replace('Tuition ',props.keyword+' ')}</p>
       <div className={styles.options}>
         <div className={styles.daysOption}>
           <Calendar className={styles.icon} color="#FF6F66" />

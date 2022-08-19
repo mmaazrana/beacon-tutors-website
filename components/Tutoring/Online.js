@@ -125,7 +125,7 @@ export default function Online(props) {
   return (
     <>
       <Main
-        heading={`Online ${props.keyword} Service`}
+        heading={`Online ${props.keyword.charAt(0).toUpperCase()+props.keyword.slice(1)} Service`}
         description={`Hire a tutor/teacher for Online ${props.keyword} Service. Understand, learn and gain in-depth knowledge about a specific subject or subjects.`}
         limitWidth={true}
         lottie={OnlineLottie}

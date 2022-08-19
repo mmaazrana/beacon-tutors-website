@@ -125,7 +125,7 @@ export default function Home(props) {
   return (
     <>
       <Main
-        heading={`Home ${props.keyword} Service`}
+        heading={`Home ${props.keyword.charAt(0).toUpperCase()+props.keyword.slice(1)} Service`}
         description={`Hire a tutor/teacher for Home ${props.keyword} Service. Understand, learn and gain in-depth knowledge about a specific subject or subjects.`}
         limitWidth={true}
         lottie={HomeLottie}

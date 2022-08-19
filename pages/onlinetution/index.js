@@ -8,13 +8,13 @@ export default function OnlineTution(props) {
     return (
     <>
       <Head>
-        <title>Beacon Tutors Pakistan - Online Tution</title>
+        <title>Beacon Tutors Pakistan - Online Tuition</title>
         <meta
           name="description"
-          content="Meta description for the Online Tution page"
+          content="Meta description for the Online Tuition page"
         />
       </Head>
-      <Online keyword={'tution'} announcements = {props.announcements} reviews={props.reviews} />
+      <Online keyword={'tuition'} announcements = {props.announcements} reviews={props.reviews} />
     </>
   );
 }
