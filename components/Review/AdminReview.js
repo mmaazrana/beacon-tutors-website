@@ -15,7 +15,12 @@ import {
 import formStyles from '../AdminForms/AdminForms.module.css';
 import toast from 'react-hot-toast';
 import { db } from '../../firebase';
-import { doc, updateDoc, deleteDoc, serverTimestamp } from 'firebase/firestore/lite';
+import {
+  doc,
+  updateDoc,
+  deleteDoc,
+  serverTimestamp,
+} from 'firebase/firestore/lite';
 
 export default function AdminReview(props) {
   const router = useRouter();
@@ -58,7 +63,8 @@ export default function AdminReview(props) {
             timestamp: serverTimestamp(),
           }).then(() => {
             setIsOpen(false);
-            router.replace(router.asPath, undefined, { scroll: false });
+            props.setUpdate(!props.update);
+            // router.replace(router.asPath, undefined, { scroll: false });
           }),
           {
             loading: 'Updating review...',
@@ -80,7 +86,8 @@ export default function AdminReview(props) {
       await toast.promise(
         deleteDoc(doc(db, 'reviews', props.review.id)).then(() => {
           setConfirmDelete(false);
-          router.replace(router.asPath, undefined, { scroll: false });
+          props.setUpdate(!props.update);
+          // router.replace(router.asPath, undefined, { scroll: false });
         }),
         {
           loading: `${
@@ -110,7 +117,8 @@ export default function AdminReview(props) {
           timestamp: serverTimestamp(),
         }).then(() => {
           setIsOpen(false);
-          router.replace(router.asPath, undefined, { scroll: false });
+          props.setUpdate(!props.update);
+          // router.replace(router.asPath, undefined, { scroll: false });
         }),
         {
           loading: 'Approving review...',

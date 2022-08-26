@@ -4,6 +4,7 @@ import Head from 'next/head';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import AdminInquiry from '../../components/Inquiry/AdminInquiry';
 import AdminLayout from '../../components/Layouts/AdminLayout';
+import moment from 'moment';
 import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { db } from '../../firebase';
@@ -20,10 +21,12 @@ import {
 export default function Inquiries(props) {
   const router = useRouter();
   const [user, setUser] = useState(null);
+  const [inquiries, setInquiries] = useState([]);
   const [lastVisible, setLastVisible] = useState(null);
   const [isEnd, setIsEnd] = useState(false);
-  const [inquiries, setInquiries] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [update, setUpdate] = useState(false);
+
   useEffect(() => {
     onAuthStateChanged(auth, (user_) => {
       setUser(user_);
@@ -35,11 +38,14 @@ export default function Inquiries(props) {
     const fetchData = async () => {
       let inquiriesData = [];
       let lastVisibleData;
+      // const twoDaysAgo = moment().subtract(2, 'days').toDate();
       try {
+        setIsEnd(false);
         const q = query(
           collection(db, 'inquiries'),
           where('description', '==', 'student'),
           orderBy('timestamp', 'desc'),
+          // where('timestamp', '>', twoDaysAgo),
           limit(10)
         );
         const querySnapshot = await getDocs(q);
@@ -62,16 +68,16 @@ export default function Inquiries(props) {
       setLastVisible(lastVisibleData);
     };
     fetchData();
-  }, []);
+  }, [update]);
 
   const fetchMoreData = async () => {
     let inquiriesData = [];
-    console.log(lastVisible);
     try {
       const q = query(
         collection(db, 'inquiries'),
         where('description', '==', 'student'),
         orderBy('timestamp', 'desc'),
+        // where('timestamp', '>', twoDaysAgo),
         startAfter(lastVisible),
         limit(10)
       );
@@ -83,7 +89,6 @@ export default function Inquiries(props) {
           timestamp: JSON.parse(JSON.stringify(doc.data().timestamp.toDate())),
         });
       });
-      console.log(inquiriesData.length);
       setLastVisible(querySnapshot.docs[querySnapshot.docs.length - 1]);
     } catch (error) {
       console.log(error.code, error.message);
@@ -102,6 +107,7 @@ export default function Inquiries(props) {
             content="Meta description for the Admin View Inquiries page"
           />
         </Head>
+
         <div className="adminSection">
           {inquiries.length > 0 ? (
             <div id="scrollableDiv" className="adminList adminListBig">
@@ -109,29 +115,44 @@ export default function Inquiries(props) {
                 dataLength={inquiries.length}
                 next={fetchMoreData}
                 hasMore={!isEnd}
-
-                loader={<div className="loader mid"><div/></div>}
+                loader={
+                  <div className="loader mid">
+                    <div />
+                  </div>
+                }
                 scrollableTarget="scrollableDiv"
                 style={{
                   backgroundColor: 'transparent',
                   padding: '0.5rem 1rem',
                 }}
                 endMessage={
-                  <p style={{ textAlign: 'center', color: "#dcdcdc", fontWeight: 500}}>
+                  <p
+                    style={{
+                      textAlign: 'center',
+                      color: '#dcdcdc',
+                      fontWeight: 500,
+                    }}
+                  >
                     <p>End of Results</p>
                   </p>
                 }
               >
                 {inquiries?.map((inquiry) => (
-                  <AdminInquiry key={inquiry.id} inquiry={inquiry} />
+                  <AdminInquiry
+                    key={inquiry.id}
+                    inquiry={inquiry}
+                    update={update}
+                    setUpdate={setUpdate}
+                  />
                 ))}
               </InfiniteScroll>
             </div>
+          ) : loading ? (
+            <p className="loader mid">
+              <div />
+            </p>
           ) : (
-            loading?
-                <p className="loader mid"><div/></p>
-                :
-                <p className="noRecords">No Inquiries Yet</p>
+            <p className="noRecords">No Inquiries Yet</p>
           )}
         </div>
       </>

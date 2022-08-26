@@ -43,7 +43,8 @@ export default function NewAnnouncement(props) {
             setDays(0);
             setBudget(0);
             setTime(0);
-            router.replace(router.asPath, undefined, { scroll: false });
+            props.setUpdate(!props.update);
+            // router.replace(router.asPath, undefined, { scroll: false });
           }),
           {
             loading: 'Creating announcement...',

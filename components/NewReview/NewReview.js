@@ -44,8 +44,8 @@ export default function NewReview(props) {
             setRating(0);
             setIsApproved(isAdminPage ? true : false);
             !isAdminPage && props.closeModal();
-            isAdminPage &&
-              router.replace(router.asPath, undefined, { scroll: false });
+            isAdminPage && props.setUpdate(!props.update);
+            // router.replace(router.asPath, undefined, { scroll: false });
           }),
           isAdminPage
             ? {

@@ -66,7 +66,8 @@ export default function AdminAnnouncement(props) {
             timestamp: serverTimestamp(),
           }).then(() => {
             setIsOpen(false);
-            router.replace(router.asPath, undefined, { scroll: false });
+            props.setUpdate(!props.update);
+            // router.replace(router.asPath, undefined, { scroll: false });
           }),
           {
             loading: 'Updating announcement...',
@@ -88,7 +89,8 @@ export default function AdminAnnouncement(props) {
       await toast.promise(
         deleteDoc(doc(db, 'announcements', props.announcement.id)).then(() => {
           setConfirmDelete(false);
-          router.replace(router.asPath, undefined, { scroll: false });
+          props.setUpdate(!props.update);
+          // router.replace(router.asPath, undefined, { scroll: false });
         }),
         {
           loading: 'Deleting announcement...',

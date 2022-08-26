@@ -40,7 +40,7 @@ export default function AdminInquiry(props) {
           isViewed: true,
         }).then(() => {
           setIsOpen(false);
-          router.reload();
+          props.setUpdate(!props.update);
           // router.replace(router.asPath, undefined, { scroll: false });
         }),
         {
@@ -68,7 +68,8 @@ export default function AdminInquiry(props) {
           )}
         </div>
         <p className={styles.timeAgo}>
-          Submitted {moment(props.inquiry.timestamp).fromNow()}
+          Submitted {props.inquiry.timestamp}
+          {moment(props.inquiry.timestamp).fromNow()}
         </p>
       </div>
 
