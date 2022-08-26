@@ -9,9 +9,6 @@ import Link from "next/link";
 export default function ThankYouAlt(props) {
     const router = useRouter();
     const data = router.query;
-    console.log("\n\n\ndata\n\n\n")
-    console.log(data)
-    console.log("\n\n\ndata\n\n\n")
     const MobileView = dynamic(() =>
         import('react-device-detect').then((module) => module.MobileView)
     );

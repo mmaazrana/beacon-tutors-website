@@ -23,7 +23,7 @@ export default function Inquiries(props) {
   const [lastVisible, setLastVisible] = useState(null);
   const [isEnd, setIsEnd] = useState(false);
   const [inquiries, setInquiries] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     onAuthStateChanged(auth, (user_) => {
       setUser(user_);
@@ -40,7 +40,7 @@ export default function Inquiries(props) {
           collection(db, 'inquiries'),
           where('description', '==', 'student'),
           orderBy('timestamp', 'desc'),
-          limit(20)
+          limit(10)
         );
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
@@ -58,6 +58,7 @@ export default function Inquiries(props) {
       }
       inquiriesData.length === 0 && setIsEnd(true);
       setInquiries(inquiriesData);
+      setLoading(false);
       setLastVisible(lastVisibleData);
     };
     fetchData();
@@ -72,7 +73,7 @@ export default function Inquiries(props) {
         where('description', '==', 'student'),
         orderBy('timestamp', 'desc'),
         startAfter(lastVisible),
-        limit(20)
+        limit(10)
       );
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
@@ -101,7 +102,6 @@ export default function Inquiries(props) {
             content="Meta description for the Admin View Inquiries page"
           />
         </Head>
-
         <div className="adminSection">
           {inquiries.length > 0 ? (
             <div id="scrollableDiv" className="adminList adminListBig">
@@ -109,15 +109,16 @@ export default function Inquiries(props) {
                 dataLength={inquiries.length}
                 next={fetchMoreData}
                 hasMore={!isEnd}
-                loader={<div className="loader">Loading...</div>}
+
+                loader={<div className="loader mid"><div/></div>}
                 scrollableTarget="scrollableDiv"
                 style={{
                   backgroundColor: 'transparent',
                   padding: '0.5rem 1rem',
                 }}
                 endMessage={
-                  <p style={{ textAlign: 'center' }}>
-                    <b>Yay! You have seen it all</b>
+                  <p style={{ textAlign: 'center', color: "#dcdcdc", fontWeight: 500}}>
+                    <p>End of Results</p>
                   </p>
                 }
               >
@@ -127,7 +128,10 @@ export default function Inquiries(props) {
               </InfiniteScroll>
             </div>
           ) : (
-            <p className="noRecords">No Inquiries Yet</p>
+            loading?
+                <p className="loader mid"><div/></p>
+                :
+                <p className="noRecords">No Inquiries Yet</p>
           )}
         </div>
       </>

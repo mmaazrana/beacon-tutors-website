@@ -8,10 +8,10 @@ import PhoneInput, {isValidPhoneNumber} from 'react-phone-number-input'
 import fadeAnimationStyles from "../../styles/Animations/FadeAnimations.module.css";
 import {CSSTransition} from 'react-transition-group';
 import toast from "react-hot-toast";
-import {addDoc, collection, doc, serverTimestamp} from "firebase/firestore/lite";
+import {addDoc, collection, serverTimestamp} from "firebase/firestore/lite";
 import {db} from "../../firebase";
 import {useRouter} from "next/router";
-import * as url from "url";
+import moment from "moment";
 
 export default function InquiryForm(props) {
 
@@ -97,39 +97,39 @@ export default function InquiryForm(props) {
     },];
 
     const isValid = () => {
-        if(firstName==="") {
+        if (firstName === "") {
             toast.error("Kindly enter your first name")
             return false
         }
-        if(lastName==="") {
+        if (lastName === "") {
             toast.error("Kindly enter your last name")
             return false
         }
-        if(description==="") {
+        if (description === "") {
             toast.error("Kindly enter your description")
             return false
         }
-        if(contact==="") {
+        if (contact === "") {
             toast.error("Kindly enter your phone number")
             return false
         }
-        if(!isValidPhoneNumber(contact)) {
+        if (!isValidPhoneNumber(contact)) {
             toast.error("Kindly provide a valid phone number")
             return false
         }
-        if(whatsapp==="") {
+        if (whatsapp === "") {
             toast.error("Kindly enter your Whatsapp contact number")
             return false
         }
-        if(!isValidPhoneNumber(whatsapp)) {
+        if (!isValidPhoneNumber(whatsapp)) {
             toast.error("Kindly provide a valid Whatsapp contact number")
             return false
         }
-        if(email==="") {
+        if (email === "") {
             toast.error("Kindly enter your email")
             return false
         }
-        if(location==="") {
+        if (location === "") {
             toast.error("Kindly select your location")
             return false
         }
@@ -138,55 +138,67 @@ export default function InquiryForm(props) {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        if(service==='content')
-        {
-            await router.replace("https://wa.me/923136612514")
+        if (!localStorage.getItem("inquiryAt")) {
+            localStorage.setItem("inquiryAt", moment("1/1/2019", "DD/MM/YYYY"));
+            localStorage.setItem("email", "null");
+            localStorage.setItem("contact", "0");
         }
-        else if(isValid()){
-            try {
-            await toast.promise(
-                addDoc(collection(db, 'inquiries'), {
-                    name: firstName+' '+lastName,
-                    description,
-                    email,
-                    contact,
-                    whatsappNumber:whatsapp,
-                    city:location,
-                    service,
-                    comments,
-                    isViewed: false,
-                    timestamp: serverTimestamp(),
-                }).then(() => {
-                    if(description==="teacher" && data.user === "teacher"){
-                        router.replace({
-                            pathname: '/tutorconv',
-                            query:  {
-                                status: "match" // override the color property
-                            },
-                        },)
-                    }else if (description==="student" && data.user === "student" && service === "home"){
-                        router.replace("/stdhomeconv")
-                    }else if (description==="student" && data.user === "student" && service === "online"){
-                        router.replace("/stdonlineconv")
-                    }else{
-                        router.replace({
-                            pathname: '/tutorconv',
-                            query:  {
-                                status: "conflict" // override the color property
-                            },
-                        },)
-                    }
-                }),
-                {
-                    loading: 'Submitting inquiry...',
-                    success: 'Inquiry submitted successfully',
-                    error: 'Error submitting inquiry',
+
+        if ((moment().diff(localStorage.getItem("inquiryAt"), 'days') > 3) || (email !== localStorage.getItem("email") && contact !== localStorage.getItem("contact"))) {
+            if (service === 'content') {
+                await router.replace("https://wa.me/923136612514")
+            } else if (isValid()) {
+                try {
+                    await toast.promise(
+                        addDoc(collection(db, 'inquiries'), {
+                            name: firstName + ' ' + lastName,
+                            description,
+                            email,
+                            contact,
+                            whatsappNumber: whatsapp,
+                            city: location,
+                            service,
+                            comments,
+                            isViewed: false,
+                            timestamp: serverTimestamp(),
+                        }).then(() => {
+                            localStorage.setItem("inquiryAt", moment());
+                            localStorage.setItem("email", email);
+                            localStorage.setItem("contact", contact);
+                            if (description === "teacher" && data.user === "teacher") {
+                                router.replace({
+                                    pathname: '/tutorconv',
+                                    query: {
+                                        status: "match" // override the color property
+                                    },
+                                },)
+                            } else if (description === "student" && data.user === "student" && service === "home") {
+                                router.replace("/stdhomeconv")
+                            } else if (description === "student" && data.user === "student" && service === "online") {
+                                router.replace("/stdonlineconv")
+                            } else {
+                                router.replace({
+                                    pathname: '/tutorconv',
+                                    query: {
+                                        status: "conflict" // override the color property
+                                    },
+                                },)
+                            }
+                        }),
+                        {
+                            loading: 'Submitting inquiry...',
+                            success: 'Inquiry submitted successfully',
+                            error: 'Error submitting inquiry',
+                        }
+                    );
+                } catch (error) {
+                    console.log(error.code, error.message);
                 }
-            );
-        } catch (error) {
-            console.log(error.code, error.message);
+            }
+        }else{
+            toast.error("Your Inquiry has already been submitted, kindly wait 72 hours before submitting another inquiry" )
         }
-        }
+
     }
 
 
@@ -254,7 +266,7 @@ export default function InquiryForm(props) {
                             placeholder = "Enter Contact Number"
                             value = {whatsapp}
                             onChange = {setWhatsapp}
-                        /> 
+                        />
                     </div>
                     <div className = {styles.entry}>
                         <p>Location</p>
@@ -262,8 +274,8 @@ export default function InquiryForm(props) {
                             onChange = {(value) => setLocation(value.value)}
                             options = {locationOptions}
                             styles = {customSelectStyles}
-                            isSearchable={ false }
-                            inputProps={{readOnly:true}}
+                            isSearchable = {false}
+                            inputProps = {{readOnly: true}}
                             defaultValue = {{
                                 value: "", label: "Select Location",
                             }}
@@ -280,8 +292,8 @@ export default function InquiryForm(props) {
                                 onChange = {(value) => setDescription(value.value)}
                                 options = {descriptionOptions}
                                 styles = {customSelectStyles}
-                                isSearchable={ false }
-                                inputProps={{readOnly:true}}
+                                isSearchable = {false}
+                                inputProps = {{readOnly: true}}
                                 defaultValue = {{
                                     value: "", label: "Select Description",
                                 }}
@@ -306,8 +318,8 @@ export default function InquiryForm(props) {
                                         }}
                                         options = {serviceOptions}
                                         styles = {customSelectStyles}
-                                        isSearchable={ false }
-                                        inputProps={{readOnly:true}}
+                                        isSearchable = {false}
+                                        inputProps = {{readOnly: true}}
                                         defaultValue = {{
                                             value: "", label: "Select Service",
                                         }}
@@ -316,8 +328,7 @@ export default function InquiryForm(props) {
 
                                 </div>
                             </CSSTransition>
-                        }
-                        {description === "student" &&
+                        } {description === "student" &&
                         <CSSTransition
                             mountOnEnter
                             in = {true}
@@ -339,19 +350,19 @@ export default function InquiryForm(props) {
                     }
 
                     </div>
-                    {(service === 'home' || service === 'online' || service === 'content')  &&
+                    {(service === 'home' || service === 'online' || service === 'content') &&
                         <CSSTransition
                             mountOnEnter
                             in = {true}
                             appear = {true}
                             timeout = {1000}
                             classNames = {fadeAnimationStyles}>
-                        <button className = {styles.button} type = {"submit"}> { service==='content'?"Contact Us":"Submit"}</button>
+                            <button className = {styles.button}
+                                    type = {"submit"}> {service === 'content' ? "Contact Us" : "Submit"}</button>
                         </CSSTransition>
-                    }
-                    {
+                    } {
 
-                    }
+                }
                 </div>
             </div>
         </form>

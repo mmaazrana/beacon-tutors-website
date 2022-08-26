@@ -43,6 +43,10 @@ body > * {
   position: relative;
 }
 
+.mid{
+  margin: 20px auto;
+}
+
 .loader div:nth-child(1),
 .loader div:nth-child(2) {
   content: '';

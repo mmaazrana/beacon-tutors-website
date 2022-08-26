@@ -25,9 +25,9 @@ export default function AdminLayout({ children }) {
 
   return (
     <>
-      <div className={'background'}>
-        <Pattern viewBox="0 0 100% 100%" />
-      </div>
+        <div className = {'background'}>
+            <Pattern width="100%" height="100%" />
+        </div>
       <AdminNav user={user} />
       {!(router.pathname === '/adminpanel') && user && <Tabs />}
       <main>{children}</main>
