@@ -68,8 +68,7 @@ export default function AdminInquiry(props) {
           )}
         </div>
         <p className={styles.timeAgo}>
-          Submitted {props.inquiry.timestamp}
-          {moment(props.inquiry.timestamp).fromNow()}
+          Submitted {moment(props.inquiry.timestamp).fromNow()}
         </p>
       </div>
 
