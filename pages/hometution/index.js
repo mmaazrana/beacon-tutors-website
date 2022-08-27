@@ -2,32 +2,39 @@ import React from 'react';
 import Head from 'next/head';
 import Home from '../../components/Tutoring/Home';
 import Layout from '../../components/Layouts/Layout';
-import {fetchAnnouncements, fetchReviews} from "../../components/Functions/Functions";
+import {
+  fetchAnnouncements,
+  fetchReviews,
+} from '../../components/Functions/Functions';
 
 export default function HomeTution(props) {
-    return (
+  return (
     <>
       <Head>
         <title>Beacon Tutors Pakistan - Home Tution</title>
         <meta
           name="description"
-          content="Meta description for the Home Tution page"
+          content="Hire a tutor/teacher for Home Tuition Service. Understand, learn and gain in-depth knowledge about a specific subject or subjects."
         />
       </Head>
-      <Home keyword={'tution'}  announcements = {props.announcements}  reviews={props.reviews} />
+      <Home
+        keyword={'tution'}
+        announcements={props.announcements}
+        reviews={props.reviews}
+      />
     </>
   );
 }
 
 export async function getStaticProps() {
-    const reviews = []
-    await fetchReviews(reviews)
-    const announcements = []
-    await fetchAnnouncements(announcements,'Home')
-    return {
-        props: {reviews,announcements},
-        revalidate: 21600,
-    };
+  const reviews = [];
+  await fetchReviews(reviews);
+  const announcements = [];
+  await fetchAnnouncements(announcements, 'Home');
+  return {
+    props: { reviews, announcements },
+    revalidate: 21600,
+  };
 }
 
 HomeTution.getLayout = function getLayout(page) {

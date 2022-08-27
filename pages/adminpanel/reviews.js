@@ -99,7 +99,7 @@ export default function Reviews(props) {
           <title>Manage Reviews - Beacon Tutors Pakistan</title>
           <meta
             name="description"
-            content="Meta description for the Admin Manage Reviews page"
+            content="Admin Manage Reviews page to view, create, update and delete reviews"
           />
         </Head>
         {/* <>

@@ -5,23 +5,61 @@ import BecomeLottie from '../../assets/lotties/be a tutor final.json';
 import Separator from '../../components/Separator/Separator';
 import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import Advantages from '../../components/Advantages/Advantages';
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 import Layout from '../../components/Layouts/Layout';
-import SeparatorBox from "../../components/Separator/SeparatorBox";
-import Reviews from "../../components/Reviews/Reviews";
-import {fetchAnnouncements, fetchReviews} from "../../components/Functions/Functions";
+import SeparatorBox from '../../components/Separator/SeparatorBox';
+import Reviews from '../../components/Reviews/Reviews';
+import {
+  fetchAnnouncements,
+  fetchReviews,
+} from '../../components/Functions/Functions';
 
 export default function WorkAsTutor(props) {
-
-  const CustomerSupport = dynamic(() => import('../../assets/Advantages/WritingService/CustomerSupport.svg').then(module => module.ReactComponent),);
-  const JoinOurOfficialGroup = dynamic(() => import('../../assets/HowItWorks/WorkAsTutor/JoinOurOfficialGroup.svg').then(module => module.ReactComponent),);
-  const ApplyForRegistration = dynamic(() => import('../../assets/HowItWorks/WorkAsTutor/ApplyForRegistration.svg').then(module => module.ReactComponent),);
-  const ProfileVerification = dynamic(() => import('../../assets/HowItWorks/WorkAsTutor/ProfileVerification.svg').then(module => module.ReactComponent),);
-  const StartApplying = dynamic(() => import('../../assets/HowItWorks/WorkAsTutor/StartApplying.svg').then(module => module.ReactComponent),);
-  const BeATutorOfYourChoice = dynamic(() => import('../../assets/Advantages/WorkAsTutor/BeATutorOfYourChoice.svg').then(module => module.ReactComponent),);
-  const TeachAsYourPreference = dynamic(() => import('../../assets/Advantages/WorkAsTutor/TeachAsYourPreference.svg').then(module => module.ReactComponent),);
-  const PartTimeFlexibleHours = dynamic(() => import('../../assets/Advantages/WorkAsTutor/PartTimeFlexibleHours.svg').then(module => module.ReactComponent),);
-  const EarnMoreThanAFullTimeJob = dynamic(() => import('../../assets/Advantages/WorkAsTutor/EarnMoreThanAFullTimeJob.svg').then(module => module.ReactComponent),);
+  const CustomerSupport = dynamic(() =>
+    import('../../assets/Advantages/WritingService/CustomerSupport.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const JoinOurOfficialGroup = dynamic(() =>
+    import('../../assets/HowItWorks/WorkAsTutor/JoinOurOfficialGroup.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const ApplyForRegistration = dynamic(() =>
+    import('../../assets/HowItWorks/WorkAsTutor/ApplyForRegistration.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const ProfileVerification = dynamic(() =>
+    import('../../assets/HowItWorks/WorkAsTutor/ProfileVerification.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const StartApplying = dynamic(() =>
+    import('../../assets/HowItWorks/WorkAsTutor/StartApplying.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const BeATutorOfYourChoice = dynamic(() =>
+    import('../../assets/Advantages/WorkAsTutor/BeATutorOfYourChoice.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const TeachAsYourPreference = dynamic(() =>
+    import(
+      '../../assets/Advantages/WorkAsTutor/TeachAsYourPreference.svg'
+    ).then((module) => module.ReactComponent)
+  );
+  const PartTimeFlexibleHours = dynamic(() =>
+    import(
+      '../../assets/Advantages/WorkAsTutor/PartTimeFlexibleHours.svg'
+    ).then((module) => module.ReactComponent)
+  );
+  const EarnMoreThanAFullTimeJob = dynamic(() =>
+    import(
+      '../../assets/Advantages/WorkAsTutor/EarnMoreThanAFullTimeJob.svg'
+    ).then((module) => module.ReactComponent)
+  );
 
   const howItWorksData = [
     {
@@ -89,7 +127,7 @@ export default function WorkAsTutor(props) {
         <title>Beacon Tutors Pakistan - Become A Tutor</title>
         <meta
           name="description"
-          content="Meta description for the Work As Tutor page"
+          content="Start working as a part-time tutor for a promising opportunity to transform your teaching career and provide academic support in the form of lectures, learning &amp; educational content to students across globe."
         />
       </Head>
       <Main
@@ -100,23 +138,25 @@ export default function WorkAsTutor(props) {
         lottie={BecomeLottie}
       />
 
-      <Separator text = {'How it'} underLineText={'works'}/>
+      <Separator text={'How it'} underLineText={'works'} />
 
       <HowItWorks data={howItWorksData} />
 
       <Separator text={'Advantages'} />
       <Advantages data={advantagesData} />
-      <SeparatorBox text = {'Reviews'}> <Reviews data = {props.reviews}/> </SeparatorBox>
-
+      <SeparatorBox text={'Reviews'}>
+        {' '}
+        <Reviews data={props.reviews} />{' '}
+      </SeparatorBox>
     </>
   );
 }
 
 export async function getStaticProps() {
-  const reviews = []
-  await fetchReviews(reviews)
+  const reviews = [];
+  await fetchReviews(reviews);
   return {
-    props: {reviews},
+    props: { reviews },
     revalidate: 21600,
   };
 }

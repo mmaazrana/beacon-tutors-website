@@ -5,52 +5,177 @@ import WritingLottie from '../../assets/lotties/writing-service.json';
 import Separator from '../../components/Separator/Separator';
 import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import Advantages from '../../components/Advantages/Advantages';
-import Services from "../../components/Services/Services";
-import dynamic from "next/dynamic";
-import SeparatorBox from "../../components/Separator/SeparatorBox";
-import Reviews from "../../components/Reviews/Reviews";
-import {fetchAnnouncements, fetchReviews} from "../../components/Functions/Functions";
+import Services from '../../components/Services/Services';
+import dynamic from 'next/dynamic';
+import SeparatorBox from '../../components/Separator/SeparatorBox';
+import Reviews from '../../components/Reviews/Reviews';
+import {
+  fetchAnnouncements,
+  fetchReviews,
+} from '../../components/Functions/Functions';
 
 const Layout = dynamic(() => import('../../components/Layouts/Layout'));
 
 export default function Assignments(props) {
+  const AssignmentWriting = dynamic(() =>
+    import('../../assets/Services/WritingService/AssignmentWriting.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const ResearchPaperWriting = dynamic(() =>
+    import(
+      '../../assets/Services/WritingService/ResearchPaperWriting.svg'
+    ).then((module) => module.ReactComponent)
+  );
+  const ThesisAndDissertationWriting = dynamic(() =>
+    import(
+      '../../assets/Services/WritingService/ThesisAndDissertationWriting.svg'
+    ).then((module) => module.ReactComponent)
+  );
+  const EssayWriting = dynamic(() =>
+    import('../../assets/Services/WritingService/EssayWriting.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const ReportWriting = dynamic(() =>
+    import('../../assets/Services/WritingService/ReportWriting.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const ProposalWriting = dynamic(() =>
+    import('../../assets/Services/WritingService/ProposalWriting.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const ProofReading = dynamic(() =>
+    import('../../assets/Services/WritingService/ProofReading.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const PlagiarismRemoving = dynamic(() =>
+    import('../../assets/Services/WritingService/PlagiarismRemoving.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const DocumentFormatting = dynamic(() =>
+    import('../../assets/Services/WritingService/DocumentFormatting.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const SubmitYourInquiry = dynamic(() =>
+    import('../../assets/HowItWorks/Home/SubmitYourInquiry.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const FinalizeYourRates = dynamic(() =>
+    import('../../assets/HowItWorks/WritingService/FinalizeYourRates.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const MakeThePayment = dynamic(() =>
+    import('../../assets/HowItWorks/WritingService/MakeThePayment.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const ReceiveYourWork = dynamic(() =>
+    import('../../assets/HowItWorks/WritingService/ReceiveYourWork.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const Subjects1000 = dynamic(() =>
+    import('../../assets/Advantages/WritingService/Subjects1000.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const WritingExperts5000 = dynamic(() =>
+    import(
+      '../../assets/Advantages/WritingService/WritingExperts5000.svg'
+    ).then((module) => module.ReactComponent)
+  );
+  const AffordableCharges = dynamic(() =>
+    import('../../assets/Advantages/WritingService/AffordableCharges.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const Timeliness = dynamic(() =>
+    import('../../assets/Advantages/WritingService/Timeliness.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const SafeAndSecure = dynamic(() =>
+    import('../../assets/Advantages/WritingService/SafeAndSecure.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const CustomerSupport = dynamic(() =>
+    import('../../assets/Advantages/WritingService/CustomerSupport.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const ConfidentialityPolicy = dynamic(() =>
+    import(
+      '../../assets/Advantages/WritingService/ConfidentialityPolicy.svg'
+    ).then((module) => module.ReactComponent)
+  );
+  const PlagiarismFree = dynamic(() =>
+    import('../../assets/Advantages/WritingService/PlagiarismFree.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const FreeRevisions = dynamic(() =>
+    import('../../assets/Advantages/WritingService/FreeRevisions.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const RefundPolicy = dynamic(() =>
+    import('../../assets/Advantages/WritingService/RefundPolicy.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
 
-  const AssignmentWriting = dynamic(() => import('../../assets/Services/WritingService/AssignmentWriting.svg').then(module => module.ReactComponent),);
-  const ResearchPaperWriting = dynamic(() => import('../../assets/Services/WritingService/ResearchPaperWriting.svg').then(module => module.ReactComponent),);
-  const ThesisAndDissertationWriting = dynamic(() => import('../../assets/Services/WritingService/ThesisAndDissertationWriting.svg').then(module => module.ReactComponent),);
-  const EssayWriting = dynamic(() => import('../../assets/Services/WritingService/EssayWriting.svg').then(module => module.ReactComponent),);
-  const ReportWriting = dynamic(() => import('../../assets/Services/WritingService/ReportWriting.svg').then(module => module.ReactComponent),);
-  const ProposalWriting = dynamic(() => import('../../assets/Services/WritingService/ProposalWriting.svg').then(module => module.ReactComponent),);
-  const ProofReading = dynamic(() => import('../../assets/Services/WritingService/ProofReading.svg').then(module => module.ReactComponent),);
-  const PlagiarismRemoving = dynamic(() => import('../../assets/Services/WritingService/PlagiarismRemoving.svg').then(module => module.ReactComponent),);
-  const DocumentFormatting = dynamic(() => import('../../assets/Services/WritingService/DocumentFormatting.svg').then(module => module.ReactComponent),);
-  const SubmitYourInquiry = dynamic(() => import('../../assets/HowItWorks/Home/SubmitYourInquiry.svg').then(module => module.ReactComponent),);
-  const FinalizeYourRates = dynamic(() => import('../../assets/HowItWorks/WritingService/FinalizeYourRates.svg').then(module => module.ReactComponent),);
-  const MakeThePayment = dynamic(() => import('../../assets/HowItWorks/WritingService/MakeThePayment.svg').then(module => module.ReactComponent),);
-  const ReceiveYourWork = dynamic(() => import('../../assets/HowItWorks/WritingService/ReceiveYourWork.svg').then(module => module.ReactComponent),);
-  const Subjects1000 = dynamic(() => import('../../assets/Advantages/WritingService/Subjects1000.svg').then(module => module.ReactComponent),);
-  const WritingExperts5000 = dynamic(() => import('../../assets/Advantages/WritingService/WritingExperts5000.svg').then(module => module.ReactComponent),);
-  const AffordableCharges = dynamic(() => import('../../assets/Advantages/WritingService/AffordableCharges.svg').then(module => module.ReactComponent),);
-  const Timeliness = dynamic(() => import('../../assets/Advantages/WritingService/Timeliness.svg').then(module => module.ReactComponent),);
-  const SafeAndSecure = dynamic(() => import('../../assets/Advantages/WritingService/SafeAndSecure.svg').then(module => module.ReactComponent),);
-  const CustomerSupport = dynamic(() => import('../../assets/Advantages/WritingService/CustomerSupport.svg').then(module => module.ReactComponent),);
-  const ConfidentialityPolicy = dynamic(() => import('../../assets/Advantages/WritingService/ConfidentialityPolicy.svg').then(module => module.ReactComponent),);
-  const PlagiarismFree = dynamic(() => import('../../assets/Advantages/WritingService/PlagiarismFree.svg').then(module => module.ReactComponent),);
-  const FreeRevisions = dynamic(() => import('../../assets/Advantages/WritingService/FreeRevisions.svg').then(module => module.ReactComponent),);
-  const RefundPolicy = dynamic(() => import('../../assets/Advantages/WritingService/RefundPolicy.svg').then(module => module.ReactComponent),);
+  const Female1 = dynamic(() =>
+    import('../../assets/Avatars/Female1.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const Female2 = dynamic(() =>
+    import('../../assets/Avatars/Female2.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const Female3 = dynamic(() =>
+    import('../../assets/Avatars/Female3.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const Female4 = dynamic(() =>
+    import('../../assets/Avatars/Female4.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
 
-  const Female1 = dynamic(() => import('../../assets/Avatars/Female1.svg').then(module => module.ReactComponent),);
-  const Female2 = dynamic(() => import('../../assets/Avatars/Female2.svg').then(module => module.ReactComponent),);
-  const Female3 = dynamic(() => import('../../assets/Avatars/Female3.svg').then(module => module.ReactComponent),);
-  const Female4 = dynamic(() => import('../../assets/Avatars/Female4.svg').then(module => module.ReactComponent),);
-
-  const Male1 = dynamic(() => import('../../assets/Avatars/Male1.svg').then(module => module.ReactComponent),);
-  const Male2 = dynamic(() => import('../../assets/Avatars/Male2.svg').then(module => module.ReactComponent),);
-  const Male3 = dynamic(() => import('../../assets/Avatars/Male3.svg').then(module => module.ReactComponent),);
-  const Male4 = dynamic(() => import('../../assets/Avatars/Male4.svg').then(module => module.ReactComponent),);
+  const Male1 = dynamic(() =>
+    import('../../assets/Avatars/Male1.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const Male2 = dynamic(() =>
+    import('../../assets/Avatars/Male2.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const Male3 = dynamic(() =>
+    import('../../assets/Avatars/Male3.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
+  const Male4 = dynamic(() =>
+    import('../../assets/Avatars/Male4.svg').then(
+      (module) => module.ReactComponent
+    )
+  );
 
   const howItWorksData = [
-
     {
       image: <SubmitYourInquiry />,
       heading: 'Submit Your Inquiry',
@@ -76,62 +201,62 @@ export default function Assignments(props) {
     },
   ];
 
-  const ServicesData=[
+  const ServicesData = [
     {
       image: <AssignmentWriting />,
       heading: 'Assignments Writing',
       description:
-          'Our Assignment Writing Service will create a 100% custom written assignment that will help you to be the best. Our writers will follow your requirements and instructions, will develop a model answer which is flawlessly structured, well-sourced and written in perfect English.',
+        'Our Assignment Writing Service will create a 100% custom written assignment that will help you to be the best. Our writers will follow your requirements and instructions, will develop a model answer which is flawlessly structured, well-sourced and written in perfect English.',
     },
     {
       image: <ResearchPaperWriting />,
       heading: 'Research Paper Writing',
       description:
-          'Our highly qualified Research Paper writers will help you in creating a piece of academic writing that provides analysis, interpretation and argument based on in-depth independent research. ',
+        'Our highly qualified Research Paper writers will help you in creating a piece of academic writing that provides analysis, interpretation and argument based on in-depth independent research. ',
     },
     {
       image: <ThesisAndDissertationWriting />,
       heading: 'Thesis & Dissertation Writing',
       description:
-          'Our thesis and dissertations writers will help you in creating a document in support of candidature for an academic degree or professional qualification presenting proper research and findings.',
+        'Our thesis and dissertations writers will help you in creating a document in support of candidature for an academic degree or professional qualification presenting proper research and findings.',
     },
     {
       image: <EssayWriting />,
       heading: 'Essay Writing',
       description:
-          'Our skilled essay writers will help you in creating a piece of writing that gives the author’s own argument. Our writers caters to both formal and informal essay writings on any niche.',
+        'Our skilled essay writers will help you in creating a piece of writing that gives the author’s own argument. Our writers caters to both formal and informal essay writings on any niche.',
     },
     {
       image: <ReportWriting />,
       heading: 'Report Writing',
       description:
-          'Our professional report writers will create a document of a formal writing elaborately on any topic. This service caters to reports regarding multiple niches like school event, business case etc.',
+        'Our professional report writers will create a document of a formal writing elaborately on any topic. This service caters to reports regarding multiple niches like school event, business case etc.',
     },
     {
       image: <ProposalWriting />,
       heading: 'Proposal Writing',
       description:
-          'Our qualified proposal writers will help you create a persuasive writing document that will help in attempt to convince the recipient to act in accordance with your intent.',
+        'Our qualified proposal writers will help you create a persuasive writing document that will help in attempt to convince the recipient to act in accordance with your intent.',
     },
     {
       image: <ProofReading />,
       heading: 'Proofreading',
       description:
-          'Our team of skilled proofreaders will help you in reading and reviewing documents so as to eliminate technical errors in spelling, capitalization, punctuations etc.',
+        'Our team of skilled proofreaders will help you in reading and reviewing documents so as to eliminate technical errors in spelling, capitalization, punctuations etc.',
     },
     {
       image: <PlagiarismRemoving />,
       heading: 'Plagiarism Removing',
       description:
-          'Our group of specialists perform copyright infringement recognition utilizing dependable apparatuses and afterwards expel it physically from your exploration work.',
+        'Our group of specialists perform copyright infringement recognition utilizing dependable apparatuses and afterwards expel it physically from your exploration work.',
     },
     {
       image: <DocumentFormatting />,
       heading: 'Document Formatting',
       description:
-          'Our expert formatting team will format your document according to your exact specifications in such a way that It is comprehensive and fully customizable',
+        'Our expert formatting team will format your document according to your exact specifications in such a way that It is comprehensive and fully customizable',
     },
-  ]
+  ];
 
   const advantagesData = [
     {
@@ -192,7 +317,7 @@ export default function Assignments(props) {
         <title>Beacon Tutors Pakistan - Writing Service</title>
         <meta
           name="description"
-          content="Meta description for the Writing Service page"
+          content="Hire professional writer for any niche to work efficiently on your writing work of multiple types like Assignments, Research Paper, Thesis &amp; Dissertations, Essays etc."
         />
       </Head>
       <Main
@@ -208,24 +333,26 @@ export default function Assignments(props) {
 
       <Services data={ServicesData} />
 
-      <Separator text = {'How it'} underLineText={'works'}/>
+      <Separator text={'How it'} underLineText={'works'} />
 
       <HowItWorks data={howItWorksData} />
 
       <Separator text={'Advantages'} />
       <Advantages data={advantagesData} />
 
-      <SeparatorBox text = {'Reviews'}> <Reviews data = {props.reviews}/> </SeparatorBox>
-
+      <SeparatorBox text={'Reviews'}>
+        {' '}
+        <Reviews data={props.reviews} />{' '}
+      </SeparatorBox>
     </>
   );
 }
 
 export async function getStaticProps() {
-  const reviews = []
-  await fetchReviews(reviews)
+  const reviews = [];
+  await fetchReviews(reviews);
   return {
-    props: {reviews},
+    props: { reviews },
     revalidate: 21600,
   };
 }

@@ -104,7 +104,7 @@ export default function Inquiries(props) {
           <title>View Inquiries - Beacon Tutors Pakistan</title>
           <meta
             name="description"
-            content="Meta description for the Admin View Inquiries page"
+            content="Admin View Inquiries page to view and mark inquiries"
           />
         </Head>
 

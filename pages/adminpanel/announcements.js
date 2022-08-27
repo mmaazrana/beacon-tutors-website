@@ -96,7 +96,7 @@ export default function Announcements(props) {
           <title>Manage Announcements - Beacon Tutors Pakistan</title>
           <meta
             name="description"
-            content="Meta description for the Admin Manage Announcements page"
+            content="Admin Manage Announcements page to view, create, update and delete announcements"
           />
         </Head>
         {/* <>

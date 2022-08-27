@@ -98,7 +98,7 @@ export default function Approvals(props) {
           <title>Approve Reviews - Beacon Tutors Pakistan</title>
           <meta
             name="description"
-            content="Meta description for the Admin Approve Reviews page"
+            content="Admin Approve Reviews page to approve or reject user reviews"
           />
         </Head>
 
