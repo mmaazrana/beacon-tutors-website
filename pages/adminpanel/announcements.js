@@ -16,6 +16,7 @@ import {
   limit,
   startAfter,
 } from 'firebase/firestore/lite';
+import Loading from "../../components/Loading/Loading";
 
 export default function Announcements(props) {
   const router = useRouter();
@@ -146,9 +147,7 @@ export default function Announcements(props) {
               </InfiniteScroll>
             </div>
           ) : loading ? (
-            <p className="loader mid">
-              <div />
-            </p>
+              <Loading loading={true}/>
           ) : (
             <p className="noRecords">No Announcements Yet</p>
           )}

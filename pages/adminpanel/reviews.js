@@ -17,6 +17,7 @@ import {
   limit,
   startAfter,
 } from 'firebase/firestore/lite';
+import Loading from "../../components/Loading/Loading";
 
 export default function Reviews(props) {
   const router = useRouter();
@@ -149,9 +150,7 @@ export default function Reviews(props) {
               </InfiniteScroll>
             </div>
           ) : loading ? (
-            <p className="loader mid">
-              <div />
-            </p>
+              <Loading loading={true}/>
           ) : (
             <p className="noRecords">No Reviews Yet</p>
           )}
