@@ -25,7 +25,7 @@ export default function Home(props) {
   const HomeTutoringSvg = dynamic(() =>
     import('../assets/Services/home-tutoring.svg').then(
       (module) => module.ReactComponent
-    ),
+    )
   );
   const OnlineTutoringSvg = dynamic(() =>
     import('../assets/Services/online-tutoring.svg').then(
@@ -192,7 +192,10 @@ export default function Home(props) {
     <>
       <Head>
         <title>Beacon Tutors Pakistan - Home</title>
-        <meta name="description" content="Meta description for the Home page" />
+        <meta
+          name="description"
+          content="Hire a tutor/teacher for understanding, learning, and gaining in-depth knowledge about a specific subject."
+        />
       </Head>
       <Main
         heading={'Largest Tutoring Network \n' + 'of Pakistan'}
@@ -205,8 +208,7 @@ export default function Home(props) {
         <Separator underLineText={'Services'} />
       </div>
       <div>
-        <Slider {...settings} className={'services'} >
-          {' '}
+        <Slider {...settings} className={'services'}>
           <Service
             heading={'Online Tutoring'}
             description={
@@ -217,7 +219,7 @@ export default function Home(props) {
             onclick={() => {
               setPlay(false);
             }}
-          />{' '}
+          />
           <Service
             heading={'Home Tutoring'}
             description={
@@ -228,7 +230,7 @@ export default function Home(props) {
             onclick={() => {
               setPlay(false);
             }}
-          />{' '}
+          />
           <Service
             heading={'Writing Service'}
             description={
@@ -246,8 +248,7 @@ export default function Home(props) {
       <HowItWorks data={howItWorksData} />
       <Separator text={'Advantages'} /> <Advantages data={advantagesData} />
       <SeparatorBox text={'Reviews'}>
-        {' '}
-        <Reviews data={props.reviews} />{' '}
+        <Reviews data={props.reviews} />
       </SeparatorBox>
     </>
   );

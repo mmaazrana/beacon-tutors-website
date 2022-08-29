@@ -40,7 +40,8 @@ export default function AdminInquiry(props) {
           isViewed: true,
         }).then(() => {
           setIsOpen(false);
-          router.replace(router.asPath, undefined, { scroll: false });
+          props.setUpdate(!props.update);
+          // router.replace(router.asPath, undefined, { scroll: false });
         }),
         {
           loading: 'Marking inquiry as viewed...',

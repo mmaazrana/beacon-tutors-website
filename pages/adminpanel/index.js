@@ -68,10 +68,7 @@ export default function SignIn() {
       <>
         <Head>
           <title>Admin Sign In - Beacon Tutors Pakistan</title>
-          <meta
-            name="description"
-            content="Meta description for the Admin Sign In page"
-          />
+          <meta name="description" content="Admin Sign In page" />
         </Head>
         <div className={styles.container}>
           <div className={styles.signIn}>
