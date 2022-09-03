@@ -47,12 +47,12 @@ export default function ThankYouAlt(props) {
                     }
                     <div className={styles.whatsapp}>
                         <WhatsappSvg className={styles.icon} /><p className={styles.number}>
-                        <MobileView>
-                          <Link href={'https://wa.me/923136612514?text=I+want+to+talk+with+an+agent.+Is+there+anyone+available+to+chat%3F'} ><a>+92-313-6612514</a></Link>
-                        </MobileView>
-                        <WebView>
+                        {/*<MobileView>*/}
+                        {/*  <Link href={'https://wa.me/923136612514?text=I+want+to+talk+with+an+agent.+Is+there+anyone+available+to+chat%3F'} ><a>+92-313-6612514</a></Link>*/}
+                        {/*</MobileView>*/}
+                        {/*<WebView>*/}
                             +92-317-4046029
-                        </WebView>
+                        {/*</WebView>*/}
                     </p>
                     </div>
                 </div>
