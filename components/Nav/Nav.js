@@ -24,18 +24,22 @@ export default function Nav() {
 
             document.addEventListener("mousedown", handleClickOutside);
             return () => {
-
                 document.removeEventListener("mousedown", handleClickOutside);
             };
         }, [ref, isExpanded]);
     }
 
+
     useEffect(() => {
+        return () => {
+
         if (isClosed) {
             setIsExpanded(false)
         } else {
             setIsExpanded(true)
         }
+        };
+
     }, [isClosed]);
 
 
@@ -57,7 +61,9 @@ export default function Nav() {
                 <Menu onClick = {toggleMenu} className = {styles.menu}/>
                 <div ref = {dropDownRef} className = {isExpanded ? `${styles.buttons} ${styles.open}` : styles.buttons}>
                     <div
-                        className = {isExpanded ? `${styles.buttonsSecondary} ${styles.open}` : styles.buttonsSecondary}>
+                        className = {isExpanded ? `${styles.buttonsSecondary} ${styles.open}` : styles.buttonsSecondary}
+                        onClick={()=>{setIsExpanded(false);setIsClosed(false);}}
+                    >
                         <LinkButton link = {'/'} text = {'Home'}/> <LinkButton link = {'/'} hash = {'services'}
                                                                                text = {'Our Services'}/> <LinkButton
                         link = {'/work'} text = {'Work as a Tutor'}/> <LinkButton link = {'/terms'}
