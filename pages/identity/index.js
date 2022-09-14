@@ -85,7 +85,7 @@ export default function SubmitInquiry(props) {
                     </CSSTransition>
                     </div>
                     <div className = {styles.row}>
-                        <button onClick = {setStudentActive} className = {studentButtonClass}>Student/Parent</button>
+                        <button onClick = {setStudentActive} className = {studentButtonClass}>Parent</button>
                         <button onClick = {setTeacherActive} className = {teacherButtonClass}>Teacher</button>
                     </div>
 

@@ -14,7 +14,7 @@ export default function AdminInquiry(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
   const descriptions = {
-    student: 'Student/Parent',
+    student: 'Parent',
     teacher: 'Teacher',
   };
   const services = {

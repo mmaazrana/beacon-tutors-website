@@ -83,7 +83,7 @@ export default function InquiryForm(props) {
     },];
 
     const descriptionOptions = [{
-        value: 'student', label: 'Student/Parent',
+        value: 'student', label: 'Parent',
     }, {
         value: 'teacher', label: 'Teacher',
     },];
