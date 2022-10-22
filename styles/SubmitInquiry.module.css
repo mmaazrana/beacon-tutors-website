@@ -15,7 +15,16 @@
     align-items: center;
     justify-content: space-evenly;
     gap: 50px;
-    margin: 105px 0 25px;
+    margin: 50px 0 50px;
+}
+
+.mainAlt{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 50px;
+    margin: 50px 0 50px;
 }
 
 .main::before {
@@ -45,6 +54,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    max-width: 700px;
     gap: 10px;
     box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25);
     border-radius: 16px
@@ -54,12 +64,15 @@
 
 .question {
     font-weight: 700;
+    padding: 0 50px;
     font-size: 48px;
     color: #3A3A3B;
 }
 
 .row {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 25px
 }
 
@@ -144,8 +157,9 @@
 .lottie {
     box-sizing: border-box;
     padding: 0 25px;
-    max-width: 275px;
-    width: 275px;
+    max-width: 475px;
+    height: 230px;
+    width: 100%;
     opacity: 0.25;
 }
 
@@ -153,10 +167,55 @@
     opacity: 1;
 }
 
+.webView{
+    display: block;
+}
 
+.mobileView{
+    display: none;
+}
+
+.buttonRow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stepper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    margin: 100px 0 0;
+}
+
+.step{
+    height: 5px;
+    background: #A1BEDB;
+    width: 100%;
+    border-radius: 100px;
+}
+
+.stepCircle{
+    min-height: 17px;
+    min-width: 17px;
+    border-radius: 50px;
+    background: white;
+    border: 5px solid #A1BEDB;
+    margin: 0 -4px;
+}
+
+.activeStep{
+    background: #FF6F66;
+}
+
+.activeCircle{
+    border: 5px solid #FF6F66;
+    z-index: 100;
+}
 
 @media screen and (max-width: 1440px) {
-    .main{
+    .main, .mainAlt{
         flex-direction: column;
         justify-content: center;
     }
@@ -167,6 +226,19 @@
         width: 153px;
         min-width: 153px;
         max-width: 153px;
+    }
+    .webView{
+        display: none;
+    }
+
+    .mobileView{
+        display: block;
+    }
+    .buttonRow{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
     }
 }
 @media screen and (max-width: 1080px) {
@@ -186,8 +258,8 @@
     }
 
     .lottie {
-        max-width: 275px;
-        width: 200px;
+        max-width: 425px;
+        width: 100%;
     }
 
 
@@ -195,7 +267,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .main{
+    .main, .mainAlt{
         gap:25px;
     }
 
@@ -215,6 +287,9 @@
     }
     .studentLottie, .teacherLottie {
         width: 170px;
+    }
+    .stepper {
+        width: 325px;
     }
 }
 
@@ -253,8 +328,14 @@
     .lottie{
         max-width: 35.807vw;
         width: 26.042vw;
-        padding: 0 10px;
+        padding: 0;
     }
+
+    .buttonRow{
+        flex-direction: column;
+        gap: 15px;
+    }
+
 }
 
 @media screen and (max-width: 580px) {
@@ -263,6 +344,10 @@
         padding: 0;
         width: 123px;
         min-width: 123px;
+        max-width: 123px;
+    }
+
+    .nextButton > div{
         max-width: 123px;
     }
 }
@@ -288,9 +373,10 @@
         font-size: 6.667vw;
     }
 
-    .main{
+    .main, .mainAlt{
         padding: 0 ;
         margin: 0;
+        width: 100%;
         align-items: stretch;
         justify-content: center;
     }
@@ -327,4 +413,17 @@
         width: 41.667vw;
         padding: 0 2.381vw;
     }
+
+    .buttonRow,.singleButton {
+     padding-bottom: 35px;
+    }
+
+    .stepper {
+        width: 80vw;
+    }
+
+    .webView{
+        display: none;
+    }
+
 }

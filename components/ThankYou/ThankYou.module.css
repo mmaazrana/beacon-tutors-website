@@ -85,6 +85,8 @@
 
 .contact {
     display: flex;
+    flex-direction: column;
+    max-width: available;
     width: 100%;
     gap: 15px;
 }
@@ -93,10 +95,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 11px;
     width: 100%;
     background-color: #FF6F66;
-    padding: 7.5px 25px;
+    padding: 7.5px 0;
     font-size: 14px;
     font-weight: 600;
     color: white;
@@ -127,12 +129,13 @@
 .secondaryButton {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 15px;
-    background-color: white;
+    background-color: #4fc3b1;
     padding: 10px 10px;
     font-size: 14px;
     font-weight: 600;
-    color: #3D6B98;
+    color: white;
     border-radius: 8px;
     box-shadow: 0 4px 40px rgba(93, 143, 193, 0.25);
 

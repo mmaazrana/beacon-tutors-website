@@ -1,0 +1,37 @@
+/*Appear transition*/
+
+.appear {
+    opacity: 0;
+}
+
+.appearActive {
+    opacity: 1;
+    transition: opacity 1000ms linear ;
+}
+
+/*Exit transition*/
+
+.exit {
+    opacity: 1;
+}
+
+.exitActive {
+    opacity: 0;
+    transition: opacity 1ms linear ;
+}
+
+.exitDone{
+    opacity: 0;
+}
+
+
+/*Enter transition*/
+
+.enter {
+    opacity: 0;
+}
+
+.enterActive {
+    opacity: 1;
+    transition: opacity 1000ms linear ;
+}

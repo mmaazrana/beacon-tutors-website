@@ -40,7 +40,7 @@ export default function Main(props) {
                         </p>
 
 
-                        <LinkButton className = {styles.button} text = {"Submit Inquiry"} link = {"/identity"}
+                        <LinkButton className = {styles.button} text = {"Contact Us"} link = {"/selectcity"}
                                     primary = {true}/>
 
                     </div>
