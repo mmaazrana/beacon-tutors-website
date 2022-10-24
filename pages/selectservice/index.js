@@ -89,7 +89,7 @@ export default function SubmitInquiry(props) {
                 <div className = {styles.wrapper}>
 
                     <h1 className = {styles.question}>
-                        You want to hire?
+                        Which service do you want?
                     </h1>
                     <div className = {styles.lottieRow}>
                         {homeSelected && <CSSTransition
