@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Layout from "../../components/Layouts/Layout";
 import styles from '../../styles/SubmitInquiry.module.css'
 import dynamic from "next/dynamic";
-import selectAnimationStyles from "../../styles/Animations/SelectAnimations.module.css";
+import selectAnimationStyles from "../../styles/Animations/SelectAlternateAnimations.module.css";
 import {CSSTransition} from 'react-transition-group';
 import LinkButton from "../../components/Buttons/LinkButton";
 import fadeAnimationStyles from "../../styles/Animations/FadeAnimations.module.css";
@@ -89,6 +89,7 @@ export default function SubmitInquiry(props) {
                         Who are you?
                     </h1>
                     <div className = {styles.lottieRow}>
+                        {studentSelected &&
                         <CSSTransition
                             in = {studentSelected}
                             appear = {true}
@@ -97,7 +98,7 @@ export default function SubmitInquiry(props) {
                             <div>
                                 <OneOnOneTutoring className = {studentLottieClass}/>
                             </div>
-                        </CSSTransition> <CSSTransition
+                        </CSSTransition>} {teacherSelected && <CSSTransition
                         in = {teacherSelected}
                         appear = {true}
                         timeout = {1000}
@@ -105,7 +106,7 @@ export default function SubmitInquiry(props) {
                         <div>
                             <MaleAndFemaleTutors className = {teacherLottieClass}/>
                         </div>
-                    </CSSTransition>
+                    </CSSTransition>}
                     </div>
                     <div className = {styles.row}>
                         <button onClick = {setStudentActive} className = {studentButtonClass}>Parent</button>
