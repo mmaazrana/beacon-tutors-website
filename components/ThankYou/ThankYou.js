@@ -47,7 +47,7 @@ export default function ThankYou(props) {
                 <div className = {styles.contact}>
             <MobileView className = {styles.contact}>
                 <Link  target= {'_blank'}  href = {'https://wa.me/923136612514?text=I+want+to+talk+with+an+agent.+Is+there+anyone+available+to+chat%3F'}><a className={styles.primaryButton} ><WhatsappSvg/>Talk with Us</a></Link>
-                <Link target= {'_blank'} href = {'tel:923136612514'}><a className={styles.secondaryButton} ><PhoneCall/></a></Link>
+                <Link target= {'_blank'} href = {'tel:+923136612514'}><a className={styles.secondaryButton} ><PhoneCall/></a></Link>
                 </MobileView>
                 </div>
             </CSSTransition>
