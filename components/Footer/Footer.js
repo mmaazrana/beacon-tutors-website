@@ -5,16 +5,16 @@ import dynamic from "next/dynamic";
 export default function Nav() {
 
     const WhatsappIcon = dynamic(() =>
-        import('../../assets/icons/whatsapp.svg').then((module) => module.ReactComponent)
+        import('../../assets/Icons/whatsapp.svg').then((module) => module.ReactComponent)
     );
     const CallIcon = dynamic(() =>
-        import('../../assets/icons/call.svg').then((module) => module.ReactComponent)
+        import('../../assets/Icons/call.svg').then((module) => module.ReactComponent)
     );
     const FacebookIcon = dynamic(() =>
-        import('../../assets/icons/facebook.svg').then((module) => module.ReactComponent)
+        import('../../assets/Icons/facebook.svg').then((module) => module.ReactComponent)
     );
     const InstagramIcon = dynamic(() =>
-        import('../../assets/icons/instagram.svg').then((module) => module.ReactComponent)
+        import('../../assets/Icons/instagram.svg').then((module) => module.ReactComponent)
     );
 
     return (
