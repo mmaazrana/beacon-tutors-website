@@ -8,6 +8,7 @@ import LinkButton from "../../components/Buttons/LinkButton";
 import fadeAnimationStyles from "../../styles/Animations/FadeAnimations.module.css";
 import {useRouter} from "next/router";
 import {Stepper} from "../../components/Stepper/Stepper";
+import Link from "next/link";
 
 export default function SubmitInquiry(props) {
 
@@ -88,33 +89,57 @@ export default function SubmitInquiry(props) {
                     <h1 className = {styles.question}>
                         Who are you?
                     </h1>
-                    <div className = {styles.lottieRow}>
-                        {studentSelected &&
-                        <CSSTransition
-                            in = {studentSelected}
-                            appear = {true}
-                            timeout = {1000}
-                            classNames = {selectAnimationStyles}>
-                            <div>
-                                <OneOnOneTutoring className = {studentLottieClass}/>
-                            </div>
-                        </CSSTransition>} {teacherSelected && <CSSTransition
-                        in = {teacherSelected}
-                        appear = {true}
-                        timeout = {1000}
-                        classNames = {selectAnimationStyles}>
-                        <div>
-                            <MaleAndFemaleTutors className = {teacherLottieClass}/>
-                        </div>
-                    </CSSTransition>}
-                    </div>
+                    {/*<div className = {styles.lottieRow}>*/}
+                    {/*    {studentSelected && <CSSTransition*/}
+                    {/*        in = {studentSelected}*/}
+                    {/*        appear = {true}*/}
+                    {/*        timeout = {1000}*/}
+                    {/*        classNames = {selectAnimationStyles}>*/}
+                    {/*        <div>*/}
+                    {/*            <OneOnOneTutoring className = {studentLottieClass}/>*/}
+                    {/*        </div>*/}
+                    {/*    </CSSTransition>*/}
+                    {/*    } {teacherSelected && <CSSTransition*/}
+                    {/*    in = {teacherSelected}*/}
+                    {/*    appear = {true}*/}
+                    {/*    timeout = {1000}*/}
+                    {/*    classNames = {selectAnimationStyles}>*/}
+                    {/*    <div>*/}
+                    {/*        <MaleAndFemaleTutors className = {teacherLottieClass}/>*/}
+                    {/*    </div>*/}
+                    {/*</CSSTransition>}*/}
+                    {/*</div>*/}
                     <div className = {styles.row}>
-                        <button onClick = {setStudentActive} className = {studentButtonClass}>Parent</button>
-                        <button onClick = {setTeacherActive} className = {teacherButtonClass}>Teacher</button>
+                        <Link href={(data.service === "home") ? "/homeconversion" : "/onlineconversion"}>
+                        <a onClick = {setStudentActive} className = {`${styles.button} ${styles.green}`}>
+                            <CSSTransition
+                                in = {true}
+                                appear = {true}
+                                timeout = {1000}
+                                classNames = {selectAnimationStyles}>
+                                <div>
+                                    <OneOnOneTutoring className = {styles.lottie}/>
+                                </div>
+                            </CSSTransition> Parent
+                        </a>
+                        </Link>
+                        <Link href={"/tutorconversion"}>
+                        <a onClick = {setTeacherActive} className = {`${styles.button} ${styles.violet}`}>
+                            <CSSTransition
+                                in = {true}
+                                appear = {true}
+                                timeout = {1000}
+                                classNames = {selectAnimationStyles}>
+                                <div>
+                                    <MaleAndFemaleTutors className = {styles.lottie}/>
+                                </div>
+                            </CSSTransition>
+                            Teacher
+                        </a>
+                        </Link>
                     </div>
 
                 </div>
-                <div className = {styles.buttonRow}>
                 <CSSTransition
                     in = {true}
                     appear = {true}
@@ -124,20 +149,23 @@ export default function SubmitInquiry(props) {
                         <LinkButton text = {"Back"} link = {"/selectservice"} primary = {true}/>
                 </div>
                 </CSSTransition>
-                <CSSTransition
-                    in = {studentSelected || teacherSelected}
-                    appear = {studentSelected || teacherSelected}
-                    timeout = {1000}
-                    classNames = {fadeAnimationStyles}>
-                    <div className = {styles.nextButton}>
-                        {(studentSelected || teacherSelected) &&
-                            <LinkButton text = {"Next"}
-                                        link = {(data.service === "home" && studentSelected) ? "/homeconversion" : (data.service === "online" && studentSelected) ? "/onlineconversion" : "/tutorconversion"}
-                                        primary = {true}/>
-                        }
-                    </div>
-                </CSSTransition>
-                </div>
+
+                {/*<div className = {styles.buttonRow}>*/}
+
+                {/*<CSSTransition*/}
+                {/*    in = {studentSelected || teacherSelected}*/}
+                {/*    appear = {studentSelected || teacherSelected}*/}
+                {/*    timeout = {1000}*/}
+                {/*    classNames = {fadeAnimationStyles}>*/}
+                {/*    <div className = {styles.nextButton}>*/}
+                {/*        {(studentSelected || teacherSelected) &&*/}
+                {/*            <LinkButton text = {"Next"}*/}
+                {/*                        link = {(data.service === "home" && studentSelected) ? "/homeconversion" : (data.service === "online" && studentSelected) ? "/onlineconversion" : "/tutorconversion"}*/}
+                {/*                        primary = {true}/>*/}
+                {/*        }*/}
+                {/*    </div>*/}
+                {/*</CSSTransition>*/}
+                {/*</div>*/}
             </div>
             </div>
 

@@ -68,6 +68,8 @@ export default function Nav() {
                                                                                text = {'Our Services'}/> <LinkButton
                         link = {'/work'} text = {'Work as a Tutor'}/> <LinkButton link = {'/terms'}
                                                                                   text = {'Terms & Conditions'}/>
+                        <LinkButton link = {'/privacypolicy'}
+                                    text = {'Privacy Policy'}/>
                     </div>
                     <LinkButton nav = {true} link = {'/selectcity'} text = {'Contact Us'}/>
                 </div>

@@ -7,6 +7,7 @@ import {CSSTransition} from 'react-transition-group';
 import LinkButton from "../../components/Buttons/LinkButton";
 import fadeAnimationStyles from "../../styles/Animations/FadeAnimations.module.css";
 import {Stepper} from "../../components/Stepper/Stepper";
+import Link from "next/link";
 
 export default function SubmitInquiry(props) {
 
@@ -91,41 +92,79 @@ export default function SubmitInquiry(props) {
                     <h1 className = {styles.question}>
                         Which service do you want?
                     </h1>
-                    <div className = {styles.lottieRow}>
-                        {homeSelected && <CSSTransition
-                            in = {homeSelected}
-                            appear = {true}
-                            timeout = {1000}
-                            classNames = {selectAnimationStyles}>
-                            <div>
-                                <HomeTutoring className = {homeLottieClass}/>
-                            </div>
-                        </CSSTransition>} {onlineSelected && <CSSTransition
-                        in = {onlineSelected}
-                        appear = {true}
-                        timeout = {1000}
-                        classNames = {selectAnimationStyles}>
-                        <div>
-                            <OnlineTutoring className = {onlineLottieClass}/>
-                        </div>
-                    </CSSTransition>} {contentSelected && <CSSTransition
-                        in = {contentSelected}
-                        appear = {true}
-                        timeout = {1000}
-                        classNames = {selectAnimationStyles}>
-                        <div>
-                            <ContentWriting className = {contentLottieClass}/>
-                        </div>
-                    </CSSTransition>}
-                    </div>
+                    {/*<div className = {styles.lottieRow}>*/}
+                    {/*    {homeSelected && <CSSTransition*/}
+                    {/*        in = {homeSelected}*/}
+                    {/*        appear = {true}*/}
+                    {/*        timeout = {1000}*/}
+                    {/*        classNames = {selectAnimationStyles}>*/}
+                    {/*        <div>*/}
+                    {/*            <HomeTutoring className = {homeLottieClass}/>*/}
+                    {/*        </div>*/}
+                    {/*    </CSSTransition>} {onlineSelected && <CSSTransition*/}
+                    {/*    in = {onlineSelected}*/}
+                    {/*    appear = {true}*/}
+                    {/*    timeout = {1000}*/}
+                    {/*    classNames = {selectAnimationStyles}>*/}
+                    {/*    <div>*/}
+                    {/*        <OnlineTutoring className = {onlineLottieClass}/>*/}
+                    {/*    </div>*/}
+                    {/*</CSSTransition>} {contentSelected && <CSSTransition*/}
+                    {/*    in = {contentSelected}*/}
+                    {/*    appear = {true}*/}
+                    {/*    timeout = {1000}*/}
+                    {/*    classNames = {selectAnimationStyles}>*/}
+                    {/*    <div>*/}
+                    {/*        <ContentWriting className = {contentLottieClass}/>*/}
+                    {/*    </div>*/}
+                    {/*</CSSTransition>}*/}
+                    {/*</div>*/}
                     <div className = {styles.row}>
-                        <button onClick = {setHomeActive} className = {homeButtonClass}>Home Tutoring</button>
-                        <button onClick = {setOnlineActive} className = {onlineButtonClass}>Online Tutoring</button>
-                        <button onClick = {setContentActive} className = {contentButtonClass}>Content Writing</button>
+                        <Link href={"/selectidentity"}>
+                            <a className = {`${styles.button} ${styles.green}`}>
+                                <CSSTransition
+                                    in = {true}
+                                    appear = {true}
+                                    timeout = {1000}
+                                    classNames = {selectAnimationStyles}>
+                                    <div>
+                                        <HomeTutoring className = {styles.lottie}/>
+                                    </div>
+                                </CSSTransition>
+                                Home Tutoring
+                            </a>
+                        </Link>
+                        <Link href={"/selectidentity"}>
+                            <a className = {`${styles.button} ${styles.yellow}`}>
+                                <CSSTransition
+                                    in = {true}
+                                    appear = {true}
+                                    timeout = {1000}
+                                    classNames = {selectAnimationStyles}>
+                                    <div>
+                                        <OnlineTutoring className = {styles.lottie}/>
+                                    </div>
+                                </CSSTransition>
+                                Online Tutoring
+                            </a>
+                        </Link>
+                        <Link href={"/selectidentity"}>
+                            <a className = {`${styles.button} ${styles.violet}`}>
+                                <CSSTransition
+                                    in = {true}
+                                    appear = {true}
+                                    timeout = {1000}
+                                    classNames = {selectAnimationStyles}>
+                                    <div>
+                                        <ContentWriting className = {styles.lottie}/>
+                                    </div>
+                                </CSSTransition>
+                                Content Writing
+                            </a>
+                        </Link>
                     </div>
 
                 </div>
-                                <div className = {styles.buttonRow}>
                 <CSSTransition
                     in = {true}
                     appear = {true}
@@ -135,19 +174,21 @@ export default function SubmitInquiry(props) {
                         <LinkButton text = {"Back"} link = {"/selectcity"} primary = {true}/>
                 </div>
                 </CSSTransition>
-                <CSSTransition
-                    in = {homeSelected || onlineSelected || contentSelected}
-                    appear = {homeSelected || onlineSelected || contentSelected}
-                    timeout = {1000}
-                    classNames = {fadeAnimationStyles}>
-                    <div className = {styles.nextButton}>
-                        {(homeSelected || onlineSelected || contentSelected) &&
-                            <LinkButton text = {"Next"} link = {"/selectidentity"} primary = {true}
-                                        data = {{service: service}}/>
-                        }
-                    </div>
-                </CSSTransition>
-            </div>
+                                {/*<div className = {styles.buttonRow}>*/}
+
+                {/*<CSSTransition*/}
+                {/*    in = {homeSelected || onlineSelected || contentSelected}*/}
+                {/*    appear = {homeSelected || onlineSelected || contentSelected}*/}
+                {/*    timeout = {1000}*/}
+                {/*    classNames = {fadeAnimationStyles}>*/}
+                {/*    <div className = {styles.nextButton}>*/}
+                {/*        {(homeSelected || onlineSelected || contentSelected) &&*/}
+                {/*            <LinkButton text = {"Next"} link = {"/selectidentity"} primary = {true}*/}
+                {/*                        data = {{service: service}}/>*/}
+                {/*        }*/}
+                {/*    </div>*/}
+                {/*</CSSTransition>*/}
+            {/*</div>*/}
             </div>
             </div>
 
