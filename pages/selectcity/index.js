@@ -165,7 +165,9 @@ export default function SelectCity(props) {
                                             <Karachi className = {styles.lottie}/>
                                         </div>
                                     </CSSTransition>
-                                Karachi
+                                <div>
+                                    Karachi
+                                </div>
                             </a>
                         </Link>
                         <Link href = {"/selectservice"}>
@@ -179,7 +181,9 @@ export default function SelectCity(props) {
                                         <Islamabad className = {styles.lottie}/>
                                     </div>
                                 </CSSTransition>
-                                Islamabad
+                                <div >
+                                    Islamabad
+                                </div>
                             </a>
                         </Link>
                         <Link href = {"/selectservice"}>
@@ -193,7 +197,9 @@ export default function SelectCity(props) {
                                         <Lahore className = {styles.lottie}/>
                                     </div>
                                 </CSSTransition>
-                                Lahore
+                                <div>
+                                    Lahore
+                                </div>
                             </a>
                         </Link>
                         <Link href = {"/selectservice"}>
@@ -208,7 +214,9 @@ export default function SelectCity(props) {
                                         <Rawalpindi className = {styles.lottie}/>
                                     </div>
                                 </CSSTransition>
-                                Rawalpindi
+                                <div>
+                                    Rawalpindi
+                                </div>
                             </a>
                         </Link>
                         <Link href = {"/selectservice"}>
@@ -222,7 +230,9 @@ export default function SelectCity(props) {
                                         <Other className = {styles.lottie}/>
                                     </div>
                                 </CSSTransition>
-                                Other
+                                <div>
+                                    Other
+                                </div>
                             </a>
                         </Link>
                     </div>

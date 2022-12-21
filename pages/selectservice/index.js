@@ -78,15 +78,15 @@ export default function SubmitInquiry(props) {
                     <Stepper step = {2}/>
                 </CSSTransition>
             <div className = {styles.mainAlt}>
-                <CSSTransition
-                    in = {true}
-                    appear = {true}
-                    timeout = {1000}
-                    classNames = {fadeAnimationStyles}>
-                <div className = {`${styles.nextButton} ${styles.webView}`}>
-                        <LinkButton text = {"Back"} link = {"/selectcity"} primary = {true}/>
-                </div>
-            </CSSTransition>
+            {/*    <CSSTransition*/}
+            {/*        in = {true}*/}
+            {/*        appear = {true}*/}
+            {/*        timeout = {1000}*/}
+            {/*        classNames = {fadeAnimationStyles}>*/}
+            {/*    <div className = {`${styles.nextButton} ${styles.webView}`}>*/}
+            {/*            <LinkButton text = {"Back"} link = {"/selectcity"} primary = {true}/>*/}
+            {/*    </div>*/}
+            {/*</CSSTransition>*/}
                 <div className = {styles.wrapper}>
 
                     <h1 className = {styles.question}>
@@ -131,7 +131,9 @@ export default function SubmitInquiry(props) {
                                         <HomeTutoring className = {styles.lottie}/>
                                     </div>
                                 </CSSTransition>
-                                Home Tutoring
+                                <div>
+                                    Home Tutoring
+                                </div>
                             </a>
                         </Link>
                         <Link href={"/selectidentity"}>
@@ -145,7 +147,9 @@ export default function SubmitInquiry(props) {
                                         <OnlineTutoring className = {styles.lottie}/>
                                     </div>
                                 </CSSTransition>
-                                Online Tutoring
+                                <div>
+                                    Online Tutoring
+                                </div>
                             </a>
                         </Link>
                         <Link href={"/selectidentity"}>
@@ -159,7 +163,9 @@ export default function SubmitInquiry(props) {
                                         <ContentWriting className = {styles.lottie}/>
                                     </div>
                                 </CSSTransition>
-                                Content Writing
+                                <div>
+                                    Content Writing
+                                </div>
                             </a>
                         </Link>
                     </div>
@@ -170,7 +176,7 @@ export default function SubmitInquiry(props) {
                     appear = {true}
                     timeout = {1000}
                     classNames = {fadeAnimationStyles}>
-                <div className = {`${styles.nextButton} ${styles.mobileView}`}>
+                <div className = {`${styles.nextButton}`}>
                         <LinkButton text = {"Back"} link = {"/selectcity"} primary = {true}/>
                 </div>
                 </CSSTransition>

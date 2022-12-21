@@ -120,7 +120,10 @@ export default function SubmitInquiry(props) {
                                 <div>
                                     <OneOnOneTutoring className = {styles.lottie}/>
                                 </div>
-                            </CSSTransition> Parent
+                            </CSSTransition>
+                            <div>
+                                Parent
+                            </div>
                         </a>
                         </Link>
                         <Link href={"/tutorconversion"}>
@@ -134,7 +137,9 @@ export default function SubmitInquiry(props) {
                                     <MaleAndFemaleTutors className = {styles.lottie}/>
                                 </div>
                             </CSSTransition>
-                            Teacher
+                            <div>
+                                Teacher
+                            </div>
                         </a>
                         </Link>
                     </div>
