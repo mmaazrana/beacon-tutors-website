@@ -120,7 +120,7 @@ export default function SubmitInquiry(props) {
                     {/*</CSSTransition>}*/}
                     {/*</div>*/}
                     <div className = {styles.row}>
-                        <Link href={"/selectidentity"} data = {{service: "home"}}>
+                        <Link href={{pathname:"/selectidentity",query:{service: "home"}}}>
                             <a className = {`${styles.button} ${styles.green}`}>
                                 <CSSTransition
                                     in = {true}
@@ -136,7 +136,7 @@ export default function SubmitInquiry(props) {
                                 </div>
                             </a>
                         </Link>
-                        <Link href={"/selectidentity"} data = {{service: "online"}}>
+                        <Link href={{pathname:"/selectidentity", query:{service: "online"}}} >
                             <a className = {`${styles.button} ${styles.yellow}`}>
                                 <CSSTransition
                                     in = {true}
@@ -152,7 +152,7 @@ export default function SubmitInquiry(props) {
                                 </div>
                             </a>
                         </Link>
-                        <Link href={"/selectidentity"} data = {{service: "content"}}>
+                        <Link href={{pathname: "/selectidentity", query:{service: "content"}}}>
                             <a className = {`${styles.button} ${styles.violet}`}>
                                 <CSSTransition
                                     in = {true}
